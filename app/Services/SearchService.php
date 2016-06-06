@@ -31,14 +31,14 @@ class SearchService
      * @param int $type
      * @return static
      */
-    public function searchUbicacionPropiedad($ubications, $operation, $type)
+    public function searchUbicacionPropiedad($ubications, $operation = 'Venta', $type = 1)
     {
         $ubicationsProperties = $ubications->map(function ($element) use ($operation, $type) {
 
             $element->zona = trim($element->zona);
             $element->localidad = trim($element->localidad);
             $element->subzona = trim($element->subzona);
-
+            
             $properties = $this->getPropertiesData($element, $type, $operation);
 
             return [

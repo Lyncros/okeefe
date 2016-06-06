@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Okeefe API Buscador
 
 ## Pasos para deploy
@@ -22,7 +21,16 @@ por favor descargar para test.
 
 ``
 
+# Api Docs
 
+### Busqueda de inmuebles segun tipo, operacion, ubicacion
 
-=======
->>>>>>> db5a47ad39332ea1414b6797f101a1d33323b2c1
+- Los valores por defectos son Departamento en venta
+- Busqueda de todos los departamentos en venta.
+
+`api/v1/ubicacionpropiedad?operacion=Venta&amp;tipo=1`
+
+- Busqueda de departamentos en venta en Wilde
+
+`/api/v1/ubicacionpropiedad?q=Wilde&amp;operacion=Venta&amp;tipo=1`
+

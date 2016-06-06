@@ -32,7 +32,13 @@ class UbicacionPropiedadAPIController extends AppBaseController
     public function getUbicacionPropiedad(Request $request)
     {
         $q = $request->q;
+        $type = $request->tipo;
+        $operation = $request->operacion;
 
-        return $this->ubicacionPropiedadRepository->getParentWithChildsQuery($q);
+        $page = null;
+        $limit = null;
+
+        return $this->ubicacionPropiedadRepository
+            ->getParentWithChildsQuery($q, $page, $limit, $operation, $type);
     }
 }

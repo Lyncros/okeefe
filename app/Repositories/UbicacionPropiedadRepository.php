@@ -34,10 +34,13 @@ class UbicacionPropiedadRepository
      * @param $q
      * @param int $page
      * @param int $limit
+     * @param string $operation
+     * @param int $type
      * @return mixed
      */
-    public function getParentWithChildsQuery($q, $page = 1, $limit = 5, $operation = 'Venta', $type = 1)
+    public function getParentWithChildsQuery($q, $page = 1, $limit = 5, $operation, $type)
     {
+
         $ubications = $this->ubicacionPropiedad->hydrateRaw("
                 SELECT t1.nombre_ubicacion AS zona, t2.nombre_ubicacion as localidad, t3.nombre_ubicacion as subzona,
                 IF(t3.nombre_ubicacion is null, t2.id_ubica, t3.id_ubica) as idZona,
