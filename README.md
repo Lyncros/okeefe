@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Okeefe API Buscador
 
 ## Pasos para deploy
@@ -23,3 +24,5 @@ por favor descargar para test.
 
 
 
+=======
+>>>>>>> db5a47ad39332ea1414b6797f101a1d33323b2c1
