@@ -14,16 +14,15 @@
 
 Configurar .env con los datos locales
 
-### Base de datos
+## Base de datos
 
 La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
 por favor descargar para test.
 
 ``
-
 # Api Docs
 
-### Busqueda de inmuebles segun tipo, operacion, ubicacion
+## Busqueda de inmuebles segun tipo, operacion, ubicacion
 
 - Los valores por defectos son Departamento en venta
 - Busqueda de todos los departamentos en venta.
