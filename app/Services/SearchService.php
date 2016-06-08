@@ -31,15 +31,18 @@ class SearchService
      * @param int $type
      * @return static
      */
-    public function searchUbicacionPropiedad($ubications, $operation = 'Venta', $type = 1)
+    public function searchUbicacionPropiedad($ubications, $operation, $type)
     {
-        $ubicationsProperties = $ubications->map(function ($element) use ($operation, $type) {
+
+        $searchValues = $this->setDefaultsValues($operation, $type);
+
+        $ubicationsProperties = $ubications->map(function ($element) use ($searchValues) {
 
             $element->zona = trim($element->zona);
             $element->localidad = trim($element->localidad);
             $element->subzona = trim($element->subzona);
-            
-            $properties = $this->getPropertiesData($element, $type, $operation);
+
+            $properties = $this->getPropertiesData($element, $searchValues);
 
             return [
                 'valor' => $element->valor,
@@ -59,18 +62,37 @@ class SearchService
      * Get properties based given params
      *
      * @param $element
-     * @param $type
-     * @param $operation
+     * @param $searchValues
      * @return mixed
+     * @internal param $type
+     * @internal param $operation
      */
-    private function getPropertiesData($element, $type, $operation)
+    private function getPropertiesData($element, $searchValues)
     {
         $properties = $this->propiedadRepository->findWhere([
             'id_ubica' => $element->idZona,
-            'operacion' => $operation,
-            'id_tipo_prop' => $type
+            'operacion' => $searchValues['operation'],
+            'id_tipo_prop' => $searchValues['type']
         ]);
 
         return $properties;
+    }
+
+    /**
+     * Get from configurations default values
+     *
+     * @param $operation
+     * @param $type
+     * @return array
+     */
+    private function setDefaultsValues($operation, $type)
+    {
+        $searchValues = [];
+
+        $searchValues['operation'] = !$operation ? config('apiDefaults.OPERATION') : $operation;
+
+        $searchValues['type'] = !$type ? config('apiDefaults.TYPE_PROPERTY') : $type;
+        
+        return $searchValues;
     }
 }

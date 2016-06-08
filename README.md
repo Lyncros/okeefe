@@ -27,9 +27,9 @@ por favor descargar para test.
 - Los valores por defectos son Departamento en venta
 - Busqueda de todos los departamentos en venta.
 
-`api/v1/ubicacionpropiedad?operacion=Venta&amp;tipo=1`
+`/api/v1/ubicacionpropiedad?operacion=Venta&tipo=1`
 
 - Busqueda de departamentos en venta en Wilde
 
-`/api/v1/ubicacionpropiedad?q=Wilde&amp;operacion=Venta&amp;tipo=1`
+`/api/v1/ubicacionpropiedad?q=Wilde&operacion=Venta&tipo=1`
 
