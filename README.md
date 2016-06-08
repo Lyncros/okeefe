@@ -19,7 +19,7 @@ Configurar .env con los datos locales
 La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
 por favor descargar para test.
 
-``
+`https://www.dropbox.com/s/hul53adcvr8jepy/okeefe_desarrollo.sql?dl=0`
 # Api Docs
 
 ## Busqueda de inmuebles segun tipo, operacion, ubicacion
@@ -32,4 +32,5 @@ por favor descargar para test.
 - Busqueda de departamentos en venta en Wilde
 
 `/api/v1/ubicacionpropiedad?q=Wilde&operacion=Venta&tipo=1`
+
 
