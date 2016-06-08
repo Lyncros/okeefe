@@ -20,6 +20,9 @@ La base de datos original fue indexada en varias tablas para mejorar el rendimie
 por favor descargar para test.
 
 `https://www.dropbox.com/s/hul53adcvr8jepy/okeefe_desarrollo.sql?dl=0`
+
+o bien ver consultas en: `https://github.com/Lyncros/okeefe/wiki/Registro-de-queries-SQL-en-la-base-de-datos`
+
 # Api Docs
 
 ## Busqueda de inmuebles segun tipo, operacion, ubicacion
