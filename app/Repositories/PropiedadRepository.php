@@ -59,7 +59,7 @@ class PropiedadRepository extends BaseRepository
           AND st.sup_total BETWEEN '. $searchValues['supMin'] .' AND '. $searchValues['supMax'] .' 
           HAVING mon.moneda = "'. $searchValues['moneda'] .'" 
           AND sba.cantidad_banos  LIKE "%' . $searchValues['banos'] .'%"';
-
+        
         $result = $this->model->hydrateRaw($query);
 
         return $result;
