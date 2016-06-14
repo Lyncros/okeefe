@@ -60,4 +60,9 @@ class Caracteristica extends Model
     public static $rules = [
         
     ];
+
+    public function propiedad_caracteristicas()
+    {
+        return $this->belongsToMany(PropiedadCaracteristica::class, 'id_carac', 'id_carac');
+    }
 }

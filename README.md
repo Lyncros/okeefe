@@ -28,12 +28,40 @@ o bien ver consultas en: `https://github.com/Lyncros/okeefe/wiki/Registro-de-que
 ## Busqueda de inmuebles segun tipo, operacion, ubicacion
 
 - Los valores por defectos son Departamento en venta
-- Busqueda de todos los departamentos en venta.
+
+*Busqueda de todos los departamentos en venta.*
 
 `/api/v1/ubicacionpropiedad?operacion=Venta&tipo=1`
 
-- Busqueda de departamentos en venta en Wilde
+*Busqueda de departamentos en venta en Wilde*
 
 `/api/v1/ubicacionpropiedad?q=Wilde&operacion=Venta&tipo=1`
+
+## Busqueda de recidencial
+
+*Rango de valor del inmueble*
+
+`/api/v1/ubicacionpropiedad?valMin=0&valMax=100000`
+
+*Rango Superficie (m2)*
+
+`/api/v1/ubicacionpropiedad?supMin=0&supMax=100`
+
+*Cantidad de ambientes (Entre 1 y 5)*
+
+`/api/v1/ubicacionpropiedad?amb=5`
+
+*Tipo de moneda (Default U$D)*
+
+- Busqueda disponible para pesos argentinos y dolares americanos
+
+`/api/v1/ubicacionpropiedad?moneda=$`
+
+*Cantidad de baños (Entre 1 y 5)*
+
+`/api/v1/ubicacionpropiedad?banos=2`
+
+
+
 
 

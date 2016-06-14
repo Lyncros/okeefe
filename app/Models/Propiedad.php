@@ -57,4 +57,9 @@ class Propiedad extends Model
     public static $rules = [
         
     ];
+
+    public function propiedad_caracteristicas()
+    {
+        return $this->hasMany(PropiedadCaracteristica::class, 'id_prop', 'id_prop');
+    }
 }

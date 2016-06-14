@@ -6,12 +6,12 @@
  * Time: 9:05 AM
  */
 
-namespace App\Services;
+namespace App\Transformers;
 
 
 use App\Repositories\PropiedadRepository;
 
-class SearchService
+class SearchTransformer
 {
     /**
      * @var PropiedadRepository
@@ -27,14 +27,12 @@ class SearchService
      * Search property and ubications
      *
      * @param $ubications
-     * @param string $operation
-     * @param int $type
+     * @param $request
      * @return static
      */
-    public function searchUbicacionPropiedad($ubications, $operation, $type)
+    public function searchUbicacionPropiedad($ubications, $request)
     {
-
-        $searchValues = $this->setDefaultsValues($operation, $type);
+        $searchValues = $this->setDefaultsValues($request);
 
         $ubicationsProperties = $ubications->map(function ($element) use ($searchValues) {
 
@@ -69,11 +67,7 @@ class SearchService
      */
     private function getPropertiesData($element, $searchValues)
     {
-        $properties = $this->propiedadRepository->findWhere([
-            'id_ubica' => $element->idZona,
-            'operacion' => $searchValues['operation'],
-            'id_tipo_prop' => $searchValues['type']
-        ]);
+        $properties = $this->propiedadRepository->byPropertiesSpec($element, $searchValues);
 
         return $properties;
     }
@@ -81,18 +75,31 @@ class SearchService
     /**
      * Get from configurations default values
      *
-     * @param $operation
-     * @param $type
+     * @param $request
      * @return array
      */
-    private function setDefaultsValues($operation, $type)
+    private function setDefaultsValues($request)
     {
         $searchValues = [];
 
-        $searchValues['operation'] = !$operation ? config('apiDefaults.OPERATION') : $operation;
+        $searchValues['operacion'] = !$request->operacion ? config('apiDefaults.OPERATION') : $request->operacion;
 
-        $searchValues['type'] = !$type ? config('apiDefaults.TYPE_PROPERTY') : $type;
-        
+        $searchValues['tipo'] = !$request->tipo ? config('apiDefaults.TYPE_PROPERTY') : $request->tipo;
+
+        $searchValues['valMin'] = !$request->valMin ? config('apiDefaults.PROPERTY_VALUE_INIT') : $request->valMin;
+
+        $searchValues['valMax'] = !$request->valMax ? config('apiDefaults.PROPERTY_VALUE_FINISH') : $request->valMax;
+
+        $searchValues['amb'] = !$request->amb ? config('apiDefaults.QUANTY_AMB') : $request->amb;
+
+        $searchValues['supMin'] = !$request->supMin ? config('apiDefaults.SURFACE_INIT') : $request->supMin;
+
+        $searchValues['supMax'] = !$request->supMax ? config('apiDefaults.SURFACE_FINISH') : $request->supMax;
+
+        $searchValues['banos'] = !$request->banos ? config('apiDefaults.BATHROOM') : $request->banos;
+
+        $searchValues['moneda'] = !$request->moneda ? config('apiDefaults.MONEY_TYPE') : $request->moneda;
+
         return $searchValues;
     }
 }
