@@ -17,11 +17,9 @@ Configurar .env con los datos locales
 ## Base de datos
 
 La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
-por favor descargar para test.
+por favor descargar consultas y ejecutar: 
 
-`https://www.dropbox.com/s/hul53adcvr8jepy/okeefe_desarrollo.sql?dl=0`
-
-o bien ver consultas en: `https://github.com/Lyncros/okeefe/wiki/Registro-de-queries-SQL-en-la-base-de-datos`
+http://pastebin.com/gfEkTiNj
 
 # Api Docs
 
