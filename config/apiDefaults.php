@@ -1,22 +1,27 @@
 <?php
 
 return [
-    'OPERATION' => 'Venta',
+    'operacion' => 12,
 
-    'TYPE_PROPERTY' => 1,
+    'tipo' => 1,
 
-    'PROPERTY_VALUE_INIT' => 0,
+    'valMin' => 0,
 
-    'PROPERTY_VALUE_FINISH' => 100000000,
+    'valMax' => 10000000,
 
-    'SURFACE_INIT' => 0,
+    'supMin' => 0,
 
-    'SURFACE_FINISH' => 100000000,
+    'supMax' => 100000000,
 
-    'MONEY_TYPE' => 'U$S',
+    'moneda' => [
+        'options' => ['U$S', '$']
+    ],
 
-    'QUANTY_AMB' => "1,2,3,4,5",
+    'banos' => 1,
 
-    'BATHROOM' => 1,
+    'amb' => true,
 
+    'cocheras' => true,
+
+    'antiguedad' => true
 ];

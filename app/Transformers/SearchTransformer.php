@@ -38,9 +38,11 @@ class SearchTransformer
 
             return [
                 'valor' => $element->valor,
-                'zona_padre' => $element->zona,
+                'pais' => $element->pais,
+                'zona_padre' => $element->zona_padre,
                 'localidad' => $element->localidad,
-                'subzona' => $element->subzona,
+                'ciudad' => $element->subzona,
+                'subzona' => $element->zona_emprendimiento,
                 'id_zona' => $element->idZona,
                 'cantidad' => count($properties),
                 'propiedades' => $properties
@@ -76,23 +78,20 @@ class SearchTransformer
     {
         $searchValues = [];
 
-        $searchValues['operacion'] = !$request->operacion ? config('apiDefaults.OPERATION') : $request->operacion;
+        $configKeys = array_keys(config('apiDefaults'));
 
-        $searchValues['tipo'] = !$request->tipo ? config('apiDefaults.TYPE_PROPERTY') : $request->tipo;
+        foreach ($configKeys as $item) {
+            $searchValues[$item] = !$request->{$item} ? config("apiDefaults.{$item}") : $request->{$item};
 
-        $searchValues['valMin'] = !$request->valMin ? config('apiDefaults.PROPERTY_VALUE_INIT') : $request->valMin;
 
-        $searchValues['valMax'] = !$request->valMax ? config('apiDefaults.PROPERTY_VALUE_FINISH') : $request->valMax;
+            if ($searchValues[$item] === true) {
+                $searchValues[$item] = '< 100';
+            }
 
-        $searchValues['amb'] = !$request->amb ? config('apiDefaults.QUANTY_AMB') : $request->amb;
-
-        $searchValues['supMin'] = !$request->supMin ? config('apiDefaults.SURFACE_INIT') : $request->supMin;
-
-        $searchValues['supMax'] = !$request->supMax ? config('apiDefaults.SURFACE_FINISH') : $request->supMax;
-
-        $searchValues['banos'] = !$request->banos ? config('apiDefaults.BATHROOM') : $request->banos;
-
-        $searchValues['moneda'] = !$request->moneda ? config('apiDefaults.MONEY_TYPE') : $request->moneda;
+            if (is_array($searchValues[$item])) {
+                $searchValues[$item] =  config("apiDefaults.{$item}.options");
+            }
+        }
 
         return $searchValues;
     }

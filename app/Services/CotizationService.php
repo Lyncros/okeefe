@@ -1,12 +1,16 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: lucas
- * Date: 19/6/16
- * Time: 11:34 PM
- */
+namespace App\Services;
+
 class CotizationService
 {
-
+    /**
+     * Return peso ARG to Dollar today cotization
+     *
+     * @return int
+     */
+    public function toDollar()
+    {
+        return 14;
+    }
 }
