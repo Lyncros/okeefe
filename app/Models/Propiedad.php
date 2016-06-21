@@ -58,8 +58,17 @@ class Propiedad extends Model
         
     ];
 
+    /**
+     * @return mixed
+     */
     public function propiedad_caracteristicas()
     {
         return $this->hasMany(PropiedadCaracteristica::class, 'id_prop', 'id_prop');
+    }
+
+
+    public function emprendimiento()
+    {
+        return $this->belongsTo(Emprendimiento::class, 'id_emp');
     }
 }

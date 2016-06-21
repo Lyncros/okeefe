@@ -3,6 +3,7 @@
 namespace App\Transformers;
 
 
+use App\Models\Emprendimiento;
 use App\Repositories\PropiedadRepository;
 
 class SearchTransformer

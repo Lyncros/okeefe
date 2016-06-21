@@ -51,16 +51,42 @@ class PropiedadRepository extends BaseRepository
         $todayCotization = $this->cotizationService->toDollar();
 
         $query = '
-          SELECT p.id_prop, p.id_ubica, p.calle, p.nro, p.id_tipo_prop, p.subtipo_prop, p.intermediacion, p.id_inmo,
-          p.tipo_oper_id, p.piso, p.dpto, p.id_cliente, p.activa, p.id_sucursal,p.id_emp, p.compartir, p.goglat, p.goglong,
-          z.nombre_ubicacion, t.tipo_prop,st.sup_total, sca.cantidad_ambientes, mon.moneda, val.valor, sba.cantidad_banos, 
-          cco.cantidad_cocheras, IF(mon.moneda = "U$S", val.valor * 14, val.valor) as valor_pesos, caa.cantidad_antiguedad
+          SELECT p.id_prop, 
+                p.id_ubica, 
+                p.calle, 
+                p.nro, 
+                p.id_tipo_prop, 
+                p.subtipo_prop, 
+                p.intermediacion, 
+                p.id_inmo,
+                p.tipo_oper_id, 
+                p.piso, p.dpto, 
+                p.id_cliente, 
+                p.activa, 
+                p.id_sucursal,
+                p.id_emp, 
+                p.compartir, 
+                p.goglat, 
+                p.goglong,
+                z.nombre_ubicacion, 
+                t.tipo_prop,
+                st.sup_total, 
+                sca.cantidad_ambientes, 
+                mon.moneda, 
+                val.valor, 
+                sba.cantidad_banos,
+                cco.cantidad_cocheras,
+                caa.cantidad_antiguedad,
+                e.nombre as nombre_emprendimiento,
+                IF(mon.moneda = "U$S", val.valor * 14, val.valor) as valor_pesos, caa.cantidad_antiguedad,
+                IF(sca.cantidad_ambientes is null, 1, sca.cantidad_ambientes) as cantidad_ambientes
           FROM propiedad as p
           INNER JOIN ubicacionpropiedad as z ON p.id_ubica = z.id_ubica 
           INNER JOIN tipoprop as t ON p.id_tipo_prop = t.id_tipo_prop  
+          LEFT JOIN emprendimiento as e ON p.id_emp = e.id_emp
           LEFT JOIN 
               (SELECT id_prop, contenido as sup_total FROM propiedad_caracteristicas WHERE id_carac = 198) as st 
-                ON p.id_prop=st.id_prop 
+                ON p.id_prop=st.id_prop
           LEFT JOIN 
             (SELECT id_prop, contenido as cantidad_ambientes FROM propiedad_caracteristicas WHERE id_carac = 208) as sca 
                 ON p.id_prop=sca.id_prop
@@ -72,18 +98,19 @@ class PropiedadRepository extends BaseRepository
                 ON p.id_prop=cco.id_prop
           LEFT JOIN 
             (SELECT id_prop, contenido as cantidad_antiguedad FROM propiedad_caracteristicas WHERE id_carac = 374) as caa 
-                ON p.id_prop=caa.id_prop 
+                ON p.id_prop=caa.id_prop
           ' . $moneyType . '
           WHERE p.id_ubica = ' . $element->idZona . ' 
-          AND p.tipo_oper_id = "' . $searchValues['operacion'] . '"
-          AND p.id_tipo_prop = ' . $searchValues['tipo'] .'
-          AND sca.cantidad_ambientes '. $searchValues['amb'] .'
-          AND cco.cantidad_cocheras '. $searchValues['coch'] .'
-          AND caa.cantidad_antiguedad '. $searchValues['ant'] .'
-          AND st.sup_total BETWEEN '. $searchValues['supMin'] .' AND '. $searchValues['supMax'] .' 
-          AND mon.moneda IN ("'. $searchValues['moneda'][0] .'", "'. $searchValues['moneda'][1] .'")
-          AND sba.cantidad_banos  LIKE "%' . $searchValues['banos'] .'%"  
-          HAVING valor_pesos BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax'];
+              AND p.tipo_oper_id = "' . $searchValues['operacion'] . '"
+              AND p.id_tipo_prop = ' . $searchValues['tipo'] .'
+              AND cco.cantidad_cocheras '. $searchValues['coch'] .'
+              AND caa.cantidad_antiguedad '. $searchValues['ant'] .'
+              AND st.sup_total BETWEEN '. $searchValues['supMin'] .' AND '. $searchValues['supMax'] .' 
+              AND mon.moneda IN ("'. $searchValues['moneda'][0] .'", "'. $searchValues['moneda'][1] .'")
+              AND sba.cantidad_banos  LIKE "%' . $searchValues['banos'] .'%"  
+          HAVING valor_pesos BETWEEN '. $searchValues['valMin'] . ' 
+              AND '. $searchValues['valMax']  . ' 
+              AND cantidad_ambientes '. $searchValues['amb'];
 
         $result = $this->model->hydrateRaw($query);
 
