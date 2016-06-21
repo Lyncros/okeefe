@@ -17,11 +17,13 @@ Configurar .env con los datos locales
 ## Base de datos
 
 La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
-por favor descargar para test.
+por favor descargar consultas y ejecutar: (Ejecutar en orden)
 
-`https://www.dropbox.com/s/hul53adcvr8jepy/okeefe_desarrollo.sql?dl=0`
+http://pastebin.com/F1mvzaq2
 
-o bien ver consultas en: `https://github.com/Lyncros/okeefe/wiki/Registro-de-queries-SQL-en-la-base-de-datos`
+Script PHP Para cocheras default 0 en todas las propiedades
+
+http://pastebin.com/GLQ19bva
 
 # Api Docs
 
