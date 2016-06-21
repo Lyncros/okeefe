@@ -44,6 +44,13 @@ http://pastebin.com/2t5maHyt
 
 ## Busqueda de recidencial
 
+* Tipos de busquedas recidenciales (IDs)
+
+- Casas -> 9
+- Departamentos y PH -> 1
+- Lotes -> 7
+- Quintas -> 17
+
 ***Rango de valor del inmueble***
 
 `/api/v1/ubicacionpropiedad?valMin=0&valMax=100000`
@@ -73,3 +80,40 @@ http://pastebin.com/2t5maHyt
 ***Cantidad de baños***
 
 `/api/v1/ubicacionpropiedad?banos=2`
+
+## Busqueda de comercial/industrial
+
+* Tipos de busquedas comerciales/industriales (IDs)
+
+- Lotes -> 7
+- Industrial -> 19
+- Locales -> 2
+- Oficinas -> 11
+- Galpones -> 15
+- Cocheras -> 18
+
+`/api/v1/ubicacionpropiedad?tipo=11`
+
+***Cantidad de baños***
+
+`/api/v1/ubicacionpropiedad?tipo=11&banos=2`
+
+***Cantidad de ambientes***
+
+`/api/v1/ubicacionpropiedad?tipo=11&amb==1`
+
+***Cantidad de cocheras***
+
+`/api/v1/ubicacionpropiedad?tipo=11&coch==1`
+
+***Antiguedad***
+
+`/api/v1/ubicacionpropiedad?tipo=11&ant==1`
+
+***Rango Superficie (m2)***
+
+`/api/v1/ubicacionpropiedad?tipo=11&supMin=0&supMax=100`
+
+
+
+

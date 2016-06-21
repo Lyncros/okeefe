@@ -77,9 +77,9 @@ class PropiedadRepository extends BaseRepository
                 sba.cantidad_banos,
                 cco.cantidad_cocheras,
                 caa.cantidad_antiguedad,
-                e.nombre as nombre_emprendimiento,
                 IF(mon.moneda = "U$S", val.valor * 14, val.valor) as valor_pesos, caa.cantidad_antiguedad,
-                IF(sca.cantidad_ambientes is null, 1, sca.cantidad_ambientes) as cantidad_ambientes
+                IF(sca.cantidad_ambientes is null, 1, sca.cantidad_ambientes) as cantidad_ambientes,
+                e.nombre as nombre_emprendimiento
           FROM propiedad as p
           INNER JOIN ubicacionpropiedad as z ON p.id_ubica = z.id_ubica 
           INNER JOIN tipoprop as t ON p.id_tipo_prop = t.id_tipo_prop  
