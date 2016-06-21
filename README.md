@@ -32,7 +32,7 @@ http://pastebin.com/2t5maHyt
 
 ## Busqueda de inmuebles segun tipo, operacion, ubicacion
 
-- Los valores por defectos son Departamento en venta
+- Los valores por defectos son Casa en Venta
 
 ***Busqueda de todos los departamentos en venta.***
 

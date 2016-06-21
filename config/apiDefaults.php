@@ -3,7 +3,7 @@
 return [
     'operacion' => 12,
 
-    'tipo' => 1,
+    'tipo' => 9,
 
     'valMin' => 0,
 
