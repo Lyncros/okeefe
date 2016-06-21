@@ -21,7 +21,7 @@ return [
 
     'amb' => true,
 
-    'cocheras' => true,
+    'coch' => true,
 
-    'antiguedad' => true
+    'ant' => true
 ];
