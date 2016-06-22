@@ -35,11 +35,11 @@ http://pastebin.com/2t5maHyt
 
 ***Busqueda de todos los departamentos en venta.***
 
-`/api/v1/propiedad?operacion=Venta&tipo=12`
+`/api/v1/propiedad?operacion=12&tipo=9`
 
 ***Busqueda de departamentos en venta en Wilde***
 
-`/api/v1/propiedad?q=Wilde&operacion=Venta&tipo=12`
+`/api/v1/propiedad?q=Wilde&operacion=12&tipo=9`
 
 **Tipos de operacion (IDs)**
 
@@ -143,7 +143,7 @@ se debe usar la llamada:
 - Campos -> 6,
 - Galpones' -> 15
 
-EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true
+EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true`
 
 `/api/v1/propiedad?tipo=7&rural=true`
 
