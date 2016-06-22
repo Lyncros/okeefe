@@ -19,7 +19,7 @@ Configurar .env con los datos locales
 La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
 por favor descargar consultas y ejecutar: (Ejecutar en orden)
 
-http://pastebin.com/F1mvzaq2
+http://pastebin.com/KsQTnTcw
 
 **Script PHP Para cocheras default 0 en todas las propiedades**
 http://pastebin.com/GLQ19bva
