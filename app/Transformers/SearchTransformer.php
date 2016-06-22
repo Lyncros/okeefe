@@ -40,8 +40,8 @@ class SearchTransformer
                 'pais' => $element->pais,
                 'zona_padre' => $element->zona_padre,
                 'localidad' => $element->localidad,
-                'ciudad' => $element->subzona,
-                'subzona' => $element->zona_emprendimiento,
+                'subzona' => $element->subzona,
+                'zona_hija' => $element->zona_emprendimiento,
                 'id_zona' => $element->idZona,
                 'cantidad' => count($properties),
                 'propiedades' => $properties

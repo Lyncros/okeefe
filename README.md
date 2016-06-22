@@ -27,7 +27,6 @@ http://pastebin.com/GLQ19bva
 **Script PHP Para antiguedad default 0 en todas las propiedades**
 http://pastebin.com/2t5maHyt
 
-
 # Api Docs
 
 ## Busqueda de inmuebles segun tipo, operacion, ubicacion
@@ -36,11 +35,22 @@ http://pastebin.com/2t5maHyt
 
 ***Busqueda de todos los departamentos en venta.***
 
-`/api/v1/ubicacionpropiedad?operacion=Venta&tipo=12`
+`/api/v1/propiedad?operacion=Venta&tipo=12`
 
 ***Busqueda de departamentos en venta en Wilde***
 
-`/api/v1/ubicacionpropiedad?q=Wilde&operacion=Venta&tipo=12`
+`/api/v1/propiedad?q=Wilde&operacion=Venta&tipo=12`
+
+**Tipos de operacion (IDs)**
+
+- Alquiler -> 2
+- Alquiler temporario -> 4
+- Venta -> 12
+
+- Por default inversión (emprendimiento) no se muestran para que esten disponibles
+se debe usar la llamada:
+
+`/api/v1/propiedad?q=quilmes&emp=1&tipo=9&operacion=12`
 
 ## Busqueda de recidencial
 
@@ -53,33 +63,33 @@ http://pastebin.com/2t5maHyt
 
 ***Rango de valor del inmueble***
 
-`/api/v1/ubicacionpropiedad?valMin=0&valMax=100000`
+`/api/v1/propiedad?valMin=0&valMax=100000`
 
 ***Rango Superficie (m2)***
 
-`/api/v1/ubicacionpropiedad?supMin=0&supMax=100`
+`/api/v1/propiedad?supMin=0&supMax=100`
 
 ***Cantidad de ambientes***
 
-`/api/v1/ubicacionpropiedad?amb==5`
+`/api/v1/propiedad?amb==5`
 
 ***Cantidad de cocheras***
 
-`/api/v1/ubicacionpropiedad?coch==5`
+`/api/v1/propiedad?coch==5`
 
 ***Antiguedad***
 
-`/api/v1/ubicacionpropiedad?ant==5`
+`/api/v1/propiedad?ant==5`
 
 ***Tipo de moneda (Default U$D y $)***
 
 *Busqueda disponible para pesos argentinos y dolares americanos*
 
-`/api/v1/ubicacionpropiedad?moneda=$`
+`/api/v1/propiedad?moneda=$`
 
 ***Cantidad de baños***
 
-`/api/v1/ubicacionpropiedad?banos=2`
+`/api/v1/propiedad?banos==2`
 
 ## Busqueda de comercial/industrial
 
@@ -92,27 +102,70 @@ http://pastebin.com/2t5maHyt
 - Galpones -> 15
 - Cocheras -> 18
 
-`/api/v1/ubicacionpropiedad?tipo=11`
+`/api/v1/propiedad?tipo=11`
+
+***Rango de valor del inmueble***
+
+`/api/v1/propiedad?valMin=0&valMax=100000`
 
 ***Cantidad de baños***
 
-`/api/v1/ubicacionpropiedad?tipo=11&banos=2`
+`/api/v1/propiedad?tipo=11&banos==2`
 
 ***Cantidad de ambientes***
 
-`/api/v1/ubicacionpropiedad?tipo=11&amb==1`
+`/api/v1/propiedad?tipo=11&amb==1`
 
 ***Cantidad de cocheras***
 
-`/api/v1/ubicacionpropiedad?tipo=11&coch==1`
+`/api/v1/propiedad?tipo=11&coch==1`
 
 ***Antiguedad***
 
-`/api/v1/ubicacionpropiedad?tipo=11&ant==1`
+`/api/v1/propiedad?tipo=11&ant==1`
 
 ***Rango Superficie (m2)***
 
-`/api/v1/ubicacionpropiedad?tipo=11&supMin=0&supMax=100`
+`/api/v1/propiedad?tipo=11&supMin=0&supMax=100`
+
+*Busqueda disponible para pesos argentinos y dolares americanos*
+
+`/api/v1/propiedad?moneda=$`
+
+## Busqueda rural
+
+* Tipos de busquedas rural (IDs)
+
+- Lotes -> 7,
+- Quintas -> 17,
+- Estancias -> 22,
+- Chacras -> 16,
+- Campos -> 6,
+- Galpones' -> 15
+
+EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true
+
+`/api/v1/propiedad?tipo=7&rural=true`
+
+***Cantidad de cocheras***
+
+`/api/v1/propiedad?tipo=11&coch==1&rural=true`
+
+***Antiguedad***
+
+`/api/v1/propiedad?tipo=11&ant==1&rural=true`
+
+***Rango Superficie (h)***
+
+`/api/v1/propiedad?tipo=11&supMin=0&supMax=100&rural=true`
+
+***Rango de valor del inmueble***
+
+`/api/v1/propiedad?valMin=0&valMax=100000&rural=true`
+
+*Busqueda disponible para pesos argentinos y dolares americanos*
+
+`/api/v1/propiedad?moneda=$&rural=true`
 
 
 

@@ -13,24 +13,29 @@ return [
 
     'valMin' => 0,
 
-    'valMax' => 10000000,
+    'valMax' => 100000000000,
 
     'supMin' => 0,
 
-    'supMax' => 100000000,
+    'supMax' => 1000000000000,
 
     // Valores con opciones
     'moneda' => [
         'options' => ['U$S', '$']
     ],
 
-    'banos' => 1,
-
     // Los valores que tienen true se reflejan como < 100 en el query y la consulta especifica como,
     // nombre==valor
+
+    'banos' => true,
+
     'amb' => true,
 
     'coch' => true,
 
-    'ant' => true
+    'ant' => true,
+
+    'emp' => 0,
+
+    'rural' => false
 ];

@@ -46,14 +46,18 @@ clASs UbicacionPropiedadRepository
                   t2.nombre_ubicacion AS localidad,
                   t3.nombre_ubicacion AS subzona, 
                   t4.nombre_ubicacion AS zona_emprendimiento,
-                  t2.id_ubica AS idZona,
-                  CONCAT(t0.nombre_ubicacion,', ',t1.nombre_ubicacion,',', t2.nombre_ubicacion, ',', t3.nombre_ubicacion) AS valor
+                  #if (t4.id_ubica is not null, t4.id_ubica, t3.id_ubica) AS idZona,
+                  t3.id_ubica AS idZona,
+                  if(t4.nombre_ubicacion is not null, 
+                  	CONCAT(t0.nombre_ubicacion,', ',t1.nombre_ubicacion,',', t2.nombre_ubicacion, ',', t3.nombre_ubicacion, ', ', t4.nombre_ubicacion) ,
+                  	CONCAT(t0.nombre_ubicacion,', ',t1.nombre_ubicacion,',', t2.nombre_ubicacion, ',', t3.nombre_ubicacion)
+                  ) AS valor
                 FROM ubicacionpropiedad AS t0
                 LEFT JOIN ubicacionpropiedad AS t1 ON t1.id_padre = t0.id_ubica
                 LEFT JOIN ubicacionpropiedad AS t2 ON t2.id_padre = t1.id_ubica
                 LEFT JOIN ubicacionpropiedad AS t3 ON t3.id_padre = t2.id_ubica 
                 LEFT JOIN ubicacionpropiedad AS t4 ON t4.id_padre = t3.id_ubica
-                WHERE  t2.nombre_ubicacion IS NOT NULL AND t3.nombre_ubicacion IS NOT NULL
+                WHERE t2.nombre_ubicacion != t3.nombre_ubicacion AND t0.id_padre  = 0
                 HAVING valor LIKE '$keyword'";
 
         $ubications = $this->ubicacionPropiedad->hydrateRaw($query);
