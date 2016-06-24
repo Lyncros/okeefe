@@ -37,5 +37,7 @@ return [
 
     'emp' => 0,
 
-    'rural' => false
+    'rural' => false,
+
+    'filtroMon' => 'ARS'
 ];

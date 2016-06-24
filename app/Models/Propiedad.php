@@ -63,7 +63,7 @@ class Propiedad extends Model
      */
     public function propiedad_caracteristicas()
     {
-        return $this->hasMany(PropiedadCaracteristica::class, 'id_prop', 'id_prop');
+        return $this->hasMany(PropiedadCaracteristica::class, 'id_prop');
     }
 
 

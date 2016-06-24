@@ -167,6 +167,22 @@ EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true`
 
 `/api/v1/propiedad?moneda=$&rural=true`
 
+#Filtros Especiales
+
+**Moneda**
+
+Si la moneda de la propiedad es USD (Dolares americanos) se podra buscar por su
+conversión en pesos. La converción es dinamica al valor del dia segun BCRA.
+
+`/api/v1/propiedad&filtroMon=ARS`  (Valor por defecto)
+
+`/api/v1/propiedad&filtroMon=USD` (Filtro segun su moneda)
+
+# Busqueda de propiedades
+
+Esta disponible la busqueda individual de propiedades con sus caracteristicas
+`api/v1/propiedades/{id_prop}`
+
 
 
 

@@ -14,7 +14,12 @@ class PropiedadCaracteristica extends Model
 {
     protected $table = 'propiedad_caracteristicas';
 
-    public $primaryKey = 'id_prop_carac';
+    public $primaryKey = 'id_prop';
+    
+    public function propiedad()
+    {
+        return $this->belognsTo(Propiedad::class);
+    }
 
     public function caracteristica()
     {

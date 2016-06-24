@@ -101,6 +101,7 @@ class PropiedadRepository extends BaseRepository
     private function getPropiedadQuery($element, $searchValues)
     {
         $moneyType = $this->getMoneyType($searchValues);
+        $nameFilter = $searchValues['filtroMon'] == 'ARS' ? 'valor_convertido' : 'valor';
 
         return'
           SELECT p.id_prop, 
@@ -122,12 +123,13 @@ class PropiedadRepository extends BaseRepository
                 t.tipo_prop,
                 st.sup_total, 
                 sca.cantidad_ambientes, 
-                mon.moneda, 
-                val.valor, 
                 sba.cantidad_banos,
                 cco.cantidad_cocheras,
                 caa.cantidad_antiguedad,
-                IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_pesos, caa.cantidad_antiguedad,
+                mon.moneda, 
+                val.valor, 
+                IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_convertido, 
+                caa.cantidad_antiguedad,
                 IF(sca.cantidad_ambientes is null, 1, sca.cantidad_ambientes) AS cantidad_ambientes,
                 e.nombre AS nombre_emprendimiento
           FROM propiedad AS p
@@ -159,7 +161,7 @@ class PropiedadRepository extends BaseRepository
               AND mon.moneda IN ("'. $searchValues['moneda'][0] .'", "'. $searchValues['moneda'][1] .'")
               AND sba.cantidad_banos ' . $searchValues['banos'] .'
               AND p.tiene_emprendimiento  = '. $searchValues['emp'] .'
-          HAVING valor_pesos BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax']  . ' 
+          HAVING '. $nameFilter .' BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax']  . ' 
               AND cantidad_ambientes '. $searchValues['amb'];
     }
 
@@ -196,7 +198,7 @@ class PropiedadRepository extends BaseRepository
                 val.valor, 
                 cco.cantidad_cocheras,
                 caa.cantidad_antiguedad,
-                IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_pesos, caa.cantidad_antiguedad,
+                IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_convertido, caa.cantidad_antiguedad,
                 IF(sca.cantidad_ambientes is null, 0, sca.cantidad_ambientes) AS cantidad_ambientes,
                 e.nombre AS nombre_emprendimiento
           FROM propiedad AS p
@@ -224,6 +226,6 @@ class PropiedadRepository extends BaseRepository
               AND st.sup_total BETWEEN '. $searchValues['supMin'] .' AND '. $searchValues['supMax'] .' 
               AND mon.moneda IN ("'. $searchValues['moneda'][0] .'", "'. $searchValues['moneda'][1] .'")
               AND p.tiene_emprendimiento  = '. $searchValues['emp'] .'
-          HAVING valor_pesos BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax'];
+          HAVING valor_convertido BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax'];
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreatePropiedadesRequest;
 use App\Http\Requests\UpdatePropiedadesRequest;
+use App\Models\Propiedad;
+use App\Models\UbicacionPropiedad;
 use App\Repositories\PropiedadesRepository;
 use Illuminate\Http\Request;
 use Flash;
@@ -69,19 +71,20 @@ class PropiedadesController extends AppBaseController
      *
      * @param  int $id
      *
+     * @param UbicacionPropiedad $ubica
      * @return Response
      */
-    public function show($id)
+    public function show($id, UbicacionPropiedad $ubica)
     {
-        $propiedades = $this->propiedadesRepository->findWithoutFail($id);
+        $propiedad = Propiedad::with(['propiedad_caracteristicas' => function($q) {
+            $q->select('id_prop_carac', 'id_prop', 'id_carac', 'contenido');
+        }, 'propiedad_caracteristicas.caracteristica' => function($q) {
+            $q->select( 'id_carac', 'id_tipo_carac', 'titulo');
+        }])->find($id);
 
-        if (empty($propiedades)) {
-            Flash::error('Propiedades not found');
+        $propiedad->ubica = $ubica->getById($propiedad->id_ubica);
 
-            return redirect(route('propiedades.index'));
-        }
-
-        return view('propiedades.show')->with('propiedades', $propiedades);
+        return $propiedad;
     }
 
     /**

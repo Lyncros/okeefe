@@ -4,8 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreatePropiedadesAPIRequest;
 use App\Http\Requests\API\UpdatePropiedadesAPIRequest;
+use App\Models\Propiedad;
 use App\Models\Propiedades;
+use App\Models\UbicacionPropiedad;
 use App\Repositories\PropiedadRepository;
+use App\Repositories\UbicacionPropiedadRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -118,8 +121,8 @@ class PropiedadAPIController extends AppBaseController
 
     /**
      * @param int $id
+     * @param UbicacionPropiedad $ubica
      * @return Response
-     *
      * @SWG\Get(
      *      path="/propiedades/{id}",
      *      summary="Display the specified Propiedades",
@@ -154,16 +157,21 @@ class PropiedadAPIController extends AppBaseController
      *      )
      * )
      */
-    public function show($id)
+    public function show($id, UbicacionPropiedadRepository $ubica)
     {
-        /** @var Propiedades $propiedades */
-        $propiedades = $this->propiedadesRepository->find($id);
+        $propiedad = Propiedad::with(['propiedad_caracteristicas' => function($q) {
+            $q->select('id_prop_carac', 'id_prop', 'id_carac', 'contenido');
+        }, 'propiedad_caracteristicas.caracteristica' => function($q) {
+            $q->select( 'id_carac', 'id_tipo_carac', 'titulo');
+        }])->find($id);
 
-        if (empty($propiedades)) {
-            return Response::json(ResponseUtil::makeError('Propiedades not found'), 400);
+        if(!$propiedad) {
+            return response()->json(['message' => 'not found', 'code' => '404'], 404);
         }
 
-        return $this->sendResponse($propiedades->toArray(), 'Propiedades retrieved successfully');
+        $propiedad->ubica = $ubica->getById($propiedad->id_ubica);
+
+        return response()->json(['message' => 'success', 'code' => '200', 'data' => $propiedad]);
     }
 
     /**
