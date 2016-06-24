@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cc711eb-1af6-4137-891a-7b4723cbd806" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env.example" afterPath="$PROJECT_DIR$/.env.example" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/api_routes.php" afterPath="$PROJECT_DIR$/app/Http/api_routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Propiedad.php" afterPath="$PROJECT_DIR$/app/Models/Propiedad.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/PropiedadCaracteristica.php" afterPath="$PROJECT_DIR$/app/Models/PropiedadCaracteristica.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/PropiedadRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/PropiedadRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/apiDefaults.php" afterPath="$PROJECT_DIR$/config/apiDefaults.php" />
     </list>
     <ignored path="okeefe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +37,7 @@
       <file leaf-file-name="SearchTransformer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Transformers/SearchTransformer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
+            <state relative-caret-position="234">
               <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
               <folding />
             </state>
@@ -61,91 +54,85 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/api_routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropiedadCaracteristica.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/PropiedadCaracteristica.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="14" column="49" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropiedadesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropiedadAPIController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="169" column="9" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UbicacionPropiedadRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+            <state relative-caret-position="439">
+              <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
               <folding>
                 <marker date="1466781824000" expanded="true" signature="973:2231" placeholder="SELECT t0.no... ubicacionpropiedad" />
                 <marker date="1466781824000" expanded="true" signature="2535:3748" placeholder="SELECT t0.no... ubicacionpropiedad" />
                 <marker date="1466781824000" expanded="true" signature="2535:3764" placeholder="SELECT t0.no... ubicacionpropiedad" />
                 <marker date="1466781824000" expanded="true" signature="2535:3766" placeholder="SELECT t0.no... ubicacionpropiedad" />
                 <marker date="1466781824000" expanded="true" signature="2535:3767" placeholder="SELECT t0.no... ubicacionpropiedad" />
-                <marker date="1466781824000" expanded="true" signature="2535:3879" placeholder="SELECT t0.no... ubicacionpropiedad" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apiDefaults.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/apiDefaults.php">
+      <file leaf-file-name="api_routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/api_routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="41" column="14" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="14" />
+            <state relative-caret-position="294">
+              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropiedadRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/PropiedadRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
               <folding>
-                <element signature="e#8#190#0#PHP" expanded="true" />
+                <element signature="e#36#61#0#PHP" expanded="true" />
+                <marker date="1466795822000" expanded="true" signature="2798:3614" placeholder="SELECT p.id_... propiedad" />
+                <marker date="1466795822000" expanded="true" signature="2798:5911" placeholder="SELECT p.id_... propiedad" />
+                <marker date="1466795822000" expanded="true" signature="2798:6043" placeholder="SELECT p.id_... propiedad" />
+                <marker date="1466795822000" expanded="true" signature="4120:4188" placeholder="select id_pr... fotos" />
+                <marker date="1466795822000" expanded="true" signature="4321:4411" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="4494:4593" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="4678:4772" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="4857:4955" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="5040:5140" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="6357:9190" placeholder="SELECT p.id_... propiedad" />
+                <marker date="1466795822000" expanded="true" signature="7785:7875" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="7958:8057" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="8142:8240" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="8325:8425" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+                <marker date="1466795822000" expanded="true" signature="9146:9190" placeholder="SELECT p.id_... propiedad" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".env.example" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env.example">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="310">
-                <caret line="182" column="77" selection-start-line="182" selection-start-column="77" selection-end-line="182" selection-end-column="77" />
+              <first_editor relative-caret-position="315">
+                <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -182,7 +169,6 @@
         <option value="$PROJECT_DIR$/tests/PaisRepositoryTest.php" />
         <option value="$PROJECT_DIR$/tests/PaisApiTest.php" />
         <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/UbicacionPropiedadController.php" />
         <option value="$PROJECT_DIR$/app/Models/UbicacionPropiedad.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -198,7 +184,6 @@
         <option value="$PROJECT_DIR$/config/propDefaults.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/UbicacionPropiedadAPIController.php" />
         <option value="$PROJECT_DIR$/config/apiDefaults.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/PropiedadRepository.php" />
         <option value="$PROJECT_DIR$/app/Models/PropiedadCaracteristica.php" />
         <option value="$PROJECT_DIR$/app/Models/Propiedad.php" />
         <option value="$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php" />
@@ -207,6 +192,9 @@
         <option value="$PROJECT_DIR$/app/Http/api_routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.env.example" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Repositories/PropiedadRepository.php" />
       </list>
     </option>
   </component>
@@ -256,7 +244,19 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="/">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Users">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="lucas">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -267,108 +267,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="config">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Repositories">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Http">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Http">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Controllers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="okeefe">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Http">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Controllers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="API">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -384,7 +282,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ok_legacy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="read&#9;FILE&#9;file:///Users/lucas/Code/okeefe/README.md&#10;apiRo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;PropiedadCo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/PropiedadesController.php&#10;routes&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/routes.php&#10;Read&#9;FILE&#9;file:///Users/lucas/Code/okeefe/README.md&#10;api&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/apiDefaults.php&#10;ub&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/API/UbicacionPropiedadAPIController.php&#10;UBICACION&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/API/UbicacionPropiedadAPIController.php&#10;API ROUTE&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;89&#9;null&#9;null&#10;belo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php&#10;belong&#9;null&#9;null&#10;defau&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/apiDefaults.php&#10;reformat&#9;ACTION&#9;ReformatCode&#10;format&#9;ACTION&#9;ReformatCode&#10;refor&#9;ACTION&#9;ReformatCode&#10;app.&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/app.php&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;Ubi&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/API/UbicacionPropiedadAPIController.php&#10;api_ro&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;rout&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/routes.php&#10;hasMany&#9;null&#9;null&#10;hasM&#9;null&#9;null&#10;comment&#9;ACTION&#9;CommentByBlockComment&#10;commen&#9;ACTION&#9;CommentByBlockComment&#10;app&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/app.php" />
+    <property name="SearchEverywhereHistoryKey" value="ub&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Repositories/UbicacionPropiedadRepository.php&#10;read&#9;FILE&#9;file:///Users/lucas/Code/okeefe/README.md&#10;apiRo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;PropiedadCo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/PropiedadesController.php&#10;routes&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/routes.php&#10;Read&#9;FILE&#9;file:///Users/lucas/Code/okeefe/README.md&#10;api&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/apiDefaults.php&#10;UBICACION&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/API/UbicacionPropiedadAPIController.php&#10;API ROUTE&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;89&#9;null&#9;null&#10;belo&#9;FILE&#9;file:///Users/lucas/Code/okeefe/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php&#10;belong&#9;null&#9;null&#10;defau&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/apiDefaults.php&#10;reformat&#9;ACTION&#9;ReformatCode&#10;format&#9;ACTION&#9;ReformatCode&#10;refor&#9;ACTION&#9;ReformatCode&#10;app.&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/app.php&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;Ubi&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/Controllers/API/UbicacionPropiedadAPIController.php&#10;api_ro&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/api_routes.php&#10;rout&#9;FILE&#9;file:///Users/lucas/Code/okeefe/app/Http/routes.php&#10;hasMany&#9;null&#9;null&#10;hasM&#9;null&#9;null&#10;comment&#9;ACTION&#9;CommentByBlockComment&#10;commen&#9;ACTION&#9;CommentByBlockComment&#10;app&#9;FILE&#9;file:///Users/lucas/Code/okeefe/config/app.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RunManager">
@@ -450,12 +348,12 @@
       <workItem from="1466503553001" duration="9919000" />
       <workItem from="1466525843552" duration="343000" />
       <workItem from="1466599751042" duration="13952000" />
-      <workItem from="1466777931116" duration="4425000" />
+      <workItem from="1466777931116" duration="8815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122542000" />
+    <option name="totallyTimeSpent" value="126932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="724" extended-state="6" />
@@ -467,7 +365,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20662461" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20727848" sideWeight="0.49427754" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17310444" sideWeight="0.5058043" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -486,20 +384,20 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13661203" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29588607" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20727848" sideWeight="0.49427754" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3101777" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19547658" sideWeight="0.4941957" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17310444" sideWeight="0.5058043" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -568,13 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -583,13 +474,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -666,6 +550,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,59 +603,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/PropiedadRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="164" column="61" selection-start-line="164" selection-start-column="61" selection-end-line="164" selection-end-column="61" />
-          <folding>
-            <element signature="e#36#61#0#PHP" expanded="true" />
-            <marker date="1466778439000" expanded="true" signature="2752:3568" placeholder="SELECT p.id_... propiedad" />
-            <marker date="1466778439000" expanded="true" signature="2752:5624" placeholder="SELECT p.id_... propiedad" />
-            <marker date="1466778439000" expanded="true" signature="2752:5756" placeholder="SELECT p.id_... propiedad" />
-            <marker date="1466778439000" expanded="true" signature="4034:4124" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="4207:4306" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="4391:4485" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="4570:4668" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="4753:4853" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="6068:8659" placeholder="SELECT p.id_... propiedad" />
-            <marker date="1466778439000" expanded="true" signature="7254:7344" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="7427:7526" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="7611:7709" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="7794:7894" placeholder="SELECT id_pr... propiedad_caracteristicas" />
-            <marker date="1466778439000" expanded="true" signature="8615:8659" placeholder="SELECT p.id_... propiedad" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/apiDefaults.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="41" column="14" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="14" />
           <folding>
             <element signature="e#8#190#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Transformers/SearchTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
-          <folding>
-            <marker date="1466781824000" expanded="true" signature="973:2231" placeholder="SELECT t0.no... ubicacionpropiedad" />
-            <marker date="1466781824000" expanded="true" signature="2535:3748" placeholder="SELECT t0.no... ubicacionpropiedad" />
-            <marker date="1466781824000" expanded="true" signature="2535:3764" placeholder="SELECT t0.no... ubicacionpropiedad" />
-            <marker date="1466781824000" expanded="true" signature="2535:3766" placeholder="SELECT t0.no... ubicacionpropiedad" />
-            <marker date="1466781824000" expanded="true" signature="2535:3767" placeholder="SELECT t0.no... ubicacionpropiedad" />
-            <marker date="1466781824000" expanded="true" signature="2535:3879" placeholder="SELECT t0.no... ubicacionpropiedad" />
           </folding>
         </state>
       </provider>
@@ -799,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/api_routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/PropiedadCaracteristica.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -815,27 +645,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="169" column="9" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="310">
-            <caret line="182" column="77" selection-start-line="182" selection-start-column="77" selection-end-line="182" selection-end-column="77" />
+          <first_editor relative-caret-position="315">
+            <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
@@ -844,6 +658,93 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PropiedadAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2199">
+          <caret line="169" column="9" selection-start-line="169" selection-start-column="9" selection-end-line="169" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="72" column="6" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/api_routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Transformers/SearchTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/UbicacionPropiedadRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding>
+            <marker date="1466781824000" expanded="true" signature="973:2231" placeholder="SELECT t0.no... ubicacionpropiedad" />
+            <marker date="1466781824000" expanded="true" signature="2535:3748" placeholder="SELECT t0.no... ubicacionpropiedad" />
+            <marker date="1466781824000" expanded="true" signature="2535:3764" placeholder="SELECT t0.no... ubicacionpropiedad" />
+            <marker date="1466781824000" expanded="true" signature="2535:3766" placeholder="SELECT t0.no... ubicacionpropiedad" />
+            <marker date="1466781824000" expanded="true" signature="2535:3767" placeholder="SELECT t0.no... ubicacionpropiedad" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/PropiedadRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
+          <folding>
+            <element signature="e#36#61#0#PHP" expanded="true" />
+            <marker date="1466795822000" expanded="true" signature="2798:3614" placeholder="SELECT p.id_... propiedad" />
+            <marker date="1466795822000" expanded="true" signature="2798:5911" placeholder="SELECT p.id_... propiedad" />
+            <marker date="1466795822000" expanded="true" signature="2798:6043" placeholder="SELECT p.id_... propiedad" />
+            <marker date="1466795822000" expanded="true" signature="4120:4188" placeholder="select id_pr... fotos" />
+            <marker date="1466795822000" expanded="true" signature="4321:4411" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="4494:4593" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="4678:4772" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="4857:4955" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="5040:5140" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="6357:9190" placeholder="SELECT p.id_... propiedad" />
+            <marker date="1466795822000" expanded="true" signature="7785:7875" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="7958:8057" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="8142:8240" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="8325:8425" placeholder="SELECT id_pr... propiedad_caracteristicas" />
+            <marker date="1466795822000" expanded="true" signature="9146:9190" placeholder="SELECT p.id_... propiedad" />
+          </folding>
         </state>
       </provider>
     </entry>

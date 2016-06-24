@@ -35,6 +35,7 @@ class PropiedadRepository extends BaseRepository
     {
         parent::__construct($app);
 
+        $this->publicURL = env('PUBLIC_URL');
         $this->cotizationService = $cotizationService;
     }
 
@@ -131,10 +132,12 @@ class PropiedadRepository extends BaseRepository
                 IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_convertido, 
                 caa.cantidad_antiguedad,
                 IF(sca.cantidad_ambientes is null, 1, sca.cantidad_ambientes) AS cantidad_ambientes,
-                e.nombre AS nombre_emprendimiento
+                e.nombre AS nombre_emprendimiento,
+                IF(fo.foto_principal IS NOT null, CONCAT("'. $this->publicURL .'", fo.foto_principal), "") AS foto_url
           FROM propiedad AS p
           INNER JOIN ubicacionpropiedad AS z ON p.id_ubica = z.id_ubica 
-          INNER JOIN tipoprop AS t ON p.id_tipo_prop = t.id_tipo_prop  
+          INNER JOIN tipoprop AS t ON p.id_tipo_prop = t.id_tipo_prop
+          LEFT JOIN (select id_prop, foto as foto_principal from fotos where posicion = 1) as fo on p.id_prop = fo.id_prop
           LEFT JOIN emprendimiento AS e ON p.id_emp = e.id_emp
           LEFT JOIN 
               (SELECT id_prop, contenido AS sup_total FROM propiedad_caracteristicas WHERE id_carac = 198) AS st 
@@ -163,6 +166,8 @@ class PropiedadRepository extends BaseRepository
               AND p.tiene_emprendimiento  = '. $searchValues['emp'] .'
           HAVING '. $nameFilter .' BETWEEN '. $searchValues['valMin'] . ' AND '. $searchValues['valMax']  . ' 
               AND cantidad_ambientes '. $searchValues['amb'];
+
+
     }
 
     /**
@@ -200,10 +205,12 @@ class PropiedadRepository extends BaseRepository
                 caa.cantidad_antiguedad,
                 IF(mon.moneda = "U$S", val.valor * 14, val.valor) AS valor_convertido, caa.cantidad_antiguedad,
                 IF(sca.cantidad_ambientes is null, 0, sca.cantidad_ambientes) AS cantidad_ambientes,
-                e.nombre AS nombre_emprendimiento
+                e.nombre AS nombre_emprendimiento,
+                IF(fo.foto_principal IS NOT null, CONCAT("'. $this->publicURL .'", fo.foto_principal), "") AS foto_url
           FROM propiedad AS p
           INNER JOIN ubicacionpropiedad AS z ON p.id_ubica = z.id_ubica 
-          INNER JOIN tipoprop AS t ON p.id_tipo_prop = t.id_tipo_prop  
+          INNER JOIN tipoprop AS t ON p.id_tipo_prop = t.id_tipo_prop 
+          LEFT JOIN (select id_prop, foto as foto_principal from fotos where posicion = 1) as fo on p.id_prop = fo.id_prop
           LEFT JOIN emprendimiento AS e ON p.id_emp = e.id_emp
           LEFT JOIN 
               (SELECT id_prop, contenido AS sup_total FROM propiedad_caracteristicas WHERE id_carac = 198) AS st 

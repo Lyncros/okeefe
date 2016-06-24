@@ -167,7 +167,7 @@ EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true`
 
 `/api/v1/propiedad?moneda=$&rural=true`
 
-#Filtros Especiales
+##Filtros Especiales
 
 **Moneda**
 
@@ -178,8 +178,7 @@ conversión en pesos. La converción es dinamica al valor del dia segun BCRA.
 
 `/api/v1/propiedad&filtroMon=USD` (Filtro segun su moneda)
 
-# Busqueda de propiedades
-
+## Busqueda de propiedades
 Esta disponible la busqueda individual de propiedades con sus caracteristicas
 `api/v1/propiedades/{id_prop}`
 
