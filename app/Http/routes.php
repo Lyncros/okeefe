@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', ['as' => '/', function () {
+    return view('index');
+}]);
+Route::get('/home', function () {
+    return redirect()->route('/');
 });

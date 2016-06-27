@@ -1,0 +1,82 @@
+.valor, .caracteristicas{
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+.bloque1{
+	background-color: #fbf9f9;
+	margin-bottom: 20px;
+}
+.bloque1 .texto{
+	padding-right: 4%;
+}
+
+
+.titulo-tasa{
+	color: #006032;
+	    display: block;
+    padding-top: 40px;
+}
+	
+.b1-imagen{
+	margin-top: 30px;
+}
+
+.valor .subt{
+	display: block;
+	background-color: #797c7f;
+	color: #ffffff;
+	padding: 6px 12px;
+}
+
+.video{
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+
+    background: url('../img/img-vid.png') no-repeat center;
+    background-size: 100% auto;
+    height: 624px;
+}
+
+.video  a{
+	margin-top: 50px;
+}
+
+.caracteristicas h2{
+	color: #006032;
+}
+
+.carac{
+	background-color: #fbf9f9;
+}
+
+.carac .texto{
+	background-color: #fbf9f9;
+}
+
+.carac .titulo{
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+}

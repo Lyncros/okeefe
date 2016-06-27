@@ -1,0 +1,137 @@
+.opciones .subt{
+	display: block;
+	background-color: #797c7f;
+	color: #ffffff;
+	padding: 6px 12px;
+}
+
+.busqueda .resultados .banner{
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.busqueda .filtros .filtro{
+	padding: 10px 10px;
+    border: 1px solid #a3a4a3;
+    font-size: 20px;
+}
+
+.busqueda .filtros .filtro.escogido{
+	margin-bottom: 10px;
+}
+
+.busqueda .filtros label[for=pesos]{
+	border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.busqueda .filtros label[for=dolares]{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-precio{
+	font-size: 16px;
+}
+
+.form-precio input[type=radio] {
+	display:none;
+}
+
+.form-precio input[type=radio]:checked+label{
+	color: #ffffff;
+    background-color: #797c7f;
+    border-color: #797c7f;
+}
+
+.busqueda .filtros .filtro.escogido i{
+	color: #007b3c;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.valores>span{
+	display: block;
+	width: 100%;
+	padding: 2px 8%;
+	font-size: 16px;
+}
+
+.valores .nombre{
+	color: #007b3c;
+}
+
+a[aria-expanded=true]>i{
+	transform: rotate(90deg);
+}
+
+/*BUSQUEDA PROP 01*/
+
+#modal-premium .modal-dialog{
+	width: 69%;
+	margin: 30px 4% 30px auto;
+}
+
+#modal-premium .modal-body{
+	padding: 0;
+}
+
+#modal-premium .close{
+	position: absolute;
+	right: 0;
+}
+
+/*BUSQUEDA PROP 03*/
+
+.ficha .descripcion{
+	text-align: left;
+    font-size: 14px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/*BUSQUEDA PROP 04*/
+
+.busqueda .resultados #mapa-busqueda{
+	height: 600px;
+}
+
+.busqueda .resultados .nota-mapa{
+	display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+
+	background-color: #fbf9f9;
+}
+
+.busqueda .resultados .nota-mapa h2{
+	color: #006032;
+}
+
+/*BUSQUEDA PROP 05*/
+
+#modal-fav .modal-dialog{
+	width: 80%;
+}
+
+#modal-fav .titulo{
+	color: #006032;
+}
+
+#modal-fav .eliminar-fav{
+	position: absolute;
+    right: 15px;
+    color: #006032;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#modal-fav .form-envio-fav textarea{
+	height: 100px;
+	resize: none;
+}
