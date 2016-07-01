@@ -1,0 +1,54 @@
+.galeria-propiedades, .informacion-propiedad, .tabla-info-prop, .slider-propiedades, .texto-final-prop{
+	padding-right: 3%;
+	padding-left: 3%;
+}
+
+.f_consulta-prop textarea{
+	height: 100px;
+	resize: none;
+}
+
+.f_consulta-prop h3{
+	color: #e9580c;
+}
+
+.boton-fav.compartir .fa-inverse {
+    color: #007b3c;
+}
+
+.tabla-info-prop table>tbody>tr>td{
+	background-color: #fbf9f9;
+    border: 4px solid white;
+    border-top: none;
+}
+
+.tabla-info-prop table>thead>tr>th{
+	border-bottom: none;
+	color: #007b3c;
+	font-size: 20px;
+}
+
+.tabla-info-prop table>tbody>tr>td>span{
+	float: right;
+	font-weight: 600;
+}
+
+.tabla-info-prop table>tbody>tr>td>span>i{
+	color: #e9580c;
+}
+
+.slider-propiedades .titulo-slider-prop{
+	display: block;
+	background-color: #007b3c;
+	color: #ffffff;
+	padding: 6px 12px;
+}
+
+#slider-mod .carousel-inner{
+	padding: 0 30px;
+}
+
+
+.texto-final-prop p{
+	color: #797c7f;
+}

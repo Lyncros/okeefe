@@ -1,0 +1,13 @@
+#modal-premium .modal-dialog{
+	width: 69%;
+	margin: 30px 4% 30px auto;
+}
+
+#modal-premium .modal-body{
+	padding: 0;
+}
+
+#modal-premium .close{
+	position: absolute;
+	right: 0;
+}

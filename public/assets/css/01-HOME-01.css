@@ -1,0 +1,101 @@
+
+#slider-principal .carousel-caption {
+    color: black;
+    left: 55%;
+    text-align: right;
+    max-width: 500px;
+    right: auto;
+  top: 40%;
+  transform: translateY(-50%);
+  bottom: initial;
+  text-shadow: none;
+}
+
+
+#slider-principal .carousel-caption h2{
+	color: #006032;
+}
+
+#slider-principal .carousel-caption .txt-caption{
+	display: block;
+	margin: 20px 0 35px;
+}
+
+.carousel-inner .item {
+    -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  }
+
+.titulo-home{
+	color: #F16221;
+}
+
+.difuminado{
+	opacity: 0.75;
+	font-family: RobotoBlack;
+}
+
+.bloque1{
+	padding-left: 3%;
+	padding-right: 3%;
+}
+	
+.b1-imagen{
+	margin-top: 30px;
+}
+
+.bloque2{
+	margin-top: 20px;
+}
+.bloque-img{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1px;
+	float: left;
+	width: 50%;
+}
+
+.bi1{
+	background: url("../img/homea.png") no-repeat center;
+	height: 353.84px;
+	background-size: 100% auto;
+}
+
+.bi2{
+	background: url("../img/homeb.png") no-repeat center;
+	height: 353.84px;
+	background-size: 100% auto;
+}
+.bi3{
+	background: url("../img/homec.png") no-repeat center;
+	height: 353.84px;
+	background-size: 100% auto;
+}
+.bi4{
+	background: url("../img/homed.png") no-repeat center;
+	height: 353.84px;
+	background-size: 100% auto;
+}
+
+@media screen and (max-width: 900px) {
+    .bi1, .bi2, .bi3, .bi4{
+		height: 175px;
+	}
+}
+
+.bloque-img a{
+	width: 50%;
+	white-space: normal;
+	font-size: 18px;
+	padding: 15px 20px;
+	-webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.bloque-img a:hover{
+	width: 55%;
+}
+

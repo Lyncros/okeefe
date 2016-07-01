@@ -1,0 +1,36 @@
+.banner-emp{
+	display: block;
+	position: relative;
+}
+
+.banner-emp .caption{
+	font-family: RobotoBlack;
+	font-size: 28px;
+	text-align: center;
+	background-color: rgba(0, 96, 50, 0.8);;
+	color: #ffffff;
+	display: block;
+	position: absolute;
+	padding: 10px 20px;
+	margin: auto;
+	top: 50%;
+    left: 40%;
+    transform: translate(-33%,-50%);
+}
+
+.bloque-form{
+	padding: 20px 3%;
+}
+
+
+.bloque-form .subt{
+	display: block;
+	background-color: #797c7f;
+	color: #ffffff;
+	padding: 6px 12px;
+}
+
+.bloque-form .form-contact textarea{
+	resize: none;
+	height: 150px;
+}
