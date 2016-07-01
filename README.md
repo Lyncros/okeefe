@@ -1,27 +1,187 @@
-# Laravel PHP Framework
+# Okeefe API Buscador
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Pasos para deploy
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+###Clonar el repo
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+`$ git clone https://github.com/Lyncros/okeefe.git`
 
-## Official Documentation
+`$ cd okeefe`
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+`$ git checkout develop`
 
-## Contributing
+`$ composer install`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Configurar .env con los datos locales
 
-## Security Vulnerabilities
+## Base de datos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+La base de datos original fue indexada en varias tablas para mejorar el rendimiento de la busqueda,
+por favor descargar consultas y ejecutar: (Ejecutar en orden)
 
-## License
+http://pastebin.com/KsQTnTcw
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+**Script PHP Para cocheras default 0 en todas las propiedades**
+http://pastebin.com/GLQ19bva
+
+**Script PHP Para antiguedad default 0 en todas las propiedades**
+http://pastebin.com/2t5maHyt
+
+# Api Docs
+
+## Busqueda de inmuebles segun tipo, operacion, ubicacion
+
+- Los valores por defectos son Casa en Venta
+
+***Busqueda de todos los departamentos en venta.***
+
+`/api/v1/propiedad?operacion=12&tipo=9`
+
+***Busqueda de departamentos en venta en Wilde***
+
+`/api/v1/propiedad?q=Wilde&operacion=12&tipo=9`
+
+**Tipos de operacion (IDs)**
+
+- Alquiler -> 2
+- Alquiler temporario -> 4
+- Venta -> 12
+
+- Por default inversión (emprendimiento) no se muestran para que esten disponibles
+se debe usar la llamada:
+
+`/api/v1/propiedad?q=quilmes&emp=1&tipo=9&operacion=12`
+
+## Busqueda de recidencial
+
+* Tipos de busquedas recidenciales (IDs)
+
+- Casas -> 9
+- Departamentos y PH -> 1
+- Lotes -> 7
+- Quintas -> 17
+
+***Rango de valor del inmueble***
+
+`/api/v1/propiedad?valMin=0&valMax=100000`
+
+***Rango Superficie (m2)***
+
+`/api/v1/propiedad?supMin=0&supMax=100`
+
+***Cantidad de ambientes***
+
+`/api/v1/propiedad?amb==5`
+
+***Cantidad de cocheras***
+
+`/api/v1/propiedad?coch==5`
+
+***Antiguedad***
+
+`/api/v1/propiedad?ant==5`
+
+***Tipo de moneda (Default U$D y $)***
+
+*Busqueda disponible para pesos argentinos y dolares americanos*
+
+`/api/v1/propiedad?moneda=$`
+
+***Cantidad de baños***
+
+`/api/v1/propiedad?banos==2`
+
+## Busqueda de comercial/industrial
+
+* Tipos de busquedas comerciales/industriales (IDs)
+
+- Lotes -> 7
+- Industrial -> 19
+- Locales -> 2
+- Oficinas -> 11
+- Galpones -> 15
+- Cocheras -> 18
+
+`/api/v1/propiedad?tipo=11`
+
+***Rango de valor del inmueble***
+
+`/api/v1/propiedad?valMin=0&valMax=100000`
+
+***Cantidad de baños***
+
+`/api/v1/propiedad?tipo=11&banos==2`
+
+***Cantidad de ambientes***
+
+`/api/v1/propiedad?tipo=11&amb==1`
+
+***Cantidad de cocheras***
+
+`/api/v1/propiedad?tipo=11&coch==1`
+
+***Antiguedad***
+
+`/api/v1/propiedad?tipo=11&ant==1`
+
+***Rango Superficie (m2)***
+
+`/api/v1/propiedad?tipo=11&supMin=0&supMax=100`
+
+*Busqueda disponible para pesos argentinos y dolares americanos*
+
+`/api/v1/propiedad?moneda=$`
+
+## Busqueda rural
+
+* Tipos de busquedas rural (IDs)
+
+- Lotes -> 7,
+- Quintas -> 17,
+- Estancias -> 22,
+- Chacras -> 16,
+- Campos -> 6,
+- Galpones' -> 15
+
+EJ: `/api/v1/propiedad?tipo=6&operacion=12&rural=true`
+
+`/api/v1/propiedad?tipo=7&rural=true`
+
+***Cantidad de cocheras***
+
+`/api/v1/propiedad?tipo=11&coch==1&rural=true`
+
+***Antiguedad***
+
+`/api/v1/propiedad?tipo=11&ant==1&rural=true`
+
+***Rango Superficie (h)***
+
+`/api/v1/propiedad?tipo=11&supMin=0&supMax=100&rural=true`
+
+***Rango de valor del inmueble***
+
+`/api/v1/propiedad?valMin=0&valMax=100000&rural=true`
+
+*Busqueda disponible para pesos argentinos y dolares americanos*
+
+`/api/v1/propiedad?moneda=$&rural=true`
+
+##Filtros Especiales
+
+**Moneda**
+
+Si la moneda de la propiedad es USD (Dolares americanos) se podra buscar por su
+conversión en pesos. La converción es dinamica al valor del dia segun BCRA.
+
+`/api/v1/propiedad&filtroMon=ARS`  (Valor por defecto)
+
+`/api/v1/propiedad&filtroMon=USD` (Filtro segun su moneda)
+
+## Busqueda de propiedades
+Esta disponible la busqueda individual de propiedades con sus caracteristicas
+`api/v1/propiedades/{id_prop}`
+
+
+
+

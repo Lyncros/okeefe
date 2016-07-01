@@ -4,4 +4,8 @@
 Homestead.yaml
 Homestead.json
 .env
+<<<<<<< HEAD
 /.idea
+=======
+/.idea/*
+>>>>>>> origin/develop
