@@ -1,0 +1,165 @@
+<ion-view>
+  <ion-nav-title>
+    <img src="img/logo.png" class="ok-logo-img" />
+  </ion-nav-title>
+  <ion-content>
+    <div class="row ok-padding-0">
+      <div class="wrapper">
+        <img class="full-image" src="img/banner-appraisals.jpg">
+        <p>INVERTIR EN EL MERCADO INMOBILIARIO
+          ES MUCHO MÁS FÁCIL DE LO
+          QUE TE IMAGINÁS Y NO HACEN FALTA GRANDES MONTOS DE DINERO.</p>
+      </div>
+    </div>
+    <!-- 1 INVERSIONES A TU MEDIDA -->
+    <div class="row ok-investments-number">
+      <div class="col">
+        <div class="c-peq">
+          1
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">INVERSIONES A TU MEDIDA</h4>
+        <h6 class="text-center ok-text-bold">Inversiones para todos los gustos y presupuestos</h6>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">3.000 A 5.000</h4>
+        <h6 class="text-center ok-text-bold">Parcelas productivas</h6>
+        <h6 class="text-center ok-text-bold">Storage (bauleras)</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">8.000 A 25.000</h4>
+        <h6 class="text-center ok-text-bold">Loteos abiertos</h6>
+        <h6 class="text-center ok-text-bold">Cocheras y camas naúticas</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">30.000 A 60.000</h4>
+        <h6 class="text-center ok-text-bold">Locales comerciales</h6>
+        <h6 class="text-center ok-text-bold">Lotes en barrios cerrados</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">65.000 A 100.000</h4>
+        <h6 class="text-center ok-text-bold">Departamentos de 1 y 2 ambientes</h6>
+        <h6 class="text-center ok-text-bold">Oficinas</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">110.000 A 300.000</h4>
+        <h6 class="text-center ok-text-bold">Oficinas premium</h6>
+        <h6 class="text-center ok-text-bold">Casas y departamentos</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">350.000 A 700.000</h4>
+        <h6 class="text-center ok-text-bold">Casas en barrios cerrados</h6>
+        <h6 class="text-center ok-text-bold">Chacras y campos productivos</h6>
+        <i class="ion-chevron-down ok-color-orange"></i>
+      </div>
+    </div>
+    <div class="row ok-investments-box">
+      <div class="col ok-background-grey ok-position-relative">
+        <h4 class="text-center ok-text-bold">+ DE 800.000</h4>
+        <h6 class="text-center ok-text-bold">Estancias productivas</h6>
+        <h6 class="text-center ok-text-bold">Centros comerciales y de servicios</h6>
+      </div>
+    </div>
+    <!-- 1 INVERSIONES A TU MEDIDA -->
+    <!-- 2 TIMING Y UBICACIÓN -->
+    <div class="row ok-investments-number">
+      <div class="col">
+        <div class="c-peq">
+          2
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">TIMING Y UBICACIÓN</h4>
+        <h6 class="text-center ok-text-bold">Diferencias de rentabilidad y retornos</h6>
+        <h6 class="text-center ok-text-bold">según el estadío de inversión</h6>
+      </div>
+    </div>
+    <div ng-repeat="item in investments_timing" class="ok-investments-timing-list">
+      <div class="row ok-padding-bottom-0">
+        <div class="col ok-padding-bottom-0">
+          <div class="ok-background-grey">
+            <img class="full-image" src="{{item.image}}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="ok-background-grey ok-timing-box">
+            <h5 class="text-center ok-color-green">{{item.title}}</h5>
+            <h5 class="text-center ok-color-orange">{{item.subtitle}}</h5>
+            <h6 ng-repeat="text in item.text" class="text-center ok-text-bold">{{text}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2 TIMING Y UBICACIÓN -->
+    <!-- 3 ASESORAMIENTO -->
+    <div class="row ok-investments-number">
+      <div class="col">
+        <div class="c-peq">
+          3
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">ASESORAMIENTO</h4>
+        <h6 class="text-center ok-text-bold">Nuestros especialistas en proyectos</h6>
+        <h6 class="text-center ok-text-bold">de inversión te esperan. Contactalos.</h6>
+      </div>
+    </div>
+    <div class="list list-inset ok-margin-top-0">
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Nombre">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Apellido">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Teléfono">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Celular">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Email">
+      </label>
+      <label class="item item-input ok-form-input">
+        <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
+      </label>
+      <button class="button button-block button-positive ok-form-button">
+        Enviar
+      </button>
+    </div>
+    <!-- 3 ASESORAMIENTO -->
+    <div class="row ok-footer">
+      <div class="col ok-img-list">
+        <img src="img/FACEBOOK.svg">
+        <img src="img/LINKEDIN.svg">
+        <img src="img/YOUTUBE.svg">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
