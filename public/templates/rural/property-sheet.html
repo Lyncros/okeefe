@@ -1,0 +1,614 @@
+<div class="sub-header">
+    <div class="row">
+        <div class="col-md-9">
+            <a href="">Okeefe</a> <span class='ariadna'> > <a href="">Compra</a></span> <span class='ariadna'> > <a href="">Residencial</a></span>
+        </div>
+        <div class="boton-fav">
+            <a href="javascript:;" class="btn btn-gris-claro btn-block" data-toggle="modal" data-target="#modal-fav" >
+						<span class="fa-stack">
+						  <i class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+						</span>
+                Ver favoritos
+                <span class="contador">5</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="galeria-propiedades">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>TÍTULO DE PROPIEDAD CON CARACTERES LIMITADOS</h2>
+        </div>
+        <div class="col-md-3 text-right"><h2>$850.000 | <span class="id-prop">ID 68788</span> </h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="wowslider-container1">
+                <div class="ws_images">
+                    <ul>
+                        <li><img src="assets/img/slide-propiedad.png" alt="Epígrafe foto, epígrafe foto" title="Epígrafe foto, epígrafe foto" id="wows1_0"/></li>
+                        <li><img src="assets/img/slide-propiedad.png" alt="Epígrafe foto, epígrafe foto" title="Epígrafe foto, epígrafe foto" id="wows1_1"/></li>
+                        <li><img src="assets/img/slide-propiedad.png" alt="Epígrafe foto, epígrafe foto" title="Epígrafe foto, epígrafe foto" id="wows1_2"/></li>
+                        <li><img src="assets/img/slide-propiedad.png" alt="Epígrafe foto, epígrafe foto" title="Epígrafe foto, epígrafe foto" id="wows1_3"/></li>
+                        <li><img src="assets/img/slide-propiedad.png" alt="Epígrafe foto, epígrafe foto" title="Epígrafe foto, epígrafe foto" id="wows1_4"/></li>
+                    </ul>
+                </div>
+                <div class="ws_thumbs">
+                    <div>
+                        <a><img src="assets/img/thumbsprop/slidepropiedad.png" alt="" /></a>
+                        <a><img src="assets/img/thumbsprop/slidepropiedad.png" alt="" /></a>
+                        <a><img src="assets/img/thumbsprop/slidepropiedad.png" alt="" /></a>
+                        <a><img src="assets/img/thumbsprop/slidepropiedad.png" alt="" /></a>
+                        <a><img src="assets/img/thumbsprop/slidepropiedad.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="ws_shadow"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="informacion-propiedad">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row pestanas-prop">
+                <div class="col-md-12">
+                    <div class="menu text-center">
+                        <div class="item i1 active">
+                            <a ng-click="moveArrow('f')" href=".ficha-tec" class="f" data-toggle="tab">Ficha tecnica</a>
+                        </div>
+                        <div class="item i2">
+                            <a ng-click="moveArrow('v')" href=".video" class="v" data-toggle="tab">Video</a>
+                        </div>
+                        <div class="item i3">
+                            <a ng-click="refreshMap();moveArrow('m')" href=".mapa" class="m" data-toggle="tab">Mapa</a>
+                        </div>
+                        <div class="item i4">
+                            <a ng-click="moveArrow('s')" href=".street-view" class="s" data-toggle="tab">Street View</a>
+                        </div>
+                        <div class="item i5">
+                            <a ng-click="moveArrow('p')" href=".planos" class="p" data-toggle="tab" >Planos</a>
+                        </div>
+                        <div class="item i6">
+                            <a ng-click="moveArrow('t')" href=".terminaciones" class="t" data-toggle="tab">Terminaciones</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="flecha"></div>
+                <div role="tabpanel" class="tab-pane fade in active ficha-tec">
+                    <div class="row">
+                        <div class="col-md-2"><strong>Dirección</strong></div>
+                        <div class="col-md-10"><span class="dato-tec"><strong>Alvarez Thomas 1234</strong></span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Ubicación</strong></div>
+                        <div class="col-md-10"><span class="dato-tec">Berazategui, Buenos Aires, G.B.A. Zona Sur</span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Tipo</strong></div>
+                        <div class="col-md-10"><span class="dato-tec">Barrio Cerado</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Estado</strong></div>
+                        <div class="col-md-10"><span class="dato-tec">En obra</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><strong>Descripción</strong></div>
+                        <div class="col-md-10"><span class="dato-tec">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</span></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade video padding-0">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item video-prop" src="https://www.youtube.com/embed/xDMP3i36naA"></iframe>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade mapa">
+                    <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom" options="options">
+                        <ui-gmap-marker ng-repeat="marker in map.markers"
+                                        idkey="marker.id"
+                                        coords="marker.coords">
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
+                </div>
+                <div role="tabpanel" class="tab-pane fade street-view">sit</div>
+                <div role="tabpanel" class="tab-pane fade planos">
+
+                    <div id="slider-planos" class="carousel slide slider-planos" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <!-- SLIDE -->
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img class="img-responsive center-block" src="assets/img/plano.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SLIDE -->
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img class="img-responsive center-block" src="assets/img/plano.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SLIDE -->
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href=".slider-planos" ng-non-bindable role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="right carousel-control" href=".slider-planos" ng-non-bindable role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade terminaciones">
+                    <p>
+                        Conformado por un predio de 37,5 hectáreas y dividido en 296 lotes de entre 600 y 1.200 mts cuadrados. Solo habrá lotes unifamiliares con la finalidad de mantener la densidad habitacional baja y así maximizar la posibilidad de los propietarios del uso de los sectores comunes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="boton-fav compartir">
+                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover' data-content="Compartir" data-trigger="hover" data-placement="top">
+									<span class="fa-stack">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+									</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="boton-fav compartir">
+                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover' data-content="Imprimir" data-trigger="hover" data-placement="top">
+									<span class="fa-stack">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="glyphicon glyphicon-print fa-stack-1x fa-inverse"></i>
+									</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="boton-fav compartir">
+                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover' data-content="Descargar" data-trigger="hover" data-placement="top">
+									<span class="fa-stack">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="glyphicon glyphicon-download-alt fa-stack-1x fa-inverse"></i>
+									</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="boton-fav">
+                        <a href="javascript:;" class="btn btn-verde btn-block" data-toggle='popover' data-content="Optimizá tus búsquedas y marcá tus <strong>Favoritos</strong>" data-trigger="hover" data-placement="top" data-html='true'>
+                            HACÉ CLICK ACÁ Y GUARDÁ TU BÚSQUEDA EN FAVORITOS
+									<span class="fa-stack fix">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+									</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <form class="f_consulta-prop text-center">
+                <h3>¿QUERÉS SABER MAS?</h3>
+                <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
+                <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
+                <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
+                <input class="form-control custom" type="text" name="celular" placeholder="Celular">
+                <input class="form-control custom" type="text" name="email" placeholder="Correo">
+                <textarea class="form-control custom" name="mensaje" placeholder="Mensaje"></textarea>
+                <div class="row">
+                    <div class="col-md-7 pull-right">
+                        <button class="btn btn-naranja btn-block btn-lg" type="submit">CONSULTAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="tabla-info-prop">
+    <div class="row">
+        <div class="col-md-3 col-xs-6 columna padding-0">
+            <span class="th">Ambientes</span>
+            <span class='td'>Superficie <span>60 M2</span></span>
+            <span class='td'>Superficie cubierta<span>40 M2</span></span>
+            <span class='td'>Ambientes <span>5</span></span>
+            <span class='td'>Living <span>SI</span></span>
+            <span class='td'>Comedor <span>SI</span></span>
+            <span class='td'>Dormitorios <span>2</span></span>
+            <span class='td'>Cocina <span>SI</span></span>
+            <span class='td'>Lavadero <span>SI</span></span>
+        </div>
+        <div class="col-md-3 col-xs-6 columna padding-0">
+            <span class="th">Características</span>
+            <span class='td'>Estado general <span>Muy bueno</span></span>
+            <span class='td'>Orientación <span>Norte</span></span>
+            <span class='td'>Disposición <span>CF</span></span>
+            <span class='td'>Vista<span>Ciudad</span></span>
+            <span class='td'>Luminosidad<span>Muy luminoso</span></span>
+            <span class='td'>Antiguedad<span>2 años</span></span>
+            <span class='td'>xx <span>SI</span></span>
+            <span class='td'>xx <span>SI</span></span>
+        </div>
+        <div class="col-md-2 col-xs-4 columna padding-0">
+            <span class="th">Servicios</span>
+            <span class='td'>Agua corriente <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>Gas natural <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
+        </div>
+        <div class="col-md-2 col-xs-4 columna padding-0">
+            <span class="th">Amenities</span>
+            <span class='td'>SUM <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>Pileta <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>Gimnasio <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+        </div>
+        <div class="col-md-2 col-xs-4 columna padding-0">
+            <span class="th">El edificio</span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
+        </div>
+    </div>
+</div>
+
+<div class="row slider-propiedades">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="titulo-slider-prop text-center"> ENCONTRÁ MÁS PROPIEDADES RELACIONADAS A TU BÚSQUEDA </span>
+        </div>
+    </div>
+    <div class="row">
+        <div id="slider-mod" class="carousel slide slider-mod" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <!-- SLIDE -->
+                <div class="item active">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE -->
+                <div class="item">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-12 ficha padding-0">
+                            <img class="img-responsive" src="assets/img/prop1.png">
+                            <div class="descripcion col-lg-12">
+                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/tipo_propiedad.svg">Departamento
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/ambientes.svg">2 ambientes
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 padding-0">
+                                        <img src="assets/img/m2.svg">72 M2
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padding-5">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                            <span class="fa-stack">
+                                              <i class="fa fa-circle fa-stack-2x"></i>
+                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE -->
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".slider-mod" ng-non-bindable role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href=".slider-mod" ng-non-bindable role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row texto-final-prop">
+    <div class="flecha"></div>
+    <div class="col-md-12 text-center msje">
+        <p class="small">TODA LA INFORMACIÓN COMERCIAL, DESCRIPCIÓN, PRECIOS, PLANOS, IMÁGENES, MEDIDAS Y SUPERFICIES QUE SE PROPORCIONAN EN ESTA WEB SE BASA EN INFORMACIÓN QUE CONSIDERAMOS FIABLE. NO PODEMOS ASEGURAR QUE SEA EXACTA, NI COMPLETA, REPRESENTA MATERIAL PRELIMINAR AL SOLO EFECTO INFORMATIVO E ILUSTRATIVO DE LAS CARACTERÍSTICAS DEL INMUEBLE, PUDIENDO ESTAR SUJETA A ERRORES, OMISIONES Y CAMBIOS, INCLUYENDO EL PRECIO O LA RETIRADA DE OFERTA SIN PREVIO AVISO</p>
+    </div>
+</div>

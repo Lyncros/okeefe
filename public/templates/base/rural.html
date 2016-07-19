@@ -1,0 +1,190 @@
+
+<body ng-controller="indexController">
+<div class="encabezado">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo col-md-3">
+                <div class="img-logo">
+                    <img class="img-responsive" src="assets/img/logo-rural.png">
+                </div>
+            </div>
+            <div class="grupo-enc">
+                <div class="btn_contacto col-xs-2 pull-right">
+                    <a href="" class="btn btn-verde btn-block btn-lg" role="button">CONTACTO</a>
+                </div>
+                <!-- MENU SESION INCIADA, invisible sin sesión -->
+                <div class="col-xs-2 pull-right menu-sesion">
+                    <div class="row">
+                        <div class="col-xs-4 item">
+                            <a href="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<ul><li><a href=''>Mis Datos</a></li><li><a href=''>Salir</a></li></ul>">
+                                <img class="img-responsive" src="assets/img/fav-menu.svg" >
+                            </a>
+                        </div>
+                        <div class="col-xs-4 item">
+                            <a href="" data-toggle="tooltip" data-placement="bottom" title="Mis Favoritos">
+                                <img class="img-responsive" src="assets/img/fav-menu.svg" >
+                            </a>
+                        </div>
+                        <div class="col-xs-4 item">
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Mis Tasaciones">
+                                <img class="img-responsive" src="assets/img/tasa-menu.svg" >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--FIN MENU SESION INCIADA, invisible sin sesión -->
+                <div class="menu rural text-center pull-right">
+                    <div class="item i1">
+                        <a href="/">Home</a>
+                    </div>
+                    <div class="item i2">
+                        <a href="#/subdivisiones">Subdivisiones</a>
+                    </div>
+                    <div class="item i3">
+                        <a href="#/arrendamientos">Arrendamientos</a>
+                    </div>
+                    <div class="item i4">
+                        <a href="#/tasaciones">Tasaciones</a>
+                    </div>
+                    <div class="item i5">
+                        <a href="#/noticias">News</a>
+                    </div>
+                    <div class="item i6">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form class="filtros">
+                <div class="col-md-3">
+                    <label class="flecha-select lg">
+                        <select class="form-control input-lg custom">
+                            <option>Compra</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="flecha-select lg">
+                        <select class="form-control input-lg custom">
+                            <option>Campo</option>
+                        </select>
+                    </label>
+
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control input-lg custom" type="text" name="" placeholder="Zona|Provincia">
+                </div>
+                <div class="btn_buscar col-md-2 pull-right">
+                    <a href="#/propiedades" class="btn btn-naranja btn-block btn-lg">BUSCAR</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="todo container-fluid">
+    <div id="siteContent"  ng-view autoscroll="true">
+        <!-- Site content -->
+    </div>
+    <!---FOOTER-->
+    <div class="row footer">
+        <div class="col-md-3 padding-left-0">
+            <img class="img-responsive foot-logo" src="assets/img/logo-rural.png">
+
+            <div class="col-md-5 enlaces padding-left-0">
+                <ul>
+                    <a class="col-md-12 padding-left-0" href="#/quienes-somos">Nosotros</a>
+                    <a class="col-md-12 padding-left-0" href="#/quienes-somos#servicios">Servicios</a>
+                    <a class="col-md-12 padding-left-0" href="#/tasaciones">Tasaciones</a>
+                    <a class="col-md-12 padding-left-0" href="#">Contacto</a>
+                </ul>
+            </div>
+            <div class="col-md-6 enlaces">
+                <ul>
+                    <li><a href="">xxxxxx</a></li>
+                    <li><a href="">xxxxxx</a></li>
+                    <li><a href="">xxxxxx</a></li>
+                    <li><a href="">xxxxxx</a></li>
+                    <li><a href="">xxxxxx</a></li>
+                </ul>
+            </div>
+            <div class="col-md-12 foot-datos">
+                <address>
+                    <small>
+                        <strong>Oficina Hudson: </strong>Au BA - La Plata Ramal MDQ KM 34.5<br>
+                        <strong>Tel: </strong> 022 - 2945 - 5003<br>
+                        <strong>email: </strong> xxxxxxxxxxxxx@okeefe.com.ar<br>
+                    </small>
+                </address>
+
+                <div class="redes">
+                    <div class="red">
+                        <a href="">
+                            <img class="img-responsive" src="assets/img/FACEBOOK_r.png">
+                        </a>
+                    </div>
+                    <div class="red">
+                        <a href="">
+                            <img class="img-responsive" src="assets/img/LINKEDIN_r.png">
+                        </a>
+                    </div>
+                    <div class="red">
+                        <a href="">
+                            <img class="img-responsive" src="assets/img/YOUTUBE_r.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <div id="slider-mapas" class="carousel slide slider-maps" data-ride="carousel">
+                <h5>Nuestras oficinas</h5>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item mapa" ng-class="{'active': $first}" ng-repeat="map in maps track by $index">
+                        <ui-gmap-google-map control ="map.control" ng-cloak center="map.center" zoom="map.zoom" options="options">
+                            <ui-gmap-marker ng-repeat="marker in map.markers"
+                                            idkey="marker.id"
+                                            coords="marker.coords"
+                                            >
+                            </ui-gmap-marker>
+                        </ui-gmap-google-map>
+                        <span class="enlace-sucursal"><h3>{{map.name}}</h3></span>
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="right carousel-control" href=".slider-maps" ng-non-bindable role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h5>Formulario de consultas</h5>
+            <form class="f_contacto">
+                <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
+                <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
+                <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
+                <input class="form-control custom" type="text" name="celular" placeholder="Celular">
+                <input class="form-control custom" type="text" name="email" placeholder="E-mail">
+                <textarea class="form-control custom" name="mensaje" placeholder="Mensaje"></textarea>
+                <div class="checkbox">
+                    <div class="bootstrap-switch-square">
+                        <input checked type="checkbox" data-toggle="switch" id="sub" data-on-text="<span class='fa fa-check'></span>" data-off-text="<span class='fa fa-close'></span>" />
+                        <label for="sub" class="css-label">Suscribirme al newsletter</label>
+                    </div>
+
+                    <div class="col-md-4 pull-right padding-right-0">
+                        <button class="btn btn-negro btn-block" type="submit">ENVIAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row art-footer">
+        <div class="img-footer"></div>
+    </div>
+</div>
+</body>

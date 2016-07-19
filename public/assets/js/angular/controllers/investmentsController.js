@@ -1,10 +1,8 @@
 (function(){
     angular.module('okeefeSite.controllers')
-        .controller('investmentsController',function ($scope,$rootScope, propertiesService) {
-            $('.flex-images').flexImages({rowHeight: 180});
-            $('.detalle').toggle();
-            $('.item').hover(function(){
-                $(this).find('.detalle').fadeToggle();
-            });
+        .controller('investmentsController',function ($scope,$rootScope, entitiesService) {
+            entitiesService.view_animation('.animation-element');
+            entitiesService.project_filter();
+            entitiesService.toggle('.detalle','.item',200);
         });
 })();

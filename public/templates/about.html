@@ -1,3 +1,24 @@
+<div class="sub-menu qs">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menu text-center pull-left">
+                <div class="item i1">
+                    <a ng-click="goToDiv('servicios')" class="m-servicios">Servicios</a>
+                </div>
+                <div class="item i2">
+                    <a ng-click="goToDiv('slider-equipo')" class="m-equipo">Equipo</a>
+                </div>
+                <div class="item i3">
+                    <a ng-click="goToDiv('trayectoria')" class="m-trayect">Trayectoria</a>
+                </div>
+                <div class="item i4">
+                    <a ng-click="goToDiv('sucursales')" class="m-sucursales">Sucursales</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="banner-qs">
     <div class="row">
         <img class="img-responsive" src="assets/img/banner-qs.png">
@@ -7,9 +28,9 @@
     </div>
 </div>
 
-<div id="servicios" class="bloque1">
+<div id="servicios" class="bloque-serv">
     <div class="row">
-        <div class="col-xs-3 bloque">
+        <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
                 <img class="img-responsive" src="assets/img/ase.svg">
             </div>
@@ -18,7 +39,7 @@
             <p>INVERSIONES INMOBILIARIAS</p>
             <p>Y AGROPECUARIAS</p>
         </div>
-        <div class="col-xs-3 bloque">
+        <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
                 <img class="img-responsive" src="assets/img/adm.svg">
             </div>
@@ -27,7 +48,7 @@
             <p>CONTROL DE GASTOS</p>
             <p>LIQUIDACIONES</p>
         </div>
-        <div class="col-xs-3 bloque">
+        <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
                 <img class="img-responsive" src="assets/img/com.svg">
             </div>
@@ -36,7 +57,7 @@
             <p>COMPRAS - VENTAS</p>
             <p>ALQUILERES</p>
         </div>
-        <div class="col-xs-3 bloque">
+        <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
                 <img class="img-responsive" src="assets/img/cons.svg">
             </div>
@@ -50,19 +71,16 @@
 
 <div class="bloque2">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-lg-12">
             <h2>UN EQUIPO COMPROMETIDO CON VOS</h2>
         </div>
     </div>
     <div class="row">
-        <div id="slider-equipo" class="carousel slide slider-equipo" data-ride="carousel">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <!-- SLIDE -->
-                <div class="item active">
-                    <div class="col-xs-4 ficha">
-                        <div class="img-equipo center-block">
+        <div class="carousel carousel-showmanymoveone slide" id="slider-equipo">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
+                <div class="img-equipo center-block">
                             <img class="img-responsive" src="assets/img/equipo1.png">
                         </div>
                         <div class="descripcion text-center">
@@ -74,96 +92,45 @@
                                 terrenos para emprendimientos.</p>
                         </div>
                         <p class="email"><strong>eduardo@okeefe.com.ar</strong></p>
-                    </div>
-                    <div class="col-xs-4 ficha mid">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo2.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>CHARLIE O'KEEFE</h4>
-                            <span class="cargo">DIRECTOR FINANCIERO</span>
-                            <p class="d">Encargado de la División Comercial.
-                                Martillero Público</p>
-                        </div>
-                        <p class="email"><strong>charlie@okeefe.com.ar</strong></p>
-                    </div>
-                    <div class="col-xs-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo3.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>GEORGINA BADANO</h4>
-                            <span class="cargo">TITULAR DEL ESTUDIO JURÍDICO Y NOTARIAL BADANO & CIA</span>
-                            <p class="d">Abogada. Más de 35 años de trayectoria
-                                en asuntos inmobiliarios, de familia,
-                                sucesorios, civiles y desarrollos inmobi-
-                                liarios. Especialista en Fideicomisos.</p>
-                        </div>
-                        <p class="email"><strong>georgina@okeefe.com.ar</strong></p>
-                    </div>
-                </div>
-                <!-- SLIDE -->
-                <div class="item">
-                    <div class="col-xs-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo1.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>EDUARDO O'KEEFE</h4>
-                            <span class="cargo">GERENTE GENERAL</span>
-                            <p class="d">Martillero y Corredor Público.
-                                Administración y venta de campos y hacienda desde 1974.
-                                Brooker y asesor en manejo de grandes
-                                terrenos para emprendimientos.</p>
-                        </div>
-                        <p class="email"><strong>eduardo@okeefe.com.ar</strong></p>
-                    </div>
-                    <div class="col-xs-4 ficha mid">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo2.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>CHARLIE O'KEEFE</h4>
-                            <span class="cargo">DIRECTOR FINANCIERO</span>
-                            <p class="d">Encargado de la División Comercial.
-                                Martillero Público</p>
-                        </div>
-                        <p class="email"><strong>charlie@okeefe.com.ar</strong></p>
-                    </div>
-                    <div class="col-xs-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo3.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>GEORGINA BADANO</h4>
-                            <span class="cargo">TITULAR DEL ESTUDIO JURÍDICO Y NOTARIAL BADANO & CIA</span>
-                            <p class="d">Abogada. Más de 35 años de trayectoria
-                                en asuntos inmobiliarios, de familia,
-                                sucesorios, civiles y desarrollos inmobi-
-                                liarios. Especialista en Fideicomisos.</p>
-                        </div>
-                        <p class="email"><strong>georgina@okeefe.com.ar</strong></p>
-                    </div>
-                </div>
-                <!-- SLIDE -->
             </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href=".slider-equipo" ng-non-bindable role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="right carousel-control" href=".slider-equipo" ng-non-bindable role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
+          </div>
+          <div class="item">
+            <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
+                <div class="img-equipo center-block">
+                            <img class="img-responsive" src="assets/img/equipo2.png">
+                        </div>
+                        <div class="descripcion text-center">
+                            <h4>CHARLIE O'KEEFE</h4>
+                            <span class="cargo">DIRECTOR FINANCIERO</span>
+                            <p class="d">Encargado de la División Comercial.
+                                Martillero Público</p>
+                        </div>
+                        <p class="email"><strong>charlie@okeefe.com.ar</strong></p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
+                <div class="img-equipo center-block">
+                            <img class="img-responsive" src="assets/img/equipo3.png">
+                        </div>
+                        <div class="descripcion text-center">
+                            <h4>GEORGINA BADANO</h4>
+                            <span class="cargo">TITULAR DEL ESTUDIO JURÍDICO Y NOTARIAL BADANO & CIA</span>
+                            <p class="d">Abogada. Más de 35 años de trayectoria en asuntos inmobiliarios, de familia, sucesorios, civiles y desarrollos inmobiliarios. Especialista en Fideicomisos.</p>
+                        </div>
+                        <p class="email"><strong>georgina@okeefe.com.ar</strong></p>
+            </div>
+          </div>          
         </div>
+        <a class="left carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
     </div>
 </div>
 
 <div class="titulo-b3">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-lg-12">
             <h2>40 AÑOS DE ESFUERZO, VISIÓN Y DIVERSIDAD</h2>
         </div>
     </div>
@@ -241,62 +208,43 @@
     </p>
 </div>
 
-<div class="bloque4">
+<div id="sucursales" class="bloque4">
     <div class="row">
-        <div class="col-xs-12">
-            <h2>NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y AMIGOS. CONTACTE A SU SUCURSAL MÁS CERCANA</h2>
+        <div class="col-lg-12 padding-left-0">
+            <h2 class="green col-lg-9">NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y AMIGOS.</h2>
+            <h2 class="col-lg-9 margin-0">CONTACTE A SU SUCURSAL MÁS CERCANA</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-4 caja-mapa">
-            <div class="mapa" id="mapa-quilmes"></div>
-            <div class="texto-mapa">
-                <h3>CASA CENTRAL QUILMES</h3>
-                <p><i class="fa fa-phone"></i>4253 - 3961</p>
-                <p><i class="fa fa-home"></i>Mitre 491 - Quilmes Centro</p>
+        <div class="col-lg-4 about-map" ng-repeat="map in maps track by $index">
+            <div class="col-lg-12 padding-0 caja-mapa">
+                <div class="mapa">
+                    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+                        <ui-gmap-marker ng-repeat="marker in map.markers"
+                                        idkey="marker.id"
+                                        coords="marker.coords">
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
+                </div>
+                <div class="texto-mapa">
+                    <h3>{{map.name}}</h3>
+                    <p><i class="fa fa-phone"></i>{{map.phone}}</p>
+                    <p><i class="fa fa-home"></i>{{map.address}}</p>
+                </div>
             </div>
         </div>
-
-        <div class="col-xs-4 caja-mapa">
-            <div class="mapa" id="mapa-hudson"></div>
-            <div class="texto-mapa">
-                <h3>HUDSON</h3>
-                <p><i class="fa fa-phone"></i>022 - 2945 - 5003</p>
-                <p><i class="fa fa-home"></i>Au Buenos Aires - La Plata
-                    Ramal Mar del Plata KM 34.5</p>
-            </div>
-        </div>
-
-        <div class="col-xs-4 caja-mapa">
-            <div class="mapa" id="mapa-golondrinas"></div>
-            <div class="texto-mapa">
-                <h3>LAS GOLONDRINAS</h3>
-                <p><i class="fa fa-phone"></i>022 - 2945 - 5003</p>
-                <p><i class="fa fa-home"></i>Au Buenos Aires - La Plata
-                    Ramal Mar del Plata KM 34.5</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-xs-4 caja-mapa">
-            <div class="mapa" id="mapa-nuevo"></div>
-            <div class="texto-mapa">
-                <h3>NUEVO QUILMES</h3>
-                <p><i class="fa fa-phone"></i>4253 - 3961</p>
-                <p><i class="fa fa-home"></i>Mitre 491 - Quilmes Centro</p>
-            </div>
-        </div>
-
-        <div class="col-xs-4 caja-mapa">
-            <div class="mapa text-center" id="mapa-xx">
-                <h3>PROXIMAMENTE</h3>
-            </div>
-            <div class="texto-mapa">
-                <h3>CAPITAL FEDERAL</h3>
-                <p><i class="fa fa-phone"></i>------</p>
-                <p><i class="fa fa-home"></i>------</p>
+        <div class="col-lg-4 about-map">
+            <div class="col-lg-12 padding-0 caja-mapa">
+                <div class="mapa text-center" id="mapa-xx">
+                    <div class="over">
+                        <h3>PROXIMAMENTE</h3>
+                    </div>
+                </div>
+                <div class="texto-mapa">
+                    <h3>CAPITAL FEDERAL</h3>
+                    <p><i class="fa fa-phone"></i>------</p>
+                    <p><i class="fa fa-home"></i>------</p>
+                </div>
             </div>
         </div>
     </div>

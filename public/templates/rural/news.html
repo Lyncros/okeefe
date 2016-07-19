@@ -1,0 +1,182 @@
+<div class="sub-menu">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menu text-center pull-left">
+                <div class="item i1">
+                    <a class="filtrar-rev">Revista</a>
+                </div>
+                <div class="item i2">
+                    <a class="filtrar-pren">Prensa</a>
+                </div>
+                <div class="item i3">
+                    <a class="dicc">Diccionario</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row fichas">
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha prensa">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha publicidad">
+        <img class="img-responsive" src="assets/img/advertisement.png">
+    </div>
+    <div class="ficha diccionario">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha diccionario">
+        <img class="img-responsive" src="assets/img/revista-l.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha prensa">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha diccionario">
+        <img class="img-responsive" src="assets/img/revista-l.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha prensa">
+        <img class="img-responsive" src="assets/img/revista-c.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+    <div class="ficha revista">
+        <img class="img-responsive" src="assets/img/revista.jpg">
+            <span class="txt">
+                <p>Revista O'keefe 2016</p>
+                <small>Sebastian Stupenengo</small>
+            </span>
+    </div>
+</div>
+
+<div class="row diccionario">
+    <div class="col-xs-12">
+        <div class="filtro">
+            <!-- separador -->
+            <div class="wrap-letra">
+                <a class="btn-block" data-toggle="collapse" href=".filtro-A" aria-expanded="false" aria-controls="filtro-A">
+                    <i class="fa fa-chevron-right"></i>
+                    <strong>A</strong>
+                </a>
+                <div class="collapse def filtro-A" id="filtro-A">
+
+                    <span class="d">
+                        <p> <strong>Ambiente:</strong> </p>
+                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    </span>
+
+                    <span class="d">
+                        <p> <strong>Amenitie:</strong> </p>
+                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    </span>
+
+                </div>
+            </div>
+            <!-- separador -->
+            <div class="wrap-letra">
+                <a class="btn-block" data-toggle="collapse" href=".filtro-B" aria-expanded="false" aria-controls="filtro-B">
+                    <i class="fa fa-chevron-right"></i>
+                    <strong>B</strong>
+                </a>
+                <div class="collapse def filtro-B" id="filtro-B">
+
+                    <span class="d">
+                        <p> <strong>Ambiente:</strong> </p>
+                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    </span>
+
+                    <span class="d">
+                        <p> <strong>Amenitie:</strong> </p>
+                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    </span>
+
+                </div>
+            </div>
+            <!-- separador -->
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.dicc').on('click', function(){
+            $('.fichas').fadeOut(200);
+            $('.diccionario').fadeIn(200);
+        });
+
+        $('.filtrar-rev').on('click', function(){
+            $('.diccionario').fadeOut(200);
+            $('.fichas').fadeIn(200);
+        });
+
+        $('.filtrar-pren').on('click', function(){
+            $('.diccionario').fadeOut(200);
+            $('.fichas').fadeIn(200);
+        });
+    });
+</script>
