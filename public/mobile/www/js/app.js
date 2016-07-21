@@ -73,6 +73,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+      .state('app.us', {
+        url: '/porque-nosotros',
+        views : {
+          'appContent' :{
+            templateUrl: 'templates/why-us.html',
+            controller : 'usController'
+          }
+        }
+      })
 
   // Each tab has its own nav history stack:
 

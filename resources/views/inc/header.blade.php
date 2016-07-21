@@ -11,12 +11,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.flex-images.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/wowslider.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/sitio.css') }}">
-    <script type='text/javascript'>
+  <script type='text/javascript'>
       if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-        document.location = "http://localhost:8080/Lyncros/Okeefe/okeefe/public/mobile/www/";
+        document.location = "http://m.okeefe.com.ar/";
       }
       if (screen.width <= 699) {
-        document.location = "http://localhost:8080/Lyncros/Okeefe/okeefe/public/mobile/www/";
+        document.location = "http://m.okeefe.com.ar/";
       }
   </script>
 </head>

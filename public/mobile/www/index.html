@@ -17,7 +17,11 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
+    <script type='text/javascript'>
+      if ((!navigator.userAgent.match(/iPhone/i)) && (!navigator.userAgent.match(/iPod/i)) &&(screen.width > 699)) {
+        document.location = "http://sitio.okeefe.com.ar/";
+      }
+    </script>
 
   </head>
   <body ng-app="starter">
@@ -40,4 +44,5 @@
   <script src="js/services/defaultFactory.js"></script>
   <script src="js/controllers/homeController.js"></script>
   <script src="js/controllers/investmentsController.js"></script>
+  <script src="js/controllers/usController.js"></script>
 </html>
