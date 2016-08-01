@@ -222,12 +222,31 @@
                     padding: true
                 },
             ];
+            var news = [
+                {
+                    id: 1,
+                    src: 'img/revista.jpg'
+                },
+                {
+                    id: 2,
+                    src: 'img/revista-l.jpg'
+                },
+                {
+                    id: 1,
+                    src: 'img/revista-l.jpg'
+                },
+                {
+                    id: 2,
+                    src: 'img/revista.jpg'
+                },
+            ];
             return {
                 investments_timing: investments_timing,
                 why_us: why_us,
                 property_map: property_map,
                 property_info: property_info,
-                venture_info : venture_info
+                venture_info: venture_info,
+                news: news
             }
         })
 })();

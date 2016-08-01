@@ -1,0 +1,57 @@
+<ion-view>
+    <ion-nav-title>
+        <img src="img/logo.png" class="ok-logo-img"/>
+    </ion-nav-title>
+    <ion-content>
+        <div class="row ok-properties-menu ok-news-filter ok-padding-0">
+            <div class="col col-40 border-r text-center" ng-click="filter = 1">
+                <span class="ok-text ok-full-width">Revista</span>
+            </div>
+            <div class="col col-40 border-r text-center" ng-click="filter = 2">
+                <span class="ok-text ok-full-width">Prensa</span>
+            </div>
+            <div class="col text-center" ng-click="filter = 3">
+                <span class="icon-stack ok-full-width">
+                    <i class="ion-ios-circle-outline icon-stack-back ok-color-grey"></i>
+                    <i class="ion-ios-more-outline icon-stack-ico ok-color-green"></i>
+                </span>
+            </div>
+        </div>
+        <div ng-show="filter != 3" class="row ok-background-grey ok-margin-top-10">
+            <div class="col">
+                <div ng-repeat="item in news" ng-show="item.id == filter" class="col">
+                    <img class="full-image" src="{{item.src}}">
+                </div>
+            </div>
+        </div>
+        <div ng-show="filter == 3" class="row ok-background-grey ok-margin-top-0">
+            <div class="col">
+                <ion-list ng-repeat="item in dictionary" class="ok-property-sheet-list ok-news-dictionary">
+                    <div class="ok-list-content ok-text-bold">
+                        <ion-item class="item-stable ok-background-grey"
+                                  ng-click="toggleGroup(item)"
+                                  ng-class="{active: isGroupShown(item)}">
+                            <i class="icon" ng-class-odd="'ok-color-orange'" ng-class-even="'ok-color-green'" ng-class="isGroupShown(item) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+                            <span
+                            >{{item.letter}}</span>
+                        </ion-item>
+                        <ion-item class="item-accordion ok-background-grey"
+                                  ng-show="isGroupShown(item)">
+                            <div class="ok-margin-top-10" ng-class="{'ok-news-dictionary-bb': !$last}" ng-repeat="word in item.content">
+                                <h3 class="ok-text-bold">{{word.title}}</h3>
+                                <h3 class="ok-text-bold">{{word.text}}</h3>
+                            </div>
+                        </ion-item>
+                    </div>
+                </ion-list>
+            </div>
+        </div>
+        <div class="row ok-footer">
+            <div class="col ok-img-list">
+                <img src="img/FACEBOOK.svg">
+                <img src="img/LINKEDIN.svg">
+                <img src="img/YOUTUBE.svg">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

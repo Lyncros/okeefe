@@ -15,7 +15,7 @@
                     <i class="ion-location icon-stack-ico ok-color-orange"></i>
                 </span>
             </div>
-            <div class="col col-33">
+            <div class="col col-33" menu-toggle="right">
                 <span class="ok-text">
                     Filtros
                 </span>
@@ -105,18 +105,18 @@
             </div>
         </div>
         <div ng-show="view == 'map'" id="properties-map">
-           <div class="row ok-padding-0">
-               <div class="col ok-map-container ok-padding-0">
-                   <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom" options="options">
-                       <ui-gmap-marker ng-repeat="marker in map.markers"
-                                       idkey="marker.id"
-                                       coords="marker.coords">
-                       </ui-gmap-marker>
-                   </ui-gmap-google-map>
-               </div>
-           </div>
+            <div class="row ok-padding-0">
+                <div class="col ok-map-container ok-padding-0">
+                    <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom" options="options">
+                        <ui-gmap-marker ng-repeat="marker in map.markers"
+                                        idkey="marker.id"
+                                        coords="marker.coords">
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
+                </div>
+            </div>
 
-       </div>
+        </div>
         <!-- Search Results -->
         <div class="row ok-footer">
             <div class="col ok-img-list">

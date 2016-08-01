@@ -4,12 +4,18 @@
 .ok-margin-top-0 {
     margin-top: 0 !important;
 }
-
+.ok-full-width{
+    width: 100% !important;
+}
 .ok-margin-top-5 {
     margin-top: 5px !important;
 }
 .ok-margin-top-10 {
     margin-top: 10px !important;
+}
+.ok-margin-top-20{
+    margin-top: 20px !important;
+
 }
 .ok-margin-0 {
     margin: 0 !important;
@@ -119,10 +125,36 @@
 .ok-investments-box {
     margin: 0 auto !important;
 }
-
+.ok-about-who-slider{
+    -webkit-box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
+    -moz-box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
+}
+.ok-about-who-slider ion-slide{
+    text-align: center;
+    height: 500px !important;
+    padding: 20px;
+}
+.ok-about-who-slider ion-slide .name{
+    margin-top: 0 !important;
+}
+.ok-about-who-slider ion-slide .job{
+    margin-bottom: 20px !important;
+}
+.ok-about-who-slider ion-slide .email{
+    position: absolute;
+    bottom:40px;
+    left: 30%;
+}
 .ok-about-box {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+{
+-webkit-box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
+-moz-box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
+box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
 }
 
 .ok-about-list .item {
@@ -164,8 +196,10 @@
 .menu.menu-left {
     width: calc(100%) !important;
 }
-
-.menu-open .menu-content {
+.menu.menu-right {
+    width: calc(100%) !important;
+}
+.menu-open  .menu-content{
     transform: translate3d(calc(100%), 0px, 0px) !important;
 }
 
@@ -176,12 +210,15 @@
 .ok-properties-menu{
     border-bottom: solid 1px grey;
 }
-.ok-properties-menu div:first-child{
+.ok-properties-menu div:first-child, .ok-news-filter div.border-r{
     border-right: solid 1px grey;
+}
+.ok-news-filter div.border-l{
+    border-left: solid 1px grey;
 }
 .ok-properties-menu .icon-stack{
     font-size: 30px !important;
-    width: 33px !important;
+    width: 33px;
     height: 30px!important;
     float: left;
 }
@@ -244,15 +281,23 @@
 .ok-property-sheet-list ion-item, .ok-property-sheet-list .list{
     border: none;
 }
-.ok-property-sheet-list ion-item, .ok-property-sheet-list .list ion-item p, .ok-property-sheet-list ion-item, .ok-property-sheet-list .list ion-item h4{
+.ok-property-sheet-list ion-item, .ok-property-sheet-list .list ion-item p, .ok-property-sheet-list ion-item, .ok-property-sheet-list .list ion-item h4, .ok-news-dictionary h3{
     overflow: initial;
     white-space: initial;
     line-height: 1;
+}
+.ok-news-dictionary-bb{
+    border-bottom: 1px solid #797C7F;
+    padding-bottom: 10px;
 }
 .ok-property-sheet-list div.ok-list-content
 {
     border-bottom: 1px solid #797C7F;
     margin-bottom: 5px;
+    margin-top: 5px;
+}
+.ok-news-dictionary div.ok-list-content{
+    border-bottom: 1px solid #000000;
 }
 .ok-property-sheet-form-title{
     margin-top: 20px !important;
@@ -275,14 +320,33 @@
     font-size: 1.1em;
     margin-right: 10px;
 }
-
-
-
-
+.ok-properties-filters .ok-text, .ok-properties-currencies .ok-text{
+    float: none;
+    padding:5px;
+}
+.ok-properties-filters{
+    border-bottom: 1px solid #797C7F;
+}
+.ok-properties-filters div.col-50
+{
+    padding: 10px;
+}
+.ok-border-top{
+    border-top: 1px solid #797C7F;
+}
 .red{
     color: red !important;
 }
 
 .white{
     color: #eee !important;
+}
+#ok-user-tabs .tab-nav{
+    background-color: #FBF9F9;
+}
+#ok-user-tabs .tab-nav a.tab-item{
+    color: #006032;
+}
+#ok-user-tabs .tab-nav a.tab-item-active{
+    color: #E9580C;
 }

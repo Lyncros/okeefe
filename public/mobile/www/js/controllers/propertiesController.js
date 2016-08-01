@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('propertiesController', function($scope,defaultFactory,entitiesService) {
+    .controller('propertiesController', function($scope,$rootScope,defaultFactory,entitiesService) {
         $scope.map = defaultFactory.property_map;
         $scope.options = defaultFactory.options;
         $scope.control = {};

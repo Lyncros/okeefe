@@ -8,6 +8,7 @@
 angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 'starter.services'])
 
     .run(function ($ionicPlatform) {
+
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -23,7 +24,8 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+    .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider, uiGmapGoogleMapApiProvider) {
+        $ionicConfigProvider.tabs.position('bottom');
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyDMSy5R0Rfyx7rnhJ50sBUsHawncc87tJo',
             v: '3',
@@ -39,7 +41,8 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: 'templates/index.html'
+                templateUrl: 'templates/menu.html',
+                controller: 'menuController'
             })
             .state('app.home', {
                 url: '/inicio',
@@ -73,7 +76,7 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
                 views: {
                     'appContent': {
                         templateUrl: 'templates/about.html',
-                        /*controller : 'aboutController'*/
+                        controller : 'aboutController'
                     }
                 }
             })
@@ -110,6 +113,44 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
                     'appContent': {
                         templateUrl: 'templates/venture-sheet.html',
                         controller: 'ventureSheetController'
+                    }
+                }
+            })
+            .state('app.news', {
+                url: '/noticias',
+                views: {
+                    'appContent': {
+                        templateUrl: 'templates/news.html',
+                        controller: 'newsController'
+                    }
+                }
+            })
+            .state('user', {
+                url: "/usuario",
+                abstract: true,
+                templateUrl: "templates/user/account.html"
+            })
+            .state('user.account', {
+                url: '/cuenta',
+                views: {
+                    'user-account': {
+                        templateUrl: 'templates/user/info.html',
+                    }
+                }
+            })
+            .state('user.fav', {
+                url: '/favoritos',
+                views: {
+                    'user-fav': {
+                        templateUrl: 'templates/user/fav.html',
+                    }
+                }
+            })
+            .state('user.contact', {
+                url: '/contacto',
+                views: {
+                    'user-contact': {
+                        templateUrl: 'templates/user/fav.html',
                     }
                 }
             })
