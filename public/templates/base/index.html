@@ -28,8 +28,19 @@
                         <div class="item i5" ng-if="!isLogged">
                             <a href="" ng-click="register()">Registrarse</a>
                         </div>
-                        <div class="item i5" ng-if="isLogged">
-                            <a href="#" ng-click="doLogout()">Cerrar Sesion</a>
+                        <div class="item i5 dropdown" ng-if="isLogged">
+                            <div style="cursor: pointer;" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                &nbsp <b>{{user.nombre}}</b>
+                                <span class="caret"></span>
+                            </div>
+                            <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Mis Datos</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-heart"></i> Mis Favoritos</a></li>
+                                <li><a href="#"><i class="fa fa-money"></i> Tasaciones</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="" ng-click="doLogout()">Cerrar sesion</a></li>
+                            </ul>
+
                         </div>
                     </div>
                 </div>

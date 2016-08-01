@@ -1,6 +1,10 @@
 (function() {
   angular.module('okeefeSite.controllers')
-    .controller('accountController', function($scope, $rootScope, $uibModalInstance, entitiesService) {
+    .controller('accountController',
+        function($scope, $rootScope, $uibModalInstance, entitiesService, userService) {
+
+      $scope.isLoading = false;
+      $scope.alert;
 
       $uibModalInstance.rendered.then(function() {
         entitiesService.tabs();
@@ -11,8 +15,23 @@
         $uibModalInstance.dismiss('cancel');
       };
 
-      $scope.doLogout = function() {
+      userService.me()
+          .then(function (response) {
+             $scope.user = response;
+          });
 
+      $scope.updateUser = function () {
+        $scope.isLoading = true;
+
+        userService.update($scope.user, $scope.user.id_cli)
+            .then(function (response) {
+                $scope.alert = {type: 'success', msg: response.data.message};
+                $scope.isLoading = false;
+            })
+            .catch(function (error) {
+             $scope.isLoading = false;
+                $scope.alert;
+          });
       }
     })
     .controller('loginController',

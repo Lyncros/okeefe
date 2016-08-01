@@ -9,7 +9,8 @@
     'okeefeSite.controllers',
     'okeefeSite.constants',
     'satellizer',
-    'toastr'
+    'toastr',
+    'ui.gravatar'
   ]);
 
   app.config(function($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $authProvider, API_CLIENT_AUTH) {
