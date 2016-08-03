@@ -11,7 +11,7 @@
                 <ion-item ui-sref="app.home" menu-close>Inicio</ion-item>
                 <ion-item ui-sref="app.home" menu-close>Rural</ion-item>
                 <ion-item ui-sref="app.appraisals" menu-close>Tasaciones</ion-item>
-                <ion-item ui-sref="app.home" menu-close>Registrate</ion-item>
+                <ion-item ui-sref="auth.login" menu-close>Registrate</ion-item>
                 <ion-item ui-sref="app.investments" menu-close>Inversiones</ion-item>
                 <ion-item ui-sref="app.news" menu-close>Noticias</ion-item>
                 <ion-item ui-sref="app.about" menu-close>Quiénes somos</ion-item>
@@ -20,10 +20,9 @@
         </ion-content>
     </ion-side-menu>
     <ion-side-menu side="right" is-enabled="filterProperties">
-        <ion-header-bar class="bar-stable ok-header-bar">
-            <button class="button button-icon button-clear ion-close-round pull-left" menu-toggle="right">
-            </button>
-            <img src="img/logo.png"/>
+        <ion-header-bar class="bar-stable ok-header-bar ok-filter-header-bar">
+            <i class="icon ok-color-dark-grey ion-close-round pull-left" menu-toggle="right"></i>
+            <div class="pull-right">Aplicar</div>
         </ion-header-bar>
         <ion-content>
             <div class="row ok-properties-menu ok-properties-filters ok-padding-0">

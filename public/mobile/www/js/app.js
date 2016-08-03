@@ -150,7 +150,28 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
                 url: '/contacto',
                 views: {
                     'user-contact': {
-                        templateUrl: 'templates/user/fav.html',
+                        templateUrl: 'templates/user/contact.html',
+                    }
+                }
+            })
+            .state('auth', {
+                url: "/auth",
+                abstract: true,
+                templateUrl: "templates/auth/auth.html"
+            })
+            .state('auth.register', {
+                url: '/registro',
+                views: {
+                    'auth-content': {
+                        templateUrl: 'templates/auth/register.html',
+                    }
+                }
+            })
+            .state('auth.login', {
+                url: '/login',
+                views: {
+                    'auth-content': {
+                        templateUrl: 'templates/auth/login.html',
                     }
                 }
             })
