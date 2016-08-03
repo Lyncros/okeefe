@@ -1,6 +1,6 @@
 <ion-view>
     <ion-nav-title>
-        <img src="img/logo.png" class="ok-logo-img"/>
+        <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img"/>
     </ion-nav-title>
     <ion-content>
         <div class="row ok-properties-menu ok-padding-0">
@@ -32,6 +32,148 @@
         </div>
         <!-- Search Results -->
         <div ng-show="view == 'list'" id="properties-list">
+            <div class="row ok-padding-0">
+                <img class="full-image" src="img/prop1.png">
+            </div>
+            <div class="row padding ok-margin-top-10">
+                <div class="col ok-background-grey ok-properties-list padding">
+                    <h4 class="ok-color-green padding-left">2 ambientes con extraordinariasvistas y luminosidad</h4>
+                    <div class="col ok-properties-list-content ok-padding-0">
+                        <div class="card ok-margin-0 ok-background-grey">
+                            <div class="item item-icon-left ok-background-grey">
+                                <img class="icon" ng-src="img/ubicacion.svg">
+                                Zona 1245, Berazategui, GBA Zona Sur
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-list-content ok-padding-0">
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/valor_propiedad.svg">
+                                    254.000 USD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/tipo_propiedad.svg">
+                                    Departamento
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-list-content ok-padding-0">
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/ambientes.svg">
+                                    2 ambientes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/m2.svg">
+                                    72 M2
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-buttons ok-padding-0">
+                        <div class="col ok-padding-0">
+                        <span class="icon-stack">
+                         <i class="ion-record icon-stack-back ok-color-white"></i>
+                         <i class="ion-android-favorite icon-stack-ico ok-color-orange"></i>
+                        </span>
+                        </div>
+                        <div class="col ok-padding-0">
+                        <span class="icon-stack">
+                         <i class="ion-record icon-stack-back ok-color-white"></i>
+                         <i class="ion-android-share-alt icon-stack-ico ok-color-green"></i>
+                        </span>
+                        </div>
+                        <div class="col col-40 col-offset-20 padding-right">
+                            <button ui-sref="app.propertySheet" class="ok-background-dark-grey button button-full button-dark ok-margin-top-5">
+                                VER MÁS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ok-padding-0">
+                <img class="full-image" src="img/prop1.png">
+            </div>
+            <div class="row padding ok-margin-top-10">
+                <div class="col ok-background-grey ok-properties-list padding">
+                    <h4 class="ok-color-green padding-left">2 ambientes con extraordinariasvistas y luminosidad</h4>
+                    <div class="col ok-properties-list-content ok-padding-0">
+                        <div class="card ok-margin-0 ok-background-grey">
+                            <div class="item item-icon-left ok-background-grey">
+                                <img class="icon" ng-src="img/ubicacion.svg">
+                                Zona 1245, Berazategui, GBA Zona Sur
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-list-content ok-padding-0">
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/valor_propiedad.svg">
+                                    254.000 USD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/tipo_propiedad.svg">
+                                    Departamento
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-list-content ok-padding-0">
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/ambientes.svg">
+                                    2 ambientes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ok-padding-0">
+                            <div class="card ok-margin-0 ok-background-grey">
+                                <div class="item item-icon-left ok-background-grey">
+                                    <img class="icon" ng-src="img/m2.svg">
+                                    72 M2
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ok-properties-buttons ok-padding-0">
+                        <div class="col ok-padding-0">
+                        <span class="icon-stack">
+                         <i class="ion-record icon-stack-back ok-color-white"></i>
+                         <i class="ion-android-favorite icon-stack-ico ok-color-orange"></i>
+                        </span>
+                        </div>
+                        <div class="col ok-padding-0">
+                        <span class="icon-stack">
+                         <i class="ion-record icon-stack-back ok-color-white"></i>
+                         <i class="ion-android-share-alt icon-stack-ico ok-color-green"></i>
+                        </span>
+                        </div>
+                        <div class="col col-40 col-offset-20 padding-right">
+                            <button ui-sref="app.propertySheet" class="ok-background-dark-grey button button-full button-dark ok-margin-top-5">
+                                VER MÁS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row ok-padding-0">
                 <img class="full-image" src="img/prop1.png">
             </div>
