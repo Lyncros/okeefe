@@ -1,0 +1,37 @@
+<ion-view hide-nav-bar="true">
+    <ion-content class="ok-user-register">
+        <div style="height: 70px" class="row ok-user-title">
+            <i ui-sref="app.home" class="ion-close-round ok-user-close ok-color-dark-grey"></i>
+        </div>
+        <div class="row ok-margin-top-20 padding">
+            <h4 class="ok-color-green">Recuerda que para ver tus favoritos debes estar registrado!</h4>
+        </div>
+        <div class="row padding">
+            <div class="col ok-social-login">
+                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a></span>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col ok-social-login">
+                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Google</a></span>
+            </div>
+        </div>
+        <form name="loginForm" ng-submit="doLogin()">
+            <div class="list list-inset ok-margin-top-0">
+                <label class="item item-input ok-form-input">
+                    <input type="text" placeholder="Email *" ng-model="user.email">
+                </label>
+                <label class="item item-input ok-form-input">
+                    <input type="password" placeholder="Contraseña *" ng-model="user.password">
+                </label>
+                <button class="button button-block button-positive ok-form-button">
+                    INGRESAR
+                </button>
+            </div>
+        </form>
+        <div class="content text-center ok-margin-top-20">
+            <h3 class="ok-color-green">¿NO TENÉS CUENTA?</h3>
+            <h4 class="ok-color-green" ui-sref="auth.register">¡Registrate!</h4>
+        </div>
+    </ion-content>
+</ion-view>

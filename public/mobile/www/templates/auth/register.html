@@ -1,0 +1,26 @@
+<ion-view hide-nav-bar="true">
+    <ion-content class="ok-user-register">
+        <form name="formRegister" ng-submit="doRegister()">
+            <div class="list list-inset ok-margin-top-2">
+                <label class="item item-input ok-form-input">
+                    <input type="text" placeholder="Nombre *" ng-model="user.nombre" required>
+                </label>
+                <label class="item item-input ok-form-input">
+                    <input type="text" placeholder="Apellido *" ng-model="user.apellido" required>
+                </label>
+                <label class="item item-input ok-form-input">
+                    <input type="email" placeholder="Email *" ng-model="user.email" required>
+                </label>
+                <label class="item item-input ok-form-input">
+                    <input type="text" placeholder="Teléfono *" ng-model="user.telefono" required>
+                </label>
+                </label>
+                <p class="ok-color-orange ok-margin-top-10">* campos obligatorios</p>
+                <ion-toggle toggle-class="toggle-balanced">Acepto los términos y condiciones</ion-toggle>
+                <button type="submit" class="button button-block button-positive ok-form-button">
+                    CREAR CUENTA
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
