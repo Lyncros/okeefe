@@ -1,5 +1,8 @@
 angular.module('starter.controllers')
-    .controller('menuController', function ($scope, $rootScope) {
+    .controller('menuController', function ($scope, $rootScope, $auth) {
+
+        $scope.isLogged = $auth.isAuthenticated();
+
         $scope.filterProperties = true;
         $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams) {

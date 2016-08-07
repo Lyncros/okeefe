@@ -30,7 +30,7 @@ angular.module('starter.controllers')
                 .then(function () {
                     $ionicPopup.alert({
                             title: 'Exito',
-                            content: 'Iniciada la sesión con exito'
+                            content: 'Sesión iniciada con exito.'
                         })
                         .then(function (res) {
                             window.location = '#/app/inicio'

@@ -157,6 +157,7 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
                 views: {
                     'user-account': {
                         templateUrl: 'templates/user/info.html',
+                        controller: 'accountController',
                     }
                 }
             })

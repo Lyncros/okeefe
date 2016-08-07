@@ -18,56 +18,55 @@
                 </div>
             </div>
         </div>
-        <div class="content ok-margin-top-5 ok-user-info-content">
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Nombre</div>
-                    <span>Luciana</span>
+        <form ng-submit="updateUser()">
+            <div class="content ok-margin-top-5 ok-user-info-content ">
+                <div class="row ok-margin-0">
+                    <div class="col col-90">
+                        <label class="item item-input ok-form-input">
+                            <input type="text" class="item item-input ok-form-input" ng-model="user.nombre" placeholder="Nombre">
+                        </label>
+                    </div>
+                </div>
+                <div class="row ok-margin-0">
+                    <div class="col col-90">
+                        <label class="item item-input ok-form-input">
+                            <input type="text" class="item item-input ok-form-input" ng-model="user.apellido" placeholder="Apellido">
+                        </label>
+                    </div>
+                </div>
+                <div class="row ok-margin-0">
+                    <div class="col col-90">
+                        <label class="item item-input ok-form-input">
+                            <input type="email" class="item item-input ok-form-input" ng-model="user.email" placeholder="Email">
+                        </label>
+                    </div>
+                </div>
+                <div class="row ok-margin-0">
+                    <div class="col col-90">
+                        <label class="item item-input ok-form-input">
+                            <input type="text" class="item item-input ok-form-input" ng-model="user.telefono" placeholder="Telefono">
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Apellido</div>
-                    <span>Burak</span>
+            <div class="row ok-margin-top-10 ok-user-info-title">
+                <div class="col col-75 padding-left">
+                    <h3 class="ok-color-green ok-text-bold ok-info-title">SEGURIDAD</h3>
                 </div>
             </div>
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Email</div>
-                    <span>luciana.burak@gmail.com</span>
+            <div class="content ok-margin-top-5 ok-user-info-content ok-user-info-content-sec">
+                <div class="row ok-margin-0">
+                    <div class="col col-90">
+                        <label class="item item-input ok-form-input">
+                            <input type="text" class="item item-input ok-form-input" ng-model="user.clave" placeholder="Contraseña">
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Teléfono</div>
-                    <span>115 511 1277</span>
-                </div>
-            </div>
-        </div>
-        <div class="row ok-margin-top-10 ok-user-info-title">
-            <div class="col col-75 padding-left">
-                <h3 class="ok-color-green ok-text-bold ok-info-title">SEGURIDAD</h3>
-            </div>
-        </div>
-        <div class="content ok-margin-top-5 ok-user-info-content ok-user-info-content-sec">
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Contraseña</div>
-                    <span>Luciana</span>
-                </div>
-            </div>
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Pregunta Secreta</div>
-                    <span>Comida preferida</span>
-                </div>
-            </div>
-            <div class="row ok-margin-0">
-                <div class="col col-90">
-                    <div class="ok-text-bold ok-user-opt-name">Respuesta Secreta</div>
-                    <span>Papas</span>
-                </div>
-            </div>
-        </div>
+
+            <button type="submit" class="button button-block button-positive ok-form-button">
+                MODIFICAR
+            </button>
+        </form>
     </ion-content>
 </ion-view>
