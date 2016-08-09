@@ -164,6 +164,7 @@ angular.module('starter', ['ionic', 'uiGmapgoogle-maps', 'starter.controllers', 
                 views: {
                     'auth-content': {
                         templateUrl: 'templates/auth/register.html',
+                        controller: 'registerController'
                     }
                 }
             })

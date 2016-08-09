@@ -11,16 +11,19 @@
         <div class="box"><img src="img/slide2.jpg" style="width: 100%" /></div>
       </ion-slide>
     </ion-slide-box>
-    <div class="list list-inset">
-      <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Compra">
+    <div class="list list-inset ok-home-search">
+      <label class="item item-input ok-form-input" ng-click="operationModal.show()">
+        <input value="{{operation}}" type="text" disabled placeholder="Tipo de Operación">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
       </label>
-      <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Tipo de Inmueble">
+      <label class="item item-input ok-form-input" ng-click="propertyModal.show()">
+        <input value="{{property}}" type="text" disabled placeholder="Tipo de Inmueble">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
       </label>
       <label class="item item-input ok-form-input">
         <input type="text" placeholder="Zona | Emprendimiento">
       </label>
+      <ion-toggle toggle-class="toggle-balanced">Emprendimiento</ion-toggle>
       <button ui-sref="app.properties" menu-close class="button button-block button-positive ok-form-button">
         Buscar
       </button>

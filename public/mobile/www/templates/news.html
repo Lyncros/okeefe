@@ -27,7 +27,7 @@
         <div ng-show="filter == 3" class="row ok-background-grey ok-margin-top-0">
             <div class="col">
                 <ion-list ng-repeat="item in dictionary" class="ok-property-sheet-list ok-news-dictionary">
-                    <div class="ok-list-content ok-text-bold">
+                    <div ng-show="item.content.length" class="ok-list-content ok-text-bold">
                         <ion-item class="item-stable ok-background-grey"
                                   ng-click="toggleGroup(item)"
                                   ng-class="{active: isGroupShown(item)}">

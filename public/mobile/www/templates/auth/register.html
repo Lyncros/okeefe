@@ -19,8 +19,8 @@
             <label class="item item-input ok-form-input">
                 <input type="password" placeholder="Confirmar contraseña *">
             </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Elegir pregunta secreta">
+            <label class="item item-input ok-form-input" ng-click="secretQuestionModal.show()">
+                <input value="{{register.secretQuestion}}" type="text" disabled placeholder="Elegir pregunta secreta">
             </label>
             <label class="item item-input ok-form-input">
                 <input type="text" placeholder="Respuesta secreta *">
