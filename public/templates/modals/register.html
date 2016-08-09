@@ -10,51 +10,48 @@
                     <h4 class="titulo">Guardando tus búsquedas en <strong>Favoritos</strong> podrás acceder a ellas en cualquier momento!</h4>
                 </div>
             </div>
+            <div class="row" ng-show="alert != null">
+                <uib-alert type="{{alert.type}}" close="alert = null">{{alert.msg}}</uib-alert>
+            </div>
             <div class="row row-register">
                 <div class="col-xs-6 logins padding-right-0">
                     <div class="l_face">
                         <div class="col-xs-3">
                             <img class="img-responsive" src="assets/img/face_reg.svg">
                         </div>
-                        <span>Iniciar sesión con Facebook</span>
+                        <a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a>
                     </div>
 
                     <div class="l_goo">
                         <div class="col-xs-3">
                             <img class="img-responsive" src="assets/img/goo_reg.svg">
                         </div>
-                        <span>Iniciar sesión con Google</span>
+                        <span><a href="#" ng-click="authenticate('google')">Iniciar sesión con Google</a></span>
                     </div>
                     <span class="nota1">Nunca publicaremos nada sin tu permiso</span>
-                    <div id="login-link">
+                    <div id="login-link clearfix">
                         <h3>¿YA TENÉS CUENTA?</h3>
                         <a href="" ng-click="login()" id="enlace_ing" class="enlace_ing">Ingresá!</a>
                     </div>
                 </div>
                 <div class="col-xs-6 form_reg">
-                    <form class="f_reg">
-                        <input class="form-control custom-mod" type="text" name="nombre" placeholder="Nombre*">
-                        <input class="form-control custom-mod" type="text" name="apellido" placeholder="Apellido*">
-                        <input class="form-control custom-mod" type="text" name="email" placeholder="Email*">
-                        <input class="form-control custom-mod" type="text" name="tel" placeholder="Teléfono*">
-                        <input class="form-control custom-mod" type="text" name="contraseña" placeholder="Contraseña*">
-                        <input class="form-control custom-mod" type="text" name="confirmar" placeholder="Confirmar Contraseña*">
-                        <select name="pregunta" class="form-control custom-mod">
-                            <option>Elige tu pregunta secreta</option>
-                        </select>
-                        <input class="form-control custom-mod" type="text" name="respuesta" placeholder="Respuesta secreta">
-
+                    <form class="f_reg" name="userRegisterForm" ng-submit="doRegister(userRegisterForm.$valid)" novalidate>
+                        <input class="form-control custom-mod" ng-model="user.nombre" type="text" name="nombre" placeholder="Nombre*" required>
+                        <input class="form-control custom-mod" ng-model="user.apellido" type="text" name="apellido" placeholder="Apellido*" required>
+                        <input class="form-control custom-mod" ng-model="user.email" type="email" name="email" placeholder="Email*" required>
+                        <input class="form-control custom-mod" ng-model="user.telefono" type="text" name="telefono" placeholder="Teléfono*" required>
                         <div class="blq_not">
                             <span class="nota">* campo obligatorio</span>
                         </div>
                         <div class="blq_not">
                             <div class="bootstrap-switch-square">
-                                <input checked type="checkbox" data-size="mini" data-toggle="switch" id="aceptar" data-on-text="<span class='fa fa-check'></span>" data-off-text="<span class='fa fa-close'></span>" />
+                                <input checked type="checkbox" data-size="mini" data-toggle="switch" id="aceptar" data-on-text="<span class='fa fa-check'></span>" data-off-text="<span class='fa fa-close'></span>"/>
                                 <label for="aceptar" class="css-label">Acepto los <a class="enlace_term" href="">Terminos y condiciones</a></label>
                             </div>
                         </div>
+
                         <div class="col-xs-8 pull-right">
-                            <button class="btn btn-verde btn-block" type="submit">CREAR CUENTA</button>
+                            <button class="btn btn-verde btn-block" type="submit" ng-disabled="userRegisterForm.$invalid">CREAR CUENTA</button>
                         </div>
                     </form>
                 </div>

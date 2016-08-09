@@ -8,25 +8,27 @@
         </div>
         <div class="row padding">
             <div class="col ok-social-login">
-                <span>Iniciar sesión con Facebook</span>
+                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a></span>
             </div>
         </div>
         <div class="row padding">
             <div class="col ok-social-login">
-                <span>Iniciar sesión con Google</span>
+                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Google</a></span>
             </div>
         </div>
-        <div class="list list-inset ok-margin-top-0">
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Email *">
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="password" placeholder="Contraseña *">
-            </label>
-            <button ui-sref="user.account" class="button button-block button-positive ok-form-button">
-                INGRESAR
-            </button>
-        </div>
+        <form name="loginForm" ng-submit="doLogin()">
+            <div class="list list-inset ok-margin-top-0">
+                <label class="item item-input ok-form-input">
+                    <input type="text" placeholder="Email *" ng-model="user.email">
+                </label>
+                <label class="item item-input ok-form-input">
+                    <input type="password" placeholder="Contraseña *" ng-model="user.password">
+                </label>
+                <button class="button button-block button-positive ok-form-button">
+                    INGRESAR
+                </button>
+            </div>
+        </form>
         <div class="content text-center ok-margin-top-20">
             <h3 class="ok-color-green">¿NO TENÉS CUENTA?</h3>
             <h4 class="ok-color-green" ui-sref="auth.register">¡Registrate!</h4>

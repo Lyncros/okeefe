@@ -3,7 +3,7 @@
         <div class="col-xs-9">
             <a href="">Okeefe</a> <span class='ariadna'> > <a href="">Compra</a></span> <span class='ariadna'> > <a href="">Residencial</a></span>
         </div>
-        <div class="boton-fav">
+        <div class="boton-fav" ng-if="isLogged">
             <a href="javascript:;" class="btn btn-gris-claro btn-block" data-toggle="modal" data-target="#modal-fav" >
 						<span class="fa-stack">
 						  <i class="fa fa-circle fa-stack-2x"></i>
@@ -190,7 +190,12 @@
                 </div>
                 <div class="col-xs-9">
                     <div class="boton-fav">
-                        <a href="javascript:;" class="btn btn-verde btn-block" data-toggle='popover' data-content="Optimizá tus búsquedas y marcá tus <strong>Favoritos</strong>" data-trigger="hover" data-placement="top" data-html='true'>
+                        <a href="javascript:;" class="btn btn-verde btn-block" data-toggle='popover'
+                           data-content="Optimizá tus búsquedas y marcá tus <strong>Favoritos</strong>"
+                           data-trigger="hover"
+                           data-placement="top"
+                           data-html='true'
+                           ng-click="doFav()">
                             HACÉ CLICK ACÁ Y GUARDÁ TU BÚSQUEDA EN FAVORITOS
 									<span class="fa-stack fix">
 									  <i class="fa fa-circle fa-stack-2x"></i>
@@ -322,7 +327,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -370,7 +375,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -418,7 +423,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -469,7 +474,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -517,7 +522,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -565,7 +570,7 @@
                                     <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
 
                                     <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>

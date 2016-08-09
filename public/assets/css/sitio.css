@@ -92,8 +92,10 @@ body{
 .margin-top-10{
     margin-top: 10px;
 }
+
+
 /*estilos controles de formularios-----------------------------------------*/
-.form-control.custom, .form-control.custom-mod{
+.form-control.custom, .form-control.custom-emod{
 	line-height: 1.3333333;
 	margin-bottom: 10px;
 	background-color: #fff;
