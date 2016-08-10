@@ -49,18 +49,22 @@
                 <form class="filtros">
                     <div class="col-md-3">
                         <label class="flecha-select lg">
-                            <select class="form-control input-lg custom">
-                                <option>Compra</option>
+                            <select uib-dropdown-toggle ng-disabled="disabled" class="form-control input-lg custom">
+                                <option>Operación</option>
                             </select>
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="flecha-select lg">
-                            <select class="form-control input-lg custom">
-                                <option>Tipo de Inmueble</option>
-                            </select>
+                            <!-- Single button using template-url -->
+                            <div class="btn-group col-lg-12 padding-0" uib-dropdown>
+                                <button type="button" class="btn btn-select-menu" uib-dropdown-toggle ng-disabled="disabled">
+                                    {{property}}
+                                </button>
+                                <ul class="dropdown-menu" uib-dropdown-menu template-url="templates/modals/propertySelect.html" aria-labelledby="button-template-url">
+                                </ul>
+                            </div>
                         </label>
-
                     </div>
                     <div class="col-md-4">
                         <input class="form-control input-lg custom" type="text" name="" placeholder="Zona|Emprendimiento">

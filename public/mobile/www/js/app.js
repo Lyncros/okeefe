@@ -187,7 +187,7 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
                     views: {
                         'auth-content': {
                             templateUrl: 'templates/auth/register.html',
-                            controller: 'registerController'
+                            controller: 'userController'
                         }
                     }
                 })
@@ -199,7 +199,92 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
                             templateUrl: 'templates/auth/login.html',
                         }
                     }
-                });
+                })
+                .state('rural', {
+                    url: '/rural',
+                    abstract: true,
+                    templateUrl: 'templates/rural/menu.html',
+                    controller: 'menuRuralController'
+                })
+                .state('rural.home', {
+                    url: '/inicio',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/home.html',
+                            controller: 'homeRuralController'
+                        }
+                    }
+                })
+                .state('rural.appraisals', {
+                    url: '/tasaciones',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/appraisals.html'
+                        }
+                    }
+                })
+                .state('rural.about', {
+                    url: '/quienes-somos',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/about.html',
+                            controller: 'aboutRuralController'
+                        }
+                    }
+                })
+                .state('rural.us', {
+                    url: '/porque-nosotros',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/why-us.html',
+                            controller: 'usRuralController'
+                        }
+                    }
+                })
+                .state('rural.properties', {
+                    url: '/propiedades',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/properties.html',
+                            controller: 'propertiesRuralController'
+                        }
+                    }
+                })
+                .state('rural.propertySheet', {
+                    url: '/ficha',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/property-sheet.html',
+                            controller: 'propertyRuralSheetController'
+                        }
+                    }
+                })
+                .state('rural.news', {
+                    url: '/noticias',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/news.html',
+                            controller: 'newsRuralController'
+                        }
+                    }
+                })
+                .state('rural.subdivisions', {
+                    url: '/subdivisiones',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/subdivisions.html'
+                        }
+                    }
+                })
+                .state('rural.leases', {
+                    url: '/arrendamientos',
+                    views: {
+                        'appContent': {
+                            templateUrl: 'templates/rural/leases.html'
+                        }
+                    }
+                })
+            ;
 
             // if none of the above states are matched, use this as the fallback
             $urlRouterProvider.otherwise('/app/inicio');

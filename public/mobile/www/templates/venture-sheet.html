@@ -36,23 +36,31 @@
                         <ion-item class="item-stable ok-background-white"
                                   ng-click="toggleGroup(item)"
                                   ng-class="{active: isGroupShown(item)}">
-                            <i class="icon ok-color-orange" ng-class="isGroupShown(item) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+                            <i class="icon ok-color-orange"
+                               ng-class="isGroupShown(item) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
                             &nbsp;
                             <span class="ok-color-green">{{item.name}}</span>
                         </ion-item>
-                        <ion-item ng-if="item.id == 1" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
+                        <ion-item ng-if="item.id == 1" class="item-accordion ok-background-grey"
+                                  ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
                                   ng-show="isGroupShown(item)">
                             <div ng-bind-html="item.data"></div>
                         </ion-item>
-                        <ion-item ng-if="item.id == 2" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
+                        <ion-item ng-if="item.id == 2" class="item-accordion ok-background-grey"
+                                  ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
                                   ng-show="isGroupShown(item)">
-                            <div class="video-container"><iframe src="{{trustSrc(item.src)}}" frameborder="0" width="{{item.width}}" height="{{item.height}}"></iframe></div>
+                            <div class="video-container">
+                                <iframe src="{{trustSrc(item.src)}}" frameborder="0" width="{{item.width}}"
+                                        height="{{item.height}}"></iframe>
+                            </div>
                         </ion-item>
-                        <ion-item ng-if="item.id == 3" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
+                        <ion-item ng-if="item.id == 3" class="item-accordion ok-background-grey"
+                                  ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
                                   ng-show="isGroupShown(item)">
                             <div class="row">
                                 <div class="col ok-map-container ok-padding-0">
-                                    <ui-gmap-google-map ng-cloak control="control" center="item.map.center" zoom="item.map.zoom" options="item.options">
+                                    <ui-gmap-google-map ng-cloak control="control" center="item.map.center"
+                                                        zoom="item.map.zoom" options="item.options">
                                         <ui-gmap-marker ng-repeat="marker in item.map.markers"
                                                         idkey="marker.id"
                                                         coords="marker.coords">
@@ -61,7 +69,8 @@
                                 </div>
                             </div>
                         </ion-item>
-                        <ion-item ng-if="item.id == 4" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
+                        <ion-item ng-if="item.id == 4" class="item-accordion ok-background-grey"
+                                  ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
                                   ng-show="isGroupShown(item)">
                             <ion-slide-box does-continue="true" auto-play="true" show-pager="false">
                                 <ion-slide>
@@ -71,6 +80,20 @@
                                     <div class="box"><img src="img/slide2.jpg" style="width: 100%"/></div>
                                 </ion-slide>
                             </ion-slide-box>
+                        </ion-item>
+                        <ion-item ng-if="item.id == 5" class="item-accordion"
+                                  ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
+                                  ng-show="isGroupShown(item)">
+                            <div class="ok-background-grey ok-margin-top-5 ok-uni-list" ng-repeat="uni in item.data">
+                                <div class="row padding-left padding-right ok-padding-bottom-0">
+                                    <div class="col col-50 ok-padding-0">{{uni.name}}</div>
+                                    <div class="col col-50 text-right ok-padding-0">{{uni.amb}}</div>
+                                </div>
+                                <div class="row padding-left padding-right ok-padding-bottom-0">
+                                    <div class="col col-50 ok-padding-0">{{uni.size}}</div>
+                                    <div class="col col-50 text-right ok-padding-0">{{uni.oper}}</div>
+                                </div>
+                            </div>
                         </ion-item>
                     </div>
                 </ion-list>

@@ -1,6 +1,10 @@
 /*.slider{
   height: 300px;
 }*/
+.ok-col-50{
+    width: 50%;
+    float: left;
+}
 .ok-margin-top-0 {
     margin-top: 0 !important;
 }
@@ -38,6 +42,20 @@
 }
 
 .ok-footer .ok-img-list img {
+    width: 10%;
+    margin-right: 10px;
+}
+.ok-footer-rural {
+    padding: 40px !important;
+    background: url('../img/art-footer-rural.png') no-repeat left bottom;
+    background-size: 100% 40%;
+}
+
+.ok-footer-rural .ok-img-list {
+    text-align: center;
+}
+
+.ok-footer-rural .ok-img-list img {
     width: 10%;
     margin-right: 10px;
 }

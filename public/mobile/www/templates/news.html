@@ -20,7 +20,8 @@
         <div ng-show="filter != 3" class="row ok-background-grey ok-margin-top-10">
             <div class="col">
                 <div ng-repeat="item in news" ng-show="item.id == filter" class="col">
-                    <img class="full-image" src="{{item.src}}">
+                    <iframe ng-if="item.id == 1" height="500" class="ok-full-width" src="{{trustSrc(item.src)}}" frameborder="0" allowfullscreen></iframe>
+                    <img  ng-if="item.id == 2" class="full-image" src="{{item.src}}">
                 </div>
             </div>
         </div>

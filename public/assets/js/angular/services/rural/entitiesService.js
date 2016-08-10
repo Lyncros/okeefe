@@ -1,6 +1,6 @@
 (function() {
     angular.module('okeefeRuralSite.services',[])
-        .service('entitiesService', function ($timeout) {
+        .service('entitiesService', function ($timeout,$sce) {
             /**
              * wowSlider initialization
              */
@@ -181,6 +181,9 @@
                 $('.filtrar-all').click(function () {
                     $proyectos.isotope({filter: '*'})
                 });
+            };
+            this.trustSrc = function(src) {
+                return $sce.trustAsResourceUrl(src);
             }
         });
 })();

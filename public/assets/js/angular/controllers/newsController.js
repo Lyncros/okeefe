@@ -1,6 +1,11 @@
 (function(){
     angular.module('okeefeSite.controllers')
-        .controller('newsController',function ($scope,$rootScope, entitiesService) {
-            entitiesService.news_filter();
+        .controller('newsController',function ($scope,$rootScope, entitiesService,dictionaryFactory,defaultFactory) {
+            $scope.trustSrc = function (url) {
+                return entitiesService.trustSrc(url);
+            };
+            $scope.filter = 2;
+            $scope.news = defaultFactory.news;
+            $scope.dictionary = dictionaryFactory.dictionary;
         });
 })();

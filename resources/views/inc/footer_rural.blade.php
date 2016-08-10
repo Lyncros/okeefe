@@ -1,4 +1,4 @@
-    <!-- JS -->
+<!-- JS -->
 <script src="{{ asset('assets/js/jquery/jquery-1.11.2.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/angular/base/lodash.min.js') }}"></script>
@@ -17,6 +17,7 @@
 <script src="{{ asset('assets/js/main_rural.js') }}"></script>
 <script src="{{ asset('assets/js/angular/rural_app.js') }}"></script>
 <script src="{{ asset('assets/js/angular/services/rural/entitiesService.js') }}"></script>
+<script src="{{ asset('assets/js/angular/services/rural/dictionaryFactory.js') }}"></script>
 <script src="{{ asset('assets/js/angular/services/rural/defaultFactory.js') }}"></script>
 <script src="{{ asset('assets/js/angular/controllers/rural/indexController.js') }}"></script>
 <script src="{{ asset('assets/js/angular/controllers/rural/homeController.js') }}"></script>

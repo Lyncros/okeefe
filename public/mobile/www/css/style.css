@@ -4,21 +4,44 @@
     border-top: 2px solid #007C3F !important;
     background-color: #FFFFFF !important;
 }
+.ok-header-bar-grey {
+    border-bottom: 2px solid #E65A24 !important;
+    border-top: 2px solid #007C3F !important;
+    background-color: #FBF9F9 !important;
+}
+
 
 .ok-form-input {
     margin-top: 10px;
     background-color: #FAF8F8 !important;
     border-radius: 5px !important;
 }
+.ok-form-input textarea{
+    height: 100px;
+    max-width: 100%;
+    background-color: #FAF8F8 !important;
+}
 
 .ok-form-button {
     background-color: #E65A24 !important;
+}
+.ok-rural-contact-button {
+    background-color: #E65A24 !important;
+    border-radius: 0 !important;
+    text-align: left;
+    padding: 0 15px !important;
 }
 
 .ok-logo-img {
     width: 40%;
     position: absolute;
     top: 15%;
+}
+.ok-logo-img-menu {
+    width: 33%;
+    position: absolute;
+    top: 15%;
+    left:10px;
 }
 
 .ok-color-green {
@@ -229,7 +252,7 @@
 
 .ok-properties-navlist {
     margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 5px !important;
 }
 
 .ok-properties-list .ok-properties-list-content .card {
@@ -418,11 +441,15 @@
 .ok-user-fav .ok-delete-fav{
     line-height: 5;
 }
-.ok-social-login{
-    padding: 10px !important;
+.ok-row-social-login{
     background-color: #DADAD9;
     text-align: center;
     border-radius: 5px;
+}
+.ok-social-login a{
+    text-decoration: none;
+    color: #58595B;
+    font-weight: bold;
 }
 .ok-filter-header-bar{
     font-size: 1.5em;
@@ -430,10 +457,34 @@
 .ok-filter-header-bar div.pull-right{
     position: absolute;
     right:10px;
-    top:10px;
+    top:0;
 }
-.ok-filter-header-bar i{
+.ok-filter-header-bar i.ok-close{
     position: absolute;
     left:10px;
     top:10px;
+}
+.ok-filter-apply .icon-stack , .ok-social-login .icon-stack{
+    width:40px;
+    font-size: 40px;
+    height: 40px;
+    float: left;
+}
+.ok-filter-apply .ok-filter-apply-text, .ok-social-login .ok-filter-apply-text{
+    float: left;
+    margin-top: 10px;
+}
+
+.ok-social-login .ion-social-facebook{
+    color: #465F9B;
+}
+.ok-social-login .ion-social-googleplus{
+    color: #F12C25;
+}
+.ok-social-login {
+    margin: 0 auto;
+    display: table;
+}
+.ok-uni-list{
+    font-size: 0.8em;
 }

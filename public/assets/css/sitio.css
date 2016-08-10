@@ -18,7 +18,12 @@ body{
 	font-size: 16px;
 	color: #1d1d1b;
 }
-
+.color-orange{
+	color: #e9580c;
+}
+.color-green{
+	color: #006032;
+}
 .modal-xl{
 	width: 90%;
 }
@@ -107,6 +112,8 @@ body{
 	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
 	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    font-family: Roboto;
+    font-weight: normal;
 }
 .form-control.custom-mod{
     height: 45px;
@@ -150,6 +157,7 @@ select {
 	padding:0 0 2px;
 	position:absolute;
 	pointer-events:none;
+    z-index: 5;
 }
 
 .flecha-select.lg:after {
@@ -946,7 +954,23 @@ select {
 	text-align: center;
 	padding: 10px;
 }
+#freewall {
+	-moz-column-width: 18em;
+	-webkit-column-width: 18em;
+	-moz-column-gap: 1em;
+	-webkit-column-gap:1em;
 
+}
+#freewall .news-item {
+	display: inline-block;
+	padding:  .25rem;
+	width:  100%;
+}
+
+#freewall .news-item .news-image {
+	position:relative;
+	display: block;
+}
 .fichas .ficha .txt p{
 	display: block;
 	text-align: center;
@@ -957,10 +981,6 @@ select {
 
 .fichas .ficha .txt small{
 	color: #f37a6b;
-}
-
-.diccionario{
-	display: none;
 }
 
 .diccionario .filtro .wrap-letra{
@@ -1947,4 +1967,47 @@ a[aria-expanded=true]>i{
 #slider-principal-rural  .item a{
 	margin-bottom: 100px;
 	margin-top: 100px;
+}
+.menu-item{
+	width: 100%;
+	margin: 0;
+}
+.menu-item .menu-item-title{
+	margin:0;
+    font-weight: normal;
+    font-family: Roboto;
+}
+.menu-item .menu-item-text{
+	padding: 0 5px 0 0;
+	cursor: pointer;
+    font-weight: normal;
+    font-family: Roboto;
+}
+.menu-item .menu-item-opt{
+	text-decoration: none;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+.btn-select-menu{
+    width: 100%;
+    line-height: 1.333333;
+    background-color: #FBF9F9 !important;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-color: #a3a4a3;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 18px;
+    color: #555;
+    font-family: Roboto;
+    font-weight: normal;
+}
+.dropdown-propertySelect{
+    background-color: #FBF9F9 !important;
+    margin: 0;
+    border-radius: 0;
 }

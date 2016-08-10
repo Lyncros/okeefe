@@ -1,6 +1,6 @@
 (function() {
     angular.module('okeefeSite.services',[])
-        .service('entitiesService', function ($timeout) {
+        .service('entitiesService', function ($timeout,$sce) {
             /**
              * wowSlider initialization
              */
@@ -182,30 +182,6 @@
                     $proyectos.isotope({filter: '*'})
                 });
             };
-            this.news_filter = function () {
-                var $fichas;
-                $('.fichas').imagesLoaded( function(){
-                    $fichas = $('.fichas').isotope({
-                        // options
-                        itemSelector: '.ficha',
-                        layoutMode: 'masonry'
-                    });
-                });
-                $('.filtrar-rev').click(function(){
-                    $('.fichas').fadeIn(200);
-                    $('.diccionario').fadeOut(200); 
-                    $fichas.isotope({ filter: '.revista' })
-                });
-                $('.filtrar-pren').click(function(){
-                    $('.diccionario').fadeOut(200);
-                    $('.fichas').fadeIn(200);
-                    $fichas.isotope({ filter: '.prensa' })
-                });
-                $('.dicc').on('click', function(){
-                    $('.fichas').fadeOut(200);
-                    $('.diccionario').fadeIn(200);
-                });
-            };
             this.banner = function () {
                 $('.btn-banner').on('click', function(){
                     $('.overlay-premium').fadeToggle(200);
@@ -226,5 +202,8 @@
                     $('.banner .collapse').collapse('toggle');
                 })
             };
+            this.trustSrc = function(src) {
+                return $sce.trustAsResourceUrl(src);
+            }
         });
 })();

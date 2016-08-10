@@ -6,16 +6,37 @@
         <div class="row ok-margin-top-20 padding">
             <h4 class="ok-color-green">Recuerda que para ver tus favoritos debes estar registrado!</h4>
         </div>
-        <div class="row padding">
-            <div class="col ok-social-login">
-                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a></span>
+        <div class="row padding ok-margin-0">
+            <div class="ok-row-social-login col">
+                <div class="ok-social-login">
+                <span class="icon-stack">
+                    <i class="ion-record icon-stack-back ok-color-white"></i>
+                    <i class="ion-social-facebook icon-stack-ico"></i>
+                </span>
+                    <span class="ok-filter-apply-text">
+                    <a href="#" ng-click="authenticate('facebook')">
+                        Iniciar sesión con Facebook
+                    </a>
+                </span>
+                </div>
             </div>
         </div>
-        <div class="row padding">
-            <div class="col ok-social-login">
-                <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Google</a></span>
+        <div class="row padding ok-margin-0">
+            <div class="ok-row-social-login col">
+                <div class="ok-social-login">
+               <span class="icon-stack">
+                    <i class="ion-record icon-stack-back ok-color-white"></i>
+                    <i class="ion-social-googleplus icon-stack-ico"></i>
+                </span>
+                    <span class="ok-filter-apply-text">
+                    <a href="#" ng-click="authenticate('facebook')">
+                        Iniciar sesión con Google
+                    </a>
+                </span>
+                </div>
             </div>
         </div>
+
         <form name="loginForm" ng-submit="doLogin()">
             <div class="list list-inset ok-margin-top-0">
                 <label class="item item-input ok-form-input">

@@ -21,6 +21,7 @@
 
 <!--Angular Services -->
 <script src="{{ asset('assets/js/angular/services/entitiesService.js') }}"></script>
+<script src="{{ asset('assets/js/angular/services/dictionaryFactory.js') }}"></script>
 <script src="{{ asset('assets/js/angular/services/defaultFactory.js') }}"></script>
 <script src="{{ asset('assets/js/angular/services/propertiesService.js') }}"></script>
 <script src="{{ asset('assets/js/angular/services/userService.js') }}"></script>

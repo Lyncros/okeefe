@@ -5,6 +5,10 @@
             entitiesService.switchBox();
             entitiesService.tabs();
             entitiesService.mapsSlider($scope);
+            $scope.property = "Tipo de Inmueble";
+            $scope.selectProperty = function (prop) {
+                $scope.property = prop;
+            };
             $rootScope.$on('register', function(event, data) {
                 $scope.register();
             });

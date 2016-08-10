@@ -51,6 +51,10 @@
                     $scope.login();
                 }
             };
+            $scope.property = "Tipo de Inmueble";
+            $scope.selectProperty = function (prop) {
+                $scope.property = prop;
+            };
             $scope.register = function () {
                 var modal = $uibModal.open({
                     templateUrl: 'templates/modals/register.html',

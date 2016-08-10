@@ -2,14 +2,14 @@
     <!--Menu-->
     <ion-side-menu side="left">
         <ion-header-bar class="bar-stable ok-header-bar">
-            <img src="img/logo.png"/>
+            <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img-menu" />
             <button class="button button-icon button-clear ion-close-round pull-right" menu-toggle="left">
             </button>
         </ion-header-bar>
         <ion-content>
             <ion-list class="ok-side-menu">
                 <ion-item ui-sref="app.home" menu-close>Inicio</ion-item>
-                <ion-item ui-sref="app.home" menu-close>Rural</ion-item>
+                <ion-item ui-sref="rural.home" menu-close>Rural</ion-item>
                 <ion-item ui-sref="app.appraisals" menu-close>Tasaciones</ion-item>
                 <ion-item ui-sref="auth.login" menu-close ng-if="!isLogged">Registrate</ion-item>
                 <ion-item ui-sref="user.account" menu-close ng-if="isLogged">Mi Cuenta</ion-item>
@@ -21,9 +21,15 @@
         </ion-content>
     </ion-side-menu>
     <ion-side-menu side="right" is-enabled="filterProperties">
-        <ion-header-bar class="bar-stable ok-header-bar ok-filter-header-bar">
-            <i class="icon ok-color-dark-grey ion-close-round pull-left" menu-toggle="right"></i>
-            <div class="pull-right">Aplicar</div>
+        <ion-header-bar class="bar-stable ok-header-bar-grey ok-filter-header-bar">
+            <i class="icon ok-color-dark-grey ion-close-round pull-left ok-close" menu-toggle="right"></i>
+            <div class="pull-right ok-filter-apply" menu-toggle="right">
+                <span class="icon-stack">
+                    <i class="ion-record icon-stack-back ok-color-white"></i>
+                    <i class="ion-ios-settings icon-stack-ico ok-color-orange"></i>
+                </span>
+                <span class="ok-filter-apply-text">Aplicar</span>
+            </div>
         </ion-header-bar>
         <ion-content>
             <div class="row ok-properties-menu ok-properties-filters ok-padding-0">

@@ -1,21 +1,11 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('newsController',function ($scope,$rootScope) {
-            var $fichas;
-            $('.fichas').imagesLoaded( function(){
-                $fichas = $('.fichas').isotope({
-                    // options
-                    itemSelector: '.ficha',
-                    layoutMode: 'masonry'
-                });
-            });
-
-
-            $('.filtrar-rev').click(function(){
-                $fichas.isotope({ filter: '.revista' })
-            });
-            $('.filtrar-pren').click(function(){
-                $fichas.isotope({ filter: '.prensa' })
-            });
+        .controller('newsController',function ($scope,$rootScope,dictionaryFactory,defaultFactory,entitiesService) {
+            $scope.trustSrc = function (url) {
+                return entitiesService.trustSrc(url);
+            };
+            $scope.filter = 2;
+            $scope.news = defaultFactory.news;
+            $scope.dictionary = dictionaryFactory.dictionary;
         });
 })();
