@@ -1,0 +1,391 @@
+<div class="sub-header">
+    <div class="row">
+        <div class="col-lg-9">
+            <a href="#/inicio">Okeefe</a>
+            <span><a ng-if="param.operacion"> > {{getTipoOperacion(param.operacion)}}</a></span>
+            <span><a ng-if="param.tipo"> > {{getTipoInmueble(param.tipo)}}</a></span>
+        </div>
+        <div class="boton-fav" ng-if="isLogged">
+            <a href="" class="btn btn-gris-claro btn-block" ng-click="editFav()">
+						<span class="fa-stack">
+						  <i class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+						</span>
+                Ver favoritos
+                <span class="contador">5</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="opciones">
+    <div class="row">
+        <div class="col-lg-3 col-md-12"  ng-if="properties.length">
+            <span class="subt">FILTRÁ TU BÚSQUEDA</span>
+        </div>
+        <div class="col-md-12" ng-class="{'col-lg-6' : properties.length , 'col-lg-12' : !properties.length && !loadingProperties}">
+            <span ng-if="properties.length" class="subt">MAS DE {{properties.length}} PROPIEDADES ENCONTRADAS</span>
+            <span ng-if="!properties.length && !loadingProperties" class="subt text-center">NO SE ENCONTRARON PROPIEDADES</span>
+            <span ng-if="!properties.length && loadingProperties" class="subt background-orange text-center">CARGANDO...</span>
+        </div>
+        <div ng-if="properties.length" class="col-lg-3 col-md-12 controles-list padding-left-0">
+            <div class="col-lg-7 col-md-12 padding-0">
+                <label class="flecha-select">
+                    <select ng-model="order" class="form-control input-sm custom">
+                        <option value="valor">Precio : menor primero</option>
+                        <option value="-valor">Precio : mayor primero</option>
+                        <option value="sup_total">Superficie : menor primero</option>
+                        <option value="-sup_total">Superficie : mayor primero</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-lg-5 col-md-12 padding-0">
+                <button type="button" ng-click="changeView('map');refreshMap();"
+                        class="btn btn-default btn-gris btn-op btn-sm pull-right button-margin"
+                        ng-class="{'btn-op-selected': view == 'map'}"><i class="fa fa-map-marker"></i></button>
+                <button type="button" ng-click="changeView('list')"
+                        class="btn btn-default btn-gris btn-op btn-sm pull-right button-margin"
+                        ng-class="{'btn-op-selected': view == 'list'}"><i class="fa fa-bars"></i></button>
+                <button type="button" ng-click="changeView('grid')"
+                        class="btn btn-default btn-gris btn-op btn-sm pull-right button-margin"
+                        ng-class="{'btn-op-selected': view == 'grid'}"><i class="fa fa-th"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="busqueda" ng-if="properties.length">
+    <div class="row">
+        <div class="col-lg-3 filtros">
+            <!--separador-->
+            <div class="filtro escogido" ng-if="value || value === 0"
+                 ng-repeat="(key, value) in appliedFilters track by $index">
+                <a class="btn-block">
+                    {{getFilterName(key)}} : {{value}} <span ng-if="key.indexOf('sup') > -1">m²</span>
+                    <i ng-if="key != 'filtroMon'" class="fa fa-close pull-right" ng-click="removeFilter(key)"></i>
+                </a>
+            </div>
+            <div ng-if="getObjectSize(filters.amb) > 1" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-ambientes" aria-expanded="false"
+                   aria-controls="filtro-ambientes">
+                    <i class="fa fa-chevron-right"></i>
+                    Ambientes
+                </a>
+                <div class="collapse valores filtro-ambientes" id="filtro-ambientes">
+                    <span ng-repeat="(key, value) in filters.amb track by $index"> <a
+                            ng-click="addFilter('amb',(key == '5 o mÃ¡s')? 5 : key)"><span class="nombre">{{key}}</span> <span
+                            class="cantidad">({{value}})</span></a></span>
+                </div>
+            </div>
+            <!--separador-->
+            <div ng-if="getObjectSize(filters.coch) > 1" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-cocheras" aria-expanded="false"
+                   aria-controls="filtro-cocheras">
+                    <i class="fa fa-chevron-right"></i>
+                    Cocheras
+                </a>
+                <div class="collapse valores filtro-cocheras" id="filtro-cocheras">
+                   <span ng-repeat="(key, value) in filters.coch track by $index"> <a
+                           ng-click="addFilter('coch', key)"><span class="nombre">{{key}}</span> <span
+                           class="cantidad">({{value}})</span></a></span>
+                </div>
+            </div>
+            <!--separador-->
+            <div ng-if="getObjectSize(filters.banos) > 1" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-baños" aria-expanded="false"
+                   aria-controls="filtro-baños">
+                    <i class="fa fa-chevron-right"></i>
+                    Baños
+                </a>
+                <div class="collapse valores filtro-baños" id="filtro-baños">
+                    <span ng-repeat="(key, value) in filters.banos track by $index"> <a
+                            ng-click="addFilter('banos', key)"><span class="nombre">{{key}}</span> <span
+                            class="cantidad">({{value}})</span></a></span>
+                </div>
+            </div>
+            <div class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-precio" aria-expanded="true"
+                   aria-controls="filtro-precio">
+                    <i class="fa fa-chevron-right"></i>
+                    Precio
+                </a>
+                <div class="collapse in valores filtro-precio" id="filtro-precio">
+                    <form ng-submit="addFilter('val')" class="form-horizontal form-precio">
+                        <div class="form-group">
+                            <div class="col-lg-12 text-center">
+                                <input ng-model="appliedFilters.filtroMon" type="radio" id="pesos" name="moneda"
+                                       value="ARS">
+                                <label for="pesos" class="btn btn-default col-lg-5 col-lg-offset-1">Pesos</label>
+                                <input ng-model="appliedFilters.filtroMon" type="radio" id="dolares" name="moneda"
+                                       value="USD">
+                                <label for="dolares" class="btn btn-default col-lg-5">Dólares</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="desdeV" class="col-lg-4 control-label">Desde</label>
+                            <div class="col-lg-7">
+                                <input id="desdeV" ng-model="appliedFilters.valMin" type="number" class="form-control"
+                                       placeholder="Min. $"
+                                       uib-tooltip="Debe indicar un precio mínimo"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="(!appliedFilters.valMin && !appliedFilters.valMax) && errors.val"
+                                       tooltip-trigger="'none'">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hastaV" class="col-lg-4 control-label">Hasta</label>
+                            <div class="col-lg-7">
+                                <input id="hastaV" ng-model="appliedFilters.valMax" type="number" class="form-control"
+                                       placeholder="Max. $"
+                                       uib-tooltip="Debe indicar un precio máximo"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="(!appliedFilters.valMin && !appliedFilters.valMax) && errors.val"
+                                       tooltip-trigger="'none'">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-7 col-lg-offset-4">
+                                <button class="btn btn-block btn-naranja" type="submit">APLICAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--separador-->
+            <div class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
+                   aria-controls="filtro-metros">
+                    <i class="fa fa-chevron-right"></i>
+                    Metros totales
+                </a>
+                <div class="collapse valores filtro-metros" id="filtro-metros">
+                    <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
+                        <div class="form-group">
+                            <label for="desdeS" class="col-lg-4 control-label">Desde</label>
+                            <div class="col-lg-7">
+                                <input id="desdeS" ng-model="appliedFilters.supMin" type="number" class="form-control"
+                                       placeholder="Min. M2"
+                                       uib-tooltip="Debe indicar un tamaño mínimo"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="(!appliedFilters.minSup && !appliedFilters.supMax) && errors.sup"
+                                       tooltip-trigger="'none'">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
+                            <div class="col-lg-7">
+                                <input id="hastaS" ng-model="appliedFilters.supMax" type="number" class="form-control"
+                                       placeholder="Max. M2"
+                                       uib-tooltip="Debe indicar un tamaño máximo"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="(!appliedFilters.supMin && !appliedFilters.supMax) && errors.sup"
+                                       tooltip-trigger="'none'">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-7 col-lg-offset-4">
+                                <button class="btn btn-block btn-naranja" type="submit">APLICAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--separador-->
+            <div ng-if="getObjectSize(filters.ant) > 1" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-antiguedad" aria-expanded="false"
+                   aria-controls="filtro-antiguedad">
+                    <i class="fa fa-chevron-right"></i>
+                    Antigüedad
+                </a>
+                <div class="collapse valores filtro-antiguedad" id="filtro-antiguedad">
+                    <span ng-repeat="(key, value) in filters.ant track by $index"> <a
+                            ng-click="addFilter('ant', key)"><span class="nombre">{{key}}</span> <span
+                            class="cantidad">({{value}})</span></a></span>
+                </div>
+            </div>
+            <!--separador-->
+        </div>
+        <div ng-show="view == 'grid' || view == 'list'" class="banner col-lg-9 resultados">
+            <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
+               aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
+            <div class="collapse premium" id="premium">
+                <span class="close" style='position: absolute; right: 0;' data-toggle="collapse" href=".premium"
+                      aria-controls="premium"><i class="fa fa-close"></i></span>
+                <img class="img-responsive" src="assets/img/modal-premium.png">
+            </div>
+        </div>
+        <div ng-show="view == 'grid'" class="col-lg-9 resultados">
+            <!--ficha resultados-->
+            <div class="row">
+                <div ng-repeat="prop in properties | orderBy:order" class="col-lg-4 col-md-6 ficha ficha-grid">
+                    <div class="col-lg-12 content">
+                        <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                            <img class="col-lg-12 padding-0 img-responsive"
+                                 style="height: 200px; max-height: 200px;"
+                                 ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
+                            <img class="col-lg-12 padding-0 img-responsive"
+                                 style="height: 200px; max-height: 200px;"
+                                 ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
+                        </a>
+                        <div class="descripcion">
+                            <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <p class="titulo">{{prop.calle}} {{prop.nombre_ubicacion}}</p>
+                            </a>
+                            <div class="col-lg-12 padding-0 caracteristicas">
+                                <div class="col-lg-12 padding-0">
+                                    <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                </div>
+                                <div class="col-md-12 padding-0"
+                                     ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                                    <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                </div>
+                                <div class="col-md-12 padding-0"
+                                     ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
+                                    <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                </div>
+                                <div class="col-md-12 padding-0"
+                                     ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                                    <img src="assets/img/ambientes.svg"><span
+                                        ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                                </div>
+                                <div class="col-md-12 padding-0"
+                                     ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                                    <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                </div>
+                            </div>
+                            <div class="property-buttons">
+                                <div class="col-lg-12 padding-0">
+                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                    <div class="boton-fav">
+                                        <a class="btn btn-xs btn-gris-claro-2" ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            Favorito
+                                        </a>
+                                    </div>
+                                    <div class="boton-fav compartir pull-right">
+                                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            Compartir
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 padding-0 margin-top-10">
+                                    <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                       class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fin fila-->
+        </div>
+        <div ng-show="view == 'list'" class="col-lg-9 resultados">
+            <!--ficha resultados-->
+            <div ng-repeat="prop in properties" class="col-lg-12 ficha padding-0">
+                <div class="col-lg-4 padding-0">
+                    <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
+                         ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
+                    <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
+                         ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
+                </div>
+                <div class="col-lg-4">
+                    <div class="descripcion">
+                        <p class="titulo">{{prop.calle}} {{prop.nombre_ubicacion}}</p>
+                        <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
+                            commodo tellus metus in nisi. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 padding-0">
+                    <div class="descripcion padding-0">
+                        <div class="col-lg-12 padding-0 caracteristicas">
+                            <div class="col-lg-12 padding-0">
+                                <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                            </div>
+                            <div class="col-md-12 padding-0"
+                                 ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                                <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                            </div>
+                            <div class="col-md-12 padding-0"
+                                 ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
+                                <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                            </div>
+                            <div class="col-md-12 padding-0"
+                                 ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                                <img src="assets/img/ambientes.svg"><span
+                                    ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                            </div>
+                            <div class="col-md-12 padding-0"
+                                 ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                                <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                                <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                            </div>
+                        </div>
+                        <div class="property-buttons">
+                            <div class="col-lg-12 padding-0">
+                                <div class="boton-fav">
+                                    <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                        Favorito
+                                    </a>
+                                </div>
+                                <div class="boton-fav compartir pull-right">
+                                    <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                                      <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                        Compartir
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 padding-0 margin-top-2">
+                                <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                   class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--ficha resultados-->
+        </div>
+        <div ng-show="view == 'map'" class="col-lg-9 resultados">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="mapa-busqueda">
+                        <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
+                                            options="options">
+                            <ui-gmap-marker ng-repeat="marker in map.markers"
+                                            idkey="marker.id"
+                                            coords="marker.coords"
+                                            options ="marker.options"
+                                            events = "marker.events">
+                            </ui-gmap-marker>
+                        </ui-gmap-google-map>
+                    </div>
+                </div>
+            </div>
+            <div class="nota-mapa">
+                <div class="col-lg-2">
+                    <img class="img-responsive" src="assets/img/fav_circ.svg">
+                </div>
+                <div class="col-lg-10">
+                    <h2>¡GUARDANDO TUS BÚSQUEDAS EN FAVORITOS PODRÁS ACCEDER EN CUALQUIER MOMENTO!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

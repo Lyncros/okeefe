@@ -1,0 +1,48 @@
+<div class="sub-menu">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menu text-center pull-left">
+                <div class="item">
+                    <a ng-class="{active: filter == 1 || filter == 0}" ng-click="filter = 1">Revista</a>
+                </div>
+                <div class="item">
+                    <a ng-class="{active: filter == 2 || filter == 0}" ng-click="filter = 2">Prensa</a>
+                </div>
+                <div class="item">
+                    <a ng-class="{active: filter == 3}" ng-click="filter = 3">Diccionario</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="freewall" class="col-lg-12">
+        <div ng-show="filter == 1 || filter == 0" ng-repeat="item in news" ng-if="item.id == 1" class="news-item">
+            <iframe class="col-lg-12 padding-0" height="350" src="{{trustSrc(item.src)}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div ng-show="filter == 2 || filter == 0" ng-if="item.id == 2" ng-repeat="item in news" class="news-item">
+            <a href="{{item.src}}" fancyboxable="{centerOnScroll : 'true', height : '100%', width : '100%','autoDimensions' : 'false'}"><img class="img-responsive news-image" src="{{item.src}}"></a>
+        </div>
+    </div>
+</div>
+
+<div ng-show="filter == 3" class="row diccionario">
+    <div class="col-lg-12">
+        <div class="filtro">
+            <!-- separador -->
+            <div class="wrap-letra" ng-repeat="item in dictionary">
+                <a class="btn-block" data-toggle="collapse" href=".filtro-{{item.letter}}" aria-expanded="false"
+                   aria-controls="filtro-{{item.letter}}">
+                    <i class="fa fa-chevron-right"></i>
+                    <strong>{{item.letter}}</strong>
+                </a>
+                <div class="collapse def filtro-{{item.letter}}" id="filtro-{{item.letter}}">
+                    <span class="d" ng-repeat="word in item.content">
+                        <p> <strong>{{word.title}}</strong> </p>
+                        <p>{{word.text}}</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
