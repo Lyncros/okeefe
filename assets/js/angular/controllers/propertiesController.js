@@ -75,7 +75,7 @@
                         });
                     });
                     $scope.loadingProperties = false;
-                    console.log("bien", $scope.properties);
+                    //console.log("bien", $scope.properties);
                     if ($scope.properties.length) {
                         totalFilters($scope.properties);
                         setMap($scope.properties);
