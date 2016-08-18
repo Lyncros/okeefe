@@ -238,26 +238,26 @@
     <div class="row">
         <div ng-if="property.ambientes.length" class="col-lg-3 col-md-6 columna padding-0">
             <span class="th">Ambientes</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 16" class='td'>{{char.caracteristica.titulo}} <span>{{char.contenido}}</span></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 16" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
         </div>
         <div ng-if="property.caracteristicas.length" class="col-lg-3 col-md-6 columna padding-0">
             <span class="th">Características</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 9" class='td'>{{char.caracteristica.titulo}} <span>{{char.contenido}}</span></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 9" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.servicios.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">Servicios</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 23" class='td'>{{char.caracteristica.titulo}} <span>{{char.contenido}}</span></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 23" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.amenities.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">Amenities</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 20" class='td'>{{char.caracteristica.titulo}} <span>{{char.contenido}}</span></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 20" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.caracteristicasEdificio.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">El edificio</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 19" class='td'>{{char.caracteristica.titulo}} <span>{{char.contenido}}</span></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 19" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
         </div>
     </div>
 </div>
