@@ -245,6 +245,15 @@
                     case '15':
                         return 'Galpones';
                         break;
+                    case '22':
+                        return 'Estancias';
+                        break;
+                    case '16':
+                        return 'Chacras';
+                        break;
+                    case '6':
+                        return 'Campos';
+                        break;
                     case '18':
                         return 'Cocheras';
                         break;
@@ -253,6 +262,9 @@
                         break;
                     case '7,19,2,11,15,18':
                         return 'Comercial';
+                        break;
+                    case '7,17,22,16,15,6':
+                        return 'Rural';
                         break;
                 }
             };

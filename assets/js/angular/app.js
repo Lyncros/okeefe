@@ -14,7 +14,20 @@
         'frapontillo.bootstrap-switch',
         'fancyboxplus'
     ]);
+    app.filter('orderObjectBy', function(){
+        return function(items, field, reverse) {
+            var filtered = [];
+            angular.forEach(items, function(item) {
+                filtered.push(item);
+            });
+            filtered.sort(function (a, b) {
+                return (a[field] > b[field] ? 1 : -1);
+            });
+            if(reverse) filtered.reverse();
+            return filtered;
+        };
 
+    });
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
         /*$httpProvider.defaults.headers.get = {
          'X-Knack-Application-ID': '56f21101ee817cc21f844b33',
@@ -82,7 +95,8 @@
             .when('/propiedades', {
                 templateUrl: 'templates/properties.html',
                 controller: 'propertiesController',
-                activetab: 'propiedades'
+                activetab: 'propiedades',
+                reloadOnSearch : false
             })
             .when('/ficha-propiedad/:id', {
                 templateUrl: 'templates/property-sheet.html',

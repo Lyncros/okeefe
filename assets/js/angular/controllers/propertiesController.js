@@ -1,14 +1,19 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function ($scope, $rootScope, $uibModal, entitiesService, searchApiService, defaultFactory, $auth, $location) {
-                $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}};
-                $scope.errors = {};
+            function ($scope, $rootScope, $route, $uibModal, entitiesService, searchApiService, defaultFactory, $auth, $location) {
+                $scope.view = "grid";
                 $scope.order = 'valor';
-                $scope.properties = [];
-                $scope.loadingProperties = true;
-                $scope.map = defaultFactory.property_map;
-                $scope.isLogged = $auth.isAuthenticated();
+                $scope.rev = false;
+                $scope.init = function () {
+                    $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}};
+                    $scope.errors = {};
+                    $scope.loadingProperties = true;
+                    $scope.reloadProperties = false;
+                    $scope.map = defaultFactory.property_map;
+                    $scope.isLogged = $auth.isAuthenticated();
+                    $scope.getData();
+                };
                 $scope.getParam = function () {
                     $scope.param = $location.search();
                     //console.log("$scope.param",$scope.param);
@@ -21,14 +26,20 @@
                         coch: (parseFloat($scope.param.coch) || ''),
                         ant: (parseFloat($scope.param.ant) || ''),
                         banos: (parseFloat($scope.param.banos) || ''),
-                        filtroMon: ($scope.param.filtroMon || 'ARS')
                     };
+                    $scope.filtroMon = ($scope.param.filtroMon || 'ARS');
                     //console.log("$scope.appliedFilters",$scope.appliedFilters);
                 };
 
                 $scope.getTipoInmueble = function (val) {
                     return entitiesService.tipoInmueble(val);
                 };
+
+                $scope.changeOrder = function (item) {
+                    var values = item.split(',');
+                    $scope.order = values[0];
+                    $scope.rev = values[1];
+                }
 
                 $scope.getTipoOperacion = function (val) {
                     return entitiesService.tipoOperacion(val);
@@ -43,6 +54,11 @@
                     });
                     //console.log("$scope.filters",$scope.filters);
                 }
+
+                $scope.$on('$routeUpdate', function () {
+                    $scope.reloadProperties = true;
+                    $scope.init();
+                });
 
                 function setMap(data) {
                     $scope.map.center = {latitude: data[0].goglat, longitude: data[0].goglong};
@@ -63,11 +79,12 @@
                                 })
                         }
                     });
-                };
+                }
 
                 $scope.getObjectSize = function (obj) {
                     return entitiesService.objectSize(obj);
                 };
+
                 function setProperties(obj) {
                     angular.forEach(obj, function (value, key) {
                         angular.forEach(value.propiedades, function (prop) {
@@ -75,16 +92,17 @@
                         });
                     });
                     $scope.loadingProperties = false;
-                    //console.log("bien", $scope.properties);
+                    console.log("bien", $scope.properties);
                     if ($scope.properties.length) {
                         totalFilters($scope.properties);
                         setMap($scope.properties);
                     }
-                };
+                }
 
                 $scope.getData = function () {
                     $scope.getParam();
                     searchApiService.searchApi.read($scope.param).then(function (response) {
+                        $scope.properties = [];
                         setProperties(response.data.data);
                     }, function errorCallback(response) {
                         console.log("error :", response);
@@ -111,7 +129,7 @@
                             $scope.errors.val = true;
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.appliedFilters.valMin, $scope.appliedFilters.valMax, $scope.appliedFilters.filtroMon);
+                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.appliedFilters.valMin, $scope.appliedFilters.valMax, $scope.filtroMon);
                     } else if (filter in $scope.param) {
                         return window.location = entitiesService.applyFilter(filter, value, $scope.param, '', '');
                     }
@@ -119,8 +137,6 @@
 
                 };
 
-                $scope.getData();
-                $scope.view = "grid";
 
                 $scope.changeView = function (view) {
                     $scope.view = view;
@@ -165,7 +181,7 @@
                     modal.result.catch(function () {
                     });
                 };
-
+                $scope.init();
                 entitiesService.banner();
             });
 })();

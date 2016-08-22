@@ -33,11 +33,11 @@
         <div ng-if="properties.length" class="col-lg-3 col-md-12 controles-list padding-left-0">
             <div class="col-lg-7 col-md-12 padding-0">
                 <label class="flecha-select">
-                    <select ng-model="order" class="form-control input-sm custom">
-                        <option value="valor">Precio : menor primero</option>
-                        <option value="-valor">Precio : mayor primero</option>
-                        <option value="sup_total">Superficie : menor primero</option>
-                        <option value="-sup_total">Superficie : mayor primero</option>
+                    <select ng-model="orderChanged" ng-change="changeOrder(orderChanged)" class="form-control input-sm custom">
+                        <option value="valor,true">Precio : menor primero</option>
+                        <option value="valor,false">Precio : mayor primero</option>
+                        <option value="sup_total,true">Superficie : menor primero</option>
+                        <option value="sup_total,false">Superficie : mayor primero</option>
                     </select>
                 </label>
             </div>
@@ -115,10 +115,10 @@
                     <form ng-submit="addFilter('val')" class="form-horizontal form-precio">
                         <div class="form-group">
                             <div class="col-lg-12 text-center">
-                                <input ng-model="appliedFilters.filtroMon" type="radio" id="pesos" name="moneda"
+                                <input ng-model="filtroMon" type="radio" id="pesos" name="moneda"
                                        value="ARS">
                                 <label for="pesos" class="btn btn-default col-lg-5 col-lg-offset-1">Pesos</label>
-                                <input ng-model="appliedFilters.filtroMon" type="radio" id="dolares" name="moneda"
+                                <input ng-model="filtroMon" type="radio" id="dolares" name="moneda"
                                        value="USD">
                                 <label for="dolares" class="btn btn-default col-lg-5">Dólares</label>
                             </div>
@@ -154,13 +154,26 @@
                 </div>
             </div>
             <!--separador-->
-            <div class="filtro">
+            <div ng-if="getObjectSize(filters.ant) > 1" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-antiguedad" aria-expanded="false"
+                   aria-controls="filtro-antiguedad">
+                    <i class="fa fa-chevron-right"></i>
+                    Antigüedad
+                </a>
+                <div class="collapse valores filtro-antiguedad" id="filtro-antiguedad">
+                    <span ng-repeat="(key, value) in filters.ant track by $index"> <a
+                            ng-click="addFilter('ant', key)"><span class="nombre">{{key}}</span> <span
+                            class="cantidad">({{value}})</span></a></span>
+                </div>
+            </div>
+            <!--separador-->
+            <div class="filtro filtro-metros">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
                     Metros totales
                 </a>
-                <div class="collapse valores filtro-metros" id="filtro-metros">
+                <div class="collapse valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
                         <div class="form-group">
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
@@ -193,19 +206,6 @@
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(filters.ant) > 1" class="filtro">
-                <a class="btn-block" data-toggle="collapse" data-target="#filtro-antiguedad" aria-expanded="false"
-                   aria-controls="filtro-antiguedad">
-                    <i class="fa fa-chevron-right"></i>
-                    Antigüedad
-                </a>
-                <div class="collapse valores filtro-antiguedad" id="filtro-antiguedad">
-                    <span ng-repeat="(key, value) in filters.ant track by $index"> <a
-                            ng-click="addFilter('ant', key)"><span class="nombre">{{key}}</span> <span
-                            class="cantidad">({{value}})</span></a></span>
-                </div>
-            </div>
-            <!--separador-->
         </div>
         <div ng-show="properties.length" ng-show="view == 'grid' || view == 'list'" class="banner col-lg-9 resultados" >
             <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
@@ -216,10 +216,10 @@
                 <img class="img-responsive" src="assets/img/modal-premium.png">
             </div>
         </div>
-        <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-9 resultados">
+        <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-9 resultados" style="min-height: 520px;">
             <!--ficha resultados-->
             <div class="row">
-                <div ng-repeat="prop in properties | orderBy:order" class="col-lg-4 col-md-6 ficha ficha-grid">
+                <div ng-repeat="prop in properties | orderObjectBy:order:rev" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                     <div class="col-lg-12 content">
                         <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
                             <img class="col-lg-12 padding-0 img-responsive"
@@ -293,7 +293,7 @@
         </div>
         <div ng-if="properties.length" ng-show="view == 'list'" class="col-lg-9 resultados">
             <!--ficha resultados-->
-            <div ng-repeat="prop in properties" class="col-lg-12 ficha padding-0">
+            <div ng-repeat="prop in properties | orderObjectBy:order" class="col-lg-12 ficha padding-0">
                 <div class="col-lg-4 padding-0">
                     <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
                          ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
