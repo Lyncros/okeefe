@@ -14,7 +14,7 @@ angular.module('starter.controllers')
                             content: 'Iniciada la sesión con exito'
                         })
                         .then(function (res) {
-                            window.location = '#/app/inicio'
+                            window.location = '#/usuario/cuenta'
                         });
                 })
                 .catch(function (response) {
@@ -33,7 +33,7 @@ angular.module('starter.controllers')
                             content: 'Sesión iniciada con exito.'
                         })
                         .then(function (res) {
-                            window.location = '#/app/inicio'
+                            window.location = '#/usuario/cuenta'
                         });
                 })
                 .catch(function (response) {
