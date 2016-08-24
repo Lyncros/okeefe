@@ -39,12 +39,12 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
 
             $authProvider.facebook(angular.extend({}, commonConfig, {
                 url: 'http://localhost:8000/api/' + 'auth/facebook',
-                clientId: '811994185568400'
+                clientId: '1732340417017180'
             }));
 
             $authProvider.google(angular.extend({}, commonConfig, {
                 url: 'http://localhost:8000/api/' + 'auth/google',
-                clientId: '288229723311-qu333634liboqneomltl3jbvn0js9suq.apps.googleusercontent.com'
+                clientId: '161677011925-t4907vrogdtgjkg0u52g8rhciacj1gv2.apps.googleusercontent.com'
             }));
 
             $ionicConfigProvider.tabs.position('bottom');
