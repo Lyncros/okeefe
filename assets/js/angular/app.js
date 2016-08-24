@@ -128,12 +128,12 @@
 
         $authProvider.facebook({
             url: API_CLIENT_AUTH + 'auth/facebook',
-            clientId: '811994185568400'
+            clientId: '1732340417017180'
         });
 
         $authProvider.google({
             url: API_CLIENT_AUTH + 'auth/google',
-            clientId: '288229723311-qu333634liboqneomltl3jbvn0js9suq.apps.googleusercontent.com'
+            clientId: '161677011925-t4907vrogdtgjkg0u52g8rhciacj1gv2.apps.googleusercontent.com'
         });
     });
 
