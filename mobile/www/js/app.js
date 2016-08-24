@@ -6,6 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.controllers', 'starter.services'])
+    .constant('API_CONF', {host: 'http://auth.okeefe.com.ar/api/'})
     .run(function ($ionicPlatform) {
 
         $ionicPlatform.ready(function () {
@@ -22,9 +23,8 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
             }
         });
     })
-
     .config(
-        function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, uiGmapGoogleMapApiProvider, $authProvider) {
+        function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, uiGmapGoogleMapApiProvider, $authProvider, API_CONF) {
 
             var commonConfig = {
                 popupOptions: {
@@ -35,15 +35,16 @@ angular.module('starter', ['ionic', 'satellizer', 'uiGmapgoogle-maps', 'starter.
                 }
             };
 
-            $authProvider.loginUrl = 'http://localhost:8000/api/' + 'login';
+
+            $authProvider.loginUrl = API_CONF.host + 'login';
 
             $authProvider.facebook(angular.extend({}, commonConfig, {
-                url: 'http://localhost:8000/api/' + 'auth/facebook',
+                url: API_CONF.host + 'auth/facebook',
                 clientId: '1732340417017180'
             }));
 
             $authProvider.google(angular.extend({}, commonConfig, {
-                url: 'http://localhost:8000/api/' + 'auth/google',
+                url: API_CONF.host + 'auth/google',
                 clientId: '161677011925-t4907vrogdtgjkg0u52g8rhciacj1gv2.apps.googleusercontent.com'
             }));
 

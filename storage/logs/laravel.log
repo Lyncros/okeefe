@@ -1,0 +1,19 @@
+[2016-07-27 20:45:19] local.ERROR: exception 'Symfony\Component\Console\Exception\RuntimeException' with message 'The "-S" option does not exist.' in /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Input/ArgvInput.php:194
+Stack trace:
+#0 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Input/ArgvInput.php(110): Symfony\Component\Console\Input\ArgvInput->addShortOption('S', NULL)
+#1 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Input/ArgvInput.php(86): Symfony\Component\Console\Input\ArgvInput->parseShortOption('-S')
+#2 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Input/Input.php(62): Symfony\Component\Console\Input\ArgvInput->parse()
+#3 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Command/Command.php(221): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#4 /Users/lucas/Code/okeefe-project/okeefe/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Application.php(791): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Foundation\Console\ServeCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /Users/lucas/Code/okeefe-project/okeefe/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /Users/lucas/Code/okeefe-project/okeefe/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /Users/lucas/Code/okeefe-project/okeefe/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 {main}  
+[2016-07-27 20:45:36] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function assets()' in /Users/lucas/Code/okeefe-project/okeefe/storage/framework/views/0350e61538b3fce50398dcf1d0bc33ed721ac17e.php:18
+Stack trace:
+#0 {main}  
+[2016-07-27 20:46:05] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function assets()' in /Users/lucas/Code/okeefe-project/okeefe/storage/framework/views/0350e61538b3fce50398dcf1d0bc33ed721ac17e.php:17
+Stack trace:
+#0 {main}  
