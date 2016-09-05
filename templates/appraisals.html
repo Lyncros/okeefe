@@ -18,17 +18,38 @@
     </div>
     <div class="row">
         <div class="form-contact">
-            <form class="f_contacto">
-                <div class="col-lg-4 padding-left-0">
+            <form class="f_contacto ok-apprisals-form">
+                <div class="col-lg-4 col-md-12 padding-left-0">
                     <label class="flecha-select">
-                        <select name="" class="form-control custom">
-                            <option>Vender</option>
+                        <select ng-change="validateEmp()" ng-model="appraisalForm.oper" ng-disabled="disabled"
+                                class="form-control custom"
+                                uib-tooltip="Debe seleccionar una Operación"
+                                tooltip-placement="bottom"
+                                tooltip-is-open="!appraisalForm.oper && appraisalForm.error"
+                                tooltip-trigger="'none'">
+                            <option ng-if="!searchParam.oper" value="" selected>Operación</option>
+                            <option value="12">Compra</option>
+                            <option value="1">Inversión</option>
+                            <option value="2">Alquiler</option>
+                            <option value="4">Alquiler Temporario</option>
                         </select>
                     </label>
                     <label class="flecha-select">
-                        <select name="" class="form-control custom">
-                            <option>Tipo de Inmueble</option>
-                        </select>
+                        <!-- Single button using template-url -->
+                        <div style="height: auto;" class="form-control ok-border-none btn-group col-lg-12 padding-0" uib-dropdown
+                             uib-tooltip="Debe seleccionar un Tipo de Inmueble"
+                             tooltip-placement="top"
+                             tooltip-is-open="!appraisalForm.property && appraisalForm.error"
+                             tooltip-trigger="'none'">
+                            <button type="button" class="btn btn-select-menu" uib-dropdown-toggle>
+                                <span ng-show="!appraisalForm.property">Tipo de Inmueble</span>
+                                <span ng-show="appraisalForm.property">{{appraisalForm.property}}</span>
+                            </button>
+                            <ul class="dropdown-menu" uib-dropdown-menu
+                                template-url="templates/modals/propertySelect.html"
+                                aria-labelledby="button-template-url">
+                            </ul>
+                        </div>
                     </label>
                     <label class="flecha-select">
                         <select name="" class="form-control custom">
@@ -36,15 +57,15 @@
                         </select>
                     </label>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-12">
                     <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
                     <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
                     <input class="form-control custom" type="text" name="email" placeholder="E-mail">
                 </div>
-                <div class="col-lg-4 padding-right-0">
+                <div class="col-lg-4 col-md-12 padding-right-0">
                     <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
                     <input class="form-control custom" type="text" name="celular" placeholder="Celular">
-                    <div class="col-lg-4 pull-right padding-right-0">
+                    <div class="col-lg-4 col-md-12 pull-right padding-right-0">
                         <button class="btn btn-naranja btn-block" type="submit">ENVIAR</button>
                     </div>
                 </div>

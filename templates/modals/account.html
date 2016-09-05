@@ -2,34 +2,36 @@
     <div class="modal-body">
         <div class="container-fluid">
             <div class="menu text-center pestanas-cuenta">
-                <div class="item i1 active">
-                    <a href="" data-target="#datos" data-toggle="tab">Mis Datos</a>
+                <div class="item i1" ng-class="{'active' : activeTab == 'data'}">
+                    <a href="" ng-click="activeTab = 'data'" data-toggle="tab">Mis Datos</a>
                 </div>
-                <div class="item i2">
-                    <a href="" data-target="#fav" data-toggle="tab">Mis Favoritos</a>
+                <div class="item i2" ng-class="{'active' : activeTab == 'fav'}">
+                    <a href="" ng-click="activeTab = 'fav'" data-toggle="tab">Mis Favoritos</a>
                 </div>
-                <div class="item i3">
-                    <a href="" data-target="#tasa" data-toggle="tab">Mis Tasaciones</a>
+                <div class="item i3" ng-class="{'active' : activeTab == 'appr'}">
+                    <a href="" ng-click="activeTab = 'appr'" data-toggle="tab">Mis Tasaciones</a>
                 </div>
             </div>
             <a class="close" ng-click="cancel()"><span aria-hidden="true"><img src="assets/img/cerrar.png"></span></a>
             <div class="row contenido">
-                <div class="tab-content col-md-12 padding-0">
-                    <div role="tabpanel" class="account-data padding-0 col-md-12 tab-pane fade in active" id="datos">
-                        <div class="col-md-12 info">
-                            <div class="col-md-4 user-img">
+                <div class="tab-content col-lg-12 padding-0">
+                    <div ng-show="activeTab == 'data'" class="account-data padding-0 col-lg-12" id="datos">
+                        <div class="col-lg-12 info">
+                            <div class="col-lg-4 user-img">
                                 <img class="img-responsive center-block img-circle" gravatar-size="144"
                                      gravatar-src="user.email">
                             </div>
                             <form name="profileForm" ng-submit="updateUser()" class="clearfix">
-                                <div class="col-md-8">
+                                <div class="col-lg-8">
                                     <h3 class="titulo">DATOS PERSONALES</h3>
                                     <div class="row" ng-show="alert != null">
-                                        <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
+                                        <div uib-alert ng-class="'alert-' + (alert.type || 'warning')"
+                                             close="alert = null">{{alert.msg}}
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4"><b>Nombre:</b></div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-4"><b>Nombre:</b></div>
+                                        <div class="col-lg-6">
                                             <input type="text"
                                                    ng-model="user.nombre"
                                                    class="form-control"
@@ -39,8 +41,8 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4"><b>Apellido:</b></div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-4"><b>Apellido:</b></div>
+                                        <div class="col-lg-6">
                                             <input type="text"
                                                    ng-model="user.apellido"
                                                    class="form-control"
@@ -49,8 +51,8 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4"><b>Email:</b></div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-4"><b>Email:</b></div>
+                                        <div class="col-lg-6">
                                             <input type="email"
                                                    ng-model="user.email"
                                                    class="form-control"
@@ -60,8 +62,8 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4"><b>Telefono:</b></div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-4"><b>Telefono:</b></div>
+                                        <div class="col-lg-6">
                                             <input type="text"
                                                    ng-model="user.telefono"
                                                    class="form-control"
@@ -71,8 +73,8 @@
                                     </div>
                                     <h3 class="titulo">SEGURIDAD</h3>
                                     <div class="row">
-                                        <div class="col-md-4"><b>Contraseña:</b></div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-4"><b>Contraseña:</b></div>
+                                        <div class="col-lg-6">
                                             <input type="password"
                                                    ng-model="user.password"
                                                    class="form-control"
@@ -80,47 +82,54 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-10 account-save-button">
+                                        <div class="col-lg-10 account-save-button">
                                             <button class="btn btn-naranja pull-right"
                                                     ng-disabled="isLoading"
                                                     style="margin-right: 15px;"
-                                                    type="submit">GUARDAR CAMBIOS</button>
+                                                    type="submit">GUARDAR CAMBIOS
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                        </form>
+                            </form>
                         </div>
                     </div>
                     <!-- FIN PESTAÑA -->
-                    <div role="tabpanel" class="tab-pane fade busqueda padding-0" id="fav">
+                    <div ng-show="activeTab == 'fav'" class="busqueda padding-0" id="fav">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <h3 class="titulo">HOLA [NOMBRE], ESTAS SON TUS UNIDADES FAVORITAS</h3>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <p>Envianos tu consulta. Un asesor te contactará con información a la brevedad</p>
                             </div>
                         </div>
                         <div class="row">
                             <form class="form-envio-fav">
-                                <div class="col-md-12">
+                                <div class="col-lg-12">
                                     <textarea class="form-control custom" placeholder="Mensaje"></textarea>
                                 </div>
-                                <div class="col-md-5 pull-right">
-                                    <div class="bootstrap-switch-square">
-                                        <input type="checkbox" data-size="mini" data-toggle="switch" id="similares"
-                                               data-on-text="<span class='fa fa-check'></span>"
-                                               data-off-text="<span class='fa fa-close'></span>"/>
-                                        <label for="similares" class="css-label">Quiero que me envíen propiedades
-                                            similares</label>
+                                <div class="col-lg-5 col-lg-offset-6">
+                                    <div class="col-lg-2 check-button text-center padding-0">
+                                        <input id="newsletter" bs-switch ng-model="favForm.newsletter" type="checkbox"
+                                               switch-size="small"
+                                               switch-on-color="normal"
+                                               switch-off-color="default"
+                                               switch-on-text="<span class='fa fa-check'></span>"
+                                               switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1"
+                                               ng-false-value="0">
                                     </div>
+                                    <label for="newsletter" class="col-lg-10">Quiero que me envíen propiedades similares</label>
+
+                                </div>
+                                <div class="col-lg-1 pull-right">
                                     <button type="submit" class="btn btn-sm btn-naranja pull-right">ENVIAR</button>
                                 </div>
                             </form>
 
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-lg-3">
                                 <label class="flecha-select">
                                     <select name="" class="form-control custom">
                                         <option>ver menor precio</option>
@@ -148,16 +157,16 @@
                                             <div class="col-lg-12 padding-0">
                                                 <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/valor_propiedad.svg">254.000 USD
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/tipo_propiedad.svg">Departamento
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/ambientes.svg">2 ambientes
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/m2.svg">72 M2
                                             </div>
                                         </div>
@@ -175,7 +184,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-lg-2">
                                     <a href="" class="btn btn-md delete-button" type="submit">
                                 <span class="fa-stack">
                                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
@@ -205,16 +214,16 @@
                                             <div class="col-lg-12 padding-0">
                                                 <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/valor_propiedad.svg">254.000 USD
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/tipo_propiedad.svg">Departamento
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/ambientes.svg">2 ambientes
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/m2.svg">72 M2
                                             </div>
                                         </div>
@@ -232,7 +241,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-lg-2">
                                     <a href="" class="btn btn-md delete-button" type="submit">
                                 <span class="fa-stack">
                                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
@@ -262,16 +271,16 @@
                                             <div class="col-lg-12 padding-0">
                                                 <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/valor_propiedad.svg">254.000 USD
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/tipo_propiedad.svg">Departamento
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/ambientes.svg">2 ambientes
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/m2.svg">72 M2
                                             </div>
                                         </div>
@@ -289,7 +298,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-lg-2">
                                     <a href="" class="btn btn-md delete-button" type="submit">
                                 <span class="fa-stack">
                                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
@@ -319,16 +328,16 @@
                                             <div class="col-lg-12 padding-0">
                                                 <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/valor_propiedad.svg">254.000 USD
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/tipo_propiedad.svg">Departamento
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/ambientes.svg">2 ambientes
                                             </div>
-                                            <div class="col-lg-6 col-md-12 padding-0">
+                                            <div class="col-lg-6 col-lg-12 padding-0">
                                                 <img src="assets/img/m2.svg">72 M2
                                             </div>
                                         </div>
@@ -346,7 +355,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-lg-2">
                                     <a href="" class="btn btn-md delete-button" type="submit">
                                 <span class="fa-stack">
                                   <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
@@ -359,21 +368,21 @@
                             <!--ficha resultados-->
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-md-offset-4">
+                            <div class="col-lg-4 col-lg-offset-4">
                                 <button type="button" class="btn btn-verde btn-block btn-lg">GUARDÁ Y SEGUÍ BUSCANDO!
                                 </button>
                             </div>
                         </div>
                     </div>
                     <!-- FIN PESTAÑA -->
-                    <div role="tabpanel" class="tab-pane fade" id="tasa">
+                    <div ng-show="activeTab == 'appr'" id="tasa">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <h3 class="titulo">HOLA [NOMBRE], ESTAS SON LAS TASACIONES FAVORITAS</h3>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-lg-3">
                                 <label class="flecha-select">
                                     <select name="" class="form-control custom">
                                         <option>ver menor precio</option>
@@ -382,80 +391,80 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="tasacion">
                                     <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
                                     <h4 class="t">TASACIÓN [COD **]</h4>
                                     <div class="row">
-                                        <div class="col-md-6"><strong>Fecha</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Operación</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Tipo Inmueble</strong></div>
-                                        <div class="col-md-6">xxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Zona</strong></div>
-                                        <div class="col-md-6">xxxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Fecha</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Operación</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Tipo Inmueble</strong></div>
+                                        <div class="col-lg-6">xxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Zona</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxxx</div>
                                     </div>
                                     <div class="row cc">
-                                        <div class="col-md-6 tt"><h4>ESTADO</h4></div>
-                                        <div class="col-md-6 tt"><h4>VALOR</h4></div>
-                                        <div class="col-md-6">En venta</div>
-                                        <div class="col-md-6">USD 300.000</div>
+                                        <div class="col-lg-6 tt"><h4>ESTADO</h4></div>
+                                        <div class="col-lg-6 tt"><h4>VALOR</h4></div>
+                                        <div class="col-lg-6">En venta</div>
+                                        <div class="col-lg-6">USD 300.000</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="tasacion">
                                     <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
                                     <h4 class="t">TASACIÓN [COD **]</h4>
                                     <div class="row">
-                                        <div class="col-md-6"><strong>Fecha</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Operación</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Tipo Inmueble</strong></div>
-                                        <div class="col-md-6">xxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Zona</strong></div>
-                                        <div class="col-md-6">xxxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Fecha</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Operación</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Tipo Inmueble</strong></div>
+                                        <div class="col-lg-6">xxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Zona</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxxx</div>
                                     </div>
                                     <div class="row cc">
-                                        <div class="col-md-6 tt"><h4>ESTADO</h4></div>
-                                        <div class="col-md-6 tt"><h4>VALOR</h4></div>
-                                        <div class="col-md-6">En venta</div>
-                                        <div class="col-md-6">USD 300.000</div>
+                                        <div class="col-lg-6 tt"><h4>ESTADO</h4></div>
+                                        <div class="col-lg-6 tt"><h4>VALOR</h4></div>
+                                        <div class="col-lg-6">En venta</div>
+                                        <div class="col-lg-6">USD 300.000</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="tasacion">
                                     <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
                                     <h4 class="t">TASACIÓN [COD **]</h4>
                                     <div class="row">
-                                        <div class="col-md-6"><strong>Fecha</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Operación</strong></div>
-                                        <div class="col-md-6">xxxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Tipo Inmueble</strong></div>
-                                        <div class="col-md-6">xxxxxxxx</div>
-                                        <div class="col-md-6"><strong>Zona</strong></div>
-                                        <div class="col-md-6">xxxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Fecha</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Operación</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Tipo Inmueble</strong></div>
+                                        <div class="col-lg-6">xxxxxxxx</div>
+                                        <div class="col-lg-6"><strong>Zona</strong></div>
+                                        <div class="col-lg-6">xxxxxxxxxx</div>
                                     </div>
                                     <div class="row cc">
-                                        <div class="col-md-6 tt"><h4>ESTADO</h4></div>
-                                        <div class="col-md-6 tt"><h4>VALOR</h4></div>
-                                        <div class="col-md-6">En venta</div>
-                                        <div class="col-md-6">USD 300.000</div>
+                                        <div class="col-lg-6 tt"><h4>ESTADO</h4></div>
+                                        <div class="col-lg-6 tt"><h4>VALOR</h4></div>
+                                        <div class="col-lg-6">En venta</div>
+                                        <div class="col-lg-6">USD 300.000</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <form class="form-envio-tasa">
-                                <div class="col-md-12">
+                                <div class="col-lg-12">
                         <textarea class="form-control custom"
                                   placeholder="Quiero realizar una nueva tssasación"></textarea>
                                 </div>
-                                <div class="col-md-5 pull-right">
+                                <div class="col-lg-5 pull-right">
                                     <button type="submit" class="btn btn-sm btn-naranja pull-right">ENVIAR</button>
                                 </div>
                             </form>

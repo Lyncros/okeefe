@@ -2120,6 +2120,22 @@ a[aria-expanded=true] > i {
     font-weight: normal;
 }
 
+.ok-apprisals-form .btn-select-menu{
+    font-size: 14px;
+    line-height: 1;
+}
+.ok-border-none{
+    border: none !important;
+}
+.ok-apprisals-form .flecha-select{
+    position: relative;
+    display: block;
+    height: 34px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 .dropdown-propertySelect {
     background-color: #FBF9F9 !important;
     margin: 0;

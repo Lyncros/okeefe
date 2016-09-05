@@ -2,7 +2,6 @@
     angular.module('okeefeRuralSite.controllers')
         .controller('accountController',function ($scope,$rootScope,$uibModalInstance,entitiesService) {
             $uibModalInstance.rendered.then(function(){
-                entitiesService.tabs();
                 entitiesService.switchBox();
                 entitiesService.popover();
             });

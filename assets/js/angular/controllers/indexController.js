@@ -91,15 +91,17 @@
                         $scope.user = response;
                     });
 
-                $scope.editAccount = function () {
-
+                $scope.editAccount = function (tab) {
+console.log(tab);
                     if ($scope.isLogged) {
                         var modal = $uibModal.open({
                             templateUrl: 'templates/modals/account.html',
                             controller: 'accountController',
                             size: 'xl',
                             resolve: {
-                                //
+                                tab : function () {
+                                    return tab;
+                                },
                             }
                         });
                         modal.result
