@@ -1,15 +1,18 @@
 (function(){
     angular.module('okeefeSite.controllers')
-        .controller('aboutController',function ($scope,$rootScope, uiGmapGoogleMapApi,defaultFactory,entitiesService) {
-            /*MAPA QUILMES*/
-            $scope.maps = defaultFactory.about_maps;
-            $scope.options = defaultFactory.options;
+        .controller('aboutController',function ($scope,$rootScope, $timeout, uiGmapGoogleMapApi,defaultFactory,entitiesService) {
 
             $scope.init = function () {
+                $scope.maps = defaultFactory.about_maps;
+                $scope.options = defaultFactory.options;
+                $scope.team = defaultFactory.team;
                 var param = {rowHeight: 300};
                 entitiesService.flexImages('.flex-images',param);
                 entitiesService.toggle('.detalle','.item',200);
-                entitiesService.carouselByOne('.carousel-showmanymoveone .item');
+
+                $timeout(function() {
+                    entitiesService.carouselByOne('.carousel-showmanymoveone .item');
+                }, 0);
             };
             
             $scope.goToDiv = function (id) {

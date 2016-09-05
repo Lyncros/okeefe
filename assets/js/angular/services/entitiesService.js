@@ -325,6 +325,17 @@
                 });
                 console.log(url);
                 return url;
-            }
+            };
+            this.showAlert = function ($scope,msg,type,time) {
+                $scope.alert = {
+                    type: type,
+                    'msg': msg
+                };
+                if(time){
+                    $timeout(function () {
+                        $scope.alert = null;
+                    }, time);
+                }
+            };
         });
 })();

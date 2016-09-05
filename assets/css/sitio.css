@@ -923,7 +923,6 @@ select {
 .caracteristicas h2 {
     color: #006032;
 }
-
 .carac {
     background-color: #fbf9f9;
 }
@@ -1117,6 +1116,7 @@ select {
 /*-----Fichas equipo--*/
 #slider-equipo {
     background-color: #FBF9F9;
+    font-size: 14px;
 }
 
 #slider-equipo .img-equipo {
@@ -1153,6 +1153,7 @@ select {
     padding: 0 10px;
     margin-top: 20px;
     color: #58595b;
+    text-align: justify;
 }
 
 #slider-equipo .ficha .email {
@@ -2132,13 +2133,13 @@ a[aria-expanded=true] > i {
     cursor: pointer;
 }
 
-.ng-enter {
+.resultados .ng-enter {
     -webkit-animation: enter 300ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
     animation: enter 300ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
     display: block;
     position: relative;
 }
-@-webkit-keyframes enter {
+.resultados  @-webkit-keyframes enter {
     from {
         opacity: 0;
         height: 0px;
@@ -2153,7 +2154,7 @@ a[aria-expanded=true] > i {
         right: 0px;
     }
 }
-@keyframes enter {
+.resultados @keyframes enter {
     from {
         opacity: 0;
         height: 0px;
@@ -2169,13 +2170,13 @@ a[aria-expanded=true] > i {
     }
 }
 
-.ng-leave {
+.resultados .ng-leave {
     -webkit-animation: leave 0ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
     animation: leave 0ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
     display: block;
     position: relative;
 }
-@-webkit-keyframes leave {
+.resultados @-webkit-keyframes leave {
     to {
         opacity: 0;
         height: 0px;
@@ -2190,7 +2191,7 @@ a[aria-expanded=true] > i {
         right: 0px;
     }
 }
-@keyframes leave {
+.resultados @keyframes leave {
     to {
         opacity: 0;
         height: 0px;

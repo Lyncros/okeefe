@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <!--<base href="http://localhost:8080/Lyncros/Okeefe/site/">-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-switch.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.flex-images.css">
     <link rel="stylesheet" type="text/css" href="bower_components/fancybox-plus/css/jquery.fancybox-plus.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/wowslider.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/wowslider.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/sitio.css">
     <script type='text/javascript'>
         if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
@@ -43,7 +45,8 @@
                         <a ng-class="{active: $route.current.activetab == 'inversiones'}" href="#/inversiones">Inversiones</a>
                     </div>
                     <div class="item">
-                        <a ng-class="{active: $route.current.activetab == 'tasaciones'}" href="#/tasaciones">Tasaciones</a>
+                        <a ng-class="{active: $route.current.activetab == 'tasaciones'}"
+                           href="#/tasaciones">Tasaciones</a>
                     </div>
                     <div class="item">
                         <a ng-class="{active: $route.current.activetab == 'noticias'}" href="#/noticias">Noticias</a>
@@ -72,7 +75,8 @@
             <form class="filtros" ng-submit="searchProp()">
                 <div class="col-lg-3 col-md-12">
                     <label class="flecha-select lg">
-                        <select ng-change="validateEmp()" ng-model="searchParam.oper" ng-disabled="disabled" class="form-control input-lg custom"
+                        <select ng-change="validateEmp()" ng-model="searchParam.oper" ng-disabled="disabled"
+                                class="form-control input-lg custom"
                                 uib-tooltip="Debe seleccionar una Operación"
                                 tooltip-placement="bottom"
                                 tooltip-is-open="!searchParam.oper && searchParam.error"
@@ -109,7 +113,7 @@
                     <div class="col-lg-8 col-md-12 padding-0">
                         <input ng-model="searchParam.zona" class="form-control input-lg custom" type="text"
                                uib-typeahead="loc.val as loc.text for loc in getLocation($viewValue)"
-                               typeahead-min-length = "3"
+                               typeahead-min-length="3"
                                typeahead-loading="loadingLocations"
                                typeahead-no-results="noResults"
                                placeholder="Zona|Emprendimiento"
@@ -130,7 +134,8 @@
                                    switch-on-color="normal"
                                    switch-off-color="default"
                                    switch-on-text="<span class='fa fa-check'></span>"
-                                   switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1" ng-false-value="0">
+                                   switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1"
+                                   ng-false-value="0">
                         </div>
                     </div>
                 </div>
@@ -220,13 +225,46 @@
         </div>
         <div class="col-md-4 padding-right-0">
             <h5>Formulario de consultas</h5>
-            <form class="f_contacto">
-                <input id="nombre" class="form-control custom" type="text" name="nombre" placeholder="Nombre">
-                <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
-                <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
-                <input class="form-control custom" type="text" name="celular" placeholder="Celular">
-                <input class="form-control custom" type="text" name="email" placeholder="E-mail">
-                <textarea class="form-control custom" name="mensaje" placeholder="Mensaje"></textarea>
+            <div class="row" ng-show="alert != null">
+                <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
+            </div>
+            <form novalidate ng-submit="contactForm($event)" name="footer_Form" class="f_contacto">
+                <input id="nombre" class="form-control custom" type="text" ng-model="footerForm.nombre"
+                       name="nombre" placeholder="Nombre"
+                       uib-tooltip="Debe ingresar su nombre"
+                       tooltip-placement="left"
+                       tooltip-is-open="!footerForm.nombre && footerForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="footerForm.apellido" name="apellido"
+                       placeholder="Apellido"
+                       uib-tooltip="Debe ingresar su apellido"
+                       tooltip-placement="left"
+                       tooltip-is-open="!footerForm.apellido && footerForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="footerForm.telefono" name="telefono"
+                       placeholder="Telefono"
+                       uib-tooltip="Debe ingresar un número de teléfono"
+                       tooltip-placement="left"
+                       tooltip-is-open="!footerForm.telefono && footerForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="footerForm.celular" name="celular"
+                       placeholder="Celular"
+                       uib-tooltip="Debe ingresar un número de celular"
+                       tooltip-placement="left"
+                       tooltip-is-open="!footerForm.celular && footerForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="email" ng-model="footerForm.email" name="email"
+                       placeholder="E-mail"
+                       uib-tooltip="Debe ingresar un email válido"
+                       tooltip-placement="left"
+                       tooltip-is-open="(!footerForm.email && footerForm.error) || !footer_Form.email.$valid"
+                       tooltip-trigger="'none'">
+                <textarea class="form-control custom" ng-model="footerForm.comentarios" name="comentarios"
+                          placeholder="Mensaje"
+                          uib-tooltip="Debe escribir un mensaje"
+                          tooltip-placement="left"
+                          tooltip-is-open="!footerForm.comentarios && footerForm.error"
+                          tooltip-trigger="'none'"></textarea>
                 <div class="checkbox">
                     <div class="col-lg-8 padding-0">
                         <div class="check-button text-center padding-0">
@@ -235,12 +273,13 @@
                                    switch-on-color="normal"
                                    switch-off-color="default"
                                    switch-on-text="<span class='fa fa-check'></span>"
-                                   switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1" ng-false-value="0">
+                                   switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1"
+                                   ng-false-value="0">
                         </div>
                         <label for="newsletter" class="col-lg-8">Suscribirme al Newsletter</label>
                     </div>
                     <div class="col-lg-4 pull-right padding-right-0">
-                        <button class="btn btn-verde btn-block" type="submit">ENVIAR</button>
+                        <button class="btn btn-verde btn-block" type="submit" ng-disabled="footer_Form.$error.email">ENVIAR</button>
                     </div>
                 </div>
             </form>
@@ -277,6 +316,7 @@
 <script src="assets/js/angular/services/dictionaryFactory.js"></script>
 <script src="assets/js/angular/services/defaultFactory.js"></script>
 <script src="assets/js/angular/services/searchApiService.js"></script>
+<script src="assets/js/angular/services/okeefeApiService.js"></script>
 <script src="assets/js/angular/services/userService.js"></script>
 
 <!--Angular Controllers -->

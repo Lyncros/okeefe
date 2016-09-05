@@ -1,13 +1,11 @@
 (function () {
     angular.module('okeefeSite.controllers', [])
         .controller('indexController',
-            function ($route, $scope, $rootScope, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, searchApiService) {
+            function ($route, $scope, $rootScope, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService ,searchApiService) {
 
                 $scope.maps = defaultFactory.footer_maps;
                 $scope.alert = null;
-                $scope.footerForm = {
-                    newsletter: 1
-                };
+                $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.$route = $route;
                 $scope.resetForm = function () {
                     $scope.searchParam = {
@@ -19,6 +17,23 @@
                         error: false
                     };
                 };
+                $scope.contactForm = function ($event) {
+                    $event.preventDefault();
+                    if(!$scope.footerForm.nombre || !$scope.footerForm.apellido ||
+                        !$scope.footerForm.email || !$scope.footerForm.telefono ||
+                        !$scope.footerForm.celular || !$scope.footerForm.comentarios){
+                        $scope.footerForm.error = true;
+                        return false;
+                    }
+                    okeefeApiService.API.send($scope.footerForm).then(function (response) {
+                        entitiesService.showAlert($scope,'Mensaje enviado. Estaremos en contacto en breve.','success',3000);
+                        $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: ''};
+                    }, function errorCallback(response) {
+                        entitiesService.showAlert($scope,'Error al enviar el mensaje. Intenta de nuevo mas tarde.','danger',3000);
+                        console.log("error :", response);
+                    });
+                };
+
                 $scope.resetForm();
                 $scope.validateEmp = function () {
                     $scope.searchParam.empr = 0;

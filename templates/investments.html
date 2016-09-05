@@ -1,7 +1,7 @@
 <div class="banner-inv">
     <div class="row">
         <img class="img-responsive" src="assets/img/banner-inv.png">
-				<span class="caption">
+        <span class="caption">
 					INVERTIR EN EL MERCADO INMOBILIARIO ES MUCHO MÁS FÁCIL DE LO QUE VOS TE IMAGINÁS.
 				</span>
     </div>
@@ -167,20 +167,53 @@
     <div class="row animation-element slide-left">
         <span class="subt">NUESTROS ESPECIALISTAS ESTÁN A TU DISPOSICIÓN</span>
     </div>
+    <div class="row" ng-show="alert != null">
+        <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
+    </div>
     <div class="row animation-element slide-left">
         <div class="form-contact">
-            <form class="f_contacto">
+            <form novalidate name="form_ase" ng-submit="invForm($event)" class="f_contacto">
                 <div class="col-xs-4 padding-left-0">
-                    <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
-                    <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
-                    <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
-                    <input class="form-control custom" type="text" name="celular" placeholder="Celular">
-                    <input class="form-control custom" type="text" name="email" placeholder="E-mail">
+                    <input ng-model="form.nombre" class="form-control custom" type="text" name="nombre"
+                           placeholder="Nombre"
+                           uib-tooltip="Debe ingresar su nombre"
+                           tooltip-placement="top"
+                           tooltip-is-open="!form.nombre && form.error"
+                           tooltip-trigger="'none'">
+                    <input ng-model="form.apellido" class="form-control custom" type="text" name="apellido"
+                           placeholder="Apellido"
+                           uib-tooltip="Debe ingresar su apellido"
+                           tooltip-placement="right"
+                           tooltip-is-open="!form.apellido && form.error"
+                           tooltip-trigger="'none'">
+                    <input ng-model="form.telefono" class="form-control custom" type="text" name="telefono"
+                           placeholder="Telefono"
+                           uib-tooltip="Debe ingresar un teléfono"
+                           tooltip-placement="right"
+                           tooltip-is-open="!form.telefono && form.error"
+                           tooltip-trigger="'none'">
+                    <input ng-model="form.celular" class="form-control custom" type="text" name="celular"
+                           placeholder="Celular"
+                           uib-tooltip="Debe ingresar un celular"
+                           tooltip-placement="right"
+                           tooltip-is-open="!form.celular && form.error"
+                           tooltip-trigger="'none'">
+                    <input ng-model="form.email" class="form-control custom" type="email" name="email"
+                           placeholder="E-mail"
+                           uib-tooltip="Debe ingresar un email válido"
+                           tooltip-placement="right"
+                           tooltip-is-open="(!form.email && form.error) || !form_ase.email.$valid"
+                           tooltip-trigger="'none'">
                 </div>
                 <div class="col-xs-8 padding-right-0">
-                    <textarea class="form-control custom" name="mensaje" placeholder="Mensaje"></textarea>
+                    <textarea class="form-control custom" ng-model="form.comentarios" name="comentarios"
+                              placeholder="Mensaje"
+                              uib-tooltip="Debe ingresar un mensaje"
+                              tooltip-placement="top"
+                              tooltip-is-open="!form.mensaje && form.error"
+                              tooltip-trigger="'none'"></textarea>
                     <div class="col-xs-4 pull-right padding-0">
-                        <button class="btn btn-naranja btn-block" type="submit">CONTACTANOS</button>
+                        <button class="btn btn-naranja btn-block" type="submit" ng-disabled="form_ase.$error.email">CONTACTANOS</button>
                     </div>
                 </div>
             </form>

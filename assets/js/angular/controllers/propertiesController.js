@@ -28,6 +28,10 @@
                         banos: (parseFloat($scope.param.banos) || ''),
                     };
                     $scope.filtroMon = ($scope.param.filtroMon || 'ARS');
+                    $scope.valMin = (parseFloat($scope.param.valMin) || '');
+                    $scope.valMax = (parseFloat($scope.param.valMax) || '');
+                    $scope.supMin = (parseFloat($scope.param.supMin) || '');
+                    $scope.supMax = (parseFloat($scope.param.supMax) || '');
                     //console.log("$scope.appliedFilters",$scope.appliedFilters);
                 };
 
@@ -92,7 +96,7 @@
                         });
                     });
                     $scope.loadingProperties = false;
-                    console.log("bien", $scope.properties);
+                    //console.log("bien", $scope.properties);
                     if ($scope.properties.length) {
                         totalFilters($scope.properties);
                         setMap($scope.properties);
@@ -113,23 +117,29 @@
                 };
                 $scope.removeFilter = function (filter) {
                     delete $scope.param[filter];
+                    console.log("scope.param",$scope.param);
                     return window.location = entitiesService.applyFilter('', '', $scope.param, '', '');
                 };
                 $scope.addFilter = function (filter, value) {
+                    console.log("$scope.valMin",$scope.valMin);
+                    console.log("$scope.valMax",$scope.valMax);
                     if (filter == 'sup') {
                         $scope.errors.sup = false;
-                        if (!$scope.appliedFilters.supMin && !$scope.appliedFilters.supMax) {
+                        if (!$scope.supMin && !$scope.supMax) {
                             $scope.errors.sup = true;
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.appliedFilters.supMin, $scope.appliedFilters.supMax);
+                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.supMin, $scope.supMax);
                     } else if (filter == 'val') {
                         $scope.errors.sup = false;
-                        if (!$scope.appliedFilters.valMin && !$scope.appliedFilters.valMax) {
+                        if (!$scope.valMin && !$scope.valMax) {
                             $scope.errors.val = true;
                             return false;
+                        }else if ($scope.valMin > $scope.valMax) {
+                            console.log("error");
+                            return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.appliedFilters.valMin, $scope.appliedFilters.valMax, $scope.filtroMon);
+                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.valMin, $scope.valMax, $scope.filtroMon);
                     } else if (filter in $scope.param) {
                         return window.location = entitiesService.applyFilter(filter, value, $scope.param, '', '');
                     }

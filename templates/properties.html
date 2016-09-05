@@ -112,42 +112,44 @@
                     Precio
                 </a>
                 <div class="collapse in valores filtro-precio" id="filtro-precio">
-                    <form ng-submit="addFilter('val')" class="form-horizontal form-precio">
+                    <form name="priceForm" ng-submit="addFilter('val')" class="form-horizontal form-precio">
                         <div class="form-group">
                             <div class="col-lg-12 text-center">
-                                <input ng-model="filtroMon" type="radio" id="pesos" name="moneda"
+                                <input ng-model="$parent.filtroMon" type="radio" id="pesos" name="moneda"
                                        value="ARS">
                                 <label for="pesos" class="btn btn-default col-lg-5 col-lg-offset-1">Pesos</label>
-                                <input ng-model="filtroMon" type="radio" id="dolares" name="moneda"
+                                <input ng-model="$parent.filtroMon" type="radio" id="dolares" name="moneda"
                                        value="USD">
                                 <label for="dolares" class="btn btn-default col-lg-5">Dólares</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="desdeV" class="col-lg-4 control-label">Desde</label>
-                            <div class="col-lg-7">
-                                <input id="desdeV" ng-model="appliedFilters.valMin" type="number" class="form-control"
+                            <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMin.$valid}">
+                                <input id="desdeV" name="valueMin" ng-model="$parent.valMin" type="number" class="form-control"
+                                       ng-max="$parent.valMax"
                                        placeholder="Min. $"
                                        uib-tooltip="Debe indicar un precio mínimo"
                                        tooltip-placement="top"
-                                       tooltip-is-open="(!appliedFilters.valMin && !appliedFilters.valMax) && errors.val"
+                                       tooltip-is-open="(!$parent.valMin && !$parent.valMax) && errors.val"
                                        tooltip-trigger="'none'">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="hastaV" class="col-lg-4 control-label">Hasta</label>
-                            <div class="col-lg-7">
-                                <input id="hastaV" ng-model="appliedFilters.valMax" type="number" class="form-control"
+                            <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMax.$valid}">
+                                <input id="hastaV" name="valueMax" ng-model="$parent.valMax" type="number" class="form-control"
+                                       ng-min="$parent.valMin"
                                        placeholder="Max. $"
                                        uib-tooltip="Debe indicar un precio máximo"
                                        tooltip-placement="bottom"
-                                       tooltip-is-open="(!appliedFilters.valMin && !appliedFilters.valMax) && errors.val"
+                                       tooltip-is-open="(!$parent.valMin && !$parent.valMax) && errors.val"
                                        tooltip-trigger="'none'">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-7 col-lg-offset-4">
-                                <button class="btn btn-block btn-naranja" type="submit">APLICAR</button>
+                                <button class="btn btn-block btn-naranja" ng-disabled="!priceForm.valueMax.$valid || !priceForm.valueMin.$valid" type="submit">APLICAR</button>
                             </div>
                         </div>
                     </form>
@@ -178,22 +180,22 @@
                         <div class="form-group">
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
-                                <input id="desdeS" ng-model="appliedFilters.supMin" type="number" class="form-control"
+                                <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
                                        placeholder="Min. M2"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
-                                       tooltip-is-open="(!appliedFilters.minSup && !appliedFilters.supMax) && errors.sup"
+                                       tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
                                        tooltip-trigger="'none'">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
-                                <input id="hastaS" ng-model="appliedFilters.supMax" type="number" class="form-control"
+                                <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
                                        placeholder="Max. M2"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
-                                       tooltip-is-open="(!appliedFilters.supMin && !appliedFilters.supMax) && errors.sup"
+                                       tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"
                                        tooltip-trigger="'none'">
                             </div>
                         </div>
