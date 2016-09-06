@@ -5,19 +5,21 @@
             var setURL = function (base, param, id) {
                 var url = base;
                 if (id) {
-                    return url + 'propiedades/' + id;
+                    return url + 'propiedad/' + id;
                 }
-                url += 'propiedad?';
+                url += 'propiedades/'+param.tipo+'/'+param.oper+'?';
                 angular.forEach(param, function (value, key) {
-                    if (value)
+                    if (value && value!='tipo' && value!='oper')
                         url += key + (!entitiesService.hasDoubleEqual(key) ? '==' : '=') + value + '&';
                 });
                 url = url.substr(0, url.length - 1);
                 //console.log("searchURL",url);
                 return url;
             };
-            searchApi.read = function (param) {
+            searchApi.read = function (tipo,oper,param) {
                 var deferred = $q.defer();
+                param.tipo = tipo;
+                param.oper = oper;
                 $http({
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     url: setURL(API_SEARCH, param)
@@ -29,8 +31,8 @@
                 return deferred.promise;
             };
 
-            searchApi.readLocations = function (param) {
-                var url = API_SEARCH + 'propiedad?q='+param;
+            searchApi.readLocations = function (oper,t,q) {
+                var url = API_SEARCH + 'ubicacion/'+q+'/'+t+'/'+oper;
                 var deferred = $q.defer();
                 $http({
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},

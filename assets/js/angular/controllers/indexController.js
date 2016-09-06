@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers', [])
         .controller('indexController',
-            function ($route, $scope, $rootScope, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService ,searchApiService) {
+            function ($route, $scope, $rootScope, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService) {
 
                 $scope.maps = defaultFactory.footer_maps;
                 $scope.alert = null;
@@ -12,24 +12,22 @@
                         empr: '',
                         zona: '',
                         oper: '12',
-                        property: '',
-                        tipo: '',
+                        property: 'Residencial',
+                        tipo: '9,1,7,17',
                         error: false
                     };
                 };
                 $scope.contactForm = function ($event) {
                     $event.preventDefault();
-                    if(!$scope.footerForm.nombre || !$scope.footerForm.apellido ||
-                        !$scope.footerForm.email || !$scope.footerForm.telefono ||
-                        !$scope.footerForm.celular || !$scope.footerForm.comentarios){
+                    if (!$scope.footerForm.nombre || !$scope.footerForm.apellido || !$scope.footerForm.email || !$scope.footerForm.telefono || !$scope.footerForm.celular || !$scope.footerForm.comentarios) {
                         $scope.footerForm.error = true;
                         return false;
                     }
                     okeefeApiService.API.send($scope.footerForm).then(function (response) {
-                        entitiesService.showAlert($scope,'Mensaje enviado. Estaremos en contacto en breve.','success',3000);
+                        entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
                         $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: ''};
                     }, function errorCallback(response) {
-                        entitiesService.showAlert($scope,'Error al enviar el mensaje. Intenta de nuevo mas tarde.','danger',3000);
+                        entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);
                         console.log("error :", response);
                     });
                 };
@@ -49,13 +47,13 @@
                     return true;
                 };
                 $scope.getLocation = function (val) {
-                    return searchApiService.searchApi.readLocations(val).then(function (response) {
+                    return searchApiService.searchApi.readLocations($scope.searchParam.oper,$scope.searchParam.tipo,val).then(function (response) {
                         return response.data.data.map(function (item) {
-                            var ans = {
-                                val : item.valor,
-                                text : item.valor + " (" + item.cantidad + ")"
+                            return {
+                                val: item.idZona,
+                                label : item.valor,
+                                text: item.valor + " (" + item.cantidad + ")"
                             };
-                            return ans;
                         });
                     }, function errorCallback(response) {
                         console.log("error :", response);
@@ -64,9 +62,13 @@
                 entitiesService.mapsSlider($scope);
                 $scope.searchProp = function () {
                     if ($scope.validateForm()) {
-                        window.location = '#/propiedades?mostrar_props=true&operacion=' + $scope.searchParam.oper + '&tipo=' + $scope.searchParam.tipo + '&q=' + $scope.searchParam.zona + '&emp=' + ($scope.searchParam.empr || 0);
+                        window.location = '#/propiedades/'+$scope.searchParam.tipo+'/'+$scope.searchParam.oper+'?ubicacion=' + $scope.searchParam.zona + '&emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
+                $scope.selectedZone = function ($item, $model, $label) {
+                    $scope.searchParam.zona = $item.val;
+                };
+
                 $scope.selectProperty = function (prop) {
                     $scope.searchParam.tipo = prop;
                     $scope.searchParam.property = entitiesService.tipoInmueble(prop);
@@ -92,14 +94,13 @@
                     });
 
                 $scope.editAccount = function (tab) {
-console.log(tab);
                     if ($scope.isLogged) {
                         var modal = $uibModal.open({
                             templateUrl: 'templates/modals/account.html',
                             controller: 'accountController',
                             size: 'xl',
                             resolve: {
-                                tab : function () {
+                                tab: function () {
                                     return tab;
                                 },
                             }

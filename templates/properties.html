@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-12"
              ng-class="{'col-lg-6' : properties.length , 'col-lg-12' : !properties.length && !loadingProperties}">
-            <span ng-if="properties.length" class="subt">MAS DE {{properties.length}} PROPIEDADES ENCONTRADAS</span>
+            <span ng-if="properties.length" class="subt">{{properties.length}} <prop ng-if="properties.length == 1">PROPIEDAD ENCONTRADA</prop> <prop ng-if="properties.length != 1">PROPIEDADES ENCONTRADAS</prop></span>
             <span ng-if="!properties.length && !loadingProperties" class="subt text-center">NO SE ENCONTRARON PROPIEDADES</span>
             <span ng-if="!properties.length && loadingProperties"
                   class="subt background-orange text-center">CARGANDO...</span>
@@ -33,11 +33,11 @@
         <div ng-if="properties.length" class="col-lg-3 col-md-12 controles-list padding-left-0">
             <div class="col-lg-7 col-md-12 padding-0">
                 <label class="flecha-select">
-                    <select ng-model="orderChanged" ng-change="changeOrder(orderChanged)" class="form-control input-sm custom">
-                        <option value="valor,true">Precio : menor primero</option>
-                        <option value="valor,false">Precio : mayor primero</option>
-                        <option value="sup_total,true">Superficie : menor primero</option>
-                        <option value="sup_total,false">Superficie : mayor primero</option>
+                    <select ng-model="orderChanged" ng-change="sortBy(orderChanged)" class="form-control input-sm custom">
+                        <option value="valor">Precio : menor primero</option>
+                        <option value="-valor">Precio : mayor primero</option>
+                        <option value="sup_total">Superficie : menor primero</option>
+                        <option value="-sup_total">Superficie : mayor primero</option>
                     </select>
                 </label>
             </div>
@@ -128,6 +128,7 @@
                             <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMin.$valid}">
                                 <input id="desdeV" name="valueMin" ng-model="$parent.valMin" type="number" class="form-control"
                                        ng-max="$parent.valMax"
+                                       ng-min="0"
                                        placeholder="Min. $"
                                        uib-tooltip="Debe indicar un precio mínimo"
                                        tooltip-placement="top"
@@ -139,7 +140,7 @@
                             <label for="hastaV" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMax.$valid}">
                                 <input id="hastaV" name="valueMax" ng-model="$parent.valMax" type="number" class="form-control"
-                                       ng-min="$parent.valMin"
+                                       ng-min="$parent.valMin || 0"
                                        placeholder="Max. $"
                                        uib-tooltip="Debe indicar un precio máximo"
                                        tooltip-placement="bottom"
@@ -209,33 +210,110 @@
             </div>
             <!--separador-->
         </div>
-        <div ng-show="properties.length" ng-show="view == 'grid' || view == 'list'" class="banner col-lg-9 resultados" >
-            <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
-               aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
-            <div class="collapse premium" id="premium">
+        <div class="col-lg-9 padding-0">
+            <div ng-show="properties.length" ng-show="view == 'grid' || view == 'list'" class="banner col-lg-12 resultados" >
+                <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
+                   aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
+                <div class="collapse premium" id="premium">
                 <span class="close" style='position: absolute; right: 0;' data-toggle="collapse" href=".premium"
                       aria-controls="premium"><i class="fa fa-close"></i></span>
-                <img class="img-responsive" src="assets/img/modal-premium.png">
+                    <img class="img-responsive" src="assets/img/modal-premium.png">
+                </div>
             </div>
-        </div>
-        <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-9 resultados" style="min-height: 520px;">
-            <!--ficha resultados-->
-            <div class="row">
-                <div ng-repeat="prop in properties | orderObjectBy:order:rev" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
-                    <div class="col-lg-12 content">
-                        <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
-                            <img class="col-lg-12 padding-0 img-responsive"
-                                 style="height: 200px; max-height: 200px;"
-                                 ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
-                            <img class="col-lg-12 padding-0 img-responsive"
-                                 style="height: 200px; max-height: 200px;"
-                                 ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
-                        </a>
-                        <div class="col-lg-12 padding-0 descripcion">
-                            <a href="#/ficha-propiedad/{{prop.id_prop}}">
-                                <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
-                                        ng-if="prop.fichaweb.length > 65">...</span></p>
+            <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados" style="min-height: 520px;">
+                <!--ficha resultados-->
+                <div class="row">
+                    <div ng-repeat="prop in properties | orderBy:propertyName" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
+                        <div class="col-lg-12 content">
+                            <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <img class="col-lg-12 padding-0 img-responsive"
+                                     style="height: 200px; max-height: 200px;"
+                                     ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
+                                <img class="col-lg-12 padding-0 img-responsive"
+                                     style="height: 200px; max-height: 200px;"
+                                     ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
+                            <div class="col-lg-12 padding-0 descripcion">
+                                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                    <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
+                                            ng-if="prop.fichaweb.length > 65">...</span></p>
+                                </a>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                    </div>
+                                    <div class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                    </div>
+                                    <div class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
+                                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                    </div>
+                                    <div class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                                        <img src="assets/img/ambientes.svg"><span
+                                            ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                                    </div>
+                                    <div class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    </div>
+                                </div>
+                                <div class="property-buttons">
+                                    <div class="col-lg-12 padding-0">
+                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <div class="boton-fav">
+                                            <a class="btn btn-xs btn-gris-claro-2" ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Favorito
+                                            </a>
+                                        </div>
+                                        <div class="boton-fav compartir pull-right">
+                                            <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Compartir
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 padding-0 margin-top-10">
+                                        <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                           class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--fin fila-->
+            </div>
+            <div ng-if="properties.length" ng-show="view == 'list'" class="col-lg-12 resultados">
+                <!--ficha resultados-->
+                <div ng-repeat="prop in properties | orderObjectBy:order" class="col-lg-12 ficha padding-0">
+                    <div class="col-lg-4 padding-0">
+                        <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
+                             ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
+                        <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
+                             ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="descripcion">
+                            <p class="titulo">{{prop.calle}} {{prop.nombre_ubicacion}}</p>
+                            <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
+                                commodo tellus metus in nisi. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 padding-0">
+                        <div class="descripcion padding-0">
                             <div class="col-lg-12 padding-0 caracteristicas">
                                 <div class="col-lg-12 padding-0">
                                     <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
@@ -262,27 +340,26 @@
                             </div>
                             <div class="property-buttons">
                                 <div class="col-lg-12 padding-0">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
                                     <div class="boton-fav">
-                                        <a class="btn btn-xs btn-gris-claro-2" ng-click="doFav(prop.id_prop)">
-                                                <span class="fa-stack">
-                                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                                </span>
+                                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                    </span>
                                             Favorito
                                         </a>
                                     </div>
                                     <div class="boton-fav compartir pull-right">
                                         <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                <span class="fa-stack">
-                                                  <i class="fa fa-circle fa-stack-2x"></i>
-                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                                </span>
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                                      <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                    </span>
                                             Compartir
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 padding-0 margin-top-10">
+                                <div class="col-lg-12 padding-0 margin-top-2">
                                     <a href="#/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
@@ -290,105 +367,31 @@
                         </div>
                     </div>
                 </div>
+                <!--ficha resultados-->
             </div>
-            <!--fin fila-->
-        </div>
-        <div ng-if="properties.length" ng-show="view == 'list'" class="col-lg-9 resultados">
-            <!--ficha resultados-->
-            <div ng-repeat="prop in properties | orderObjectBy:order" class="col-lg-12 ficha padding-0">
-                <div class="col-lg-4 padding-0">
-                    <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
-                         ng-if="prop.foto_url" ng-src="http://{{prop.foto_url}}">
-                    <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
-                         ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
-                </div>
-                <div class="col-lg-4">
-                    <div class="descripcion">
-                        <p class="titulo">{{prop.calle}} {{prop.nombre_ubicacion}}</p>
-                        <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
-                            commodo tellus metus in nisi. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 padding-0">
-                    <div class="descripcion padding-0">
-                        <div class="col-lg-12 padding-0 caracteristicas">
-                            <div class="col-lg-12 padding-0">
-                                <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
-                            </div>
-                            <div class="col-md-12 padding-0"
-                                 ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
-                            </div>
-                            <div class="col-md-12 padding-0"
-                                 ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
-                            </div>
-                            <div class="col-md-12 padding-0"
-                                 ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                <img src="assets/img/ambientes.svg"><span
-                                    ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
-                            </div>
-                            <div class="col-md-12 padding-0"
-                                 ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                <img src="assets/img/m2.svg"> {{prop.sup_total}}
-                                <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                <sp ng-if="tipo_prop != 'Campo'">m²</sp>
-                            </div>
-                        </div>
-                        <div class="property-buttons">
-                            <div class="col-lg-12 padding-0">
-                                <div class="boton-fav">
-                                    <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                    <span class="fa-stack">
-                                                      <i class="fa fa-circle fa-stack-2x"></i>
-                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                        Favorito
-                                    </a>
-                                </div>
-                                <div class="boton-fav compartir pull-right">
-                                    <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                    <span class="fa-stack">
-                                                      <i class="fa fa-circle fa-stack-2x"></i>
-                                                      <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                        Compartir
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 padding-0 margin-top-2">
-                                <a href="#/ficha-propiedad/{{prop.id_prop}}"
-                                   class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
-                            </div>
+            <div ng-if="properties.length" ng-show="view == 'map'" class="col-lg-12 resultados">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="mapa-busqueda">
+                            <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
+                                                options="options">
+                                <ui-gmap-marker ng-repeat="marker in map.markers"
+                                                idkey="marker.id"
+                                                coords="marker.coords"
+                                                options="marker.options"
+                                                events="marker.events">
+                                </ui-gmap-marker>
+                            </ui-gmap-google-map>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--ficha resultados-->
-        </div>
-        <div ng-if="properties.length" ng-show="view == 'map'" class="col-lg-9 resultados">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="mapa-busqueda">
-                        <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
-                                            options="options">
-                            <ui-gmap-marker ng-repeat="marker in map.markers"
-                                            idkey="marker.id"
-                                            coords="marker.coords"
-                                            options="marker.options"
-                                            events="marker.events">
-                            </ui-gmap-marker>
-                        </ui-gmap-google-map>
+                <div class="nota-mapa">
+                    <div class="col-lg-2">
+                        <img class="img-responsive" src="assets/img/fav_circ.svg">
                     </div>
-                </div>
-            </div>
-            <div class="nota-mapa">
-                <div class="col-lg-2">
-                    <img class="img-responsive" src="assets/img/fav_circ.svg">
-                </div>
-                <div class="col-lg-10">
-                    <h2>¡GUARDANDO TUS BÚSQUEDAS EN FAVORITOS PODRÁS ACCEDER EN CUALQUIER MOMENTO!</h2>
+                    <div class="col-lg-10">
+                        <h2>¡GUARDANDO TUS BÚSQUEDAS EN FAVORITOS PODRÁS ACCEDER EN CUALQUIER MOMENTO!</h2>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,10 +1,10 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function ($scope, $rootScope, $route, $uibModal, entitiesService, searchApiService, defaultFactory, $auth, $location) {
+            function ($scope, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
                 $scope.view = "grid";
-                $scope.order = 'valor';
                 $scope.rev = false;
+                $scope.propertyName = '';
                 $scope.init = function () {
                     $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}};
                     $scope.errors = {};
@@ -39,11 +39,10 @@
                     return entitiesService.tipoInmueble(val);
                 };
 
-                $scope.changeOrder = function (item) {
-                    var values = item.split(',');
-                    $scope.order = values[0];
-                    $scope.rev = values[1];
-                }
+                $scope.sortBy = function (propertyName) {
+                    console.log(propertyName);
+                    $scope.propertyName = propertyName;
+                };
 
                 $scope.getTipoOperacion = function (val) {
                     return entitiesService.tipoOperacion(val);
@@ -89,25 +88,30 @@
                     return entitiesService.objectSize(obj);
                 };
 
-                function setProperties(obj) {
-                    angular.forEach(obj, function (value, key) {
-                        angular.forEach(value.propiedades, function (prop) {
-                            $scope.properties.push(prop);
-                        });
-                    });
-                    $scope.loadingProperties = false;
-                    //console.log("bien", $scope.properties);
-                    if ($scope.properties.length) {
-                        totalFilters($scope.properties);
-                        setMap($scope.properties);
-                    }
-                }
+                /*function setProperties(obj) {
+                 angular.forEach(obj, function (value, key) {
+                 angular.forEach(value.propiedades, function (prop) {
+                 $scope.properties.push(prop);
+                 });
+                 });
+                 $scope.loadingProperties = false;
+                 //console.log("bien", $scope.properties);
+                 if ($scope.properties.length) {
+                 totalFilters($scope.properties);
+                 setMap($scope.properties);
+                 }
+                 }*/
 
                 $scope.getData = function () {
                     $scope.getParam();
-                    searchApiService.searchApi.read($scope.param).then(function (response) {
-                        $scope.properties = [];
-                        setProperties(response.data.data);
+                    searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $scope.param).then(function (response) {
+                        //console.log("res", response.data.data);
+                        $scope.properties = response.data.data.propiedades;
+                        $scope.loadingProperties = false;
+                        if ($scope.properties.length) {
+                            totalFilters($scope.properties);
+                            setMap($scope.properties);
+                        }
                     }, function errorCallback(response) {
                         console.log("error :", response);
                     });
@@ -117,31 +121,31 @@
                 };
                 $scope.removeFilter = function (filter) {
                     delete $scope.param[filter];
-                    console.log("scope.param",$scope.param);
-                    return window.location = entitiesService.applyFilter('', '', $scope.param, '', '');
+                    //console.log("scope.param",$scope.param);
+                    return window.location = entitiesService.applyFilter('', '', $routeParams.tipo, $routeParams.operacion, $scope.param, '', '');
                 };
                 $scope.addFilter = function (filter, value) {
-                    console.log("$scope.valMin",$scope.valMin);
-                    console.log("$scope.valMax",$scope.valMax);
+                    //console.log("$scope.valMin",$scope.valMin);
+                    //console.log("$scope.valMax",$scope.valMax);
                     if (filter == 'sup') {
                         $scope.errors.sup = false;
                         if (!$scope.supMin && !$scope.supMax) {
                             $scope.errors.sup = true;
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.supMin, $scope.supMax);
+                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $scope.param, $scope.supMin, $scope.supMax);
                     } else if (filter == 'val') {
                         $scope.errors.sup = false;
                         if (!$scope.valMin && !$scope.valMax) {
                             $scope.errors.val = true;
                             return false;
-                        }else if ($scope.valMin > $scope.valMax) {
+                        } else if ($scope.valMin > $scope.valMax) {
                             console.log("error");
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $scope.param, $scope.valMin, $scope.valMax, $scope.filtroMon);
+                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $scope.param, $scope.valMin, $scope.valMax, $scope.filtroMon);
                     } else if (filter in $scope.param) {
-                        return window.location = entitiesService.applyFilter(filter, value, $scope.param, '', '');
+                        return window.location = entitiesService.applyFilter(filter, value, $routeParams.tipo, $routeParams.operacion, $scope.param, '', '');
                     }
                     return window.location = window.location.href + '&' + filter + '=' + value;
 

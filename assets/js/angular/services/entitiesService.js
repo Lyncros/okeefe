@@ -302,8 +302,9 @@
             this.hasDoubleEqual = function (key) {
                 return hasDoubleEqual(key);
             };
-            this.applyFilter = function (filter, value, filters, minVal, maxVal, cur) {
-                var url = SITE_URL + 'propiedades?mostrar_props=true';
+            this.applyFilter = function (filter, value,tipo,operacion, filters, minVal, maxVal, cur) {
+                console.log("filters",filters);
+                var url = SITE_URL + 'propiedades/'+tipo+'/'+operacion+'?';
                 if (cur) {
                     filters['filtroMon'] = cur;
                 }
@@ -316,7 +317,7 @@
                     };
                 }
                 angular.forEach(filters, function (value, key) {
-                    if (value && typeof value != 'object' && key.indexOf('Min') == -1 && key.indexOf('Max') == -1) {
+                    if (value && typeof value != 'object') {
                         url +=  '&' + key + '=' + value ;
                     } else if (typeof value == 'object') {
                         url += (value.min) ? '&' + key + 'Min=' + value.min : '';

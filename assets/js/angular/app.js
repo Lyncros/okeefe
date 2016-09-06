@@ -92,7 +92,7 @@
                 controller: 'newsController',
                 activetab: 'noticias'
             })
-            .when('/propiedades', {
+            .when('/propiedades/:tipo/:operacion', {
                 templateUrl: 'templates/properties.html',
                 controller: 'propertiesController',
                 activetab: 'propiedades',

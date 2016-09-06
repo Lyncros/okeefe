@@ -2,8 +2,6 @@
     angular.module('okeefeRuralSite.controllers', [])
         .controller('indexController', function ($scope, $rootScope, $uibModal, entitiesService, defaultFactory) {
             $scope.maps = defaultFactory.footer_maps;
-            entitiesService.switchBox();
-            entitiesService.tabs();
             entitiesService.mapsSlider($scope);
             $scope.property = "Tipo de Inmueble";
             $scope.alert = null;

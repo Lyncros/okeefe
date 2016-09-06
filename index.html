@@ -111,13 +111,14 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="col-lg-8 col-md-12 padding-0">
-                        <input ng-model="searchParam.zona" class="form-control input-lg custom" type="text"
-                               uib-typeahead="loc.val as loc.text for loc in getLocation($viewValue)"
+                        <input ng-model="loc" class="form-control input-lg custom" type="text"
+                               uib-typeahead="loc.label as loc.text for loc in getLocation($viewValue)"
                                typeahead-min-length="3"
                                typeahead-loading="loadingLocations"
                                typeahead-no-results="noResults"
                                placeholder="Zona|Emprendimiento"
                                uib-tooltip="Debe seleccionar una Zona|Emprendimiento"
+                               typeahead-on-select="selectedZone($item, $model, $label)"
                                tooltip-placement="bottom"
                                tooltip-is-open="!searchParam.zona && searchParam.error"
                                tooltip-trigger="'none'">
