@@ -725,7 +725,7 @@
             var _this = this;
             return this.$q(function (resolve, reject) {
                 angular.extend(_this.defaults, options);
-                _this.$timeout(function () {
+              
                     var stateName = _this.defaults.name + '_state';
                     var _a = _this.defaults, name = _a.name, state = _a.state, popupOptions = _a.popupOptions, redirectUri = _a.redirectUri, responseType = _a.responseType;
                     if (typeof state === 'function') {
@@ -746,8 +746,8 @@
                         }
                         resolve(_this.exchangeForToken(oauth, userData));
                     })
-                        .catch(function (error) { return reject(error); });
-                });
+                      .catch(function (error) { return reject(error); });
+
             });
         };
         OAuth2.prototype.exchangeForToken = function (oauthData, userData) {

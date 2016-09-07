@@ -153,6 +153,8 @@
             function ($scope, $rootScope, $uibModalInstance, entitiesService,
                       API_CLIENT_AUTH, $http, $auth, userService) {
 
+                $scope.discCheck = 1;
+
                 $uibModalInstance.rendered.then(function () {
                     entitiesService.switchBox();
                 });
@@ -166,8 +168,17 @@
                 };
 
                 $scope.doRegister = function (isValid) {
-                    if (isValid) {
 
+                    if (!$scope.discCheck) {
+                      $scope.alert = {
+                          type: 'danger',
+                          'msg': 'Debe aceptar los terminos y condiciones para continuar'
+                      };
+
+                      return false;
+                    }
+
+                    if (isValid) {
                         userService.store($scope.user)
                             .then(function (response) {
                                 $scope.alert = {

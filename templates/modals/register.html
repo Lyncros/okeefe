@@ -19,7 +19,7 @@
                         <div class="col-xs-3">
                             <img class="img-responsive" src="assets/img/face_reg.svg">
                         </div>
-                        <a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a>
+                        <span><a href="#" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</a></span>
                     </div>
 
                     <div class="l_goo">
@@ -44,10 +44,14 @@
                             <span class="nota">* campo obligatorio</span>
                         </div>
                         <div class="blq_not">
-                            <div class="bootstrap-switch-square">
-                                <input checked type="checkbox" data-size="mini" data-toggle="switch" id="aceptar" data-on-text="<span class='fa fa-check'></span>" data-off-text="<span class='fa fa-close'></span>"/>
+                              <input id="disc_check" bs-switch ng-model="discCheck" type="checkbox"
+                                switch-size="mini"
+                                switch-on-color="normal"
+                                switch-off-color="default"
+                                switch-on-text="<span class='fa fa-check'></span>"
+                                switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1"
+                                ng-false-value="0">
                                 <label for="aceptar" class="css-label">Acepto los <a class="enlace_term" href="">Terminos y condiciones</a></label>
-                            </div>
                         </div>
 
                         <div class="col-xs-8 pull-right">
