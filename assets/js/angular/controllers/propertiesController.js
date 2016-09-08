@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function ($scope, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
+            function (favoritesService, $scope, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
                 $scope.view = "grid";
                 $scope.rev = false;
                 $scope.propertyName = '';
@@ -167,9 +167,15 @@
                     $scope.getParam();
                 });
 
-                $scope.doFav = function () {
+                $scope.doFav = function (id) {
                     if ($scope.isLogged) {
-
+                        favoritesService.setFavorite(id)
+                            .then(function () {
+                                favoritesService.count()
+                                    .then(function (data) {
+                                        $scope.favCount = data;
+                                });
+                            });
                     } else {
                         var modal = $uibModal.open({
                             templateUrl: 'templates/modals/login.html',
@@ -179,14 +185,23 @@
                     }
                 };
 
+                if ($scope.isLogged) {
+                    favoritesService.count()
+                        .then(function (data) {
+
+                            $scope.favCount = data;
+                        });
+                }
 
                 $scope.editFav = function () {
                     var modal = $uibModal.open({
-                        templateUrl: 'templates/modals/fav.html',
+                        templateUrl: 'templates/modals/account.html',
                         controller: 'accountController',
                         size: 'xl',
                         resolve: {
-                            //
+                            tab: function () {
+                                return 'fav';
+                            }
                         }
                     });
                     modal.result.then(function () {
@@ -198,4 +213,6 @@
                 $scope.init();
                 entitiesService.banner();
             });
+
+
 })();

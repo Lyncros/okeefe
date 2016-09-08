@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('accountController',
-            function ($scope, $rootScope, $uibModalInstance, entitiesService, userService, tab) {
+            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab) {
 
                 $scope.isLoading = false;
                 $scope.alert;
@@ -33,10 +33,19 @@
                             $scope.isLoading = false;
                             $scope.alert;
                         });
-                }
+                };
+
+                favoritesService.getAll()
+                    .then(function (data) {
+                        $scope.props = data;
+
+
+
+                        console.log($scope.props);
+                    })
             })
         .controller('loginController',
-            function ($scope, $rootScope, $uibModalInstance, $location, entitiesService, $auth) {
+            function ($scope, $rootScope, $uibModalInstance, $location, entitiesService, $auth, $window) {
 
                 $scope.alert;
 
@@ -45,8 +54,7 @@
                         'email': email,
                         'password': password
                     })
-                        .then(function () {
-
+                        .then(function (data) {
                             $scope.alert = {
                                 type: 'success',
                                 'msg': 'Bienvenido a Okeefe'
@@ -55,7 +63,7 @@
                             setTimeout(function () {
                                 $uibModalInstance.dismiss('cancel');
 
-                                window.location = '/';
+                                $window.location.reload();
                             }, 1000);
                         })
                         .catch(function (error) {
@@ -83,7 +91,7 @@
                             setTimeout(function () {
                                 $uibModalInstance.dismiss('cancel');
 
-                                window.location = '/';
+                                $window.location.reload();
                             }, 1000);
                         })
                         .catch(function (error) {
@@ -217,7 +225,7 @@
                             setTimeout(function () {
                                 $uibModalInstance.dismiss('cancel');
 
-                                window.location = '/';
+                                $window.location.reload();
                             }, 1000);
                         })
                         .catch(function (error) {

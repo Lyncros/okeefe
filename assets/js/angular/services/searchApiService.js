@@ -21,6 +21,7 @@
                 param.tipo = tipo;
                 param.oper = oper;
                 $http({
+                    skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     url: setURL(API_SEARCH, param)
                 }).then(function successCallback(response) {
@@ -35,6 +36,8 @@
                 var url = API_SEARCH + 'ubicacion/'+q+'/'+t+'/'+oper;
                 var deferred = $q.defer();
                 $http({
+                    method: 'GET',
+                    skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     url: url
                 }).then(function successCallback(response) {
@@ -48,6 +51,7 @@
             searchApi.readById = function (id) {
                 var deferred = $q.defer();
                 $http({
+                    skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     url: setURL(API_SEARCH, '', id)
                 }).then(function successCallback(response) {

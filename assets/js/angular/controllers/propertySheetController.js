@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertySheetController',
-            function ($scope, $rootScope, $timeout, entitiesService, defaultFactory, $auth, $uibModal, $routeParams, searchApiService) {
+            function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory, $auth, $uibModal, $routeParams, searchApiService) {
 
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
@@ -83,6 +83,31 @@
                             size: 'lg',
                         });
                     }
+                };
+
+
+                favoritesService.count()
+                    .then(function (data) {
+
+                        $scope.favCount = data;
+                    });
+
+                $scope.editFav = function () {
+                    var modal = $uibModal.open({
+                        templateUrl: 'templates/modals/account.html',
+                        controller: 'accountController',
+                        size: 'xl',
+                        resolve: {
+                            tab: function () {
+                                return 'fav';
+                            }
+                        }
+                    });
+                    modal.result.then(function () {
+                        // guardar
+                    });
+                    modal.result.catch(function () {
+                    });
                 };
 
                 $scope.init();

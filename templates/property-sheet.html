@@ -5,14 +5,14 @@
             <span> > <a>Propiedad</a></span>
             <span> > <a>{{param}}</a></span>
         </div>
-        <div class="boton-fav" ng-if="isLogged">
+        <div class="boton-fav" ng-if="isLogged" ng-click="editFav()">
             <a href="javascript:;" class="btn btn-gris-claro btn-block" data-toggle="modal" data-target="#modal-fav">
 						<span class="fa-stack">
 						  <i class="fa fa-circle fa-stack-2x"></i>
 						  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
 						</span>
                 Ver favoritos
-                <span class="contador">5</span>
+                <span class="contador">{{favCount}}</span>
             </a>
         </div>
     </div>
