@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeSite.services')
-        .factory('okeefeApiService', function ($http, $q, API_OKEEFE) {
+        .factory('okeefeApiService', function ($http, $q, API_SEARCH) {
             var API = {};
 
             API.send = function (data) {
@@ -9,7 +9,7 @@
                     method: 'POST',
                     data: $.param(data),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                    url: API_OKEEFE
+                    url: API_SEARCH
                 }).then(function successCallback(response) {
                     deferred.resolve(response);
                 }, function errorCallback(response) {
