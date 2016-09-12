@@ -184,6 +184,12 @@ select {
     pointer-events: none;
     z-index: 2;
 }
+.ok-search-order:after{
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #e9580c;
+    right: 5px;
+    top: 8px;
+}
 
 .flecha-select.lg:after {
     top: 10px;

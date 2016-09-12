@@ -4,7 +4,8 @@
             function (favoritesService, $scope, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
                 $scope.view = "grid";
                 $scope.rev = false;
-                $scope.propertyName = '';
+                $scope.propertyName = 'valor';
+                $scope.orderChanged = 'valor';
                 $scope.init = function () {
                     $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}};
                     $scope.errors = {};
@@ -40,7 +41,7 @@
                 };
 
                 $scope.sortBy = function (propertyName) {
-                    console.log(propertyName);
+                    //console.log(propertyName);
                     $scope.propertyName = propertyName;
                 };
 
