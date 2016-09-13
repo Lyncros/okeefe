@@ -93,6 +93,11 @@
                         $scope.user = response;
                     });
 
+
+                $scope.scrollTo = function(id) {
+                    $location.hash(id);
+                }
+
                 $scope.editAccount = function (tab) {
                     if ($scope.isLogged) {
                         var modal = $uibModal.open({

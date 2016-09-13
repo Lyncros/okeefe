@@ -17,7 +17,6 @@
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
         
-
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyDMSy5R0Rfyx7rnhJ50sBUsHawncc87tJo',
             v: '3',
@@ -120,5 +119,4 @@
             clientId: '161677011925-t4907vrogdtgjkg0u52g8rhciacj1gv2.apps.googleusercontent.com'
         });
     });
-
 })();

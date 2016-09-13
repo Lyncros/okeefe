@@ -35,7 +35,7 @@
             </div>
             <div class="grupo-enc">
                 <div class="btn_contacto col-lg-2 col-md-12 pull-right">
-                    <a ng-click="editAccount()" class="btn btn-verde btn-block btn-lg" role="button">CONTACTO</a>
+                    <a ng-click="scrollTo('contact_form')" class="btn btn-verde btn-block btn-lg" role="button">CONTACTO</a>
                 </div>
                 <div class="menu text-center pull-right">
                     <div class="item">
@@ -225,7 +225,7 @@
             </div>
         </div>
         <div class="col-md-4 padding-right-0">
-            <h5>Formulario de consultas</h5>
+            <h5 id="contact_form">Formulario de consultas</h5>
             <div class="row" ng-show="alert != null">
                 <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
             </div>

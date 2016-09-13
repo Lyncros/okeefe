@@ -155,7 +155,7 @@
         })
         .controller('registerController',
             function ($scope, $rootScope, $uibModalInstance, entitiesService,
-                      API_CLIENT_AUTH, $http, $auth, userService) {
+                      API_CLIENT_AUTH, $http, $auth, userService, $window) {
 
                 $scope.discCheck = 1;
 
