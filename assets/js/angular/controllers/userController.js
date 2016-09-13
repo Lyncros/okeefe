@@ -38,10 +38,6 @@
                 favoritesService.getAll()
                     .then(function (data) {
                         $scope.props = data;
-
-
-
-                        console.log($scope.props);
                     })
             })
         .controller('loginController',
