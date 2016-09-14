@@ -8,7 +8,7 @@
 
             vm.favoriteFactory.getAll = function () {
               return $http({
-                      url: API_CLIENT_AUTH + 'propiedades/favoritos/',
+                      url: API_CLIENT_AUTH + 'propiedades/favoritos',
                       method: 'GET',
                       headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
                   })
