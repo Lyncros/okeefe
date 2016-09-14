@@ -107,6 +107,8 @@
             })
             .otherwise("/");
 
+
+
         $authProvider.loginUrl = API_CLIENT_AUTH + 'login';
 
         $authProvider.facebook({
