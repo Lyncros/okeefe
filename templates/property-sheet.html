@@ -199,7 +199,7 @@
                 </div>
                 <div class="col-xs-9">
                     <div class="boton-fav">
-                        <a href="javascript:;" class="btn btn-verde btn-block" data-toggle='popover'
+                        <a ng-if="!resultFav" href="javascript:;" class="btn btn-verde btn-block" data-toggle='popover'
                            data-content="Optimizá tus búsquedas y marcá tus <strong>Favoritos</strong>"
                            data-trigger="hover"
                            data-placement="top"
@@ -209,6 +209,19 @@
                             <span class="fa-stack fix">
 									  <i class="fa fa-circle fa-stack-2x"></i>
 									  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+									</span>
+                        </a>
+
+                        <a ng-if="resultFav" href="javascript:;" class="btn btn-gris-claro btn-block" data-toggle='popover'
+                           data-content="Quitar de mi listado de<strong>Favoritos</strong>"
+                           data-trigger="hover"
+                           data-placement="top"
+                           data-html='true'
+                           ng-click="doFav(property.id_prop)">
+                            QUITAR DE MI LISTADO DE FAVORITOS
+                            <span class="fa-stack fix">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
 									</span>
                         </a>
                     </div>

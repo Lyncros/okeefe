@@ -105,17 +105,41 @@
 
                 $scope.getData = function () {
                     $scope.getParam();
-                    searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $scope.param).then(function (response) {
-                        //console.log("res", response.data.data);
-                        $scope.properties = response.data.data.propiedades;
-                        $scope.loadingProperties = false;
-                        if ($scope.properties.length) {
-                            totalFilters($scope.properties);
-                            setMap($scope.properties);
-                        }
-                    }, function errorCallback(response) {
-                        console.log("error :", response);
-                    });
+
+                    searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $scope.param)
+                        .then(function (response) {
+                            //console.log("res", response.data.data);
+                            $scope.properties = response.data.data.propiedades;
+                            //$scope.loadingProperties = false;
+                            if ($scope.properties.length) {
+                                totalFilters($scope.properties);
+                                setMap($scope.properties);
+                            }
+                        })
+                        .then(function () {
+                            if ($scope.isLogged) {
+                                favoritesService.getAll(function (data) {
+                                        return data;
+                                    })
+                                    .then(function (data) {
+                                        $scope.checkFav = function (id) {
+                                            var result = data.some(function (el) {
+                                                return el.id_prop == id;
+                                            });
+
+                                            return result;
+                                        }
+                                    })
+                                    .then(function () {
+                                        $scope.loadingProperties = false;
+                                    });
+                            } else {
+                                $scope.checkFav = function (id) {
+                                    return true;
+                                };
+                                $scope.loadingProperties = false;
+                            }
+                        });
                 };
                 $scope.getFilterName = function (filter) {
                     return entitiesService.filters(filter);
@@ -170,12 +194,35 @@
 
                 $scope.doFav = function (id) {
                     if ($scope.isLogged) {
+
+                        var button = angular.element(".prop-" + id);
+
+                        if (button.hasClass('btn-gris-claro-2')) {
+                            button.removeClass('btn-gris-claro-2');
+                            button.addClass('btn-gris-claro');
+                            button.html(
+                                '<span class="fa-stack">'
+                                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                                + '<i class="fa fa-trash fa-stack-1x fa-inverse"></i>'
+                                + '</span> Quitar </a>'
+                            );
+                        } else {
+                            button.removeClass('btn-gris-claro');
+                            button.addClass('btn-gris-claro-2');
+                            button.html(
+                                '<span class="fa-stack">'
+                                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                                + '<i class="fa fa-heart fa-stack-1x fa-inverse"></i>'
+                                + '</span> Favorito </a>')
+                        }
+
                         favoritesService.setFavorite(id)
                             .then(function () {
+
                                 favoritesService.count()
                                     .then(function (data) {
                                         $scope.favCount = data;
-                                });
+                                    });
                             });
                     } else {
                         var modal = $uibModal.open({
@@ -189,7 +236,6 @@
                 if ($scope.isLogged) {
                     favoritesService.count()
                         .then(function (data) {
-
                             $scope.favCount = data;
                         });
                 }

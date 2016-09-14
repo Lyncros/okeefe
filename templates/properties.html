@@ -265,13 +265,23 @@
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
                                         <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-                                        <div class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro-2" ng-click="doFav(prop.id_prop)">
+                                        <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
                                                 </span>
                                                 Favorito
+                                            </a>
+                                        </div>
+
+                                        <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
+                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Quitar
                                             </a>
                                         </div>
                                         <div class="boton-fav compartir pull-right">

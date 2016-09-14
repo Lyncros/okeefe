@@ -3,6 +3,14 @@
         .controller('propertySheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory, $auth, $uibModal, $routeParams, searchApiService) {
 
+                $scope.resultFav = true;
+                $scope.favCount = 0;
+
+                favoritesService.count()
+                    .then(function (data) {
+                        $scope.favCount = data;
+                    });
+
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
                     $scope.map = defaultFactory.property_sheet_map;
@@ -41,20 +49,34 @@
                 };
                 $scope.getData = function () {
                     $scope.getParam();
-                    searchApiService.searchApi.readById($scope.param).then(function (response) {
-                        $scope.property = response.data;
-                        setMap($scope.property);
-                        setChar($scope.property.propiedad_caracteristicas);
-                        $timeout(function () {
-                            entitiesService.wowSlider();
-                        }, 1000);
-                        console.log("bien", response);
-                    }, function errorCallback(response) {
-                        console.log("error :", response);
+
+                    searchApiService.searchApi.readById($scope.param)
+                        .then(function (response) {
+                            $scope.property = response.data;
+                            setMap($scope.property);
+                            setChar($scope.property.propiedad_caracteristicas);
+                            $timeout(function () {
+                                entitiesService.wowSlider();
+                            }, 1000);
+
+                            return response.data;
+                    }).then(function (prop) {
+                        if ($scope.isLogged) {
+                            favoritesService.getAll()
+                                .then(function (data) {
+
+                                    var res = data.some(function (el) {
+                                        return el.id_prop == prop.id_prop;
+                                    });
+
+                                    $scope.resultFav = res;
+                                });
+                        }
                     });
                 };
 
                 $scope.control = {};
+
                 $scope.refreshMap = function () {
                     entitiesService.refreshMap($scope);
                 };
@@ -73,9 +95,17 @@
                     if(key == 't'){entitiesService.moveArrow('property', pos); return null;}
                 };
 
-                $scope.doFav = function () {
+                $scope.doFav = function (id) {
                     if ($scope.isLogged) {
+                        favoritesService.setFavorite(id)
+                            .then(function () {
+                                $scope.resultFav = !$scope.resultFav;
 
+                                favoritesService.count()
+                                    .then(function (data) {
+                                        $scope.favCount = data;
+                                    });
+                            });
                     } else {
                         var modal = $uibModal.open({
                             templateUrl: 'templates/modals/login.html',
@@ -85,12 +115,6 @@
                     }
                 };
 
-
-                favoritesService.count()
-                    .then(function (data) {
-
-                        $scope.favCount = data;
-                    });
 
                 $scope.editFav = function () {
                     var modal = $uibModal.open({

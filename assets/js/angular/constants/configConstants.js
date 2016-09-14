@@ -7,7 +7,6 @@
         .constant('API_OKEEFE', 'http://crm.okeefe.com.ar/api/v1/external-source/contacts');
 })();
 
-
 /*
 (function () {
     angular.module('okeefeSite.constants', [])

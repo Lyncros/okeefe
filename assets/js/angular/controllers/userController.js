@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('accountController',
-            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab) {
+            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab, $window) {
 
                 $scope.isLoading = false;
                 $scope.alert;
@@ -38,7 +38,24 @@
                 favoritesService.getAll()
                     .then(function (data) {
                         $scope.props = data;
-                    })
+                    });
+
+                $scope.favDetails = function(id) {
+                    $window.location = '/#/ficha-propiedad/'+id;
+
+                    $uibModalInstance.dismiss('cancel');
+                    return false;
+                }
+
+                $scope.favToggle = function (id) {
+                    favoritesService.setFavorite(id)
+                        .then(function () {
+                            favoritesService.getAll()
+                                .then(function (data) {
+                                    $scope.props = data;
+                                });
+                        });
+                }
             })
         .controller('loginController',
             function ($scope, $rootScope, $uibModalInstance, $location, entitiesService, $auth, $window) {
