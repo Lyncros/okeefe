@@ -108,8 +108,7 @@
                                 tab: function () {
                                     return tab;
                                 },
-                            }
-                        });
+                            }});
                         modal.result
                             .then(function () {
                                 // guardar
