@@ -18,10 +18,6 @@
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
 
-        $httpProvider.defaults.headers.common = {};
-        $httpProvider.defaults.headers.post = {};
-        $httpProvider.defaults.headers.put = {};
-        $httpProvider.defaults.headers.patch = {};
 
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyDMSy5R0Rfyx7rnhJ50sBUsHawncc87tJo',
