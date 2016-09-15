@@ -3,7 +3,7 @@
         .controller('propertySheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory, $auth, $uibModal, $routeParams, searchApiService) {
 
-                $scope.resultFav = true;
+                $scope.resultFav = false;
                 $scope.favCount = 0;
 
                 favoritesService.count()
@@ -71,6 +71,8 @@
 
                                     $scope.resultFav = res;
                                 });
+                        } else {
+                            $scope.resultFav = false;
                         }
                     });
                 };

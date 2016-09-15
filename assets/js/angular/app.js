@@ -12,7 +12,8 @@
         'toastr',
         'ui.gravatar',
         'frapontillo.bootstrap-switch',
-        'fancyboxplus'
+        'fancyboxplus',
+        '720kb.socialshare'
     ]);
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
