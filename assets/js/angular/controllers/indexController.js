@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers', [])
         .controller('indexController',
-            function ($route, $scope, $rootScope, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService) {
+            function ($route, $scope, $rootScope, $window, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService) {
 
                 $scope.maps = defaultFactory.footer_maps;
                 $scope.alert = null;
@@ -115,6 +115,7 @@
                                 // guardar
                             });
                         modal.result.catch(function () {
+                            $window.location.reload();
                         });
                     } else {
                         $scope.login();

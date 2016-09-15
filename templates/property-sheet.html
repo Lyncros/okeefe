@@ -31,7 +31,7 @@
             <div id="wowslider-container1">
                 <div class="ws_images">
                     <ul>
-                        <li ng-repeat="img in property.foto track by $index"><img ng-src="{{'http://'+img.foto}}"
+                        <li ng-repeat="img in property.foto track by $index"><img ng-src="{{img.foto}}"
                                                                                   alt="{{img.id_foto}}"
                                                                                   title="Imagen de Propiedad"
                                                                                   id="wows1_{{$index}}"/></li>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="ws_thumbs">
                     <div>
-                        <a ng-repeat="img in property.foto track by $index"><img ng-src="{{'http://'+img.foto}}"
+                        <a ng-repeat="img in property.foto track by $index"><img ng-src="{{img.foto}}"
                                                                                  alt="{{img.id_foto}}"/></a>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                             <div class="item active">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="{{'http://'+property.plano1}}">
+                                        <img class="img-responsive center-block" ng-src="{{property.plano1}}">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                             <div class="item">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="{{'http://'+property.plano2}}">
+                                        <img class="img-responsive center-block" ng-src="{{property.plano2}}">
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                             <div class="item">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="{{'http://'+property.plano3}}">
+                                        <img class="img-responsive center-block" ng-src="{{property.plano3}}">
                                     </div>
                                 </div>
                             </div>

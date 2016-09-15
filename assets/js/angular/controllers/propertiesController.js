@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function (favoritesService, $scope, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
+            function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
                 $scope.view = "grid";
                 $scope.rev = false;
                 $scope.propertyName = 'valor';
@@ -36,6 +36,7 @@
                     //console.log("$scope.appliedFilters",$scope.appliedFilters);
                 };
 
+
                 $scope.getTipoInmueble = function (val) {
                     return entitiesService.tipoInmueble(val);
                 };
@@ -48,6 +49,13 @@
                 $scope.getTipoOperacion = function (val) {
                     return entitiesService.tipoOperacion(val);
                 };
+
+                if ($scope.isLogged) {
+                    favoritesService.count()
+                        .then(function (data) {
+                            $scope.favCount = data;
+                        });
+                }
 
                 function totalFilters(arr) {
                     angular.forEach(arr, function (prop, keyP) {
@@ -135,7 +143,7 @@
                                     });
                             } else {
                                 $scope.checkFav = function (id) {
-                                    return true;
+                                    return false;
                                 };
                                 $scope.loadingProperties = false;
                             }
@@ -241,7 +249,7 @@
                 }
 
                 $scope.editFav = function () {
-                    var modal = $uibModal.open({
+                    $scope.modal = $uibModal.open({
                         templateUrl: 'templates/modals/account.html',
                         controller: 'accountController',
                         size: 'xl',
@@ -251,12 +259,18 @@
                             }
                         }
                     });
-                    modal.result.then(function () {
-                        // guardar
-                    });
-                    modal.result.catch(function () {
+
+                    $scope.modal.result.catch(function () {
+                        favoritesService.count()
+                            .then(function (data) {
+                                $scope.favCount = data;
+                            })
+                            .then(function () {
+                               $scope.init();
+                        });
                     });
                 };
+
                 $scope.init();
                 entitiesService.banner();
             });

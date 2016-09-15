@@ -45,7 +45,7 @@
 
                     $uibModalInstance.dismiss('cancel');
                     return false;
-                }
+                };
 
                 $scope.favToggle = function (id) {
                     favoritesService.setFavorite(id)

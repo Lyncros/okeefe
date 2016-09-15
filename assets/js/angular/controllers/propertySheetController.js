@@ -6,10 +6,6 @@
                 $scope.resultFav = false;
                 $scope.favCount = 0;
 
-                favoritesService.count()
-                    .then(function (data) {
-                        $scope.favCount = data;
-                    });
 
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
@@ -18,6 +14,14 @@
                     entitiesService.popover();
                     $scope.tab = 'f';
                 };
+
+                if ($scope.isLogged) {
+                    favoritesService.count()
+                        .then(function (data) {
+                            $scope.favCount = data;
+
+                        });
+                }
 
                 function setChar(data) {
                     $scope.property.ambientes = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 16 });
@@ -119,20 +123,23 @@
 
 
                 $scope.editFav = function () {
-                    var modal = $uibModal.open({
+                    $scope.modal = $uibModal.open({
                         templateUrl: 'templates/modals/account.html',
                         controller: 'accountController',
                         size: 'xl',
                         resolve: {
                             tab: function () {
+
                                 return 'fav';
                             }
                         }
                     });
-                    modal.result.then(function () {
-                        // guardar
-                    });
-                    modal.result.catch(function () {
+
+                    $scope.modal.result.catch(function () {
+                        favoritesService.count()
+                            .then(function (data) {
+                                $scope.favCount = data;
+                            });
                     });
                 };
 
