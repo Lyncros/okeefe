@@ -62,10 +62,13 @@
                         <div class="item i2" ng-class="{'active' : tab == 'v'}" ng-if="property.video">
                             <a ng-click="moveArrow('v')" href=".video" class="v" data-toggle="tab">Video</a>
                         </div>
-                        <div class="item i3" ng-class="{'active' : tab == 'm'}" ng-if="property.goglat || property.goglong">
-                            <a ng-click="refreshMap();moveArrow('m');" href=".mapap" class="m" data-toggle="tab">Mapa</a>
+                        <div class="item i3" ng-class="{'active' : tab == 'm'}"
+                             ng-if="property.goglat || property.goglong">
+                            <a ng-click="refreshMap();moveArrow('m');" href=".mapap" class="m"
+                               data-toggle="tab">Mapa</a>
                         </div>
-                        <div class="item i5" ng-class="{'active' : tab == 'p'}" ng-if="property.plano1 || property.plano2 || property.plano3">
+                        <div class="item i5" ng-class="{'active' : tab == 'p'}"
+                             ng-if="property.plano1 || property.plano2 || property.plano3">
                             <a ng-click="moveArrow('p')" href=".planos" class="p" data-toggle="tab">Planos</a>
                         </div>
                         <div class="item i6" ng-class="{'active' : tab == 't'}" ng-if="property.resumen">
@@ -212,7 +215,8 @@
 									</span>
                         </a>
 
-                        <a ng-if="resultFav" href="javascript:;" class="btn btn-gris-claro btn-block" data-toggle='popover'
+                        <a ng-if="resultFav" href="javascript:;" class="btn btn-gris-claro btn-block"
+                           data-toggle='popover'
                            data-content="Quitar de mi listado de<strong>Favoritos</strong>"
                            data-trigger="hover"
                            data-placement="top"
@@ -252,412 +256,210 @@
     <div class="row">
         <div ng-if="property.ambientes.length" class="col-lg-3 col-md-6 columna padding-0">
             <span class="th">Ambientes</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 16" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 16"
+                  class='td'>{{char.caracteristica.titulo}} <span
+                    ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i
+                    ng-if="char.contenido == 'on' || char.contenido == 'Si'"
+                    class="fa fa-check pull-right color-orange"></i></span>
         </div>
         <div ng-if="property.caracteristicas.length" class="col-lg-3 col-md-6 columna padding-0">
             <span class="th">Características</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 9" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 9"
+                  class='td'>{{char.caracteristica.titulo}} <span
+                    ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i
+                    ng-if="char.contenido == 'on' || char.contenido == 'Si'"
+                    class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.servicios.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">Servicios</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 23" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 23"
+                  class='td'>{{char.caracteristica.titulo}} <span
+                    ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i
+                    ng-if="char.contenido == 'on' || char.contenido == 'Si'"
+                    class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.amenities.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">Amenities</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 20" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 20"
+                  class='td'>{{char.caracteristica.titulo}} <span
+                    ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i
+                    ng-if="char.contenido == 'on' || char.contenido == 'Si'"
+                    class="fa fa-check pull-right color-orange"></i></span>
 
         </div>
         <div ng-if="property.caracteristicasEdificio.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">El edificio</span>
-            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 19" class='td'>{{char.caracteristica.titulo}} <span ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i ng-if="char.contenido == 'on' || char.contenido == 'Si'" class="fa fa-check pull-right color-orange"></i></span>
+            <span ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 19"
+                  class='td'>{{char.caracteristica.titulo}} <span
+                    ng-if="char.contenido != 'on' && char.contenido != 'Si'">{{char.contenido}}</span><i
+                    ng-if="char.contenido == 'on' || char.contenido == 'Si'"
+                    class="fa fa-check pull-right color-orange"></i></span>
         </div>
     </div>
 </div>
-<!--
-<div class="tabla-info-prop">
-    <div class="row">
-        <div class="col-md-3 col-xs-6 columna padding-0">
-            <span class="th">Ambientes</span>
-            <span ng-if="property.superficie.length" class='td'>Superficie <span>{{property.superficie[0].contenido}}</span></span>
-            <span ng-if="property.superficieC.length" class='td'>Superficie cubierta<span>{{property.superficieC[0].contenido}}</span></span>
-            <span ng-if="property.ambientes.length" class='td'>Ambientes <span>{{property.ambientes[0].contenido}}</span></span>
-            <span ng-if="property.living.length" class='td'>Living <span>{{property.living[0].contenido}}</span></span>
-            <span ng-if="property.comedor.length" class='td'>Comedor <span>{{property.comedor[0].contenido}}</span></span>
-            <span ng-if="property.dormitorios.length" class='td'>Dormitorios <span>{{property.dormitorios[0].contenido}}</span></span>
-            <span ng-if="property.cocina.length" class='td'>Cocina <span>{{property.cocina[0].contenido}}</span></span>
-            <span ng-if="property.lavadero.length" class='td'>Lavadero <span>{{property.lavadero[0].contenido}}</span></span>
-        </div>
-        <div class="col-md-3 col-xs-6 columna padding-0">
-            <span class="th">Características</span>
-            <span ng-if="property.estadoG.length" class='td'>Estado general <span>{{property.estadoG[0].contenido}}</span></span>
-            <span ng-if="property.orientacion.length" class='td'>Orientación <span>{{property.orientacion[0].contenido}}</span></span>
-            <span ng-if="property.disposicion.length" class='td'>Disposición <span>{{property.disposicion[0].contenido}}</span></span>
-            <span ng-if="property.vista.length" class='td'>Vista<span>{{property.vista[0].contenido}}</span></span>
-            <span ng-if="property.luminosidad.length" class='td'>Luminosidad<span>{{property.luminosidad[0].contenido}}</span></span>
-            <span ng-if="property.antiguedad.length" class='td'>Antiguedad<span>{{property.antiguedad[0].contenido}}</span></span>
-            <span ng-if="property.techo.length" class='td'>Patio <span>{{property.techo[0].contenido}}</span></span>
-            <span ng-if="property.superficie.length" class='td'>Techo <span>{{property.superficieC[0].contenido}}</span></span>
-        </div>
-        <div class="col-md-2 col-xs-4 columna padding-0">
-            <span class="th">Servicios</span>
-            <span ng-if="property.aguaC.length" class='td'>Agua corriente <span><i ng-show="property.aguaC[0].contenido == 'on'" class="fa fa-check"></i></span></span>
-            <span ng-if="property.gasN.length" class='td'>Gas natural <span><i ng-show="property.gasN[0].contenido == 'on'" class="fa fa-check"></i></span></span>
-            <span ng-if="property.cloacas.length" class='td'>Cloacas<span><i ng-show="property.cloacas[0].contenido == 'on'" class="fa fa-check"></i></span></span>
-            <span ng-if="property.alarma.length" class='td'>Alarma<span><i ng-show="property.alarma[0].contenido == 'on'" class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx<span><i class="fa fa-check"></i></span></span>
-        </div>
-        <div class="col-md-2 col-xs-4 columna padding-0">
-            <span class="th">Amenities</span>
-            <span class='td'>SUM <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>Pileta <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>Gimnasio <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-        </div>
-        <div class="col-md-2 col-xs-4 columna padding-0">
-            <span class="th">El edificio</span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-            <span class='td'>xxxxx <span><i class="fa fa-check"></i></span></span>
-        </div>
-    </div>
-</div>
--->
-
-<div class="row slider-propiedades">
+<div ng-if="properties.length > 0" class="row slider-propiedades">
     <div class="row">
         <div class="col-xs-12">
             <span class="titulo-slider-prop text-center"> ENCONTRÁ MÁS PROPIEDADES RELACIONADAS A TU BÚSQUEDA </span>
         </div>
     </div>
-    <div class="row">
-        <div id="slider-mod" class="carousel slide slider-mod" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <!-- SLIDE -->
-                <div class="item active">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
+    <div ng-if="properties.length < 4" ng-repeat="prop in properties" class="col-lg-4 col-md-6">
+        <div class="col-lg-12 ficha padding-0">
+            <img class="col-lg-12 padding-0 img-responsive"
+                 style="height: 200px; max-height: 200px;"
+                 ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
+            <img class="col-lg-12 padding-0 img-responsive"
+                 style="height: 200px; max-height: 200px;"
+                 ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
+            <div class="descripcion col-lg-12">
+                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                    <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
+                            ng-if="prop.fichaweb.length > 65">...</span></p>
+                </a>
+                <div class="col-lg-12 padding-0 caracteristicas">
+                    <div class="col-lg-12 padding-0">
+                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div ng-if="prop.valor" class="col-md-12 padding-0"
+                         ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
+                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
+                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                    </div>
+                    <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
+                         ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                        <img src="assets/img/ambientes.svg"><span
+                            ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                    </div>
+                    <div ng-if="prop.sup_total" class="col-md-12 padding-0"
+                         ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                     </div>
                 </div>
-                <!-- SLIDE -->
-                <div class="item">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
+                <div class="col-md-12 padding-5">
+                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                    <div ng-if="checkFav(prop.id_prop)" class="col-lg-3 col-md-12 padding-0 boton-fav">
+                        <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
                                             </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
+                            Favorito
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
+                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
                                             <span class="fa-stack">
                                               <i class="fa fa-circle fa-stack-2x"></i>
                                               <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                             </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
+                            Compartir
+                        </a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="col-lg-12 ficha padding-0">
-                            <img class="img-responsive" src="assets/img/prop1.png">
-                            <div class="descripcion col-lg-12">
-                                <p class="titulo">2 ambientes con extraordinarias vistas y luminosidad</p>
-                                <div class="col-lg-12 padding-0 caracteristicas">
-                                    <div class="col-lg-12 padding-0">
-                                        <img src="assets/img/ubicacion.svg">Zona 1245, Berazategui, GBA Zona Sur
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/valor_propiedad.svg">254.000 USD
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/tipo_propiedad.svg">Departamento
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/ambientes.svg">2 ambientes
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 padding-0">
-                                        <img src="assets/img/m2.svg">72 M2
-                                    </div>
-                                </div>
-                                <div class="col-md-12 padding-5">
-                                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
-
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" ng-click="doFav()">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Favorito
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                            Compartir
-                                        </a>
-                                    </div>
-                                    <a href="" class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                                        MÁS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                       class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
+                        MÁS</a>
                 </div>
-                <!-- SLIDE -->
             </div>
+        </div>
+    </div>
+    <div ng-if="properties.length > 3" class="row">
+        <div class="carousel carousel-showmanymoveone slide ok-slider-fp" id="slider-equipo">
+            <div class="carousel-inner">
+                <div class="item" ng-repeat="prop in properties" ng-class="{'active' : $first}">
+                    <div class="col-md-6 col-lg-4 ficha">
+                        <div class="col-lg-12 content">
+                            <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <img class="col-lg-12 padding-0 img-responsive"
+                                     style="height: 200px; max-height: 200px;"
+                                     ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
+                                <img class="col-lg-12 padding-0 img-responsive"
+                                     style="height: 200px; max-height: 200px;"
+                                     ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
+                            </a>
+                            <div class="col-lg-12 padding-0 descripcion">
+                                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                    <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
+                                            ng-if="prop.fichaweb.length > 65">...</span></p>
+                                </a>
+                                <div class="col-lg-12 padding-0 caracteristicas">
+                                    <div class="col-lg-12 padding-0">
+                                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                    </div>
+                                    <div ng-if="prop.moneda_alq" class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.moneda_alq}} {{prop.moneda_venta}}
+                                    </div>
+                                    <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.moneda_alq }">
+                                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                    </div>
+                                    <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                                        <img src="assets/img/ambientes.svg"><span
+                                            ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                                    </div>
+                                    <div ng-if="prop.sup_total" class="col-md-12 padding-0"
+                                         ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    </div>
+                                </div>
+                                <div class="property-buttons">
+                                    <div class="col-lg-12 padding-0">
+                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Favorito
+                                            </a>
+                                        </div>
 
-            <!-- Controls -->
-            <a class="left carousel-control" href=".slider-mod" ng-non-bindable role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="right carousel-control" href=".slider-mod" ng-non-bindable role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
+                                        <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
+                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Quitar
+                                            </a>
+                                        </div>
+                                        <div class="boton-fav compartir pull-right">
+                                            <a class="btn btn-xs btn-gris-claro-2" type="submit">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Compartir
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 padding-0 margin-top-10">
+                                        <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                           class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i
+                    class="glyphicon glyphicon-chevron-left"></i></a>
+            <a class="right carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i
+                    class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
     </div>
 </div>

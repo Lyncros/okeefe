@@ -116,7 +116,7 @@
 
                     searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $scope.param)
                         .then(function (response) {
-                            //console.log("res", response.data.data);
+                            console.log("res", response.data.data);
                             $scope.properties = response.data.data.propiedades;
                             //$scope.loadingProperties = false;
                             if ($scope.properties.length) {
@@ -187,6 +187,7 @@
 
                 $scope.changeView = function (view) {
                     $scope.view = view;
+                    console.log($scope.view);
                 };
                 $scope.trustAsHtml = function (html) {
                     return entitiesService.trustHtml(html);

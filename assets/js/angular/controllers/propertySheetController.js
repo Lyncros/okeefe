@@ -53,7 +53,6 @@
                 };
                 $scope.getData = function () {
                     $scope.getParam();
-
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
                             $scope.property = response.data;
@@ -61,24 +60,38 @@
                             setChar($scope.property.propiedad_caracteristicas);
                             $timeout(function () {
                                 entitiesService.wowSlider();
-                            }, 1000);
+                                entitiesService.carouselByOne('.carousel-showmanymoveone .item');
+                            }, 0);
 
                             return response.data;
-                    }).then(function (prop) {
+                    }).then(function () {
                         if ($scope.isLogged) {
-                            favoritesService.getAll()
+                            favoritesService.getAll(function (data) {
+                                return data;
+                            })
                                 .then(function (data) {
+                                    $scope.checkFav = function (id) {
+                                        var result = data.some(function (el) {
+                                            return el.id_prop == id;
+                                        });
 
-                                    var res = data.some(function (el) {
-                                        return el.id_prop == prop.id_prop;
-                                    });
-
-                                    $scope.resultFav = res;
+                                        return result;
+                                    }
+                                })
+                                .then(function () {
+                                    $scope.loadingProperties = false;
                                 });
                         } else {
-                            $scope.resultFav = false;
+                            $scope.checkFav = function (id) {
+                                return false;
+                            };
+                            $scope.loadingProperties = false;
                         }
                     });
+                    searchApiService.searchApi.readSuggested($scope.param)
+                        .then(function (response) {
+                            $scope.properties = response.data;
+                        })
                 };
 
                 $scope.control = {};
@@ -100,12 +113,32 @@
                     if($scope.property.resumen){pos++;}
                     if(key == 't'){entitiesService.moveArrow('property', pos); return null;}
                 };
-
                 $scope.doFav = function (id) {
                     if ($scope.isLogged) {
+
+                        var button = angular.element(".prop-" + id);
+
+                        if (button.hasClass('btn-gris-claro-2')) {
+                            button.removeClass('btn-gris-claro-2');
+                            button.addClass('btn-gris-claro');
+                            button.html(
+                                '<span class="fa-stack">'
+                                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                                + '<i class="fa fa-trash fa-stack-1x fa-inverse"></i>'
+                                + '</span> Quitar </a>'
+                            );
+                        } else {
+                            button.removeClass('btn-gris-claro');
+                            button.addClass('btn-gris-claro-2');
+                            button.html(
+                                '<span class="fa-stack">'
+                                + '<i class="fa fa-circle fa-stack-2x"></i>'
+                                + '<i class="fa fa-heart fa-stack-1x fa-inverse"></i>'
+                                + '</span> Favorito </a>')
+                        }
+
                         favoritesService.setFavorite(id)
                             .then(function () {
-                                $scope.resultFav = !$scope.resultFav;
 
                                 favoritesService.count()
                                     .then(function (data) {
@@ -121,6 +154,12 @@
                     }
                 };
 
+                if ($scope.isLogged) {
+                    favoritesService.count()
+                        .then(function (data) {
+                            $scope.favCount = data;
+                        });
+                }
 
                 $scope.editFav = function () {
                     $scope.modal = $uibModal.open({
@@ -129,7 +168,6 @@
                         size: 'xl',
                         resolve: {
                             tab: function () {
-
                                 return 'fav';
                             }
                         }
@@ -139,9 +177,17 @@
                         favoritesService.count()
                             .then(function (data) {
                                 $scope.favCount = data;
+                            })
+                            .then(function () {
+                                $scope.init();
                             });
                     });
                 };
+
+                $scope.trustAsHtml = function (html) {
+                    return entitiesService.trustHtml(html);
+                };
+
 
                 $scope.init();
 

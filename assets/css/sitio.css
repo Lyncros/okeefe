@@ -1452,7 +1452,9 @@ select {
     text-decoration: none;
     text-shadow: none;
 }
-
+.ok-slider-fp .ficha {
+    height: 550px !important;
+}
 #slider-mapas .carousel-control {
     background-image: none;
     width: 4%;
@@ -1493,6 +1495,9 @@ select {
     font-size: 14px;
     margin: auto;
 }
+.ficha .caracteristicas img{
+    max-width: 29.7px;
+}
 
 @-moz-document url-prefix() {
 
@@ -1507,6 +1512,10 @@ select {
     font-weight: 600;
     min-height: 50px;
     max-height: 50px;
+}
+
+.ficha-grid .caracteristicas img{
+    max-width: ;
 }
 
 .ficha .descripcion .muestra {
