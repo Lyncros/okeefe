@@ -1,7 +1,8 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertySheetController',
-            function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory, $auth, $uibModal, $routeParams, searchApiService) {
+            function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory,
+                      $auth, $uibModal, $routeParams, searchApiService) {
 
                 $scope.resultFav = false;
                 $scope.favCount = 0;
@@ -24,12 +25,24 @@
                 }
 
                 function setChar(data) {
-                    $scope.property.ambientes = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 16 });
-                    $scope.property.caracteristicas = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 9 });
-                    $scope.property.servicios = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 23 });
-                    $scope.property.amenities = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 20 });
-                    $scope.property.caracteristicasEdificio = data.filter(function (d) { return d.caracteristica.id_tipo_carac == 19 });
-                    $scope.property.titulo = data.filter(function (d) { return d.caracteristica.id_carac == 257 });
+                    $scope.property.ambientes = data.filter(function (d) {
+                        return d.caracteristica.id_tipo_carac == 16
+                    });
+                    $scope.property.caracteristicas = data.filter(function (d) {
+                        return d.caracteristica.id_tipo_carac == 9
+                    });
+                    $scope.property.servicios = data.filter(function (d) {
+                        return d.caracteristica.id_tipo_carac == 23
+                    });
+                    $scope.property.amenities = data.filter(function (d) {
+                        return d.caracteristica.id_tipo_carac == 20
+                    });
+                    $scope.property.caracteristicasEdificio = data.filter(function (d) {
+                        return d.caracteristica.id_tipo_carac == 19
+                    });
+                    $scope.property.titulo = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 257
+                    });
                     //console.log($scope.property);
                 }
 
@@ -64,30 +77,31 @@
                             }, 0);
 
                             return response.data;
-                    }).then(function () {
-                        if ($scope.isLogged) {
-                            favoritesService.getAll(function (data) {
-                                return data;
-                            })
-                                .then(function (data) {
-                                    $scope.checkFav = function (id) {
-                                        var result = data.some(function (el) {
-                                            return el.id_prop == id;
+                        })
+                        .then(function () {
+                            if ($scope.isLogged) {
+                                favoritesService.getAll(function (data) {
+                                        return data;
+                                    })
+                                    .then(function (data) {
+
+                                        var isFav = data.some(function (el) {
+                                            return el.id_prop == $scope.property.id_prop;
                                         });
 
-                                        return result;
-                                    }
-                                })
-                                .then(function () {
-                                    $scope.loadingProperties = false;
-                                });
-                        } else {
-                            $scope.checkFav = function (id) {
-                                return false;
-                            };
-                            $scope.loadingProperties = false;
-                        }
-                    });
+                                        $scope.resultFav = isFav;
+
+                                    })
+                                    .then(function () {
+                                        $scope.loadingProperties = false;
+                                    });
+                            } else {
+                                $scope.resultFav = function (id) {
+                                    return false;
+                                };
+                                $scope.loadingProperties = false;
+                            }
+                        });
                     searchApiService.searchApi.readSuggested($scope.param)
                         .then(function (response) {
                             $scope.properties = response.data;
@@ -103,18 +117,43 @@
                 $scope.moveArrow = function (key) {
                     $scope.tab = key;
                     var pos = 1;
-                    if(key == 'f'){entitiesService.moveArrow('property', pos); return null;}
-                    if($scope.property.video){pos++;}
-                    if(key == 'v'){entitiesService.moveArrow('property', pos); return null;}
-                    if($scope.property.goglat || $scope.property.goglong){pos++;}
-                    if(key == 'm'){entitiesService.moveArrow('property', pos); return null;}
-                    if($scope.property.plano1 || $scope.property.plano2 || $scope.property.plano3){pos++;}
-                    if(key == 'p'){entitiesService.moveArrow('property', pos); return null;}
-                    if($scope.property.resumen){pos++;}
-                    if(key == 't'){entitiesService.moveArrow('property', pos); return null;}
+                    if (key == 'f') {
+                        entitiesService.moveArrow('property', pos);
+                        return null;
+                    }
+                    if ($scope.property.video) {
+                        pos++;
+                    }
+                    if (key == 'v') {
+                        entitiesService.moveArrow('property', pos);
+                        return null;
+                    }
+                    if ($scope.property.goglat || $scope.property.goglong) {
+                        pos++;
+                    }
+                    if (key == 'm') {
+                        entitiesService.moveArrow('property', pos);
+                        return null;
+                    }
+                    if ($scope.property.plano1 || $scope.property.plano2 || $scope.property.plano3) {
+                        pos++;
+                    }
+                    if (key == 'p') {
+                        entitiesService.moveArrow('property', pos);
+                        return null;
+                    }
+                    if ($scope.property.resumen) {
+                        pos++;
+                    }
+                    if (key == 't') {
+                        entitiesService.moveArrow('property', pos);
+                        return null;
+                    }
                 };
                 $scope.doFav = function (id) {
                     if ($scope.isLogged) {
+
+                        $scope.resultFav = !$scope.resultFav;
 
                         var button = angular.element(".prop-" + id);
 
@@ -149,7 +188,7 @@
                         var modal = $uibModal.open({
                             templateUrl: 'templates/modals/login.html',
                             controller: 'loginController',
-                            size: 'lg',
+                            size: 'lg'
                         });
                     }
                 };
