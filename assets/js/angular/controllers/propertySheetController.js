@@ -96,16 +96,14 @@
                                         $scope.loadingProperties = false;
                                     });
                             } else {
-                                $scope.resultFav = function (id) {
-                                    return false;
-                                };
+                                $scope.resultFav = false;
                                 $scope.loadingProperties = false;
                             }
                         });
                     searchApiService.searchApi.readSuggested($scope.param)
                         .then(function (response) {
                             $scope.properties = response.data;
-                        })
+                        });
                 };
 
                 $scope.control = {};
@@ -181,7 +179,7 @@
 
                                 favoritesService.count()
                                     .then(function (data) {
-                                        $scope.favCount = data;
+                                           $scope.favCount = data;
                                     });
                             });
                     } else {
