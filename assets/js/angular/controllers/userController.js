@@ -1,8 +1,10 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('accountController',
-            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab, $window) {
+            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab, $window, SITE_URL) {
 
+
+                $scope.siteUrl = SITE_URL;
                 $scope.isLoading = false;
                 $scope.alert;
                 $scope.activeTab = (tab || 'data');

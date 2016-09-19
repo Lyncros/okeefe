@@ -2,8 +2,8 @@
     angular.module('okeefeSite.controllers')
         .controller('propertySheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory,
-                      $auth, $uibModal, $routeParams, searchApiService, okeefeApiService) {
-
+                      $auth, $uibModal, $routeParams, searchApiService, okeefeApiService, SITE_URL) {
+                $scope.siteUrl = SITE_URL;
                 $scope.resultFav = false;
                 $scope.favCount = 0;
                 $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};

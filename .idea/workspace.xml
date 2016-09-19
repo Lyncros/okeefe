@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/userController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/userController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modals/account.html" afterPath="$PROJECT_DIR$/templates/modals/account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/properties.html" afterPath="$PROJECT_DIR$/templates/properties.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/property-sheet.html" afterPath="$PROJECT_DIR$/templates/property-sheet.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/templates/property-sheet.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2861">
-              <caret line="401" column="51" selection-start-line="401" selection-start-column="51" selection-end-line="401" selection-end-column="51" />
+              <caret line="428" column="51" selection-start-line="428" selection-start-column="51" selection-end-line="428" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#4;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#4;n#!!top" expanded="true" />
@@ -41,35 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="propertiesController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
-              <folding>
-                <element signature="e#10278#12134#0" expanded="false" />
-                <element signature="e#12174#12366#0" expanded="false" />
-                <element signature="e#12413#13250#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="propertySheetController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="propertySheetController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="18" column="93" selection-start-line="18" selection-start-column="93" selection-end-line="18" selection-end-column="93" />
+            <state relative-caret-position="391">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -150,9 +131,9 @@
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/indexController.js" />
         <option value="$PROJECT_DIR$/templates/properties.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
-        <option value="$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js" />
         <option value="$PROJECT_DIR$/templates/property-sheet.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js" />
       </list>
     </option>
   </component>
@@ -498,12 +479,12 @@
       <workItem from="1473813571534" duration="2879000" />
       <workItem from="1473950097864" duration="2485000" />
       <workItem from="1473966841809" duration="18911000" />
-      <workItem from="1474285618860" duration="708000" />
+      <workItem from="1474285618860" duration="1044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180643000" />
+    <option name="totallyTimeSpent" value="180979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -862,18 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
-          <folding>
-            <element signature="e#10278#12134#0" expanded="false" />
-            <element signature="e#12174#12366#0" expanded="false" />
-            <element signature="e#12413#13250#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/indexController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -882,10 +851,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="18" column="93" selection-start-line="18" selection-start-column="93" selection-end-line="18" selection-end-column="93" />
+        <state relative-caret-position="48">
+          <caret line="191" column="45" selection-start-line="191" selection-start-column="45" selection-end-line="191" selection-end-column="45" />
+          <folding>
+            <element signature="e#10353#12209#0" expanded="false" />
+            <element signature="e#12249#12441#0" expanded="false" />
+            <element signature="e#12488#13325#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -893,7 +874,7 @@
     <entry file="file://$PROJECT_DIR$/templates/property-sheet.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2861">
-          <caret line="401" column="51" selection-start-line="401" selection-start-column="51" selection-end-line="401" selection-end-column="51" />
+          <caret line="428" column="51" selection-start-line="428" selection-start-column="51" selection-end-line="428" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#4;n#!!top" expanded="true" />
@@ -903,10 +884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
           <folding />
         </state>
       </provider>
