@@ -6,9 +6,10 @@
     </div>
     <div class="col-lg-8 texto">
         <span class="titulo-tasa"> <h2>MÁS DE 20.000 PROPIEDADES TASADAS</h2> </span>
-
-        <P><strong>O'keefe</strong> cuenta con un servicio de profesionales (abogados, martilleros e ingenieros) para realizar tasaciones de todo tipo de propiedades. </P>
-        <p>Nuestra experiencia y profundo conocimiento de la situación del mercado inmobiliario actual, nos permite brindar una tasación justa y con los fundamentos claros y objetivos que usted se merece.</P>
+        <p><strong>O'keefe</strong> cuenta con un servicio de profesionales (Abogados, Martilleros e Ingenieros) para
+            realizar tasaciones de todo tipo de propiedades. </p>
+        <p>Nuestra experiencia y profundo conocimiento de la situación del mercado inmobiliario actual, nos permite
+            brindar una tasación justa y con los fundamentos claros y objetivos que usted se merece.</P>
     </div>
 </div>
 
@@ -16,27 +17,31 @@
     <div class="row appraisals-form-title">
         <span class="subt">CONOZCA EL VALOR DE SU INMUEBLE</span>
     </div>
+    <div class="row" ng-show="alert != null">
+        <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
+    </div>
     <div class="row">
         <div class="form-contact">
-            <form class="f_contacto ok-apprisals-form">
+            <form novalidate ng-submit="appForm($event)" name="appraisal_Form" class="f_contacto ok-apprisals-form">
                 <div class="col-lg-4 col-md-12 padding-left-0">
                     <label class="flecha-select">
-                        <select ng-change="validateEmp()" ng-model="appraisalForm.oper" ng-disabled="disabled"
+                        <select ng-model="appraisalForm.oper" ng-disabled="disabled"
                                 class="form-control custom"
                                 uib-tooltip="Debe seleccionar una Operación"
                                 tooltip-placement="bottom"
                                 tooltip-is-open="!appraisalForm.oper && appraisalForm.error"
                                 tooltip-trigger="'none'">
                             <option ng-if="!searchParam.oper" value="" selected>Operación</option>
-                            <option value="12">Compra</option>
-                            <option value="1">Inversión</option>
-                            <option value="2">Alquiler</option>
-                            <option value="4">Alquiler Temporario</option>
+                            <option value="Compra">Compra</option>
+                            <option value="Inversión">Inversión</option>
+                            <option value="Alquiler">Alquiler</option>
+                            <option value="Alquiler Temporario">Alquiler Temporario</option>
                         </select>
                     </label>
                     <label class="flecha-select">
                         <!-- Single button using template-url -->
-                        <div style="height: auto;" class="form-control ok-border-none btn-group col-lg-12 padding-0" uib-dropdown
+                        <div style="height: auto;" class="form-control ok-border-none btn-group col-lg-12 padding-0"
+                             uib-dropdown
                              uib-tooltip="Debe seleccionar un Tipo de Inmueble"
                              tooltip-placement="top"
                              tooltip-is-open="!appraisalForm.property && appraisalForm.error"
@@ -51,22 +56,48 @@
                             </ul>
                         </div>
                     </label>
-                    <label class="flecha-select">
-                        <select name="" class="form-control custom">
-                            <option>Zona</option>
-                        </select>
-                    </label>
+                    <input class="form-control custom" type="text" ng-model="appraisalForm.zona" name="zona"
+                           placeholder="Zona"
+                           uib-tooltip="Debe ingresar una zona"
+                           tooltip-placement="bottom"
+                           tooltip-is-open="!appraisalForm.zona && appraisalForm.error"
+                           tooltip-trigger="'none'">
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
-                    <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
-                    <input class="form-control custom" type="text" name="email" placeholder="E-mail">
+                    <input class="form-control custom" type="text" ng-model="appraisalForm.nombre" name="nombre"
+                           placeholder="Nombre"
+                           uib-tooltip="Debe ingresar un nombre"
+                           tooltip-placement="top"
+                           tooltip-is-open="!appraisalForm.nombre && appraisalForm.error"
+                           tooltip-trigger="'none'">
+                    <input class="form-control custom" type="text" ng-model="appraisalForm.apellido" name="apellido"
+                           placeholder="Apellido"
+                           uib-tooltip="Debe ingresar un apellido"
+                           tooltip-placement="right"
+                           tooltip-is-open="!appraisalForm.apellido && appraisalForm.error"
+                           tooltip-trigger="'none'">
+                    <input class="form-control custom" type="email" ng-model="appraisalForm.email" name="email"
+                           placeholder="Email"
+                           uib-tooltip="Debe ingresar un email válido"
+                           tooltip-placement="bottom"
+                           tooltip-is-open="!appraisalForm.email && appraisalForm.error"
+                           tooltip-trigger="'none'">
                 </div>
                 <div class="col-lg-4 col-md-12 padding-right-0">
-                    <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
-                    <input class="form-control custom" type="text" name="celular" placeholder="Celular">
+                    <input class="form-control custom" type="text" ng-model="appraisalForm.telefono" name="telefono"
+                           placeholder="Teléfono"
+                           uib-tooltip="Debe ingresar un telefono"
+                           tooltip-placement="top"
+                           tooltip-is-open="!appraisalForm.telefono && appraisalForm.error"
+                           tooltip-trigger="'none'">
+                    <input class="form-control custom" type="text" ng-model="appraisalForm.celular" name="celular"
+                           placeholder="Celular"
+                           uib-tooltip="Debe ingresar un celular"
+                           tooltip-placement="bottom"
+                           tooltip-is-open="!appraisalForm.celular && appraisalForm.error"
+                           tooltip-trigger="'none'">
                     <div class="col-lg-4 col-md-12 pull-right padding-right-0">
-                        <button class="btn btn-naranja btn-block" type="submit">ENVIAR</button>
+                        <button ng-disabled="appraisal_Form.$error.email" class="btn btn-naranja btn-block" type="submit">ENVIAR</button>
                     </div>
                 </div>
             </form>
@@ -77,11 +108,14 @@
 <div class="bloque-video">
     <div class="row">
         <div class="video">
-            <iframe id="player" ng-show="video" src="https://www.youtube.com/embed/gCYcHz2k5x0?wmode=opaque&autohide=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+            <iframe id="player" ng-show="video"
+                    src="https://www.youtube.com/embed/gCYcHz2k5x0?wmode=opaque&autohide=1&enablejsapi=1"
+                    frameborder="0" allowfullscreen></iframe>
             <div ng-show="!video" class="reproducir">
                 <img src="assets/img/play.png">
             </div>
-            <a ng-show="!video" ng-click="showVideo()" href="" class="btn btn-gris btn-lg" role="button">REPRODUCIR VIDEO</a>
+            <a ng-show="!video" ng-click="showVideo()" href="" class="btn btn-gris btn-lg" role="button">REPRODUCIR
+                VIDEO</a>
         </div>
     </div>
 </div>
@@ -99,7 +133,8 @@
                 </div>
                 <div class="col-lg-12 texto">
                     <p>
-                        La personalización en el trato al cliente es la clave de cualquier servicio de intermediación. O’keefe cuenta con un experimentado equipo de profesionales inmobiliarios a su servicio.
+                        La personalización en el trato al cliente es la clave de cualquier servicio de intermediación.
+                        O’keefe cuenta con un experimentado equipo de profesionales inmobiliarios a su servicio.
                     </p>
                 </div>
             </div>
@@ -112,7 +147,8 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Oficina central: en la Avenida Mitre Nº 491 de la Ciudad de Quilmes. Nueva sucursal: en Hudson para brindar una solución inmobiliaria integral a una zona en constante crecimiento.
+                        Oficina central: en la Avenida Mitre Nº 491 de la Ciudad de Quilmes. Nueva sucursal: en Hudson
+                        para brindar una solución inmobiliaria integral a una zona en constante crecimiento.
                     </p>
                 </div>
             </div>
@@ -127,7 +163,8 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Nuestro propio equipo de prensa se dedica a mantener un vínculo directo con los periodistas de todos los medios especializados del sector inmobiliario.
+                        Nuestro propio equipo de prensa se dedica a mantener un vínculo directo con los periodistas de
+                        todos los medios especializados del sector inmobiliario.
                     </p>
                 </div>
             </div>
@@ -140,7 +177,8 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Somos la única inmobiliaria de la zona con importantes carteles de venta y alquiler en las principales rutas y avenidas de la zona.
+                        Somos la única inmobiliaria de la zona con importantes carteles de venta y alquiler en las
+                        principales rutas y avenidas de la zona.
                     </p>
                 </div>
             </div>
@@ -155,7 +193,8 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Publicaciones constantes en diarios de cobertura nacional y regional y en las principales revistas especializadas del sector inmobiliario de la zona.
+                        Publicaciones constantes en diarios de cobertura nacional y regional y en las principales
+                        revistas especializadas del sector inmobiliario de la zona.
                     </p>
                 </div>
             </div>
@@ -168,7 +207,8 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Dos o tres veces al año lanzamos nuestra propia revista, de 40 páginas, con una tirada de 6.000 ejemplares.
+                        Dos o tres veces al año lanzamos nuestra propia revista, de 40 páginas, con una tirada de 6.000
+                        ejemplares.
                     </p>
                 </div>
             </div>
@@ -183,7 +223,9 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Ya sea para la tasación, alquiler o venta, se realizan detallados informes sobre cada propiedad. Estos le permiten al interesado entender de forma atractiva y clara las principales características y diferenciales de la propiedad.
+                        Ya sea para la tasación, alquiler o venta, se realizan detallados informes sobre cada propiedad.
+                        Estos le permiten al interesado entender de forma atractiva y clara las principales
+                        características y diferenciales de la propiedad.
                     </p><br>
                 </div>
             </div>
@@ -196,7 +238,10 @@
                 </div>
                 <div class="col-lg-12  texto">
                     <p>
-                        Contamos con una web con un tráfico de más de 18.000 visitas mensuales. De forma periódica, O’keefe comunica a su base de datos, de 255.000 contactos, los principales lanzamientos y oportunidades de inversión. Publicamos nuestras propiedades en los principales portales inmobiliarios.
+                        Contamos con una web con un tráfico de más de 18.000 visitas mensuales. De forma periódica,
+                        O’keefe comunica a su base de datos, de 255.000 contactos, los principales lanzamientos y
+                        oportunidades de inversión. Publicamos nuestras propiedades en los principales portales
+                        inmobiliarios.
                     </p>
                 </div>
             </div>

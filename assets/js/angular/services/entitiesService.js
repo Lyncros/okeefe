@@ -219,86 +219,49 @@
                 }
                 return size;
             };
-            this.tipoInmueble = function (tipo) {
-                switch (tipo) {
-                    case '9':
-                        return 'Casas';
-                        break;
-                    case '1':
-                        return 'Departamentos';
-                        break;
-                    case '7':
-                        return 'Lotes';
-                        break;
-                    case '17':
-                        return 'Quintas';
-                        break;
-                    case '19':
-                        return 'Industrial';
-                        break;
-                    case '2':
-                        return 'Locales';
-                        break;
-                    case '11':
-                        return 'Oficinas';
-                        break;
-                    case '15':
-                        return 'Galpones';
-                        break;
-                    case '22':
-                        return 'Estancias';
-                        break;
-                    case '16':
-                        return 'Chacras';
-                        break;
-                    case '6':
-                        return 'Campos';
-                        break;
-                    case '18':
-                        return 'Cocheras';
-                        break;
-                    case '9,1,7,17':
-                        return 'Residencial';
-                        break;
-                    case '7,19,2,11,15,18':
-                        return 'Comercial';
-                        break;
-                    case '7,17,22,16,15,6':
-                        return 'Rural';
-                        break;
+            var inmuebles = [
+                {id: '9', value: 'Casas'},
+                {id: '1', value: 'Departamentos'},
+                {id: '7', value: 'Lotes'},
+                {id: '17', value: 'Quintas'},
+                {id: '19', value: 'Industrial'},
+                {id: '2', value: 'Locales'},
+                {id: '11', value: 'Oficinas'},
+                {id: '15', value: 'Galpones'},
+                {id: '22', value: 'Estancias'},
+                {id: '16', value: 'Chacras'},
+                {id: '6', value: 'Campos'},
+                {id: '18', value: 'Cocheras'},
+                {id: '9,1,7,17', value: 'Residencial'},
+                {id: '7,19,2,11,15,18', value: 'Comercial'},
+                {id: '7,17,22,16,15,6', value: 'Rural'},
+            ];
+            this.getTipoInmueble = function (id, value) {
+                for (var item of inmuebles) {
+                    if (id && item.id == id) {
+                        return item.value;
+                    } else if (value && item.value == value) {
+                        return item.id;
+                    }
                 }
+                return null;
             };
-            this.tipoOperacion = function (tipo) {
-                switch (tipo) {
-                    case '2':
-                        return 'Alquiler';
-                        break;
-                    case '1':
-                        return 'Inversión';
-                        break;
-                    case '4':
-                        return 'Alquiler temporario';
-                        break;
-                    case '12':
-                        return 'Compra';
-                        break;
+            var operaciones = [
+                {id: '2', value: 'Alquiler'},
+                {id: '1', value: 'Inversión'},
+                {id: '4', value: 'Alquiler temporario'},
+                {id: '12', value: 'Compra'},
+                {id: '19', value: 'Industrial'},
+            ];
+            this.getTipoOperacion = function (id, value) {
+                for (var item of operaciones) {
+                    if (id && item.id == id) {
+                        return item.value;
+                    } else if (value && item.value == value) {
+                        return item.id;
+                    }
                 }
-            };
-            this.idOperacion = function (tipo) {
-                switch (tipo) {
-                    case 'Alquiler':
-                        return '2';
-                        break;
-                    case 'Inversión':
-                        return '1';
-                        break;
-                    case 'Alquiler temporario':
-                        return '4';
-                        break;
-                    case 'Compra':
-                        return '12';
-                        break;
-                }
+                return null;
             };
             this.filters = function (filter) {
                 var filters = {
@@ -321,9 +284,9 @@
             this.hasDoubleEqual = function (key) {
                 return hasDoubleEqual(key);
             };
-            this.applyFilter = function (filter, value,tipo,operacion, filters, minVal, maxVal, cur) {
-                console.log("filters",filters);
-                var url = SITE_URL + 'propiedades/'+tipo+'/'+operacion+'?';
+            this.applyFilter = function (filter, value, tipo, operacion, ubicacion, filters, minVal, maxVal, cur) {
+                //console.log("filters",filters);
+                var url = SITE_URL + 'propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
                 if (cur) {
                     filters['filtroMon'] = cur;
                 }
@@ -336,8 +299,8 @@
                     };
                 }
                 angular.forEach(filters, function (value, key) {
-                    if (value && typeof value != 'object') {
-                        url +=  '&' + key + '=' + value ;
+                    if (key != 'tipo' && key != 'oper' && key != 'ubicacion' && value && typeof value != 'object') {
+                        url += '&' + key + '=' + value;
                     } else if (typeof value == 'object') {
                         url += (value.min) ? '&' + key + 'Min=' + value.min : '';
                         url += (value.max) ? '&' + key + 'Max=' + value.max : '';
@@ -346,12 +309,12 @@
                 console.log(url);
                 return url;
             };
-            this.showAlert = function ($scope,msg,type,time) {
+            this.showAlert = function ($scope, msg, type, time) {
                 $scope.alert = {
                     type: type,
                     'msg': msg
                 };
-                if(time){
+                if (time) {
                     $timeout(function () {
                         $scope.alert = null;
                     }, time);

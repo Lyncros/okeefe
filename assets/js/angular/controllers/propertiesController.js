@@ -19,6 +19,8 @@
                 };
                 $scope.getParam = function () {
                     $scope.param = $location.search();
+                    delete $scope.param['tipo'];
+                    delete $scope.param['oper'];
                     //console.log("$scope.param",$scope.param);
                     $scope.appliedFilters = {
                         supMin: (parseFloat($scope.param.supMin) || ''),
@@ -40,7 +42,7 @@
 
 
                 $scope.getTipoInmueble = function (val) {
-                    return entitiesService.tipoInmueble(val);
+                    return entitiesService.getTipoInmueble(null, val);
                 };
 
                 $scope.sortBy = function (propertyName) {
@@ -49,7 +51,7 @@
                 };
 
                 $scope.getTipoOperacion = function (val) {
-                    return entitiesService.tipoOperacion(val);
+                    return entitiesService.getTipoOperacion(null, val);
                 };
 
                 if ($scope.isLogged) {
@@ -61,10 +63,18 @@
 
                 function totalFilters(arr) {
                     angular.forEach(arr, function (prop, keyP) {
-                        $scope.filters['amb'][prop.cantidad_ambientes] = ( $scope.filters['amb'][prop.cantidad_ambientes] + 1 || 1);
-                        $scope.filters['coch'][prop.cantidad_cocheras] = ( $scope.filters['coch'][prop.cantidad_cocheras] + 1 || 1);
-                        $scope.filters['ant'][prop.cantidad_antiguedad] = ( $scope.filters['ant'][prop.cantidad_antiguedad] + 1 || 1);
-                        $scope.filters['banos'][prop.cantidad_banos] = ( $scope.filters['banos'][prop.cantidad_banos] + 1 || 1);
+                        if (prop.cantidad_ambientes != null) {
+                            $scope.filters['amb'][prop.cantidad_ambientes] = ( $scope.filters['amb'][prop.cantidad_ambientes] + 1 || 1);
+                        }
+                        if (prop.cantidad_cocheras != null) {
+                            $scope.filters['coch'][prop.cantidad_cocheras] = ( $scope.filters['coch'][prop.cantidad_cocheras] + 1 || 1);
+                        }
+                        if (prop.cantidad_antiguedad != null) {
+                            $scope.filters['ant'][prop.cantidad_antiguedad] = ( $scope.filters['ant'][prop.cantidad_antiguedad] + 1 || 1);
+                        }
+                        if (prop.cantidad_banos != null) {
+                            $scope.filters['banos'][prop.cantidad_banos] = ( $scope.filters['banos'][prop.cantidad_banos] + 1 || 1);
+                        }
                     });
                     //console.log("$scope.filters",$scope.filters);
                 }
@@ -115,10 +125,9 @@
 
                 $scope.getData = function () {
                     $scope.getParam();
-
-                    searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $scope.param)
+                    searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param)
                         .then(function (response) {
-                            console.log("res", response.data.data);
+                            //console.log("res", response.data.data);
                             $scope.properties = response.data.data.propiedades;
                             //$scope.loadingProperties = false;
                             if ($scope.properties.length) {
@@ -129,8 +138,8 @@
                         .then(function () {
                             if ($scope.isLogged) {
                                 favoritesService.getAll(function (data) {
-                                        return data;
-                                    })
+                                    return data;
+                                })
                                     .then(function (data) {
                                         $scope.checkFav = function (id) {
                                             var result = data.some(function (el) {
@@ -157,7 +166,7 @@
                 $scope.removeFilter = function (filter) {
                     delete $scope.param[filter];
                     //console.log("scope.param",$scope.param);
-                    return window.location = entitiesService.applyFilter('', '', $routeParams.tipo, $routeParams.operacion, $scope.param, '', '');
+                    return window.location = entitiesService.applyFilter('', '', $routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param, '', '');
                 };
                 $scope.addFilter = function (filter, value) {
                     //console.log("$scope.valMin",$scope.valMin);
@@ -168,7 +177,7 @@
                             $scope.errors.sup = true;
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $scope.param, $scope.supMin, $scope.supMax);
+                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param, $scope.supMin, $scope.supMax);
                     } else if (filter == 'val') {
                         $scope.errors.sup = false;
                         if (!$scope.valMin && !$scope.valMax) {
@@ -178,12 +187,11 @@
                             console.log("error");
                             return false;
                         }
-                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $scope.param, $scope.valMin, $scope.valMax, $scope.filtroMon);
+                        return window.location = entitiesService.applyFilter(filter, '', $routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param, $scope.valMin, $scope.valMax, $scope.filtroMon);
                     } else if (filter in $scope.param) {
-                        return window.location = entitiesService.applyFilter(filter, value, $routeParams.tipo, $routeParams.operacion, $scope.param, '', '');
+                        return window.location = entitiesService.applyFilter(filter, value, $routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param, '', '');
                     }
                     return window.location = window.location.href + '&' + filter + '=' + value;
-
                 };
 
 
@@ -269,8 +277,8 @@
                                 $scope.favCount = data;
                             })
                             .then(function () {
-                               $scope.init();
-                        });
+                                $scope.init();
+                            });
                     });
                 };
 
