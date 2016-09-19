@@ -81,7 +81,7 @@
                            placeholder="Email"
                            uib-tooltip="Debe ingresar un email válido"
                            tooltip-placement="bottom"
-                           tooltip-is-open="!appraisalForm.email && appraisalForm.error"
+                           tooltip-is-open="(!appraisalForm.email && appraisalForm.error) || !appraisal_Form.email.$valid"
                            tooltip-trigger="'none'">
                 </div>
                 <div class="col-lg-4 col-md-12 padding-right-0">
