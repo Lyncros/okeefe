@@ -19,9 +19,7 @@
                 };
                 $scope.getParam = function () {
                     $scope.param = $location.search();
-                    delete $scope.param['tipo'];
-                    delete $scope.param['oper'];
-                    //console.log("$scope.param",$scope.param);
+                    console.log("$scope.param",$scope.param);
                     $scope.appliedFilters = {
                         supMin: (parseFloat($scope.param.supMin) || ''),
                         supMax: (parseFloat($scope.param.supMax) || ''),
@@ -42,7 +40,7 @@
 
 
                 $scope.getTipoInmueble = function (val) {
-                    return entitiesService.getTipoInmueble(null, val);
+                    return entitiesService.getTipoInmueble(val);
                 };
 
                 $scope.sortBy = function (propertyName) {
@@ -51,7 +49,7 @@
                 };
 
                 $scope.getTipoOperacion = function (val) {
-                    return entitiesService.getTipoOperacion(null, val);
+                    return entitiesService.getTipoOperacion(val);
                 };
 
                 if ($scope.isLogged) {

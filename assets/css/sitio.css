@@ -861,6 +861,10 @@ select {
     margin-bottom: 20px;
 }
 
+.ok-text-appraisals{
+    font-size: 14px !important;
+}
+
 .bloque1 .texto {
     padding-right: 4%;
 }
