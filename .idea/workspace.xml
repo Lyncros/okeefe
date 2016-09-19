@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/app.js" afterPath="$PROJECT_DIR$/assets/js/angular/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/appraisalsController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/appraisalsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/indexController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/indexController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/services/entitiesService.js" afterPath="$PROJECT_DIR$/assets/js/angular/services/entitiesService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" afterPath="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/appraisals.html" afterPath="$PROJECT_DIR$/templates/appraisals.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" afterPath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modals/account.html" afterPath="$PROJECT_DIR$/templates/modals/account.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,11 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchApiService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="searchApiService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/angular/services/searchApiService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="58" selection-start-line="0" selection-start-column="0" selection-end-line="86" selection-end-column="5" />
+            <state relative-caret-position="527">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -169,7 +171,6 @@
         <option value="$PROJECT_DIR$/templates/modals/login.html" />
         <option value="$PROJECT_DIR$/templates/about.html" />
         <option value="$PROJECT_DIR$/assets/css/sitio.css" />
-        <option value="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/templates/properties.html" />
         <option value="$PROJECT_DIR$/templates/property-sheet.html" />
@@ -182,6 +183,7 @@
         <option value="$PROJECT_DIR$/templates/appraisals.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/indexController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
+        <option value="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
       </list>
     </option>
   </component>
@@ -527,12 +529,12 @@
       <workItem from="1473813571534" duration="2879000" />
       <workItem from="1473950097864" duration="2485000" />
       <workItem from="1473966841809" duration="18911000" />
-      <workItem from="1474285618860" duration="13218000" />
+      <workItem from="1474285618860" duration="13350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193153000" />
+    <option name="totallyTimeSpent" value="193285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -847,14 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -950,8 +944,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/angular/services/searchApiService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="58" selection-start-line="0" selection-start-column="0" selection-end-line="86" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>
