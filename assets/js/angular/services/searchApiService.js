@@ -69,7 +69,7 @@
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     url: API_SEARCH+'sugeridos/'+id
                 }).then(function successCallback(response) {
-                    console.log("sug",response);
+                    //console.log("sug",response);
                     deferred.resolve(response);
                 }, function errorCallback(response) {
                     deferred.reject(response);

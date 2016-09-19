@@ -273,11 +273,30 @@
                     case '2':
                         return 'Alquiler';
                         break;
+                    case '1':
+                        return 'Inversión';
+                        break;
                     case '4':
                         return 'Alquiler temporario';
                         break;
                     case '12':
                         return 'Compra';
+                        break;
+                }
+            };
+            this.idOperacion = function (tipo) {
+                switch (tipo) {
+                    case 'Alquiler':
+                        return '2';
+                        break;
+                    case 'Inversión':
+                        return '1';
+                        break;
+                    case 'Alquiler temporario':
+                        return '4';
+                        break;
+                    case 'Compra':
+                        return '12';
                         break;
                 }
             };

@@ -11,7 +11,7 @@
                     $scope.searchParam = {
                         empr: '',
                         zona: '',
-                        oper: '12',
+                        oper: 'Compra',
                         property: 'Residencial',
                         tipo: '9,1,7,17',
                         error: false
@@ -47,7 +47,7 @@
                     return true;
                 };
                 $scope.getLocation = function (val) {
-                    return searchApiService.searchApi.readLocations($scope.searchParam.oper,$scope.searchParam.tipo,val).then(function (response) {
+                    return searchApiService.searchApi.readLocations(entitiesService.idOperacion($scope.searchParam.oper),$scope.searchParam.tipo,val).then(function (response) {
                         return response.data.data.map(function (item) {
                             return {
                                 val: item.idZona,
@@ -62,7 +62,7 @@
                 entitiesService.mapsSlider($scope);
                 $scope.searchProp = function () {
                     if ($scope.validateForm()) {
-                        window.location = '#/propiedades/'+$scope.searchParam.tipo+'/'+$scope.searchParam.oper+'?ubicacion=' + $scope.searchParam.zona + '&emp=' + ($scope.searchParam.empr || 0);
+                        window.location = '#/propiedades/'+$scope.searchParam.property+'/'+$scope.searchParam.oper+'?ubicacion=' + $scope.searchParam.zona + '&emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
                 $scope.selectedZone = function ($item, $model, $label) {

@@ -234,17 +234,47 @@
 
         </div>
         <div class="col-xs-3">
-            <form class="f_consulta-prop text-center">
+            <form  novalidate ng-submit="psForm($event)" name="ps_3Form" class="f_consulta-prop text-center">
                 <h3>¿QUERÉS SABER MAS?</h3>
-                <input class="form-control custom" type="text" name="nombre" placeholder="Nombre">
-                <input class="form-control custom" type="text" name="apellido" placeholder="Apellido">
-                <input class="form-control custom" type="text" name="telefono" placeholder="Telefono">
-                <input class="form-control custom" type="text" name="celular" placeholder="Celular">
-                <input class="form-control custom" type="text" name="email" placeholder="Correo">
-                <textarea class="form-control custom" name="mensaje" placeholder="Mensaje"></textarea>
+                <input id="nombre" class="form-control custom" type="text" ng-model="psContactForm.nombre"
+                       name="nombre" placeholder="Nombre"
+                       uib-tooltip="Debe ingresar su nombre"
+                       tooltip-placement="left"
+                       tooltip-is-open="!psContactForm.nombre && psContactForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="psContactForm.apellido" name="apellido"
+                       placeholder="Apellido"
+                       uib-tooltip="Debe ingresar su apellido"
+                       tooltip-placement="left"
+                       tooltip-is-open="!psContactForm.apellido && psContactForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="psContactForm.telefono" name="telefono"
+                       placeholder="Telefono"
+                       uib-tooltip="Debe ingresar un número de teléfono"
+                       tooltip-placement="left"
+                       tooltip-is-open="!psContactForm.telefono && psContactForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="text" ng-model="psContactForm.celular" name="celular"
+                       placeholder="Celular"
+                       uib-tooltip="Debe ingresar un número de celular"
+                       tooltip-placement="left"
+                       tooltip-is-open="!psContactForm.celular && psContactForm.error"
+                       tooltip-trigger="'none'">
+                <input class="form-control custom" type="email" ng-model="psContactForm.email" name="email"
+                       placeholder="E-mail"
+                       uib-tooltip="Debe ingresar un email válido"
+                       tooltip-placement="left"
+                       tooltip-is-open="(!psContactForm.email && psContactForm.error) || !footer_Form.email.$valid"
+                       tooltip-trigger="'none'">
+                <textarea class="form-control custom" ng-model="psContactForm.comentarios" name="comentarios"
+                          placeholder="Mensaje"
+                          uib-tooltip="Debe escribir un mensaje"
+                          tooltip-placement="left"
+                          tooltip-is-open="!psContactForm.comentarios && psContactForm.error"
+                          tooltip-trigger="'none'"></textarea>
                 <div class="row">
                     <div class="col-xs-7 pull-right">
-                        <button class="btn btn-naranja btn-block btn-lg" type="submit">CONSULTAR</button>
+                        <button class="btn btn-naranja btn-block btn-lg" type="submit" ng-disabled="psContactForm.$error.email">CONSULTAR</button>
                     </div>
                 </div>
             </form>
@@ -392,12 +422,12 @@
                                     <div class="col-lg-12 padding-0">
                                         <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                     </div>
-                                    <div ng-if="prop.moneda_alq" class="col-md-12 padding-0"
+                                    <div ng-if="prop.moneda_venta" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
                                         <img src="assets/img/valor_propiedad.svg">{{prop.moneda_alq}} {{prop.moneda_venta}}
                                     </div>
                                     <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
-                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.moneda_alq }">
+                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.moneda_venta }">
                                         <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                     </div>
                                     <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
