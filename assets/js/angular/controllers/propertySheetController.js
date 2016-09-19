@@ -2,8 +2,9 @@
     angular.module('okeefeSite.controllers')
         .controller('propertySheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory,
-                      $auth, $uibModal, $routeParams, searchApiService) {
+                      $auth, $uibModal, $routeParams, searchApiService, SITE_URL) {
 
+                $scope.siteUrl = SITE_URL;
                 $scope.resultFav = false;
                 $scope.favCount = 0;
 

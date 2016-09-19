@@ -168,14 +168,27 @@
 
             <div class="row">
                 <div class="col-xs-1">
-                    <div class="boton-fav compartir">
-                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover'
-                           data-content="Compartir" data-trigger="hover" data-placement="top">
-									<span class="fa-stack">
-									  <i class="fa fa-circle fa-stack-2x"></i>
-									  <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-									</span>
+                    <div class="boton-fav compartir xs" uib-dropdown>
+                        <a href="" id="fav-share" class="btn btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                            <span class="fa-stack">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                            </span>
                         </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu-xs" aria-labelledby="single-button-xs">
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="facebook" socialshare-text="{{property.fichaweb}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                            <li class="divider"></li>
+                            <li role="menuitem"><a href="" socialshare
+                                                   socialshare-provider="twitter" socialshare-text="{{property.fichaweb}}"
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li class="divider"></li>
+                            <li role="menuitem"><a href="" socialshare
+                                                   socialshare-provider="pinterest" socialshare-text="{{property.fichaweb}}"
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xs-1">
@@ -353,14 +366,28 @@
                             Favorito
                         </a>
                     </div>
-                    <div class="col-lg-3 col-md-12 padding-0 boton-fav compartir">
-                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
-                                            </span>
+                    <div class="boton-fav compartir" uib-dropdown is-open="status.isopen">
+                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                                      <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                                    </span>
                             Compartir
                         </a>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                            <li class="divider"></li>
+                            <li role="menuitem"><a href="" socialshare
+                                                   socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li class="divider"></li>
+                            <li role="menuitem"><a href="" socialshare
+                                                   socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                        </ul>
                     </div>
                     <a href="#/ficha-propiedad/{{prop.id_prop}}"
                        class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER

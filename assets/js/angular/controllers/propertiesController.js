@@ -1,7 +1,9 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService, searchApiService, defaultFactory, $auth, $location) {
+            function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
+                      searchApiService, defaultFactory, $auth, $location, SITE_URL) {
+                $scope.siteUrl = SITE_URL;
                 $scope.view = "grid";
                 $scope.rev = false;
                 $scope.propertyName = 'valor';
