@@ -240,37 +240,5 @@
                 $scope.init();
 
             })
-        .controller('ventureSheetController',
-            function ($scope, $rootScope, entitiesService, defaultFactory, $auth, $uibModal) {
 
-                $scope.isLogged = $auth.isAuthenticated();
-
-                $scope.init = function () {
-                    entitiesService.popover();
-                    $scope.map = defaultFactory.property_map;
-                    $scope.control = {};
-                };
-
-                $scope.refreshMap = function () {
-                    entitiesService.refreshMap($scope);
-                };
-
-                $scope.moveArrow = function (key) {
-                    entitiesService.moveArrow('venture', key);
-                };
-
-                $scope.doFav = function () {
-                    if ($scope.isLogged) {
-
-                    } else {
-                        var modal = $uibModal.open({
-                            templateUrl: 'templates/modals/login.html',
-                            controller: 'loginController',
-                            size: 'lg',
-                        });
-                    }
-                };
-
-                $scope.init();
-            });
 })();

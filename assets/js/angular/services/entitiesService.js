@@ -263,6 +263,26 @@
                 }
                 return null;
             };
+            var tipo_emprendimiento = [
+                {id: '14', value: 'Condominios'},
+                {id: '16', value: 'Barrio Cerrado'},
+                {id: '17', value: 'Loteo Abierto'},
+                {id: '18', value: 'Edificio'},
+                {id: '20', value: 'Club de Campo'},
+                {id: '21', value: 'Cocheras'},
+                {id: '22', value: 'Real Estate Productivo'},
+                {id: '23', value: 'Parque Industrial'},
+            ];
+            this.getTipoEmprendimiento = function (id, value) {
+                for (var item of tipo_emprendimiento) {
+                    if (id && item.id == id) {
+                        return item.value;
+                    } else if (value && item.value == value) {
+                        return item.id;
+                    }
+                }
+                return null;
+            };
             this.filters = function (filter) {
                 var filters = {
                     'amb': 'Ambientes',

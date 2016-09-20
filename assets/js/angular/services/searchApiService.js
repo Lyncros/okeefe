@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeSite.services')
-        .factory('searchApiService', function ($http, $q, API_SEARCH, entitiesService) {
+        .factory('searchApiService', function ($http, $q, API_SEARCH,API_JOB_APPLICATION, entitiesService) {
             var searchApi = {};
             var setURL = function (base, param, id) {
                 var url = base;
@@ -73,6 +73,33 @@
                 }).then(function successCallback(response) {
                     //console.log("sug",response);
                     deferred.resolve(response);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+                return deferred.promise;
+            };
+            searchApi.sendJobApplication = function (data) {
+                var deferred = $q.defer();
+                $http.post(API_JOB_APPLICATION,data,{
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                }).then(function successCallback(response) {
+                    //console.log("sug",response);
+                    deferred.resolve(response);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+                return deferred.promise;
+            };
+
+            searchApi.Emprendimientos = function () {
+                var deferred = $q.defer();
+                $http({
+                    skipAuthorization: true,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                    url: API_SEARCH + 'emprendimientos'
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data);
                 }, function errorCallback(response) {
                     deferred.reject(response);
                 });

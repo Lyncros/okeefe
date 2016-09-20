@@ -13,7 +13,9 @@
         'ui.gravatar',
         'frapontillo.bootstrap-switch',
         'fancyboxplus',
-        '720kb.socialshare'
+        '720kb.socialshare',
+        'vcRecaptcha',
+        'bootstrap.fileField'
     ]);
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
@@ -88,7 +90,7 @@
                 controller: 'propertySheetController',
                 activetab: 'ficha-propiedad'
             })
-            .when('/ficha-emprendimiento', {
+            .when('/ficha-emprendimiento/:id', {
                 templateUrl: 'templates/venture-sheet.html',
                 controller: 'ventureSheetController',
                 activetab: 'ficha-emprendimiento'

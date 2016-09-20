@@ -1,27 +1,36 @@
-(function(){
+(function () {
     angular.module('okeefeSite.controllers')
-        .controller('investmentsController',function ($scope,$rootScope, okeefeApiService, entitiesService) {
-            $scope.form ={ secret: 'sitiOkeefe', dato: '', error: false};
-
+        .controller('investmentsController', function ($scope, $rootScope, $timeout, okeefeApiService, entitiesService, searchApiService) {
+            $scope.form = {secret: 'sitiOkeefe', dato: '', error: false};
+            $scope.getTipoEmprendimiento = function (id) {
+                return entitiesService.getTipoEmprendimiento(id);
+            };
             $scope.invForm = function ($event) {
                 $event.preventDefault();
-                if(!$scope.form.nombre || !$scope.form.apellido ||
-                    !$scope.form.email || !$scope.form.telefono ||
-                    !$scope.form.celular || !$scope.form.comentarios){
+                if (!$scope.form.nombre || !$scope.form.apellido || !$scope.form.email || !$scope.form.telefono || !$scope.form.celular || !$scope.form.comentarios) {
                     $scope.form.error = true;
                     return false;
                 }
-                $scope.form.comentarios = 'Asesoramiento: '+$scope.form.comentarios;
+                $scope.form.comentarios = 'Asesoramiento: ' + $scope.form.comentarios;
                 okeefeApiService.API.send($scope.form).then(function (response) {
-                    entitiesService.showAlert($scope,'Mensaje enviado. Estaremos en contacto en breve.','success',3000);
-                    $scope.form ={ secret: 'sitiOkeefe', dato: ''};
+                    entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                    $scope.form = {secret: 'sitiOkeefe', dato: ''};
                 }, function errorCallback(response) {
-                    entitiesService.showAlert($scope,'Error al enviar el mensaje. Intenta de nuevo mas tarde.','danger',3000);
+                    entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);
                     console.log("error :", response);
                 });
             };
+            searchApiService.searchApi.Emprendimientos().then(function (response) {
+                $scope.emprendimientos = response.data;
+                console.log($scope.emprendimientos);
+                $timeout(function () {
+                    entitiesService.project_filter();
+                    entitiesService.toggle('.detalle', '.item', 200);
+                }, 0);
+
+            }, function errorCallback(response) {
+                console.log("error :", response);
+            });
             entitiesService.view_animation('.animation-element');
-            entitiesService.project_filter();
-            entitiesService.toggle('.detalle','.item',200);
         });
 })();

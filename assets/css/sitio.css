@@ -18,7 +18,12 @@ body {
     font-size: 16px;
     color: #1d1d1b;
 }
-
+.ok-full-width{
+    width:100%;
+}
+.ok-full-height{
+    height:100%;
+}
 .color-orange {
     color: #e9580c;
 }
@@ -650,6 +655,7 @@ select {
     display: block;
     position: relative;
 }
+
 
 .banner-inv .caption {
     font-family: RobotoBlack;
