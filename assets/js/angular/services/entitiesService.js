@@ -298,7 +298,7 @@
                 return filters[filter];
             };
             var hasDoubleEqual = function (key) {
-                var keys = ['amb'];
+                var keys = ["banos","amb","coch","ant"];
                 return (keys.indexOf(key));
             };
             this.hasDoubleEqual = function (key) {
