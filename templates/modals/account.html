@@ -221,7 +221,7 @@
                     <div ng-show="activeTab == 'appr'" id="tasa">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="titulo">HOLA [NOMBRE], ESTAS SON LAS TASACIONES FAVORITAS</h3>
+                                <h3 class="titulo">HOLA {{user.nombre | uppercase}}, ESTAS SON LAS TASACIONES FAVORITAS</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -234,7 +234,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4">
+                            <!--<div class="col-lg-4">
                                 <div class="tasacion">
                                     <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
                                     <h4 class="t">TASACIÓN [COD **]</h4>
@@ -255,50 +255,10 @@
                                         <div class="col-lg-6">USD 300.000</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tasacion">
-                                    <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
-                                    <h4 class="t">TASACIÓN [COD **]</h4>
-                                    <div class="row">
-                                        <div class="col-lg-6"><strong>Fecha</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Operación</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Tipo Inmueble</strong></div>
-                                        <div class="col-lg-6">xxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Zona</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxxx</div>
-                                    </div>
-                                    <div class="row cc">
-                                        <div class="col-lg-6 tt"><h4>ESTADO</h4></div>
-                                        <div class="col-lg-6 tt"><h4>VALOR</h4></div>
-                                        <div class="col-lg-6">En venta</div>
-                                        <div class="col-lg-6">USD 300.000</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tasacion">
-                                    <span class="eliminar-fav"> <i class="fa fa-close"></i> </span>
-                                    <h4 class="t">TASACIÓN [COD **]</h4>
-                                    <div class="row">
-                                        <div class="col-lg-6"><strong>Fecha</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Operación</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Tipo Inmueble</strong></div>
-                                        <div class="col-lg-6">xxxxxxxx</div>
-                                        <div class="col-lg-6"><strong>Zona</strong></div>
-                                        <div class="col-lg-6">xxxxxxxxxx</div>
-                                    </div>
-                                    <div class="row cc">
-                                        <div class="col-lg-6 tt"><h4>ESTADO</h4></div>
-                                        <div class="col-lg-6 tt"><h4>VALOR</h4></div>
-                                        <div class="col-lg-6">En venta</div>
-                                        <div class="col-lg-6">USD 300.000</div>
-                                    </div>
-                                </div>
+                            </div>-->
+                            <div class="text-center">
+                                <h3>Aún tiene tasaciones con O'Keefe</h3>
+                                <h4>averigüe el precio de su propiedad haciendo click <a href="http://sitio.okeefe.com.ar/#/tasaciones">aquí</a></h4>
                             </div>
                         </div>
                         <div class="row">
