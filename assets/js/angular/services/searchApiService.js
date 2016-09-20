@@ -80,9 +80,12 @@
             };
             searchApi.sendJobApplication = function (data) {
                 var deferred = $q.defer();
-                $http.post(API_JOB_APPLICATION,data,{
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
+                $http({
+                    method: 'POST',
+                    skipAuthorization: true,
+                    headers: {'Content-Type': undefined},
+                    url: API_JOB_APPLICATION,
+                    data : data,
                 }).then(function successCallback(response) {
                     //console.log("sug",response);
                     deferred.resolve(response);
