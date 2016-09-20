@@ -7,19 +7,20 @@
                 if (id) {
                     return url + 'propiedad/' + id;
                 }
-                url += 'propiedades/'+param.tipo+'/'+param.oper+'?';
+                url += 'propiedades/' + param.tipo + '/' + param.oper + '?';
                 angular.forEach(param, function (value, key) {
-                    if (value && value!='tipo' && value!='oper')
+                    if (key != 'tipo' && key != 'oper' && value && value != 'tipo' && value != 'oper')
                         url += key + (!entitiesService.hasDoubleEqual(key) ? '==' : '=') + value + '&';
                 });
                 url = url.substr(0, url.length - 1);
                 //console.log("searchURL",url);
                 return url;
             };
-            searchApi.read = function (tipo,oper,param) {
+            searchApi.read = function (tipo, oper, ubicacion, param) {
                 var deferred = $q.defer();
-                param.tipo = tipo;
-                param.oper = oper;
+                param.tipo = entitiesService.getTipoInmueble(null, tipo);
+                param.oper = entitiesService.getTipoOperacion(null, oper);
+                param.ubicacion = ubicacion;
                 $http({
                     skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
@@ -32,8 +33,9 @@
                 return deferred.promise;
             };
 
-            searchApi.readLocations = function (oper,t,q) {
-                var url = API_SEARCH + 'ubicacion/'+q+'/'+t+'/'+oper;
+            searchApi.readLocations = function (oper, t, q, emp) {
+                oper = entitiesService.getTipoOperacion(null, oper);
+                var url = API_SEARCH + 'ubicacion/' + q + '/' + t + '/' + oper + '?emp=' + emp;
                 var deferred = $q.defer();
                 $http({
                     method: 'GET',
@@ -67,9 +69,9 @@
                 $http({
                     skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                    url: API_SEARCH+'sugeridos/'+id
+                    url: API_SEARCH + 'sugeridos/' + id
                 }).then(function successCallback(response) {
-                    console.log("sug",response);
+                    //console.log("sug",response);
                     deferred.resolve(response);
                 }, function errorCallback(response) {
                     deferred.reject(response);

@@ -77,7 +77,7 @@
                 controller: 'newsController',
                 activetab: 'noticias'
             })
-            .when('/propiedades/:tipo/:operacion', {
+            .when('/propiedades/:tipo/:operacion/:ubicacion', {
                 templateUrl: 'templates/properties.html',
                 controller: 'propertiesController',
                 activetab: 'propiedades',

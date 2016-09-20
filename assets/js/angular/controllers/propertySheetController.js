@@ -2,13 +2,26 @@
     angular.module('okeefeSite.controllers')
         .controller('propertySheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory,
-                      $auth, $uibModal, $routeParams, searchApiService, SITE_URL) {
-
+                      $auth, $uibModal, $routeParams, searchApiService, okeefeApiService, SITE_URL) {
                 $scope.siteUrl = SITE_URL;
                 $scope.resultFav = false;
                 $scope.favCount = 0;
-
-
+                $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
+                $scope.psForm = function ($event) {
+                    $event.preventDefault();
+                    if (!$scope.psContactForm.nombre || !$scope.psContactForm.apellido || !$scope.psContactForm.email || !$scope.psContactForm.telefono || !$scope.psContactForm.celular || !$scope.psContactForm.comentarios) {
+                        $scope.psContactForm.error = true;
+                        return false;
+                    }
+                    $scope.psContactForm.comentarios = "Propiedad (" + $routeParams.id + ") - " + $scope.psContactForm.comentarios;
+                    okeefeApiService.API.send($scope.psContactForm).then(function (response) {
+                        entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                        $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
+                    }, function errorCallback(response) {
+                        entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);
+                        console.log("error :", response);
+                    });
+                };
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
                     $scope.map = defaultFactory.property_sheet_map;
@@ -82,8 +95,8 @@
                         .then(function () {
                             if ($scope.isLogged) {
                                 favoritesService.getAll(function (data) {
-                                        return data;
-                                    })
+                                    return data;
+                                })
                                     .then(function (data) {
 
                                         var isFav = data.some(function (el) {
@@ -180,7 +193,7 @@
 
                                 favoritesService.count()
                                     .then(function (data) {
-                                           $scope.favCount = data;
+                                        $scope.favCount = data;
                                     });
                             });
                     } else {
@@ -215,9 +228,6 @@
                         favoritesService.count()
                             .then(function (data) {
                                 $scope.favCount = data;
-                            })
-                            .then(function () {
-                                $scope.init();
                             });
                     });
                 };
