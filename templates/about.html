@@ -22,7 +22,7 @@
 <div class="banner-qs">
     <div class="row">
         <img class="img-responsive" src="assets/img/banner-qs.png">
-				<span class="caption">
+        <span class="caption">
 					DISTINTAS ÁREAS, EL MISMO PROFESIONALISMO
 				</span>
     </div>
@@ -76,25 +76,30 @@
         </div>
     </div>
     <div class="row">
-        <div class="carousel carousel-showmanymoveone slide" id="slider-equipo">
-        <div class="carousel-inner">
-          <div class="item" ng-repeat="user in team" ng-class="{'active' : $first}">
-            <div class="col-sm-6 col-lg-4 ficha">
-                <div class="img-equipo center-block">
-                            <img class="img-responsive" src="mobile/www/img/team/{{user.img}}">
+        <div class="col-lg-12 padding-0">
+            <div class="carousel carousel-showmanymoveone slide" id="slider-equipo">
+                <div class="carousel-inner">
+                    <div class="item" ng-repeat="user in team" ng-class="{'active' : $first}">
+                        <div class="col-sm-6 col-lg-4 ficha">
+                            <div class="img-equipo center-block">
+                                <img class="img-responsive" src="mobile/www/img/team/{{user.img}}">
+                            </div>
+                            <div class="descripcion text-center">
+                                <h4>{{user.name}}</h4>
+                                <span class="cargo">{{user.job}}</span>
+                                <p class="d">{{user.desc}}</p>
+                            </div>
+                            <p class="email"><strong>{{user.email}}</strong></p>
                         </div>
-                        <div class="descripcion text-center">
-                            <h4>{{user.name}}</h4>
-                            <span class="cargo">{{user.job}}</span>
-                            <p class="d">{{user.desc}}</p>
-                        </div>
-                        <p class="email"><strong>{{user.email}}</strong></p>
+                    </div>
+                </div>
+                <a class="left carousel-control ok-cursor-pointer" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i
+                        class="glyphicon glyphicon-chevron-left"></i></a>
+                <a class="right carousel-control ok-cursor-pointer" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i
+                        class="glyphicon glyphicon-chevron-right"></i></a>
             </div>
-          </div>
         </div>
-        <a class="left carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-      </div>
+
     </div>
 </div>
 
@@ -165,23 +170,38 @@
 
 <div class="texto-b3 text-justify">
     <p>
-        Con una historia que, en sus inicios, poco tenía que ver con el concepto del Real Estate moderno, el camino profesional de Eduardo O'Keefe comienza en el año 1973 con la venta del primer campo. A partir de ese momento, el crecimiento de la inmobiliaria Rural se fue dando naturalmente y basado principalmente en el trabajo duro, muy duro.
+        Con una historia que, en sus inicios, poco tenía que ver con el concepto del Real Estate moderno, el camino
+        profesional de Eduardo O'Keefe comienza en el año 1973 con la venta del primer campo. A partir de ese momento,
+        el crecimiento de la inmobiliaria Rural se fue dando naturalmente y basado principalmente en el trabajo duro,
+        muy duro.
     </p>
     <p>
-        Con la división rural ya funcionando, en el año 1984, y con la participación de Charlie O'Keefe, la empresa comienza a incursionar en la venta de propiedades en la Ciudad de Quilmes, el propio partido donde aún vivimos. Con el tiempo, varios integrantes de la familia se fueron sumando al equipo O'Keefe para aportar diversidad de conocimientos y dinamismo a la empresa. Actualmente, Eduardo trabaja codo a codo con su hermano y sus hijos, pero él, como todo emprendedor de alma, sigue encabezando el equipo, timoneando todas las tormentas y definiendo el camino a seguir. "La gran diferencia es que comencé solo y hoy, además de familia, somos un equipo", dice Eduardo.
+        Con la división rural ya funcionando, en el año 1984, y con la participación de Charlie O'Keefe, la empresa
+        comienza a incursionar en la venta de propiedades en la Ciudad de Quilmes, el propio partido donde aún vivimos.
+        Con el tiempo, varios integrantes de la familia se fueron sumando al equipo O'Keefe para aportar diversidad de
+        conocimientos y dinamismo a la empresa. Actualmente, Eduardo trabaja codo a codo con su hermano y sus hijos,
+        pero él, como todo emprendedor de alma, sigue encabezando el equipo, timoneando todas las tormentas y definiendo
+        el camino a seguir. "La gran diferencia es que comencé solo y hoy, además de familia, somos un equipo", dice
+        Eduardo.
     </p>
     <p>
-        Desde el inicio de las nuevas urbanizaciones como Barrios Cerrados, Clubes de Campo y Countries, O'Keefe acompañó comercialmente a varios emprendimientos, tales como, "Las Malvinas" en el Partido de Brandsen, "Village del Parque" en la zona de Hudson o el "New Field", encomendado en el año 1997 por el Colegio San Jorge.
+        Desde el inicio de las nuevas urbanizaciones como Barrios Cerrados, Clubes de Campo y Countries, O'Keefe
+        acompañó comercialmente a varios emprendimientos, tales como, "Las Malvinas" en el Partido de Brandsen, "Village
+        del Parque" en la zona de Hudson o el "New Field", encomendado en el año 1997 por el Colegio San Jorge.
     </p>
     <p>
-        Gracias a su compromiso con el cliente y el profesionalismo de su gente, la Inmobiliaria O'Keefe ha incrementado su participación en este nuevo mercado y ha abierto su División de Emprendimientos y Obras. Esto le permitió comercializar con éxito numerosos proyectos de edificios y urbanizaciones tales como los Edificios "Klover" y el Barrio Cerrado "Las Golondrinas", solo por mencionar algunos
+        Gracias a su compromiso con el cliente y el profesionalismo de su gente, la Inmobiliaria O'Keefe ha incrementado
+        su participación en este nuevo mercado y ha abierto su División de Emprendimientos y Obras. Esto le permitió
+        comercializar con éxito numerosos proyectos de edificios y urbanizaciones tales como los Edificios "Klover" y el
+        Barrio Cerrado "Las Golondrinas", solo por mencionar algunos
     </p>
 </div>
 
 <div id="sucursales" class="bloque4">
     <div class="row">
         <div class="col-lg-12 padding-left-0">
-            <h2 class="green col-lg-9">NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y AMIGOS.</h2>
+            <h2 class="green col-lg-9">NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y
+                AMIGOS.</h2>
             <h2 class="col-lg-9 margin-0">CONTACTE A SU SUCURSAL MÁS CERCANA</h2>
         </div>
     </div>

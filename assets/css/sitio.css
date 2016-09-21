@@ -24,6 +24,9 @@ body {
 .ok-full-height{
     height:100%;
 }
+.ok-cursor-pointer{
+    cursor: pointer;
+}
 .color-orange {
     color: #e9580c;
 }
@@ -1155,6 +1158,7 @@ select {
     -moz-box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
     box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 5px 0 12px -3px rgba(50, 50, 50, 0.59), -5px 0 12px -3px rgba(50, 50, 50, 0.59);
     -webkit-transition: all 1s;
+    -moz-transition: all 1s;
     -o-transition: all 1s;
     transition: all 1s;
 }
@@ -1180,10 +1184,11 @@ select {
 }
 
 /*-----SLIDER MODIFICADO ONEBYONE-------*/
-.carousel-showmanymoveone .carousel-inner {
-    width: 90%;
+/*.carousel-showmanymoveone .carousel-inner {
+    width: 4%;
+    background-image: none;
     margin: auto;
-}
+}*/
 
 .carousel-showmanymoveone .cloneditem-1,
 .carousel-showmanymoveone .cloneditem-2,
@@ -1217,6 +1222,7 @@ select {
     .carousel-showmanymoveone .carousel-inner > .item.active.right,
     .carousel-showmanymoveone .carousel-inner > .item.next {
         -webkit-transform: translate3d(50%, 0, 0);
+        -moz-transform: translate3d(50%, 0, 0);
         transform: translate3d(50%, 0, 0);
         left: 0;
     }
@@ -1224,6 +1230,7 @@ select {
     .carousel-showmanymoveone .carousel-inner > .item.active.left,
     .carousel-showmanymoveone .carousel-inner > .item.prev {
         -webkit-transform: translate3d(-50%, 0, 0);
+        -moz-transform: translate3d(-50%, 0, 0);
         transform: translate3d(-50%, 0, 0);
         left: 0;
     }
@@ -1232,6 +1239,7 @@ select {
     .carousel-showmanymoveone .carousel-inner > .item.prev.right,
     .carousel-showmanymoveone .carousel-inner > .item.active {
         -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         left: 0;
     }
@@ -1240,12 +1248,12 @@ select {
 @media all and (min-width: 992px) {
     .carousel-showmanymoveone .carousel-inner > .active.left,
     .carousel-showmanymoveone .carousel-inner > .prev {
-        left: -25%;
+        left: -33.3333%;
     }
 
     .carousel-showmanymoveone .carousel-inner > .active.right,
     .carousel-showmanymoveone .carousel-inner > .next {
-        left: 25%;
+        left: 33.3333%;
     }
 
     .carousel-showmanymoveone .carousel-inner > .left,
@@ -1263,15 +1271,17 @@ select {
 @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
     .carousel-showmanymoveone .carousel-inner > .item.active.right,
     .carousel-showmanymoveone .carousel-inner > .item.next {
-        -webkit-transform: translate3d(33%, 0, 0);
-        transform: translate3d(33%, 0, 0);
+        -webkit-transform: translate3d(33.3333%, 0, 0);
+        -moz-transform: translate3d(33.3333%, 0, 0);
+        transform: translate3d(33.3333%, 0, 0);
         left: 0;
     }
 
     .carousel-showmanymoveone .carousel-inner > .item.active.left,
     .carousel-showmanymoveone .carousel-inner > .item.prev {
-        -webkit-transform: translate3d(-33%, 0, 0);
-        transform: translate3d(-33%, 0, 0);
+        -webkit-transform: translate3d(-33.33333%, 0, 0);
+        -moz-transform: translate3d(-33.33333%, 0, 0);
+        transform: translate3d(-33.33333%, 0, 0);
         left: 0;
     }
 
@@ -1279,6 +1289,7 @@ select {
     .carousel-showmanymoveone .carousel-inner > .item.prev.right,
     .carousel-showmanymoveone .carousel-inner > .item.active {
         -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         left: 0;
     }

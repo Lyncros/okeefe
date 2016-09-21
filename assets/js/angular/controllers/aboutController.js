@@ -11,7 +11,7 @@
                 entitiesService.toggle('.detalle','.item',200);
 
                 $timeout(function() {
-                    entitiesService.carouselByOne('.carousel-showmanymoveone .item');
+                    entitiesService.carouselByOne('.carousel-showmanymoveone .item','#slider-equipo');
                 }, 0);
             };
             

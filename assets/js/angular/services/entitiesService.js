@@ -62,7 +62,8 @@
              * Carousel One by one initialization
              * @param target
              */
-            this.carouselByOne = function (target) {
+            this.carouselByOne = function (target, id) {
+                $(id).carousel({ interval: 2000 });
                 $(target).each(function () {
                     var itemToClone = $(this);
                     for (var i = 1; i < 3; i++) {
