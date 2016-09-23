@@ -19,7 +19,7 @@
                 };
                 $scope.getParam = function () {
                     $scope.param = $location.search();
-                    console.log("$scope.param",$scope.param);
+                    //console.log("$scope.param",$scope.param);
                     $scope.appliedFilters = {
                         supMin: (parseFloat($scope.param.supMin) || ''),
                         supMax: (parseFloat($scope.param.supMax) || ''),

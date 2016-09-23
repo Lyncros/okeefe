@@ -1,0 +1,235 @@
+<div class="banner-qs">
+    <div class="row">
+        <img class="img-responsive" src="../assets/img/banner-qs.png">
+        <span class="caption-rural">
+            NUESTROS SERVICIOS
+        </span>
+    </div>
+</div>
+<div class="caracteristicas">
+    <div class="row ok-carac">
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/cp.svg"> </span>
+                    <span class="col-lg-11"> <h4>INTERMEDIACIÓN EN LA COMPRAVENTA (Broker inmobiliario)</h4> </span>
+                </div>
+                <div class="col-lg-12 texto">
+                    <p>O´Keefe se propuso no solo ser intermediario en las operaciones inmobiliarias, sino llevarlo a su
+                        máxima expresión. Entender y optimizar la intermediación.</p>
+                    <p>Para esto capacitamos a nuestros asesores comerciales en realizar una correcta interpretación y
+                        diagnóstico de las necesidades de nuestros clientes y posterior búsqueda de la inversión que más
+                        se adecúa a su realidad. Lo acompañamos en una transparente negociación con el apoyo de nuestro
+                        departamento de Legales, respaldando nuestros contratos.</p>
+                    <p>Le proponemos asesorarlo en la toma de decisiones, apalancándonos en nuestros conocimientos en el
+                        mercado inmobiliario y poniendo a su disposición la realidad en los valores reales de venta que
+                        se manejan en el mercado día a día.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/op.svg"> </span>
+                    <span class="col-lg-11"> <h4>TASACIONES RURALES</h4> </span>
+                </div>
+                <div class="col-lg-12  texto">
+                    <p>Nuestra experiencia, con más de mil campos tasados y comercializados, avalan nuestro compromiso y
+                        seriedad.</p>
+                    <p>Contamos con un equipo de profesionales capacitados para la correcta tasación de su propiedad.
+                        Teniendo en cuenta diversos parámetros influyentes luego de la visita al lugar. Apoyándonos en
+                        herramientas de vanguardia que nos ayudan en el proceso de diagnóstico, procurando así el justo
+                        valor de su propiedad.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/ip.svg"> </span>
+                    <span class="col-lg-11"> <h4>ADMINISTRACIONES RURALES Y ASESORAMIENTO AGROPECUARIO.</h4> </span>
+                </div>
+                <div class="col-lg-12  texto">
+                    <p>O´Keefe a través de su equipo de profesionales lo asesora en lo que llamamos el “Re-encausamiento
+                        y Valorización de Establecimientos".</p>
+                    <p>Más allá que en Argentina está implementando la tecnología en los establecimientos, consideramos
+                        que son pocos los campos que están en su máximo nivel productivo. Es por ello que proponemos
+                        acompañarlo en el proceso de cambio, tecnificación y aumento en la productividad de su tierra
+                        utilizando no solamente una correcta inversión sino un buen manejo del mismo. Como consecuencia
+                        de este proceso, y como objetivo además de la obtención de una elevada Rentabilidad, la
+                        VALORIZACIÓN de nuestra tierra.</p>
+                    <p>Solicite nuestro servicio completando el siguiente formulario y a la brevedad nos contactaremos
+                        con Ud.</p>
+                </div>
+                <div class="col-lg-12 padding-0 carac">
+                    <div class="form-contact">
+                        <form novalidate ng-submit="servicesAdForm($event)" name="services_Admin_Form"
+                              class="f_contacto ok-apprisals-form">
+                            <div class="col-lg-12">
+                                <h4>Datos del Establecimiento</h4>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.nombreest"
+                                       name="nombreest"
+                                       placeholder="Nombre"
+                                       uib-tooltip="Debe ingresar un nombre"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="!servicesAdminForm.nombreest && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.localidad"
+                                       name="localidad"
+                                       placeholder="Localidad"
+                                       uib-tooltip="Debe ingresar una localidad"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!servicesAdminForm.localidad && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12 ">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.partido"
+                                       name="partido"
+                                       placeholder="Partido"
+                                       uib-tooltip="Debe ingresar un partido"
+                                       tooltip-placement="right"
+                                       tooltip-is-open="!servicesAdminForm.partido && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.superficie"
+                                       name="superficie"
+                                       placeholder="Superficie"
+                                       uib-tooltip="Debe ingresar una superficie"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="!servicesAdminForm.superficie && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.aptitud"
+                                       name="aptitud"
+                                       placeholder="Aptitud"
+                                       uib-tooltip="Debe ingresar una aptitud"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!servicesAdminForm.aptitud && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.consulta"
+                                       name="consulta"
+                                       placeholder="Consulta"
+                                       uib-tooltip="Debe ingresar una consulta"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="!servicesAdminForm.consulta && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+
+                            </div>
+                            <div class="col-lg-12">
+                                <h4>Datos del Interesado</h4>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.nombre"
+                                       name="nombre"
+                                       placeholder="Nombre"
+                                       uib-tooltip="Debe ingresar un nombre"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="!servicesAdminForm.nombre && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12 ">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.apellido"
+                                       name="apellido"
+                                       placeholder="Apellido"
+                                       uib-tooltip="Debe ingresar un apellido"
+                                       tooltip-placement="right"
+                                       tooltip-is-open="!servicesAdminForm.apellido && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="email" ng-model="servicesAdminForm.email"
+                                       name="email"
+                                       placeholder="Email"
+                                       uib-tooltip="Debe ingresar un email válido"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="(!servicesAdminForm.email && servicesAdminForm.error) || !services_Admin_Form.email.$valid"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.telefono"
+                                       name="telefono"
+                                       placeholder="Teléfono fijo"
+                                       uib-tooltip="Debe ingresar un telefono"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!servicesAdminForm.telefono && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="servicesAdminForm.celular"
+                                       name="celular"
+                                       placeholder="Celular"
+                                       uib-tooltip="Debe ingresar un celular"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!servicesAdminForm.celular && servicesAdminForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12 pull-right">
+                                <button ng-disabled="services_Admin_Form.$error.email" class="btn btn-naranja btn-block"
+                                        type="submit">ENVIAR
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/vp.svg"> </span>
+                    <span class="col-lg-11"> <h4>ARRENDAMIENTOS GANADEROS Y AGRÍCOLAS</h4> </span>
+                </div>
+                <div class="col-lg-12  texto">
+                    <p>O´Keefe asesora a sus clientes ya sea en arrendamientos ganaderos como agrícolas, a corto,
+                        mediano y largo plazo. (Arrendamientos, pastajes, accidental por cosecha, etc.). </p>
+                    <p>Con más de 40 años de trayectoria y una amplia red de contactos, le ofrecemos nuestro servicio de
+                        intermediación en arrendamientos, garantizándole no solo un precio justo acorde al mercado de
+                        alquileres, sino un respaldo legal al momento de realizar los contratos y brindándole cobertura
+                        en todos los aspectos a ambas partes para que puedan tener una relación armónica y duradera.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/pg.svg"> </span>
+                    <span class="col-lg-11"> <h4>SUBDIVISIONES RURALES</h4> </span>
+                </div>
+                <div class="col-lg-12  texto">
+                    <p>O´Keefe le ofrece a través de su División rural, un análisis exhaustivo de su propiedad para
+                        presentarle un proyecto de subdivisión de su campo. Para poder llegar a un correcto trabajo
+                        debemos conocer y entender las necesidades de nuestros clientes ya sea para divisiones entre
+                        accionistas, sucesiones, venta parcial, etc.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 margin-top-10">
+            <div class="carac">
+                <div class="titulo">
+                    <span class="col-lg-1"> <img class="img-responsive" src="../assets/img/rp.svg"> </span>
+                    <span class="col-lg-11"> <h4>VENTA DE HACIENDA</h4> </span>
+                </div>
+                <div class="col-lg-12  texto">
+                    <p>Como parte de nuestro servicio integral, le ofrecemos el asesoramiento e intermediación en la
+                        compra venta de Hacienda y Reproductores. </p>
+                    <p>Ponemos a su disposición la experiencia y red de contactos obtenidos en nuestros años de
+                        trayectoria en el mercado ganadero, para realizar una correcta elección al momento de
+                        seleccionar el tipo de hacienda que debe comprar considerando cada negocio ganadero que se
+                        plantea en base a las características de su campo.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

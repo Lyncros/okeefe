@@ -81,8 +81,9 @@
                 <div class="carousel-inner">
                     <div class="item" ng-repeat="user in team" ng-class="{'active' : $first}">
                         <div class="col-sm-6 col-lg-4 ficha">
-                            <div class="img-equipo center-block">
-                                <img class="img-responsive" src="mobile/www/img/team/{{user.img}}">
+                            <div class="img-equipo center-block css3-shadow">
+                                <img ng-if="user.img" class="img-responsive ok-img-circle" src="mobile/www/img/team/{{user.img}}">
+                                <img ng-if="!user.img" class="img-responsive ok-img-circle" src="mobile/www/img/team/grey.png">
                             </div>
                             <div class="descripcion text-center">
                                 <h4>{{user.name}}</h4>

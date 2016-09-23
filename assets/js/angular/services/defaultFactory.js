@@ -300,78 +300,78 @@
                     name: "EDUARDO O'KEEFE",
                     job: "DIRECTOR ESTRATÉGICO",
                     desc: "Martillero y Corredor Público. Administración y venta de campos y  hacienda desde 1974. Brooker y asesor en manejo de grandes terrenos para emprendimientos.",
-                    img: "equipo1.png",
+                    img: "",
                     email: 'eduardo@okeefe.com.ar'
                 },
                 {
                     name: "CHARLIE O'KEEFE",
                     job: "GERENTE DE ALQUILERES",
                     desc: " Encargado de la División Comercial. Martillero Público.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Carlos O keefe.JPG",
+                    email: 'charlie@okeefe.com.ar'
                 },
                 {
                     name: "TOMÁS O'KEEFE",
                     job: "DIRECTOR EJECUTIVO, DIRECTOR DE ADMINISTRACIÓN Y  FINANZAS Y GERENTE GENERAL",
                     desc: "Martillero Público, Corredor Inmobiliario. Administrador de consorcios y Tasador. Asesoramiento financiero y de inversión. Administrador Fiduciario y encargado de desarrollo y dirección de obras.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Tomas O Keefe.PNG",
+                    email: 'tomas@okeefe.com.ar'
                 },
                 {
                     name: "IGNACIO O'KEEFE",
                     job: "DIRECTOR  EJECUTIVO  Y DIRECTOR LEGALES",
                     desc: "Abogado, Escribano y Master en derecho comparado de Pace University, New York. Asesor legal para Starwood Capital Group en el desarrollo de emprendimientos urbanísticos y hoteleros en U.S.A. y Europa",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Ignacio O keefe.JPG",
+                    email: 'ignacio@okeefe.com.ar'
                 },
                 {
                     name: "DENNIS O'KEEFE",
                     job: "DIRECTOR EJECUTIVO Y GERENTE RURAL E INDUSTRIAL",
                     desc: "Ingeniero Agrónomo. Asesoramiento agropecuario y ganadero.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Dennis O keefe.JPG",
+                    email: 'dennis@okeefe.com.ar'
                 },
                 {
                     name: "BELISARIO REYNAL",
                     job: "DIRECTOR DE MARKETING",
                     desc: "Master, International Business. Universitat Pompeu Fabra.  Licenciado, Marketing. Universidad de Ciencias Empresariales y Sociales",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "beli.jpg",
+                    email: 'belisario@okeefe.com.ar'
                 },
                 {
                     name: "JUAN CRUZ VECCAR VARELA",
                     job: "DIRECTOR DE RRHH Y COMERCIAL",
                     desc: "Martillero, tasador y corredor inmobiliario. Lidera los equipos de venta de la empresa, así como también se encarga del reclutamiento y capacitación de asesores comerciales. Se incorporó en el año 2015, luego de desarrollar su carrera en por más de 18 años en empresas líderes del sector inmobiliario.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Juan Cruz.JPG",
+                    email: 'juancruz@okeefe.com.ar'
                 },
                 {
                     name: "MATIAS LOSADA",
                     job: "GERENTE SUCURSAL HUDSON",
                     desc: "Martillero, tasador y corredor inmobiliario. Responsable de liderar al equipo de asesores comerciales de la sucursal, se especializa en la comercialización de Casas, Lotes, Condominios en el corredor de la Autopista Buenos Aires La Plata y Autovía 2, así como en el asesoramiento en inversiones inmobiliarias. ",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Matias Losada.JPG",
+                    email: 'matias.losada@okeefe.com.ar'
                 },
                 {
                     name: "PAULO HUBEÑAK",
                     job: "GERENTE SUCURSAL QUILMES",
                     desc: "Martillero Público, Corredor Inmobiliario. Administrador de consorcios y Tasador. Con más de 15 años de experiencia en el rubro inmobiliario, lidera el equipo de asesores comerciales de la sucursal. Inversiones, venta de pozo y en obra, producto terminado y usados son áreas en la que suma su experiencia.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "Paulo H.JPG",
+                    email: 'paulo@okeefe.com.ar'
                 },
                 {
                     name: "PATRICIA CHOVER",
                     job: "JEFE DE USADOS",
                     desc: "Con más de 20 años en la empresa, gran conocedora de la zona y con una vasta experiencia en la comercialización de propiedades, es la responsable de las ventas de inmuebles usados.",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "patricia.jpg",
+                    email: 'patricia@okeefe.com.ar'
                 },
                 {
                     name: "DIEGO SARAGO",
                     job: "JEFE DE MARKETING",
                     desc: "Lic en Administración de Empresas. Especialista en Marketing y Comunicación",
-                    img: "equipo1.png",
-                    email: 'eduardo@okeefe.com.ar'
+                    img: "",
+                    email: 'diego.sarago@okeefe.com.ar'
                 },
             ];
             return {

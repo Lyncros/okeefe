@@ -2,6 +2,7 @@
     angular.module('okeefeSite.controllers')
         .controller('investmentsController', function ($scope, $rootScope, $timeout, okeefeApiService, entitiesService, searchApiService) {
             $scope.form = {secret: 'sitiOkeefe', dato: '', error: false};
+
             $scope.getTipoEmprendimiento = function (id) {
                 return entitiesService.getTipoEmprendimiento(id);
             };
@@ -27,6 +28,9 @@
                     entitiesService.project_filter();
                     entitiesService.toggle('.detalle', '.item', 200);
                 }, 0);
+                $timeout(function () {
+                    $scope.showGalery = true;
+                }, 10000);
 
             }, function errorCallback(response) {
                 console.log("error :", response);

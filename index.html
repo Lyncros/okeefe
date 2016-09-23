@@ -28,13 +28,13 @@
 <div class="encabezado">
     <div class="container-fluid">
         <div class="row">
-            <div class="logo col-md-3">
+            <div class="logo col-lg-3">
                 <div class="img-logo">
                     <a href="#/inicio"><img class="img-responsive" src="assets/img/logo.gif"></a>
                 </div>
             </div>
             <div class="grupo-enc">
-                <div class="btn_contacto col-lg-2 col-md-12 pull-right">
+                <div class="btn_contacto col-lg-2 col-lg-12 pull-right">
                     <a ng-click="scrollTo('contact_form')" class="btn btn-verde btn-block btn-lg" role="button">CONTACTO</a>
                 </div>
                 <div class="menu text-center pull-right">
@@ -73,7 +73,7 @@
         </div>
         <div class="row">
             <form class="filtros" ng-submit="searchProp()">
-                <div class="col-lg-3 col-md-12">
+                <div class="col-lg-3 col-lg-12">
                     <label class="flecha-select lg">
                         <select ng-change="validateEmp()" ng-model="searchParam.oper" ng-disabled="disabled"
                                 class="form-control input-lg custom"
@@ -89,7 +89,7 @@
                         </select>
                     </label>
                 </div>
-                <div class="col-lg-3 col-md-12">
+                <div class="col-lg-3 col-lg-12">
                     <label class="flecha-select lg">
                         <!-- Single button using template-url -->
                         <div style="height: auto;" class="form-control btn-group col-lg-12 padding-0" uib-dropdown
@@ -109,8 +109,8 @@
                         </div>
                     </label>
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="col-lg-8 col-md-12 padding-0">
+                <div class="col-lg-4 col-lg-12">
+                    <div class="col-lg-8 col-lg-12 padding-0">
                         <input ng-model="loc" class="form-control input-lg custom" type="text"
                                uib-typeahead="loc.label as loc.text for loc in getLocation($viewValue)"
                                typeahead-min-length="3"
@@ -127,7 +127,7 @@
                             <i class="glyphicon glyphicon-remove"></i> No se encontraron resultados
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-4 col-lg-12">
                         <label for="emp_check" class="ok-emp-label css-label col-lg-12 text-center padding-0">Emprendimiento</label>
                         <div class="col-lg-12 text-center">
                             <input id="emp_check" bs-switch ng-model="searchParam.empr" type="checkbox"
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="btn_buscar col-lg-2 col-md-12 pull-right">
+                <div class="btn_buscar col-lg-2 col-lg-12 pull-right">
                     <button type="submit" class="btn btn-naranja btn-block btn-lg">BUSCAR</button>
                 </div>
             </form>
@@ -153,24 +153,24 @@
     </div>
     <!---FOOTER-->
     <div class="row footer">
-        <div class="col-md-3 padding-left-0">
+        <div class="col-lg-3 padding-left-0">
             <img class="img-responsive foot-logo" src="assets/img/logo.gif">
 
-            <div class="col-md-5 enlaces padding-left-0">
-                <a class="col-md-12 padding-left-0" href="#/quienes-somos">Nosotros</a>
-                <a class="col-md-12 padding-left-0" href="#/quienes-somos#servicios">Servicios</a>
-                <a class="col-md-12 padding-left-0" href="#/tasaciones">Tasaciones</a>
-                <a class="col-md-12 padding-left-0" href="#">Contacto</a>
-                <a class="col-md-12 padding-left-0" href="#">Sitemap</a>
+            <div class="col-lg-5 enlaces padding-left-0">
+                <a class="col-lg-12 padding-left-0" href="#/quienes-somos">Nosotros</a>
+                <a class="col-lg-12 padding-left-0" href="#/quienes-somos#servicios">Servicios</a>
+                <a class="col-lg-12 padding-left-0" href="#/tasaciones">Tasaciones</a>
+                <a class="col-lg-12 padding-left-0" href="#">Contacto</a>
+                <a class="col-lg-12 padding-left-0" href="#">Sitemap</a>
             </div>
-            <div class="col-md-6 enlaces">
-                <a class="col-md-12 padding-left-0" href="#">Rural</a>
-                <a class="col-md-12 padding-left-0" href="#">Residencial</a>
-                <a class="col-md-12 padding-left-0" href="#">Comercial</a>
-                <a class="col-md-12 padding-left-0" href="#">Eprendimientos</a>
-                <a class="col-md-12 padding-left-0" href="#">Industrial</a>
+            <div class="col-lg-6 enlaces">
+                <a class="col-lg-12 padding-left-0" href="#">Rural</a>
+                <a class="col-lg-12 padding-left-0" href="#">Residencial</a>
+                <a class="col-lg-12 padding-left-0" href="#">Comercial</a>
+                <a class="col-lg-12 padding-left-0" href="#">Eprendimientos</a>
+                <a class="col-lg-12 padding-left-0" href="#">Industrial</a>
             </div>
-            <div class="col-md-12 foot-datos">
+            <div class="col-lg-12 foot-datos">
                 <address>
                     <small>
                         <strong>Oficina central: </strong>Mitre 491 Quilmes <br>
@@ -181,17 +181,17 @@
 
                 <div class="redes">
                     <div class="red">
-                        <a href="">
+                        <a target="_blank" href="https://www.facebook.com/okeefeinmobiliaria">
                             <img class="img-responsive" src="assets/img/FACEBOOK.svg">
                         </a>
                     </div>
                     <div class="red">
-                        <a href="">
+                        <a target="_blank" href="https://www.linkedin.com/company/335778?trk=prof-0-ovw-curr_pos">
                             <img class="img-responsive" src="assets/img/LINKEDIN.svg">
                         </a>
                     </div>
                     <div class="red">
-                        <a href="">
+                        <a target="_blank" href="https://www.youtube.com/channel/UCht4TIqthbwx2QE82IhHXDg">
                             <img class="img-responsive" src="assets/img/YOUTUBE.svg">
                         </a>
                     </div>
@@ -200,7 +200,7 @@
 
 
         </div>
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-lg-4 col-lg-offset-1">
             <div id="slider-mapas" class="carousel slide slider-maps" data-ride="carousel">
                 <h5>Nuestras oficinas</h5>
                 <!-- Wrapper for slides -->
@@ -224,7 +224,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-4 padding-right-0">
+        <div class="col-lg-4 padding-right-0">
             <h5 id="contact_form">Formulario de consultas</h5>
             <div class="row" ng-show="alert != null">
                 <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>

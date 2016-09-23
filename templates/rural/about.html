@@ -21,8 +21,8 @@
 
 <div class="banner-qs">
     <div class="row">
-        <img class="img-responsive" src="assets/img/banner-qs.png">
-				<span class="caption">
+        <img class="img-responsive" src="../assets/img/banner-qs.png">
+        <span class="caption">
 					DISTINTAS ÁREAS, EL MISMO PROFESIONALISMO
 				</span>
     </div>
@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
-                <img class="img-responsive" src="assets/img/ase.svg">
+                <img class="img-responsive" src="../assets/img/ase.svg">
             </div>
             <h4>ASESORAMIENTO</h4>
             <p>MARKETING INMOBILIARIO</p>
@@ -41,7 +41,7 @@
         </div>
         <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
-                <img class="img-responsive" src="assets/img/adm.svg">
+                <img class="img-responsive" src="../assets/img/adm.svg">
             </div>
             <h4>ADMINISTRACIÓN</h4>
             <p>COBRO DE ALQUILERES</p>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
-                <img class="img-responsive" src="assets/img/com.svg">
+                <img class="img-responsive" src="../assets/img/com.svg">
             </div>
             <h4>COMERCIALIZACIÓN</h4>
             <p>TASACIONES</p>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-lg-3 col-md-6 bloque">
             <div class="ico center-block">
-                <img class="img-responsive" src="assets/img/cons.svg">
+                <img class="img-responsive" src="../assets/img/cons.svg">
             </div>
             <h4>CONSULTORÍA</h4>
             <p>ESTRUCTURACIÓN DE INVERSIONES</p>
@@ -76,55 +76,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="carousel carousel-showmanymoveone slide" id="slider-equipo">
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo1.png">
+        <div class="col-lg-12 padding-0">
+            <div class="carousel carousel-showmanymoveone slide" id="slider-equipo">
+                <div class="carousel-inner">
+                    <div class="item" ng-repeat="user in team" ng-class="{'active' : $first}">
+                        <div class="col-sm-6 col-lg-4 ficha">
+                            <div class="img-equipo center-block css3-shadow">
+                                <img ng-if="user.img" class="img-responsive ok-img-circle" src="../mobile/www/img/team/{{user.img}}">
+                                <img ng-if="!user.img" class="img-responsive ok-img-circle" src="../mobile/www/img/team/grey.png">
+                            </div>
+                            <div class="descripcion text-center">
+                                <h4>{{user.name}}</h4>
+                                <span class="cargo">{{user.job}}</span>
+                                <p class="d">{{user.desc}}</p>
+                            </div>
+                            <p class="email"><strong>{{user.email}}</strong></p>
                         </div>
-                        <div class="descripcion text-center">
-                            <h4>EDUARDO O'KEEFE</h4>
-                            <span class="cargo">GERENTE GENERAL</span>
-                            <p class="d">Martillero y Corredor Público.
-                                Administración y venta de campos y hacienda desde 1974.
-                                Brooker y asesor en manejo de grandes
-                                terrenos para emprendimientos.</p>
-                        </div>
-                        <p class="email"><strong>eduardo@okeefe.com.ar</strong></p>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo2.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>CHARLIE O'KEEFE</h4>
-                            <span class="cargo">DIRECTOR FINANCIERO</span>
-                            <p class="d">Encargado de la División Comercial.
-                                Martillero Público</p>
-                        </div>
-                        <p class="email"><strong>charlie@okeefe.com.ar</strong></p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="col-lg-12 col-sm-6 col-lg-4 ficha">
-                        <div class="img-equipo center-block">
-                            <img class="img-responsive" src="assets/img/equipo3.png">
-                        </div>
-                        <div class="descripcion text-center">
-                            <h4>GEORGINA BADANO</h4>
-                            <span class="cargo">TITULAR DEL ESTUDIO JURÍDICO Y NOTARIAL BADANO & CIA</span>
-                            <p class="d">Abogada. Más de 35 años de trayectoria en asuntos inmobiliarios, de familia, sucesorios, civiles y desarrollos inmobiliarios. Especialista en Fideicomisos.</p>
-                        </div>
-                        <p class="email"><strong>georgina@okeefe.com.ar</strong></p>
-                    </div>
-                </div>
+                <a class="left carousel-control ok-cursor-pointer" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i
+                        class="glyphicon glyphicon-chevron-left"></i></a>
+                <a class="right carousel-control ok-cursor-pointer" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i
+                        class="glyphicon glyphicon-chevron-right"></i></a>
             </div>
-            <a class="left carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-            <a class="right carousel-control" ng-non-bindable data-target="#slider-equipo" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
+
     </div>
 </div>
 
@@ -139,7 +115,7 @@
 <div class="bloque3" id="trayectoria">
     <div class="row">
         <div class="flex-images">
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos1.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos1.png">
                 <div class="detalle">
                     <p><strong>INVERSIÓN</strong></p>
                     <p><strong>CONSTANTE EN</strong></p>
@@ -147,9 +123,9 @@
                 </div>
             </div>
             <div class="item" data-w="533" data-h="349">
-                <img src="assets/img/somos/somos2.png">
+                <img src="../assets/img/somos/somos2.png">
             </div>
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos3.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos3.png">
                 <div class="detalle">
                     <p><strong>ASESORES EN</strong></p>
                     <p><strong>INVERSIONES INMOBILIARIAS</strong></p>
@@ -157,37 +133,37 @@
                 </div>
             </div>
             <div class="item" data-w="533" data-h="349">
-                <img src="assets/img/somos/somos4.png">
+                <img src="../assets/img/somos/somos4.png">
             </div>
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos5.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos5.png">
                 <div class="detalle">
                     <p><strong>SERVICIO PERSONALIZADO</strong></p>
                     <p><strong>Y ATENTO A SUS</strong></p>
                     <p><strong>NECESIDADES</strong></p>
                 </div>
             </div>
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos6.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos6.png">
                 <div class="detalle">
                     <p><strong>MÁS DE 5.000</strong></p>
                     <p><strong>PROPIEDADES</strong></p>
                     <p><strong>A LA VENTA</strong></p>
                 </div>
             </div>
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos7.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos7.png">
                 <div class="detalle">
                     <p><strong>MÁS DE 70.000</strong></p>
                     <p><strong>CONTACTOS EN NUESTRA</strong></p>
                     <p><strong>BASE DE DATOS</strong></p>
                 </div>
             </div>
-            <div class="item" data-w="533" data-h="349"><img src="assets/img/somos/somos8.png">
+            <div class="item" data-w="533" data-h="349"><img src="../assets/img/somos/somos8.png">
                 <div class="detalle">
                     <p><strong>MÁS DE 1.500 CAMPOS</strong></p>
                     <p><strong>COMERCIALIZADOS</strong></p>
                 </div>
             </div>
             <div class="item" data-w="533" data-h="349">
-                <img src="assets/img/somos/somos9.png">
+                <img src="../assets/img/somos/somos9.png">
             </div>
         </div>
     </div>
@@ -195,23 +171,38 @@
 
 <div class="texto-b3 text-justify">
     <p>
-        Con una historia que, en sus inicios, poco tenía que ver con el concepto del Real Estate moderno, el camino profesional de Eduardo O'Keefe comienza en el año 1973 con la venta del primer campo. A partir de ese momento, el crecimiento de la inmobiliaria Rural se fue dando naturalmente y basado principalmente en el trabajo duro, muy duro.
+        Con una historia que, en sus inicios, poco tenía que ver con el concepto del Real Estate moderno, el camino
+        profesional de Eduardo O'Keefe comienza en el año 1973 con la venta del primer campo. A partir de ese momento,
+        el crecimiento de la inmobiliaria Rural se fue dando naturalmente y basado principalmente en el trabajo duro,
+        muy duro.
     </p>
     <p>
-        Con la división rural ya funcionando, en el año 1984, y con la participación de Charlie O'Keefe, la empresa comienza a incursionar en la venta de propiedades en la Ciudad de Quilmes, el propio partido donde aún vivimos. Con el tiempo, varios integrantes de la familia se fueron sumando al equipo O'Keefe para aportar diversidad de conocimientos y dinamismo a la empresa. Actualmente, Eduardo trabaja codo a codo con su hermano y sus hijos, pero él, como todo emprendedor de alma, sigue encabezando el equipo, timoneando todas las tormentas y definiendo el camino a seguir. "La gran diferencia es que comencé solo y hoy, además de familia, somos un equipo", dice Eduardo.
+        Con la división rural ya funcionando, en el año 1984, y con la participación de Charlie O'Keefe, la empresa
+        comienza a incursionar en la venta de propiedades en la Ciudad de Quilmes, el propio partido donde aún vivimos.
+        Con el tiempo, varios integrantes de la familia se fueron sumando al equipo O'Keefe para aportar diversidad de
+        conocimientos y dinamismo a la empresa. Actualmente, Eduardo trabaja codo a codo con su hermano y sus hijos,
+        pero él, como todo emprendedor de alma, sigue encabezando el equipo, timoneando todas las tormentas y definiendo
+        el camino a seguir. "La gran diferencia es que comencé solo y hoy, además de familia, somos un equipo", dice
+        Eduardo.
     </p>
     <p>
-        Desde el inicio de las nuevas urbanizaciones como Barrios Cerrados, Clubes de Campo y Countries, O'Keefe acompañó comercialmente a varios emprendimientos, tales como, "Las Malvinas" en el Partido de Brandsen, "Village del Parque" en la zona de Hudson o el "New Field", encomendado en el año 1997 por el Colegio San Jorge.
+        Desde el inicio de las nuevas urbanizaciones como Barrios Cerrados, Clubes de Campo y Countries, O'Keefe
+        acompañó comercialmente a varios emprendimientos, tales como, "Las Malvinas" en el Partido de Brandsen, "Village
+        del Parque" en la zona de Hudson o el "New Field", encomendado en el año 1997 por el Colegio San Jorge.
     </p>
     <p>
-        Gracias a su compromiso con el cliente y el profesionalismo de su gente, la Inmobiliaria O'Keefe ha incrementado su participación en este nuevo mercado y ha abierto su División de Emprendimientos y Obras. Esto le permitió comercializar con éxito numerosos proyectos de edificios y urbanizaciones tales como los Edificios "Klover" y el Barrio Cerrado "Las Golondrinas", solo por mencionar algunos
+        Gracias a su compromiso con el cliente y el profesionalismo de su gente, la Inmobiliaria O'Keefe ha incrementado
+        su participación en este nuevo mercado y ha abierto su División de Emprendimientos y Obras. Esto le permitió
+        comercializar con éxito numerosos proyectos de edificios y urbanizaciones tales como los Edificios "Klover" y el
+        Barrio Cerrado "Las Golondrinas", solo por mencionar algunos
     </p>
 </div>
 
 <div id="sucursales" class="bloque4">
     <div class="row">
         <div class="col-lg-12 padding-left-0">
-            <h2 class="green col-lg-9">NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y AMIGOS.</h2>
+            <h2 class="green col-lg-9">NOS EXPANDIMOS PARA MEJORAR NUESTRA COBERTURA Y ACERCARNOS A NUESTROS CLIENTES Y
+                AMIGOS.</h2>
             <h2 class="col-lg-9 margin-0">CONTACTE A SU SUCURSAL MÁS CERCANA</h2>
         </div>
     </div>

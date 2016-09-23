@@ -24,6 +24,30 @@ body {
 .ok-full-height{
     height:100%;
 }
+.ok-img-circle{
+    border-radius: 50%;
+}
+.css3-shadow{
+    position:relative;
+}
+/*==================================================
+ * Drop shadow effect with box-shadow
+ * ===============================================*/
+.css3-shadow:after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 10px rgba(179, 179, 179, 0.20);
+    box-shadow: 0 0 10px rgba(179, 179, 179, 0.20);
+    bottom: -5px;
+    left: 23%;
+    /* right: 11%; */
+    width: 70px;
+    height: 5px;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: rgba(179, 179, 179, 0.20);
+}
 .ok-cursor-pointer{
     cursor: pointer;
 }

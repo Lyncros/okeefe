@@ -47,11 +47,11 @@
                     return true;
                 };
                 $scope.getLocation = function (val) {
-                    return searchApiService.searchApi.readLocations($scope.searchParam.oper,$scope.searchParam.tipo,val,$scope.searchParam.empr).then(function (response) {
+                    return searchApiService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val, $scope.searchParam.empr).then(function (response) {
                         return response.data.data.map(function (item) {
                             return {
                                 val: item.idZona,
-                                label : item.valor,
+                                label: item.valor,
                                 text: item.valor + " (" + item.cantidad + ")"
                             };
                         });
@@ -62,7 +62,7 @@
                 entitiesService.mapsSlider($scope);
                 $scope.searchProp = function () {
                     if ($scope.validateForm()) {
-                        window.location = '#/propiedades/'+$scope.searchParam.property+'/'+$scope.searchParam.oper+'/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
+                        window.location = '#/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
                 $scope.selectedZone = function ($item, $model, $label) {
@@ -94,7 +94,7 @@
                     });
 
 
-                $scope.scrollTo = function(id) {
+                $scope.scrollTo = function (id) {
                     $location.hash(id);
                 }
 
@@ -108,7 +108,8 @@
                                 tab: function () {
                                     return tab;
                                 },
-                            }});
+                            }
+                        });
                         modal.result
                             .then(function () {
                                 // guardar
