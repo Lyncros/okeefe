@@ -1,6 +1,6 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('newsController',function ($scope,$rootScope,dictionaryFactory,defaultFactory,entitiesService) {
+        .controller('newsRuralController',function ($scope,$rootScope,dictionaryFactory,defaultFactory,entitiesService) {
             $scope.trustSrc = function (url) {
                 return entitiesService.trustSrc(url);
             };

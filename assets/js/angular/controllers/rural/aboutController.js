@@ -1,6 +1,6 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('aboutController',function ($scope,$rootScope, $timeout, uiGmapGoogleMapApi,defaultFactory,entitiesService) {
+        .controller('aboutRuralController',function ($scope,$rootScope, $timeout, uiGmapGoogleMapApi,defaultFactory,entitiesService) {
             $scope.init = function () {
                 $scope.maps = defaultFactory.about_maps;
                 $scope.options = defaultFactory.options;

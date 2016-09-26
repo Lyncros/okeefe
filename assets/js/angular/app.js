@@ -7,6 +7,8 @@
         'ngRoute',
         'okeefeSite.services',
         'okeefeSite.controllers',
+        'okeefeRuralSite.services',
+        'okeefeRuralSite.controllers',
         'okeefeSite.constants',
         'satellizer',
         'toastr',
@@ -57,57 +59,133 @@
             .when('/', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeController',
-                activetab: 'home'
+                activetab: 'home',
+                site: 'urbano'
             })
             .when('/inicio', {
                 templateUrl: 'templates/home.html',
                 controller: 'homeController',
-                activetab: 'home'
+                activetab: 'home',
+                site: 'urbano'
             })
             .when('/inversiones', {
                 templateUrl: 'templates/investments.html',
                 controller: 'investmentsController',
-                activetab: 'inversiones'
+                activetab: 'inversiones',
+                site: 'urbano'
             })
             .when('/tasaciones', {
                 templateUrl: 'templates/appraisals.html',
                 controller: 'appraisalsController',
-                activetab: 'tasaciones'
+                activetab: 'tasaciones',
+                site: 'urbano'
             })
             .when('/noticias', {
                 templateUrl: 'templates/news.html',
                 controller: 'newsController',
-                activetab: 'noticias'
+                activetab: 'noticias',
+                site: 'urbano'
             })
             .when('/propiedades/:tipo/:operacion/:ubicacion', {
                 templateUrl: 'templates/properties.html',
                 controller: 'propertiesController',
                 activetab: 'propiedades',
+                site: 'urbano',
                 reloadOnSearch: false
             })
             .when('/ficha-propiedad/:id', {
                 templateUrl: 'templates/property-sheet.html',
                 controller: 'propertySheetController',
-                activetab: 'ficha-propiedad'
+                activetab: 'ficha-propiedad',
+                site: 'urbano'
             })
             .when('/ficha-emprendimiento/:id', {
                 templateUrl: 'templates/venture-sheet.html',
                 controller: 'ventureSheetController',
-                activetab: 'ficha-emprendimiento'
+                activetab: 'ficha-emprendimiento',
+                site: 'urbano'
             })
             .when('/quienes-somos', {
                 templateUrl: 'templates/about.html',
                 controller: 'aboutController',
-                activetab: 'quienes-somos'
+                activetab: 'quienes-somos',
+                site: 'urbano'
             })
             .when('/empleo', {
                 templateUrl: 'templates/work-with-us.html',
                 controller: 'workWithUsController',
-                activetab: 'empleo'
+                activetab: 'empleo',
+                site: 'urbano'
             })
             .when('/recordar-clave', {
                 templateUrl: 'templates/reset-pw.html',
-                controller: 'resetController'
+                controller: 'resetController',
+                site: 'urbano'
+            })
+            .when('/rural', {
+                templateUrl: 'templates/rural/home.html',
+                controller: 'homeRuralController',
+                activetab: 'inicio',
+                site: 'rural'
+            })
+            .when('/rural/inicio', {
+                templateUrl: 'templates/rural/home.html',
+                controller: 'homeRuralController',
+                activetab: 'inicio',
+                site: 'rural'
+            })
+            .when('/rural/tasaciones', {
+                templateUrl: 'templates/rural/appraisals.html',
+                controller: 'appraisalsRuralController',
+                activetab: 'tasaciones',
+                site: 'rural'
+            })
+            .when('/rural/servicios', {
+                templateUrl: 'templates/rural/services.html',
+                controller: 'servicesRuralController',
+                activetab: 'servicios',
+                site: 'rural'
+            })
+            .when('/rural/noticias', {
+                templateUrl: 'templates/rural/news.html',
+                controller: 'newsRuralController',
+                activetab: 'noticias',
+                site: 'rural'
+            })
+            .when('/rural/propiedades/:tipo/:operacion/:ubicacion', {
+                templateUrl: 'templates/rural/properties.html',
+                controller: 'propertiesRuralController',
+                activetab: 'propiedades',
+                site: 'rural',
+                reloadOnSearch: false
+            })
+            .when('/rural/ficha-propiedad/:id', {
+                templateUrl: 'templates/rural/property-sheet.html',
+                controller: 'propertySheetRuralController',
+                activetab: 'ficha-propiedad',
+                site: 'rural'
+            })
+            .when('/rural/quienes-somos', {
+                templateUrl: 'templates/rural/about.html',
+                controller: 'aboutRuralController',
+                activetab: 'quienes-somos',
+                site: 'rural'
+            })
+            .when('/rural/empleo', {
+                templateUrl: 'templates/rural/work-with-us.html',
+                controller: 'workWithUsRuralController',
+                activetab: 'empleo',
+                site: 'rural'
+            })
+            .when('/rural/arrendamientos', {
+                templateUrl: 'templates/rural/leases.html',
+                activetab: 'arrendamientos',
+                site: 'rural'
+            })
+            .when('/rural/subdivisiones', {
+                templateUrl: 'templates/rural/subdivisions.html',
+                activetab: 'subdivisiones',
+                site: 'rural'
             })
             .otherwise("/");
 

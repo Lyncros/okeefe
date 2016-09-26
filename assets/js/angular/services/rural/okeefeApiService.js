@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeRuralSite.services')
-        .factory('okeefeApiService', function ($http, $q, API_OKEEFE) {
+        .factory('okeefeApiRuralService', function ($http, $q, API_OKEEFE) {
             var API = {};
 
             API.send = function (data) {

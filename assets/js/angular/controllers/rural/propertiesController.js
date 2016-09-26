@@ -1,6 +1,6 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('propertiesController',
+        .controller('propertiesRuralController',
             function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
                       searchApiService, defaultFactory, $auth, $location, SITE_URL) {
                 $scope.siteUrl = SITE_URL;

@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeRuralSite.services', [])
-        .service('entitiesService', function ($timeout, $sce, SITE_URL) {
+        .service('entitiesRuralService', function ($timeout, $sce, SITE_URL) {
             //Jquery Calls
             /**
              * wowSlider initialization

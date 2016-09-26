@@ -22,8 +22,8 @@
                 });
             };
             searchApiService.searchApi.Emprendimientos().then(function (response) {
-                $scope.emprendimientos = response.data;
-                console.log($scope.emprendimientos);
+                $scope.emprendimientos = response;
+                //console.log($scope.emprendimientos);
                 $timeout(function () {
                     entitiesService.project_filter();
                     entitiesService.toggle('.detalle', '.item', 200);

@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeRuralSite.services')
-        .factory("defaultFactory", function () {
+        .factory("defaultRuralFactory", function () {
             //MAPS default data
             var options = {scrollwheel: false, icon: 'assets/img/marcador_1.png'};
             var about_maps = {

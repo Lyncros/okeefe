@@ -1,6 +1,6 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('appraisalsController', function ($scope, $rootScope, entitiesService, okeefeApiService) {
+        .controller('appraisalsRuralController', function ($scope, $rootScope, entitiesService, okeefeApiService) {
             $scope.video = false;
             $scope.appraisalForm = {
                 secret: 'sitiOkeefe',

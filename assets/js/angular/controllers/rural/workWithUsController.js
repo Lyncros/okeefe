@@ -1,6 +1,6 @@
 (function(){
     angular.module('okeefeRuralSite.controllers')
-        .controller('workWithUsController', function ($scope, $rootScope, searchApiService, entitiesService) {
+        .controller('workWithUsRuralController', function ($scope, $rootScope, searchApiService, entitiesService) {
             $scope.CAPTCHA = "6LeUIgcUAAAAAL53E8sjRRhH3AoPfD-KMrdMWgSy";
             $scope.workForm = {secret: 'sitiOkeefe', dato: '', error: false};
             $scope.submitWorkForm = function ($event) {

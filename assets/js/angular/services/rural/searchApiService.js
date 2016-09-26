@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeRuralSite.services')
-        .factory('searchApiService', function ($http, $q, API_SEARCH,API_JOB_APPLICATION, entitiesService) {
+        .factory('searchApiRuralService', function ($http, $q, API_SEARCH,API_JOB_APPLICATION, entitiesService) {
             var searchApi = {};
             var setURL = function (base, param, id) {
                 var url = base;

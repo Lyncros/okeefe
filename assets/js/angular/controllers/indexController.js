@@ -1,22 +1,11 @@
 (function () {
     angular.module('okeefeSite.controllers', [])
         .controller('indexController',
-            function ($route, $scope, $rootScope, $window, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService) {
-
+            function ($route, $scope, $rootScope, $window, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService, searchApiRuralService) {
                 $scope.maps = defaultFactory.footer_maps;
                 $scope.alert = null;
                 $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.$route = $route;
-                $scope.resetForm = function () {
-                    $scope.searchParam = {
-                        empr: '0',
-                        zona: '',
-                        oper: 'Compra',
-                        property: 'Residencial',
-                        tipo: '9,1,7,17',
-                        error: false
-                    };
-                };
                 $scope.contactForm = function ($event) {
                     $event.preventDefault();
                     if (!$scope.footerForm.nombre || !$scope.footerForm.apellido || !$scope.footerForm.email || !$scope.footerForm.telefono || !$scope.footerForm.celular || !$scope.footerForm.comentarios) {
@@ -31,14 +20,67 @@
                         console.log("error :", response);
                     });
                 };
+                $scope.selectedZone = function ($item, $model, $label) {
+                    $scope.searchParam.zona = $item.val;
+                    $scope.searchRuralParam.zona = $item.val;
+                };
+                entitiesService.mapsSlider($scope);
+                $scope.resetRuralForm = function () {
+                    $scope.searchRuralParam = {
+                        zona: '',
+                        oper: 'Compra',
+                        property: 'Lotes',
+                        tipo: '7',
+                        error: false
+                    };
+                };
+                $scope.resetRuralForm();
+                $scope.validateRuralForm = function () {
+                    if (!$scope.searchRuralParam.property || !$scope.searchRuralParam.oper || !$scope.searchRuralParam.zona) {
+                        $scope.searchRuralParam.error = true;
+                        return false;
+                    }
+                    return true;
+                };
+                $scope.getRuralLocation = function (val) {
+                    return searchApiRuralService.searchApi.readLocations($scope.searchRuralParam.oper, $scope.searchRuralParam.tipo, val).then(function (response) {
+                        return response.data.data.map(function (item) {
+                            return {
+                                val: item.idZona,
+                                label: item.valor,
+                                text: item.valor + " (" + item.cantidad + ")"
+                            };
+                        });
+                    }, function errorCallback(response) {
+                        console.log("error :", response);
+                    });
+                };
 
+                $scope.searchRuralProp = function () {
+                    if ($scope.validateRuralForm()) {
+                        window.location = '#/rural/propiedades/' + $scope.searchRuralParam.property + '/' + $scope.searchRuralParam.oper + '/' + $scope.searchRuralParam.zona + '?rural=true';
+                    }
+                };
+
+                $scope.selectRuralProperty = function (prop) {
+                    $scope.searchParam.tipo = entitiesService.getTipoInmueble(null, prop);
+                };
+                $scope.resetForm = function () {
+                    $scope.searchParam = {
+                        empr: '0',
+                        zona: '',
+                        oper: 'Compra',
+                        property: 'Residencial',
+                        tipo: '9,1,7,17',
+                        error: false
+                    };
+                };
                 $scope.resetForm();
                 $scope.validateEmp = function () {
                     $scope.searchParam.empr = 0;
                     if ($scope.searchParam.oper == 'Inversión')
                         $scope.searchParam.empr = 1;
                 };
-
                 $scope.validateForm = function () {
                     if (!$scope.searchParam.property || !$scope.searchParam.oper || !$scope.searchParam.zona) {
                         $scope.searchParam.error = true;
@@ -59,20 +101,18 @@
                         console.log("error :", response);
                     });
                 };
-                entitiesService.mapsSlider($scope);
                 $scope.searchProp = function () {
                     if ($scope.validateForm()) {
                         window.location = '#/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
-                };
-                $scope.selectedZone = function ($item, $model, $label) {
-                    $scope.searchParam.zona = $item.val;
                 };
 
                 $scope.selectProperty = function (prop) {
                     $scope.searchParam.tipo = prop;
                     $scope.searchParam.property = entitiesService.getTipoInmueble(prop);
                 };
+
+
                 $rootScope.$on('register', function (event, data) {
                     $scope.register();
                 });

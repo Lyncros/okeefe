@@ -26,7 +26,7 @@
 <body ng-controller="indexController">
 <div class="overlay-premium"></div>
 <div class="encabezado">
-    <div class="container-fluid">
+    <div ng-if="$route.current.site == 'urbano'" class="container-fluid">
         <div class="row">
             <div class="logo col-lg-3">
                 <div class="img-logo">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="menu text-center pull-right">
                     <div class="item">
-                        <a href="rural">Rural</a>
+                        <a href="#/rural">Rural</a>
                     </div>
                     <div class="item">
                         <a ng-class="{active: $route.current.activetab == 'inversiones'}" href="#/inversiones">Inversiones</a>
@@ -146,6 +146,118 @@
             </form>
         </div>
     </div>
+    <div ng-if="$route.current.site == 'rural'" class="container-fluid">
+        <div class="row">
+            <div class="logo col-lg-3">
+                <div class="img-logo">
+                    <a href="#/rural"><img class="img-responsive" src="assets/img/logo-rural.png"></a>
+                </div>
+            </div>
+            <div class="grupo-enc">
+                <div class="btn_contacto col-lg-2 col-lg-12 pull-right">
+                    <a ng-click="scrollTo('contact_form')" class="btn btn-verde btn-block btn-lg"
+                       role="button">CONTACTO</a>
+                </div>
+                <div class="menu text-center pull-right">
+                    <div class="item">
+                        <a href="#/">Inicio</a>
+                    </div>
+                    <!--<div class="item">
+                        <a href="#/subdivisiones">Subdivisiones</a>
+                    </div>
+                    <div class="item">
+                        <a href="#/arrendamientos">Arrendamientos</a>
+                    </div>-->
+                    <div class="item">
+                        <a ng-class="{active: $route.current.activetab == 'servicios'}" href="#/rural/servicios">Servicios</a>
+                    </div>
+                    <div class="item">
+                        <a ng-class="{active: $route.current.activetab == 'tasaciones'}"
+                           href="#/rural/tasaciones">Tasaciones</a>
+                    </div>
+                    <!--<div class="item">
+                        <a href="#/rural/noticias">News</a>
+                    </div>-->
+                    <div class="item" ng-if="!isLogged">
+                        <a href="" ng-click="register()">Registrarse</a>
+                    </div>
+                    <div class="item dropdown" ng-if="isLogged">
+                        <div style="cursor: pointer;" class="dropdown-toggle" type="button" id="dropdownMenu1"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            &nbsp <b>{{user.nombre}}</b>
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                            <li><a ng-click="editAccount('data')" href=""><i class="glyphicon glyphicon-user"></i> Mis
+                                Datos</a></li>
+                            <li><a ng-click="editAccount('fav')" href=""><i class="glyphicon glyphicon-heart"></i> Mis
+                                Favoritos</a></li>
+                            <li><a ng-click="editAccount('appr')" href=""><i class="fa fa-money"></i> Tasaciones</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="" ng-click="doLogout()">Cerrar sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form class="filtros" ng-submit="searchRuralProp()">
+                <div class="col-lg-3 col-lg-12">
+                    <label class="flecha-select lg">
+                        <select ng-model="searchRuralParam.oper" ng-disabled="disabled"
+                                class="form-control input-lg custom"
+                                uib-tooltip="Debe seleccionar una Operación"
+                                tooltip-placement="bottom"
+                                tooltip-is-open="!searchRuralParam.oper && searchRuralParam.error"
+                                tooltip-trigger="'none'">
+                            <option ng-if="!searchRuralParam.oper" value="" selected>Operación</option>
+                            <option value="Compra">Compra</option>
+                            <option value="Alquiler">Alquiler</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-lg-3 col-lg-12">
+                    <label class="flecha-select lg">
+                        <select ng-change="selectRuralProperty(searchRuralParam.property)" ng-model="searchRuralParam.property"
+                                class="form-control input-lg custom"
+                                uib-tooltip="Debe seleccionar una Propiedad"
+                                tooltip-placement="bottom"
+                                tooltip-is-open="!searchRuralParam.oper && searchRuralParam.error"
+                                tooltip-trigger="'none'">
+                            <option ng-if="!searchRuralParam.property" value="" selected>Tipo de Propiedad</option>
+                            <option value="Lotes">Lotes</option>
+                            <option value="Quintas">Quintas</option>
+                            <option value="Estancias">Estancias</option>
+                            <option value="Chacras">Chacras</option>
+                            <option value="Campos">Campos</option>
+                            <option value="Galpones">Galpones</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-lg-4 col-lg-12">
+                    <input ng-model="loc" class="form-control input-lg custom" type="text"
+                           uib-typeahead="loc.label as loc.text for loc in getRuralLocation($viewValue)"
+                           typeahead-min-length="3"
+                           typeahead-loading="loadingLocations"
+                           typeahead-no-results="noResults"
+                           placeholder="Zona"
+                           uib-tooltip="Debe seleccionar una Zona"
+                           typeahead-on-select="selectedZone($item, $model, $label)"
+                           tooltip-placement="bottom"
+                           tooltip-is-open="!searchRuralParam.zona && searchRuralParam.error"
+                           tooltip-trigger="'none'">
+                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="noResults">
+                        <i class="glyphicon glyphicon-remove"></i> No se encontraron resultados
+                    </div>
+                </div>
+                <div class="btn_buscar col-lg-2 col-lg-12 pull-right">
+                    <button type="submit" class="btn btn-naranja btn-block btn-lg">BUSCAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <div class="todo container-fluid">
     <div id="siteContent" ng-view autoscroll="true">
@@ -154,21 +266,29 @@
     <!---FOOTER-->
     <div class="row footer">
         <div class="col-lg-3 padding-left-0">
-            <img class="img-responsive foot-logo" src="assets/img/logo.gif">
-
-            <div class="col-lg-5 enlaces padding-left-0">
+            <img ng-if="$route.current.site == 'urbano'" class="img-responsive foot-logo" src="assets/img/logo.gif">
+            <img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo" src="assets/img/logo-rural.png">
+            <div ng-if="$route.current.site == 'urbano'" class="col-lg-5 enlaces padding-left-0">
                 <a class="col-lg-12 padding-left-0" href="#/quienes-somos">Nosotros</a>
                 <a class="col-lg-12 padding-left-0" href="#/quienes-somos#servicios">Servicios</a>
                 <a class="col-lg-12 padding-left-0" href="#/tasaciones">Tasaciones</a>
-                <a class="col-lg-12 padding-left-0" href="#">Contacto</a>
-                <a class="col-lg-12 padding-left-0" href="#">Sitemap</a>
+                <a class="col-lg-12 padding-left-0" ng-click="scrollTo('contact_form')">Contacto</a>
+                <!--<a class="col-lg-12 padding-left-0" href="#">Sitemap</a>-->
             </div>
-            <div class="col-lg-6 enlaces">
+            <!--<div ng-if="$route.current.site == 'urbano'" class="col-lg-6 enlaces">
                 <a class="col-lg-12 padding-left-0" href="#">Rural</a>
                 <a class="col-lg-12 padding-left-0" href="#">Residencial</a>
                 <a class="col-lg-12 padding-left-0" href="#">Comercial</a>
                 <a class="col-lg-12 padding-left-0" href="#">Eprendimientos</a>
                 <a class="col-lg-12 padding-left-0" href="#">Industrial</a>
+            </div>-->
+            <div ng-if="$route.current.site == 'rural'" class="col-lg-5 enlaces padding-left-0">
+                <ul>
+                    <a class="col-lg-12 padding-left-0" href="#/rural/quienes-somos">Nosotros</a>
+                    <a class="col-lg-12 padding-left-0" href="#/rural/quienes-somos#servicios">Servicios</a>
+                    <a class="col-lg-12 padding-left-0" href="#/rural/tasaciones">Tasaciones</a>
+                    <a class="col-lg-12 padding-left-0" ng-click="scrollTo('contact_form')">Contacto</a>
+                </ul>
             </div>
             <div class="col-lg-12 foot-datos">
                 <address>
@@ -182,17 +302,20 @@
                 <div class="redes">
                     <div class="red">
                         <a target="_blank" href="https://www.facebook.com/okeefeinmobiliaria">
-                            <img class="img-responsive" src="assets/img/FACEBOOK.svg">
+                            <img ng-if="$route.current.site == 'urbano'" class="img-responsive" src="assets/img/FACEBOOK.svg">
+                            <img ng-if="$route.current.site == 'rural'" class="img-responsive" src="assets/img/FACEBOOK_r.png">
                         </a>
                     </div>
                     <div class="red">
                         <a target="_blank" href="https://www.linkedin.com/company/335778?trk=prof-0-ovw-curr_pos">
-                            <img class="img-responsive" src="assets/img/LINKEDIN.svg">
+                            <img ng-if="$route.current.site == 'urbano'" class="img-responsive" src="assets/img/LINKEDIN.svg">
+                            <img ng-if="$route.current.site == 'rural'" class="img-responsive" src="assets/img/LINKEDIN_r.png">
                         </a>
                     </div>
                     <div class="red">
                         <a target="_blank" href="https://www.youtube.com/channel/UCht4TIqthbwx2QE82IhHXDg">
-                            <img class="img-responsive" src="assets/img/YOUTUBE.svg">
+                            <img ng-if="$route.current.site == 'urbano'" class="img-responsive" src="assets/img/YOUTUBE.svg">
+                            <img ng-if="$route.current.site == 'rural'" class="img-responsive" src="assets/img/YOUTUBE_r.png">
                         </a>
                     </div>
                 </div>
@@ -280,11 +403,14 @@
                         <label for="newsletter" class="col-lg-8">Suscribirme al Newsletter</label>
                     </div>
                     <div class="col-lg-4 pull-right padding-right-0">
-                        <button class="btn btn-verde btn-block" type="submit" ng-disabled="footer_Form.$error.email">ENVIAR</button>
+                        <button class="btn btn-block" ng-class="{'btn-verde' : $route.current.site == 'urbano','btn-negro' : $route.current.site == 'rural'}" type="submit" ng-disabled="footer_Form.$error.email">ENVIAR</button>
                     </div>
                 </div>
             </form>
         </div>
+    </div>
+    <div ng-if="$route.current.site == 'rural'" class="row art-footer">
+        <div class="img-footer"></div>
     </div>
 </div>
 </body>
@@ -343,4 +469,25 @@
 
 <!-- Angular Directives -->
 <script src="assets/js/angular/directives/checkLogin.js"></script>
+
+<!--RURAL-->
+<!--Angular Services -->
+<script src="assets/js/angular/services/rural/entitiesService.js"></script>
+<script src="assets/js/angular/services/rural/dictionaryFactory.js"></script>
+<script src="assets/js/angular/services/rural/defaultFactory.js"></script>
+<script src="assets/js/angular/services/rural/searchApiService.js"></script>
+<script src="assets/js/angular/services/rural/okeefeApiService.js"></script>
+<script src="assets/js/angular/services/rural/userService.js"></script>
+<script src="assets/js/angular/services/rural/favoritesService.js"></script>
+
+<!--Angular Controllers -->
+<script src="assets/js/angular/controllers/rural/homeController.js"></script>
+<script src="assets/js/angular/controllers/rural/appraisalsController.js"></script>
+<script src="assets/js/angular/controllers/rural/servicesController.js"></script>
+<script src="assets/js/angular/controllers/rural/newsController.js"></script>
+<script src="assets/js/angular/controllers/rural/propertiesController.js"></script>
+<script src="assets/js/angular/controllers/rural/propertySheetController.js"></script>
+<script src="assets/js/angular/controllers/rural/aboutController.js"></script>
+<script src="assets/js/angular/controllers/rural/workWithUsController.js"></script>
+
 </html>

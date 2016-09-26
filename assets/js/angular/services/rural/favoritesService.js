@@ -1,6 +1,6 @@
 (function() {
     angular.module('okeefeRuralSite.services')
-        .factory("favoritesService", function($http, API_CLIENT_AUTH) {
+        .factory("favoritesRuralService", function($http, API_CLIENT_AUTH) {
 
             var vm = this;
 

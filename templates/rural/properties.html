@@ -220,11 +220,11 @@
         <div class="col-lg-9 padding-0">
             <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
                 <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
-                   aria-controls="premium"><img class="img-responsive" src="../assets/img/banner-premium.png"></a>
+                   aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
                 <div class="collapse premium" id="premium">
                 <span class="close" style='position: absolute; right: 0;' data-toggle="collapse" href=".premium"
                       aria-controls="premium"><i class="fa fa-close"></i></span>
-                    <img class="img-responsive" src="../assets/img/modal-premium.png">
+                    <img class="img-responsive" src="assets/img/modal-premium.png">
                 </div>
             </div>
             <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados"
@@ -242,7 +242,7 @@
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                                 <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
                                      style="height: 200px; max-height: 200px;"
-                                     ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                                     ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
                                 <a href="#/ficha-propiedad/{{prop.id_prop}}">
@@ -251,24 +251,24 @@
                                 </a>
                                 <div class="col-lg-12 padding-0 caracteristicas">
                                     <div class="col-lg-12 padding-0">
-                                        <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                        <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                        <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                        <img src="../assets/img/ambientes.svg"><span
+                                        <img src="assets/img/ambientes.svg"><span
                                             ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                     </div>
                                     <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                        <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                         <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                         <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
@@ -349,7 +349,7 @@
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                                 <img class="col-lg-12 padding-0 img-responsive destacado_border"
                                      style="height: 200px; max-height: 200px;"
-                                     ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                                     ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
                                 <a href="#/ficha-propiedad/{{prop.id_prop}}">
@@ -358,24 +358,24 @@
                                 </a>
                                 <div class="col-lg-12 padding-0 caracteristicas">
                                     <div class="col-lg-12 padding-0">
-                                        <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                        <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                        <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                     </div>
                                     <div class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                        <img src="../assets/img/ambientes.svg"><span
+                                        <img src="assets/img/ambientes.svg"><span
                                             ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                     </div>
                                     <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                        <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                         <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                         <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
@@ -456,7 +456,7 @@
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                                 <img class="col-lg-12 padding-0 img-responsive"
                                      style="height: 200px; max-height: 200px;"
-                                     ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                                     ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
                                 <a href="#/ficha-propiedad/{{prop.id_prop}}">
@@ -465,24 +465,24 @@
                                 </a>
                                 <div class="col-lg-12 padding-0 caracteristicas">
                                     <div class="col-lg-12 padding-0">
-                                        <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                     </div>
                                     <div ng-if="prop.valor" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                        <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                     </div>
                                     <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                        <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                     </div>
                                     <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                        <img src="../assets/img/ambientes.svg"><span
+                                        <img src="assets/img/ambientes.svg"><span
                                             ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                     </div>
                                     <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                        <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                         <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                         <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
@@ -567,7 +567,7 @@
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                         <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
                              style="height: 200px; max-height: 200px;"
-                             ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                             ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
@@ -581,24 +581,24 @@
                         <div class="descripcion padding-0">
                             <div class="col-lg-12 padding-0 caracteristicas">
                                 <div class="col-lg-12 padding-0">
-                                    <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                    <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                 </div>
                                 <div ng-if="prop.valor" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                    <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                    <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                 </div>
                                 <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                    <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                    <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                 </div>
                                 <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                    <img src="../assets/img/ambientes.svg"><span
+                                    <img src="assets/img/ambientes.svg"><span
                                         ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                 </div>
                                 <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                    <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                    <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                     <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                     <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
@@ -662,7 +662,7 @@
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                         <img class="col-lg-12 padding-0 img-responsive destacado_border"
                              style="height: 200px; max-height: 200px;"
-                             ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                             ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
@@ -676,24 +676,24 @@
                         <div class="descripcion padding-0">
                             <div class="col-lg-12 padding-0 caracteristicas">
                                 <div class="col-lg-12 padding-0">
-                                    <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                    <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                 </div>
                                 <div ng-if="prop.valor" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                    <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                    <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                 </div>
                                 <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                    <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                    <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                 </div>
                                 <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                    <img src="../assets/img/ambientes.svg"><span
+                                    <img src="assets/img/ambientes.svg"><span
                                         ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                 </div>
                                 <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                    <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                    <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                     <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                     <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
@@ -755,7 +755,7 @@
                         <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                         <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
-                             ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
+                             ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
@@ -769,24 +769,24 @@
                         <div class="descripcion padding-0">
                             <div class="col-lg-12 padding-0 caracteristicas">
                                 <div class="col-lg-12 padding-0">
-                                    <img src="../assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                                    <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                 </div>
                                 <div ng-if="prop.valor" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                    <img src="../assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
+                                    <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                 </div>
                                 <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                                    <img src="../assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                                    <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                 </div>
                                 <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                                    <img src="../assets/img/ambientes.svg"><span
+                                    <img src="assets/img/ambientes.svg"><span
                                         ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
                                 </div>
                                 <div ng-if="prop.sup_total" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                                    <img src="../assets/img/m2.svg"> {{prop.sup_total}}
+                                    <img src="assets/img/m2.svg"> {{prop.sup_total}}
                                     <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                     <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
@@ -861,7 +861,7 @@
                 </div>
                 <div class="nota-mapa">
                     <div class="col-lg-2">
-                        <img class="img-responsive" src="../assets/img/fav_circ.svg">
+                        <img class="img-responsive" src="assets/img/fav_circ.svg">
                     </div>
                     <div class="col-lg-10">
                         <h2>¡GUARDANDO TUS BÚSQUEDAS EN FAVORITOS PODRÁS ACCEDER EN CUALQUIER MOMENTO!</h2>

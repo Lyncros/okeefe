@@ -131,10 +131,6 @@
                         });
                 };
 
-                $uibModalInstance.rendered.then(function () {
-                    entitiesService.switchBox();
-                });
-
                 $scope.rememberPw = function () {
                     $uibModalInstance.dismiss('cancel');
                     $location.path('recordar-clave');
@@ -177,10 +173,6 @@
                       API_CLIENT_AUTH, $http, $auth, userService, $window) {
 
                 $scope.discCheck = 1;
-
-                $uibModalInstance.rendered.then(function () {
-                    entitiesService.switchBox();
-                });
 
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');

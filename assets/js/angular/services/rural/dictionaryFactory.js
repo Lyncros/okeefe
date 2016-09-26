@@ -1,6 +1,6 @@
 (function () {
     angular.module('okeefeRuralSite.services')
-        .factory("dictionaryFactory", function () {
+        .factory("dictionaryRuralFactory", function () {
             var dictionary = [
                 //A
                 {
