@@ -768,7 +768,7 @@
                 </div>
                 <!--ficha resultados-->
             </div>
-            <div ng-if="properties.length" ng-show="view == 'map'" class="col-lg-12 resultados">
+            <div ng-if="properties.length  && map.markers.length" ng-show="view == 'map'" class="col-lg-12 resultados">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="mapa-busqueda">

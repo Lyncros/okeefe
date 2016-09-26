@@ -25,7 +25,8 @@
         </div>
         <div class="col-md-12"
              ng-class="{'col-lg-6' : properties.length , 'col-lg-12' : !properties.length && !loadingProperties}">
-            <span ng-if="properties.length" class="subt-rural">{{properties.length}} <prop ng-if="properties.length == 1">PROPIEDAD ENCONTRADA</prop> <prop ng-if="properties.length != 1">PROPIEDADES ENCONTRADAS</prop></span>
+            <span ng-if="properties.length" class="subt-rural">{{properties.length}} <prop
+                    ng-if="properties.length == 1">PROPIEDAD ENCONTRADA</prop> <prop ng-if="properties.length != 1">PROPIEDADES ENCONTRADAS</prop></span>
             <span ng-if="!properties.length && !loadingProperties" class="subt-rural text-center">NO SE ENCONTRARON PROPIEDADES</span>
             <span ng-if="!properties.length && loadingProperties"
                   class="subt background-orange text-center">CARGANDO...</span>
@@ -33,7 +34,8 @@
         <div ng-if="properties.length" class="col-lg-3 col-md-12 controles-list padding-left-0">
             <div class="col-lg-7 col-md-12 padding-0">
                 <label class="flecha-select ok-search-order">
-                    <select ng-model="orderChanged" ng-change="sortBy(orderChanged)" class="form-control input-sm custom">
+                    <select ng-model="orderChanged" ng-change="sortBy(orderChanged)"
+                            class="form-control input-sm custom">
                         <option value="valor">Precio : menor primero</option>
                         <option value="-valor">Precio : mayor primero</option>
                         <option value="sup_total">Superficie : menor primero</option>
@@ -126,7 +128,8 @@
                         <div class="form-group">
                             <label for="desdeV" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMin.$valid}">
-                                <input id="desdeV" name="valueMin" ng-model="$parent.valMin" type="number" class="form-control"
+                                <input id="desdeV" name="valueMin" ng-model="$parent.valMin" type="number"
+                                       class="form-control"
                                        ng-max="$parent.valMax"
                                        ng-min="0"
                                        placeholder="Min. $"
@@ -139,7 +142,8 @@
                         <div class="form-group">
                             <label for="hastaV" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7" ng-class="{'has-error' : !priceForm.valueMax.$valid}">
-                                <input id="hastaV" name="valueMax" ng-model="$parent.valMax" type="number" class="form-control"
+                                <input id="hastaV" name="valueMax" ng-model="$parent.valMax" type="number"
+                                       class="form-control"
                                        ng-min="$parent.valMin || 0"
                                        placeholder="Max. $"
                                        uib-tooltip="Debe indicar un precio máximo"
@@ -150,7 +154,10 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-7 col-lg-offset-4">
-                                <button class="btn btn-block btn-naranja" ng-disabled="!priceForm.valueMax.$valid || !priceForm.valueMin.$valid" type="submit">APLICAR</button>
+                                <button class="btn btn-block btn-naranja"
+                                        ng-disabled="!priceForm.valueMax.$valid || !priceForm.valueMin.$valid"
+                                        type="submit">APLICAR
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -174,7 +181,7 @@
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
-                    Metros totales
+                    Superficie
                 </a>
                 <div class="collapse valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
@@ -182,7 +189,7 @@
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
                                 <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
-                                       placeholder="Min. M2"
+                                       placeholder="Min. HA2"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
                                        tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
@@ -193,7 +200,7 @@
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
                                 <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
-                                       placeholder="Max. M2"
+                                       placeholder="Max. HA2"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
                                        tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"
@@ -211,7 +218,7 @@
             <!--separador-->
         </div>
         <div class="col-lg-9 padding-0">
-            <div ng-show="properties.length && view != 'map'"class="banner col-lg-12 resultados" >
+            <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
                 <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
                    aria-controls="premium"><img class="img-responsive" src="../assets/img/banner-premium.png"></a>
                 <div class="collapse premium" id="premium">
@@ -220,11 +227,14 @@
                     <img class="img-responsive" src="../assets/img/modal-premium.png">
                 </div>
             </div>
-            <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados" style="min-height: 520px;">
+            <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados"
+                 style="min-height: 520px;">
                 <!--ficha resultados-->
                 <div class="row">
                     <!-- Propiedades con tipo: oportunidad -->
-                    <div ng-if="prop.tipo_prioridad == 'oportunidad'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
+                    <div ng-if="prop.tipo_prioridad == 'oportunidad'"
+                         ng-repeat="prop in properties |  orderBy:propertyName"
+                         class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
                             <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
@@ -267,7 +277,8 @@
                                     <div class="col-lg-12 padding-0">
                                         <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -277,7 +288,8 @@
                                         </div>
 
                                         <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
@@ -285,27 +297,36 @@
                                                 Quitar
                                             </a>
                                         </div>
-                                        <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <div class="boton-fav compartir pull-right" uib-dropdown
+                                             is-open="status.isopen">
+                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"
+                                               uib-dropdown-toggle ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 Compartir
                                             </a>
-                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                                aria-labelledby="single-button">
                                                 <li role="menuitem">
                                                     <a href="" socialshare
-                                                       socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                       socialshare-provider="facebook"
+                                                       socialshare-text="{{prop.fichaweb}}"
+                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                            class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                       socialshare-provider="twitter"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                       socialshare-provider="pinterest"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -318,7 +339,9 @@
                         </div>
                     </div>
                     <!-- Propiedades con tipo: destacado -->
-                    <div ng-if="prop.tipo_prioridad == 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
+                    <div ng-if="prop.tipo_prioridad == 'destacado'"
+                         ng-repeat="prop in properties |  orderBy:propertyName"
+                         class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
                             <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive destacado_border"
@@ -361,7 +384,8 @@
                                     <div class="col-lg-12 padding-0">
                                         <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -371,7 +395,8 @@
                                         </div>
 
                                         <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
@@ -379,27 +404,36 @@
                                                 Quitar
                                             </a>
                                         </div>
-                                        <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <div class="boton-fav compartir pull-right" uib-dropdown
+                                             is-open="status.isopen">
+                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"
+                                               uib-dropdown-toggle ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 Compartir
                                             </a>
-                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                                aria-labelledby="single-button">
                                                 <li role="menuitem">
                                                     <a href="" socialshare
-                                                       socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                       socialshare-provider="facebook"
+                                                       socialshare-text="{{prop.fichaweb}}"
+                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                            class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                       socialshare-provider="twitter"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                       socialshare-provider="pinterest"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -412,7 +446,9 @@
                         </div>
                     </div>
                     <!-- Otras Propiedades -->
-                    <div ng-if="prop.tipo_prioridad != 'oportunidad' && prop.tipo_prioridad != 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
+                    <div ng-if="prop.tipo_prioridad != 'oportunidad' && prop.tipo_prioridad != 'destacado'"
+                         ng-repeat="prop in properties |  orderBy:propertyName"
+                         class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
                             <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive"
@@ -455,7 +491,8 @@
                                     <div class="col-lg-12 padding-0">
                                         <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
@@ -465,7 +502,8 @@
                                         </div>
 
                                         <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
-                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
+                                            <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}"
+                                               ng-click="doFav(prop.id_prop)">
                                                 <span class="fa-stack">
                                                   <i class="fa fa-circle fa-stack-2x"></i>
                                                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
@@ -473,27 +511,36 @@
                                                 Quitar
                                             </a>
                                         </div>
-                                        <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <div class="boton-fav compartir pull-right" uib-dropdown
+                                             is-open="status.isopen">
+                                            <a href="" class="btn btn-xs btn-gris-claro-2" type="button"
+                                               uib-dropdown-toggle ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 Compartir
                                             </a>
-                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                                aria-labelledby="single-button">
                                                 <li role="menuitem">
                                                     <a href="" socialshare
-                                                       socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                       socialshare-provider="facebook"
+                                                       socialshare-text="{{prop.fichaweb}}"
+                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                            class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                       socialshare-provider="twitter"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
-                                                                       socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                       socialshare-provider="pinterest"
+                                                                       socialshare-text="{{prop.fichaweb}}"
+                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -512,11 +559,14 @@
             <div ng-if="properties.length" ng-show="view == 'list'" class="col-lg-12 resultados">
                 <!--ficha resultados-->
                 <!-- Propiedades con tipo: oportunidad -->
-                <div ng-if="prop.tipo_prioridad == 'oportunidad'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-12 ficha padding-0">
+                <div ng-if="prop.tipo_prioridad == 'oportunidad'" ng-repeat="prop in properties |  orderBy:propertyName"
+                     class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <img class="col-lg-12 padding-0 img-responsive oportunidad_border" style="height: 200px; max-height: 200px;"
+                        <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
+                             style="height: 200px; max-height: 200px;"
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
-                        <img class="col-lg-12 padding-0 img-responsive oportunidad_border" style="height: 200px; max-height: 200px;"
+                        <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
+                             style="height: 200px; max-height: 200px;"
                              ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
                     </div>
                     <div class="col-lg-4">
@@ -565,26 +615,33 @@
                                         </a>
                                     </div>
                                     <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button" uib-dropdown-toggle
+                                           ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                             Compartir
                                         </a>
-                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                            aria-labelledby="single-button">
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                   socialshare-provider="twitter"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                   socialshare-provider="pinterest"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -597,11 +654,14 @@
                     </div>
                 </div>
                 <!-- Propiedades con tipo: oportunidad -->
-                <div ng-if="prop.tipo_prioridad == 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-12 ficha padding-0">
+                <div ng-if="prop.tipo_prioridad == 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName"
+                     class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <img class="col-lg-12 padding-0 img-responsive destacado_border" style="height: 200px; max-height: 200px;"
+                        <img class="col-lg-12 padding-0 img-responsive destacado_border"
+                             style="height: 200px; max-height: 200px;"
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
-                        <img class="col-lg-12 padding-0 img-responsive destacado_border" style="height: 200px; max-height: 200px;"
+                        <img class="col-lg-12 padding-0 img-responsive destacado_border"
+                             style="height: 200px; max-height: 200px;"
                              ng-if="!prop.foto_url" ng-src="../assets/img/sin_imagen.jpg">
                     </div>
                     <div class="col-lg-4">
@@ -650,26 +710,33 @@
                                         </a>
                                     </div>
                                     <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button" uib-dropdown-toggle
+                                           ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                             Compartir
                                         </a>
-                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                            aria-labelledby="single-button">
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                   socialshare-provider="twitter"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                   socialshare-provider="pinterest"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -682,7 +749,8 @@
                     </div>
                 </div>
                 <!-- Propiedades con tipo: oportunidad -->
-                <div ng-if="prop.tipo_prioridad != 'oportunidad' && prop.tipo_prioridad != 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-12 ficha padding-0">
+                <div ng-if="prop.tipo_prioridad != 'oportunidad' && prop.tipo_prioridad != 'destacado'"
+                     ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
                         <img class="col-lg-12 padding-0 img-responsive" style="height: 200px; max-height: 200px;"
                              ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -735,26 +803,33 @@
                                         </a>
                                     </div>
                                     <div class="boton-fav compartir pull-right" uib-dropdown is-open="status.isopen">
-                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button"  uib-dropdown-toggle ng-disabled="disabled">
+                                        <a href="" class="btn btn-xs btn-gris-claro-2" type="button" uib-dropdown-toggle
+                                           ng-disabled="disabled">
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                             Compartir
                                         </a>
-                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                            aria-labelledby="single-button">
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                        class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                                                                   socialshare-provider="twitter"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
-                                                                   socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i class="fa fa-pinterest-square"></i>  Pinterest</a></li>
+                                                                   socialshare-provider="pinterest"
+                                                                   socialshare-text="{{prop.fichaweb}}"
+                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -768,7 +843,7 @@
                 </div>
                 <!--ficha resultados-->
             </div>
-            <div ng-if="properties.length" ng-show="view == 'map'" class="col-lg-12 resultados">
+            <div ng-if="properties.length && map.markers.length" ng-show="view == 'map'" class="col-lg-12 resultados">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="mapa-busqueda">

@@ -57,6 +57,12 @@
                     $scope.property.titulo = data.filter(function (d) {
                         return d.caracteristica.id_carac == 257
                     });
+                    $scope.property.moneda = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 165
+                    });
+                    $scope.property.valor = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 161
+                    });
                     //console.log($scope.property);
                 }
 
@@ -82,6 +88,7 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
+                            console.log("Resi",response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);

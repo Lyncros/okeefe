@@ -23,7 +23,7 @@
         <div class="col-xs-9">
             <h2>{{property.titulo[0].contenido || property.ubica[0].valor}}</h2>
         </div>
-        <div class="col-xs-3 text-right"><h2>{{property.id_prop | currency}} | <span class="id-prop">ID {{property.id_prop}}</span>
+        <div class="col-xs-3 text-right"><h2><price class="color-green" ng-if="property.valor">{{property.valor[0].contenido | currency:$:0}} |</price> <span class="id-prop">ID {{property.id_prop}}</span>
         </h2></div>
     </div>
     <div class="row" ng-if="property.foto.length > 0">
@@ -63,7 +63,7 @@
                             <a ng-click="moveArrow('v')" href=".video" class="v" data-toggle="tab">Video</a>
                         </div>
                         <div class="item i3" ng-class="{'active' : tab == 'm'}"
-                             ng-if="property.goglat || property.goglong">
+                             ng-if="map.markers.length">
                             <a ng-click="refreshMap();moveArrow('m');" href=".mapap" class="m"
                                data-toggle="tab">Mapa</a>
                         </div>
@@ -108,7 +108,7 @@
                         <iframe class="embed-responsive-item video-prop" ng-src="http://{{property.video}}"></iframe>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade mapap" ng-if="property.goglat || property.goglong">
+                <div role="tabpanel" class="tab-pane fade mapap" ng-if="map.markers.length">
                     <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
                                         options="options">
                         <ui-gmap-marker ng-repeat="marker in map.markers"

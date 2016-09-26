@@ -63,7 +63,7 @@
                             <a ng-click="moveArrow('v')" href=".video" class="v" data-toggle="tab">Video</a>
                         </div>
                         <div class="item i3" ng-class="{'active' : tab == 'm'}"
-                             ng-if="property.goglat || property.goglong">
+                             ng-if="map.markers.length">
                             <a ng-click="refreshMap();moveArrow('m');" href=".mapap" class="m"
                                data-toggle="tab">Mapa</a>
                         </div>
@@ -108,7 +108,7 @@
                         <iframe class="embed-responsive-item video-prop" ng-src="http://{{property.video}}"></iframe>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade mapap" ng-if="property.goglat || property.goglong">
+                <div role="tabpanel" class="tab-pane fade mapap" ng-if="map.markers.length">
                     <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
                                         options="options">
                         <ui-gmap-marker ng-repeat="marker in map.markers"
