@@ -602,8 +602,6 @@ select {
     align-items: center;
     justify-content: center;
     min-height: 1px;
-    float: left;
-    width: 50%;
 }
 
 .bloque-img.bi1 {
