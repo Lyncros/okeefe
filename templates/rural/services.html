@@ -156,7 +156,8 @@
                     </div>
                 </div>
                 <div class="col-lg-12" ng-show="alert != null">
-                    <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}</div>
+                    <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,6 +206,96 @@
                         trayectoria en el mercado ganadero, para realizar una correcta elección al momento de
                         seleccionar el tipo de hacienda que debe comprar considerando cada negocio ganadero que se
                         plantea en base a las características de su campo.</p>
+                </div>
+                <div class="col-lg-12 padding-0 carac">
+                    <div class="form-contact">
+                        <form novalidate ng-submit="ventaHacRuralForm($event)" name="services_VentaH_Form"
+                              class="f_contacto ok-apprisals-form">
+                            <div class="col-lg-12">
+                                <h4>Solicite nuestro servicio completando el siguiente formulario y a la brevedad nos contactaremos
+                                    con Ud.</h4>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="ventaHacForm.nombre"
+                                       name="nombre"
+                                       placeholder="Nombre"
+                                       uib-tooltip="Debe ingresar un nombre"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!ventaHacForm.nombre && ventaHacForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12 ">
+                                <input class="form-control custom" type="text" ng-model="ventaHacForm.apellido"
+                                       name="apellido"
+                                       placeholder="Apellido"
+                                       uib-tooltip="Debe ingresar un apellido"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="!ventaHacForm.apellido && ventaHacForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="email" ng-model="ventaHacForm.email"
+                                       name="email"
+                                       placeholder="Email"
+                                       uib-tooltip="Debe ingresar un email válido"
+                                       tooltip-placement="top"
+                                       tooltip-is-open="(!ventaHacForm.email && ventaHacForm.error) || !services_VentaH_Form.email.$valid"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="ventaHacForm.telefono"
+                                       name="telefono"
+                                       placeholder="Teléfono"
+                                       uib-tooltip="Debe ingresar un telefono"
+                                       tooltip-placement="bottom"
+                                       tooltip-is-open="!ventaHacForm.telefono && ventaHacForm.error"
+                                       tooltip-trigger="'none'">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="ventaHacForm.celular"
+                                       name="celular"
+                                       placeholder="Celular">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <label class="flecha-select">
+                                    <select ng-model="ventaHacForm.deseo" ng-disabled="disabled"
+                                            class="form-control custom"
+                                            uib-tooltip="Debe seleccionar una Opción"
+                                            tooltip-placement="bottom"
+                                            tooltip-is-open="!ventaHacForm.deseo && ventaHacForm.error"
+                                            tooltip-trigger="'none'">
+                                        <option ng-if="!ventaHacForm.deseo" value="" selected>Deseo</option>
+                                        <option value="Vender">Vender</option>
+                                        <option value="Comprar">Comprar</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="number" ng-model="ventaHacForm.numero_animales"
+                                       name="numero_animales"
+                                       placeholder="N°">
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="text" ng-model="ventaHacForm.categoria"
+                                       name="categoria"
+                                       placeholder="Cateoría">
+                            </div>
+                            <div ng-if="ventaHacForm.deseo == 'Vender'" class="col-lg-4 col-md-12">
+                                <input class="form-control custom" type="number" ng-model="ventaHacForm.valor"
+                                       name="valor"
+                                       placeholder="$">
+                            </div>
+                            <div class="col-lg-4 col-md-12 pull-right">
+                                <button ng-disabled="services_VentaH_Form.$error.email" class="btn btn-naranja btn-block"
+                                        type="submit">ENVIAR
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-12" ng-show="alert != null">
+                    <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">{{alert.msg}}
+                    </div>
                 </div>
             </div>
         </div>
