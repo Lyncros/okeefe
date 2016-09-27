@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/homeb.png" afterPath="$PROJECT_DIR$/assets/img/homeb.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/sitio.css" afterPath="$PROJECT_DIR$/assets/css/sitio.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/rural/home.html" afterPath="$PROJECT_DIR$/templates/rural/home.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,21 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sitio.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="650" column="31" selection-start-line="650" selection-start-column="31" selection-end-line="650" selection-end-column="31" />
+            <state relative-caret-position="408">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -137,13 +126,13 @@
         <option value="$PROJECT_DIR$/assets/js/angular/services/entitiesService.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js" />
         <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/templates/rural/home.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/propertiesController.js" />
         <option value="$PROJECT_DIR$/templates/rural/properties.html" />
         <option value="$PROJECT_DIR$/templates/rural/services.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/servicesController.js" />
         <option value="$PROJECT_DIR$/assets/css/sitio.css" />
+        <option value="$PROJECT_DIR$/templates/rural/home.html" />
       </list>
     </option>
   </component>
@@ -510,12 +499,12 @@
       <workItem from="1474563532262" duration="600000" />
       <workItem from="1474631621915" duration="22375000" />
       <workItem from="1474924371410" duration="598000" />
-      <workItem from="1474933134044" duration="11396000" />
+      <workItem from="1474933134044" duration="12163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263994000" />
+    <option name="totallyTimeSpent" value="264761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -916,18 +905,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="650" column="31" selection-start-line="650" selection-start-column="31" selection-end-line="650" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding />
         </state>
       </provider>
