@@ -6,7 +6,7 @@
             var about_maps = {
                 map_quilmes: {
                     center: {latitude: -34.7156697, longitude: -58.2854728},
-                    zoom: 16,
+                    zoom: 12,
                     name: 'CASA CENTRAL QUILMES',
                     phone: '4253 - 3961',
                     address: 'Mitre 491 - Quilmes Centro',
@@ -19,7 +19,7 @@
                 },
                 map_hudson: {
                     center: {latitude: -34.812566, longitude: -58.177723},
-                    zoom: 16,
+                    zoom: 12,
                     name: 'HUDSON',
                     phone: '022 - 2945 - 5003',
                     address: 'Mitre 491 - Quilmes Centro',
@@ -32,7 +32,7 @@
                 },
                 map_nuevo_quilmes: {
                     center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
-                    zoom: 16,
+                    zoom: 12,
                     name: 'LAS GOLONDRINAS',
                     phone: '022 - 2945 - 5003',
                     address: 'Mitre 491 - Quilmes Centro',
@@ -45,7 +45,7 @@
                 },
                 map_golondrinas: {
                     center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
-                    zoom: 16,
+                    zoom: 12,
                     name: 'NUEVO QUILMES',
                     phone: '4253 - 3961',
                     address: 'Mitre 491 - Quilmes Centro',
@@ -60,7 +60,7 @@
             var footer_maps = [
                 {
                     center: {latitude: -34.7156697, longitude: -58.2854728},
-                    zoom: 16,
+                    zoom: 12,
                     control: {},
                     name: 'CASA CENTRAL QUILMES',
                     phone: '4253 - 3961',
@@ -74,7 +74,7 @@
                 },
                 {
                     center: {latitude: -34.812566, longitude: -58.177723},
-                    zoom: 16,
+                    zoom: 12,
                     control: {},
                     name: 'HUDSON',
                     phone: '022 - 2945 - 5003',
@@ -88,7 +88,7 @@
                 },
                 {
                     center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
-                    zoom: 16,
+                    zoom: 12,
                     control: {},
                     name: 'LAS GOLONDRINAS',
                     phone: '022 - 2945 - 5003',
@@ -102,7 +102,7 @@
                 },
                 {
                     center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
-                    zoom: 16,
+                    zoom: 12,
                     control: {},
                     name: 'NUEVO QUILMES',
                     phone: '4253 - 3961',
@@ -117,7 +117,7 @@
             ];
             var property_map = {
                 center: {latitude: -34.7156697, longitude: -58.2854728},
-                zoom: 16,
+                zoom: 14,
                 control: {},
                 markers: [
                     //
@@ -125,7 +125,7 @@
             };
             var property_sheet_map = {
                 center: {latitude: -34.7156697, longitude: -58.2854728},
-                zoom: 16,
+                zoom: 12,
                 control: {},
                 markers: [
                     //

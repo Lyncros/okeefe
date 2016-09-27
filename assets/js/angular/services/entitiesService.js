@@ -80,7 +80,8 @@
             this.mapsSlider = function ($scope) {
                 $('#slider-mapas').on('slid.bs.carousel', function () {
                     var index = $('#slider-mapas .active').index('#slider-mapas .item');
-                    $scope.maps[index].control.refresh();
+                    //console.log($scope.maps[index]);
+                    $scope.maps[index].control.refresh({latitude: $scope.maps[index].center.latitude, longitude: $scope.maps[index].center.longitude});
                 });
             };
             this.popover = function () {
@@ -139,7 +140,7 @@
             };
             this.refreshMap = function ($scope) {
                 $timeout(function () {
-                    $scope.control.refresh();
+                    $scope.control.refresh({latitude: $scope.map.center.latitude, longitude: $scope.map.center.longitude});
                 }, 400);
             };
             this.view_animation = function (target) {
@@ -327,7 +328,7 @@
                         url += (value.max) ? '&' + key + 'Max=' + value.max : '';
                     }
                 });
-                console.log(url);
+               //console.log(url);
                 return url;
             };
             this.showAlert = function ($scope, msg, type, time) {

@@ -556,8 +556,18 @@ select {
     text-shadow: none;
 }
 
+.slider-rural #slider-principal .carousel-caption span {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#slider-principal .carousel-inner{
+    height:600px;
+}
+
 #slider-principal .carousel-caption h2 {
     color: #006032;
+    text-transform: uppercase;
 }
 
 #slider-principal .carousel-caption .txt-caption {
@@ -2125,15 +2135,6 @@ a[aria-expanded=true] > i {
 }
 
 /*Estilos HOME RURAL--------*/
-
-#slider-principal-rural .item {
-    background-color: antiquewhite;
-}
-
-#slider-principal-rural .item a {
-    margin-bottom: 100px;
-    margin-top: 100px;
-}
 
 .menu-item {
     width: 100%;
