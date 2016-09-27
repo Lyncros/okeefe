@@ -178,18 +178,18 @@
             </div>
             <!--separador-->
             <div class="filtro filtro-metros">
-                <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="true"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
                     Superficie
                 </a>
-                <div class="collapse valores" id="filtro-metros">
+                <div class="collapse in valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
                         <div class="form-group">
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
                                 <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
-                                       placeholder="Min. HA2"
+                                       placeholder="Min. Has"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
                                        tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
@@ -200,7 +200,7 @@
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
                                 <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
-                                       placeholder="Max. HA2"
+                                       placeholder="Max. Has"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
                                        tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"

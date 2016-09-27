@@ -30,7 +30,7 @@
                         ant: (parseFloat($scope.param.ant) || ''),
                         banos: (parseFloat($scope.param.banos) || ''),
                     };
-                    $scope.filtroMon = ($scope.param.filtroMon || 'ARS');
+                    $scope.filtroMon = ($scope.param.filtroMon || 'USD');
                     $scope.valMin = (parseFloat($scope.param.valMin) || '');
                     $scope.valMax = (parseFloat($scope.param.valMax) || '');
                     $scope.supMin = (parseFloat($scope.param.supMin) || '');
