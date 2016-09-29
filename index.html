@@ -30,7 +30,7 @@
         <div class="row">
             <div class="logo col-lg-3">
                 <div class="img-logo">
-                    <a href="#/inicio"><img class="img-responsive" src="assets/img/logo.gif"></a>
+                    <a href="#!/inicio"><img class="img-responsive" src="assets/img/logo.gif"></a>
                 </div>
             </div>
             <div class="grupo-enc">
@@ -39,17 +39,17 @@
                 </div>
                 <div class="menu text-center pull-right">
                     <div class="item">
-                        <a href="#/rural">Rural</a>
+                        <a href="#!/rural">Rural</a>
                     </div>
                     <div class="item">
-                        <a ng-class="{active: $route.current.activetab == 'inversiones'}" href="#/inversiones">Inversiones</a>
+                        <a ng-class="{active: $route.current.activetab == 'inversiones'}" href="#!/inversiones">Inversiones</a>
                     </div>
                     <div class="item">
                         <a ng-class="{active: $route.current.activetab == 'tasaciones'}"
-                           href="#/tasaciones">Tasaciones</a>
+                           href="#!/tasaciones">Tasaciones</a>
                     </div>
                     <div class="item">
-                        <a ng-class="{active: $route.current.activetab == 'noticias'}" href="#/noticias">Noticias</a>
+                        <a ng-class="{active: $route.current.activetab == 'noticias'}" href="#!/noticias">Noticias</a>
                     </div>
                     <div class="item" ng-if="!isLogged">
                         <a href="" ng-click="register()">Registrarse</a>
@@ -150,7 +150,7 @@
         <div class="row">
             <div class="logo col-lg-3">
                 <div class="img-logo">
-                    <a href="#/rural"><img class="img-responsive" src="assets/img/logo-rural.png"></a>
+                    <a href="#!/rural"><img class="img-responsive" src="assets/img/logo-rural.png"></a>
                 </div>
             </div>
             <div class="grupo-enc">
@@ -160,23 +160,23 @@
                 </div>
                 <div class="menu text-center pull-right">
                     <div class="item">
-                        <a href="#/">Home</a>
+                        <a href="#!/">Home</a>
                     </div>
                     <!--<div class="item">
-                        <a href="#/subdivisiones">Subdivisiones</a>
+                        <a href="#!/subdivisiones">Subdivisiones</a>
                     </div>
                     <div class="item">
-                        <a href="#/arrendamientos">Arrendamientos</a>
+                        <a href="#!/arrendamientos">Arrendamientos</a>
                     </div>-->
                     <div class="item">
-                        <a ng-class="{active: $route.current.activetab == 'servicios'}" href="#/rural/servicios">Servicios</a>
+                        <a ng-class="{active: $route.current.activetab == 'servicios'}" href="#!/rural/servicios">Servicios</a>
                     </div>
                     <div class="item">
                         <a ng-class="{active: $route.current.activetab == 'tasaciones'}"
-                           href="#/rural/tasaciones">Tasaciones</a>
+                           href="#!/rural/tasaciones">Tasaciones</a>
                     </div>
                     <!--<div class="item">
-                        <a href="#/rural/noticias">News</a>
+                        <a href="#!/rural/noticias">News</a>
                     </div>-->
                     <div class="item" ng-if="!isLogged">
                         <a href="" ng-click="register()">Registrarse</a>
@@ -226,6 +226,7 @@
                                 tooltip-is-open="!searchRuralParam.oper && searchRuralParam.error"
                                 tooltip-trigger="'none'">
                             <option ng-if="!searchRuralParam.property" value="" selected>Tipo de Propiedad</option>
+                            <option value="Todos">Todos</option>
                             <option value="Lotes">Lotes</option>
                             <option value="Quintas">Quintas</option>
                             <option value="Estancias">Estancias</option>
@@ -269,9 +270,9 @@
             <img ng-if="$route.current.site == 'urbano'" class="img-responsive foot-logo" src="assets/img/logo.gif">
             <img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo" src="assets/img/logo-rural.png">
             <div ng-if="$route.current.site == 'urbano'" class="col-lg-5 enlaces padding-left-0">
-                <a class="col-lg-12 padding-left-0" href="#/quienes-somos">Nosotros</a>
-                <a class="col-lg-12 padding-left-0" href="#/quienes-somos#servicios">Servicios</a>
-                <a class="col-lg-12 padding-left-0" href="#/tasaciones">Tasaciones</a>
+                <a class="col-lg-12 padding-left-0" href="#!/quienes-somos">Nosotros</a>
+                <a class="col-lg-12 padding-left-0" href="#!/quienes-somos#servicios">Servicios</a>
+                <a class="col-lg-12 padding-left-0" href="#!/tasaciones">Tasaciones</a>
                 <a class="col-lg-12 padding-left-0" ng-click="scrollTo('contact_form')">Contacto</a>
                 <!--<a class="col-lg-12 padding-left-0" href="#">Sitemap</a>-->
             </div>
@@ -284,9 +285,9 @@
             </div>-->
             <div ng-if="$route.current.site == 'rural'" class="col-lg-5 enlaces padding-left-0">
                 <ul>
-                    <a class="col-lg-12 padding-left-0" href="#/rural/quienes-somos">Nosotros</a>
-                    <a class="col-lg-12 padding-left-0" href="#/rural/quienes-somos#servicios">Servicios</a>
-                    <a class="col-lg-12 padding-left-0" href="#/rural/tasaciones">Tasaciones</a>
+                    <a class="col-lg-12 padding-left-0" href="#!/rural/quienes-somos">Nosotros</a>
+                    <a class="col-lg-12 padding-left-0" href="#!/rural/quienes-somos#servicios">Servicios</a>
+                    <a class="col-lg-12 padding-left-0" href="#!/rural/tasaciones">Tasaciones</a>
                     <a class="col-lg-12 padding-left-0" ng-click="scrollTo('contact_form')">Contacto</a>
                 </ul>
             </div>

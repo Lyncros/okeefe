@@ -1,7 +1,7 @@
 <div class="sub-header">
     <div class="row">
         <div class="col-lg-9">
-            <a href="#/inicio">Okeefe</a>
+            <a href="#!/inicio">Okeefe</a>
             <span><a ng-if="param.oper"> > {{getTipoOperacion(param.oper)}}</a></span>
             <span><a ng-if="param.tipo"> > {{getTipoInmueble(param.tipo)}}</a></span>
         </div>
@@ -227,7 +227,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive oportunidad_border"
                                      style="height: 200px; max-height: 200px;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -236,7 +236,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -322,7 +322,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -334,7 +334,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive destacado_border"
                                      style="height: 200px; max-height: 200px;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -343,7 +343,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -429,7 +429,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -441,7 +441,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="col-lg-12 padding-0 img-responsive"
                                      style="height: 200px; max-height: 200px;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -450,7 +450,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -536,7 +536,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -637,7 +637,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -732,7 +732,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -825,7 +825,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>

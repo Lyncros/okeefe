@@ -43,7 +43,7 @@
                     });
 
                 $scope.favDetails = function(id) {
-                    $window.location = '/#/ficha-propiedad/'+id;
+                    $window.location = '/#!/ficha-propiedad/'+id;
 
                     $uibModalInstance.dismiss('cancel');
                     return false;

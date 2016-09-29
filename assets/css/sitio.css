@@ -546,7 +546,7 @@ select {
 /*Estilos HOME 01----------------------------*/
 #slider-principal .carousel-caption {
     color: black;
-    left: 59%;
+    left: 50%;
     text-align: right;
     max-width: 500px;
     right: auto;
@@ -558,12 +558,20 @@ select {
 
 .slider-rural #slider-principal .carousel-caption span {
     color: #FFFFFF;
-    font-weight: ;
     text-transform: uppercase;
 }
 
 #slider-principal .carousel-inner{
     height:600px;
+}
+
+#slider-principal .carousel-inner .item{
+    height:600px;
+}
+#slider-principal .carousel-inner .item img{
+    height: 100%;
+    max-width: none;
+    margin: 0 auto;
 }
 
 #slider-principal .carousel-caption h2 {
@@ -1209,6 +1217,14 @@ select {
     text-align: justify;
 }
 
+.slider{
+    background-color: lightgrey;
+background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    box-shadow: 1px 5px 10px #AAA;
+}
+
 #slider-equipo .ficha .email {
     position: absolute;
     bottom: 0;
@@ -1565,7 +1581,6 @@ select {
     padding: 5px;
     font-weight: 600;
     min-height: 50px;
-    max-height: 50px;
 }
 
 .ficha-grid .caracteristicas img{
@@ -1657,6 +1672,7 @@ select {
 .busqueda .filtros a i.fa {
     width:auto;
     float: left;
+    margin-top: 1.3%;
 }
 .busqueda .filtros a i.fa.fa-chevron-right {
     margin-right: 5px;
@@ -1677,6 +1693,9 @@ select {
 
 .filtro-metros{
     border-bottom: 1px solid #a3a4a3 !important;
+}
+.filtro-metros .valores{
+   margin-top: 10px;
 }
 
 .valores > span {
@@ -1702,6 +1721,7 @@ select {
 
 .form-precio {
     font-size: 16px;
+    margin-top: 10px;
 }
 
 .form-precio input[type=radio] {
@@ -2149,7 +2169,7 @@ a[aria-expanded=true] > i {
 }
 
 .menu-item .menu-item-text {
-    padding: 0 5px 0 0;
+    padding: 0 0px 0 15px;
     cursor: pointer;
     font-weight: normal;
     font-family: Roboto;
@@ -2159,6 +2179,11 @@ a[aria-expanded=true] > i {
     text-decoration: none;
     font-size: 0.8em;
     cursor: pointer;
+    padding: 3px 8px;
+    background: #007b3c;
+    border-radius: 3px;
+    line-height: 2.5em;
+    color: white; // <--- esto implica quitar la clase "color-orange"
 }
 
 .btn-select-menu {
@@ -2197,9 +2222,19 @@ a[aria-expanded=true] > i {
 }
 
 .dropdown-propertySelect {
-    background-color: #FBF9F9 !important;
-    margin: 0;
-    border-radius: 0;
+    background-color: #e4e4e4 !important;
+    padding: 0;
+    min-width: 330px;
+}
+.dropdown-propertySelect .menu-item{
+    padding:10px;
+}
+.dropdown-propertySelect .menu-item:hover{
+    background: #dadada;
+}
+.dropdown-propertySelect .divider{
+    margin: 0 !important;
+    background-color: rgba(121, 124, 127, 0.39);
 }
 
 .check-search-emp label {

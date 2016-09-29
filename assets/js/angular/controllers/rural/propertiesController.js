@@ -95,7 +95,7 @@
                                     },
                                     events: {
                                         click: function () {
-                                            return window.location = window.location.origin + window.location.pathname + '#/ficha-propiedad/' + prop.id_prop;
+                                            return window.location = window.location.origin + window.location.pathname + '#!/ficha-propiedad/' + prop.id_prop;
                                         }
                                     }
                                 })

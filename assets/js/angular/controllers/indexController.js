@@ -58,7 +58,7 @@
 
                 $scope.searchRuralProp = function () {
                     if ($scope.validateRuralForm()) {
-                        window.location = '#/rural/propiedades/' + $scope.searchRuralParam.property + '/' + $scope.searchRuralParam.oper + '/' + $scope.searchRuralParam.zona + '?rural=true';
+                        window.location = '#!/rural/propiedades/' + $scope.searchRuralParam.property + '/' + $scope.searchRuralParam.oper + '/' + $scope.searchRuralParam.zona + '?rural=true';
                     }
                 };
 
@@ -103,7 +103,7 @@
                 };
                 $scope.searchProp = function () {
                     if ($scope.validateForm()) {
-                        window.location = '#/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
+                        window.location = '#!/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
 
