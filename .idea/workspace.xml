@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/sin_imagen.jpg" afterPath="$PROJECT_DIR$/assets/img/sin_imagen.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/sitio.css" afterPath="$PROJECT_DIR$/assets/css/sitio.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/investments.html" afterPath="$PROJECT_DIR$/templates/investments.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/properties.html" afterPath="$PROJECT_DIR$/templates/properties.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/rural/home.html" afterPath="$PROJECT_DIR$/templates/rural/home.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,17 +49,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sitio.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sitio.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="1597" column="12" selection-start-line="1597" selection-start-column="1" selection-end-line="1597" selection-end-column="12" />
+            <state relative-caret-position="376">
+              <caret line="1588" column="19" selection-start-line="1588" selection-start-column="19" selection-end-line="1588" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="properties.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="properties.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/properties.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1639">
@@ -152,8 +147,8 @@
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/rural/home.html" />
         <option value="$PROJECT_DIR$/templates/investments.html" />
-        <option value="$PROJECT_DIR$/assets/css/sitio.css" />
         <option value="$PROJECT_DIR$/templates/properties.html" />
+        <option value="$PROJECT_DIR$/assets/css/sitio.css" />
       </list>
     </option>
   </component>
@@ -565,12 +560,12 @@
       <workItem from="1474631621915" duration="22375000" />
       <workItem from="1474924371410" duration="598000" />
       <workItem from="1474933134044" duration="24629000" />
-      <workItem from="1475489971221" duration="3209000" />
+      <workItem from="1475489971221" duration="3597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280436000" />
+    <option name="totallyTimeSpent" value="280824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -953,14 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="1597" column="12" selection-start-line="1597" selection-start-column="1" selection-end-line="1597" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -999,6 +986,14 @@
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#2;n#div#2;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#a#0;n#div#0;n#div#2;n#div#2;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="1588" column="19" selection-start-line="1588" selection-start-column="19" selection-end-line="1588" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

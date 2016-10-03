@@ -1575,7 +1575,7 @@ background-position: center center;
     margin: auto;
 }
 .ficha .caracteristicas img{
-    max-width: 29.7px;
+    max-width: 29px;
 }
 
 @-moz-document url-prefix() {
