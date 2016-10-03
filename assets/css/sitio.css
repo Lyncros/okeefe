@@ -614,6 +614,12 @@ select {
 .bloque2 {
     margin-top: 20px;
 }
+.ok-home-slider{
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #EEE;
+}
 
 /*--estilos rural*/
 .bloque-img, .bloque-img-r {
@@ -698,8 +704,11 @@ select {
 .banner-inv {
     display: block;
     position: relative;
+    height: 600px;
 }
-
+.banner-inv .row{
+    height: 100%;
+}
 
 .banner-inv .caption {
     font-family: RobotoBlack;
@@ -1586,7 +1595,9 @@ background-position: center center;
 .ficha-grid .caracteristicas img{
     max-width: ;
 }
-
+.ok-prop-img{
+    height:200px;
+}
 .ficha .descripcion .muestra {
     color: #797c7f;
     font-size: 13px;
