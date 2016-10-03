@@ -237,6 +237,7 @@
                 {id: '9,1,7,17', value: 'Residencial'},
                 {id: '7,19,2,11,15,18', value: 'Comercial'},
                 {id: '7,17,22,16,15,6', value: 'Rural'},
+                {id: '7,17,22,16,15,6', value: 'Todos'},
             ];
             this.getTipoInmueble = function (id, value) {
                 for (var item of inmuebles) {
