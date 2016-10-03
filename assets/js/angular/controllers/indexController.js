@@ -6,6 +6,7 @@
                 $scope.alert = null;
                 $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.$route = $route;
+                $scope.bRural = false;
                 $scope.contactForm = function ($event) {
                     $event.preventDefault();
                     if (!$scope.footerForm.nombre || !$scope.footerForm.apellido || !$scope.footerForm.email || !$scope.footerForm.telefono || !$scope.footerForm.celular || !$scope.footerForm.comentarios) {
@@ -89,6 +90,19 @@
                     return true;
                 };
                 $scope.getLocation = function (val) {
+                    if($scope.bRural){
+                        return searchApiRuralService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val).then(function (response) {
+                            return response.data.data.map(function (item) {
+                                return {
+                                    val: item.idZona,
+                                    label: item.valor,
+                                    text: item.valor + " (" + item.cantidad + ")"
+                                };
+                            });
+                        }, function errorCallback(response) {
+                            console.log("error :", response);
+                        });
+                    }
                     return searchApiService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val, $scope.searchParam.empr).then(function (response) {
                         return response.data.data.map(function (item) {
                             return {
@@ -102,12 +116,18 @@
                     });
                 };
                 $scope.searchProp = function () {
-                    if ($scope.validateForm()) {
+                    if($scope.bRural && $scope.validateForm()){
+                        window.location = '#!/rural/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?rural=true';
+                    } else if($scope.validateForm()){
                         window.location = '#!/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
 
-                $scope.selectProperty = function (prop) {
+                $scope.selectProperty = function (prop,rural) {
+                    $scope.bRural = false;
+                    if(rural){
+                        $scope.bRural = true;
+                    }
                     $scope.searchParam.tipo = prop;
                     $scope.searchParam.property = entitiesService.getTipoInmueble(prop);
                 };

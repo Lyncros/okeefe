@@ -721,9 +721,11 @@ select {
     position: absolute;
     padding: 5px 10px;
     margin: auto;
-    top: 50%;
-    left: 10%;
-    transform: translate(-5%, -50%);
+    height: 45px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /*ANIMACIONES*/
@@ -1131,21 +1133,28 @@ select {
 .banner-qs {
     display: block;
     position: relative;
+    height: 600px;
+}
+.banner-qs .row{
+    height: 100%;
 }
 
 .banner-qs .caption, .banner-qs .caption-rural {
     font-family: RobotoBlack;
     font-size: 26px;
     text-align: center;
-    background-color: rgba(233, 88, 12, 0.61);
+    background-color: #797c7f;
     color: #ffffff;
+    opacity: 0.78;
     display: block;
     position: absolute;
-    padding: 10px 25px;
+    padding: 5px 10px;
     margin: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 45px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .banner-qs .caption-rural {
