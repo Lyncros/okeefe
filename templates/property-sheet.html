@@ -91,7 +91,7 @@
                         <div class="col-xs-10"><span
                                 class="dato-tec"><strong>{{property.ubica[0].valor}}</strong></span></div>
                     </div>
-                    <div ng-if="property.ubica[0].subzona" class="row">
+                    <div ng-if="property.ubica[0]" class="row">
                         <div class="col-xs-2"><strong>Ubicación</strong></div>
                         <div class="col-xs-10"><span class="dato-tec">{{property.ubica[0].subzona}}</span></div>
                     </div>
@@ -99,13 +99,13 @@
                         <div class="col-xs-2"><strong>Tipo</strong></div>
                         <div class="col-xs-10"><span class="dato-tec">{{property.subzona}}</span></div>
                     </div>
-                    <div ng-if="property.activa" class="row">
+                    <div ng-if="property.estado[0]" class="row">
                         <div class="col-xs-2"><strong>Estado</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.activa}}</span></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.estado[0].contenido}}</span></div>
                     </div>
-                    <div ng-if="property.descripcion" class="row">
+                    <div ng-if="property.descripcion || property.desc[0]" class="row">
                         <div class="col-xs-2"><strong>Descripción</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.descripcion}}</span></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.descripcion || property.desc[0].contenido}}</span></div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade video padding-0" ng-if="property.video">
@@ -184,21 +184,34 @@
                         <ul class="dropdown-menu" uib-dropdown-menu role="menu-xs" aria-labelledby="single-button-xs">
                             <li role="menuitem">
                                 <a href="" socialshare
-                                   socialshare-provider="facebook" socialshare-text="{{property.fichaweb}}"
-                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i
-                                        class="fa fa-facebook-square"></i> Facebook</a></li>
+                                   socialshare-provider="facebook"
+                                   socialshare-type="feed"
+                                   socialshare-via="190008224742032"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"
+                                   socialshare-media="{{property.foto[0].foto}}">
+                                    <i class="fa fa-facebook-square"></i> Facebook
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li role="menuitem"><a href="" socialshare
-                                                   socialshare-provider="twitter"
-                                                   socialshare-text="{{property.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i
-                                    class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="twitter"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}">
+                                    <i class="fa fa-twitter-square"></i> Twitter
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li role="menuitem"><a href="" socialshare
-                                                   socialshare-provider="pinterest"
-                                                   socialshare-text="{{property.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"><i
-                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="pinterest"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"
+                                   socialshare-media="{{property.foto[0].foto}}">
+                                    <i class="fa fa-pinterest-square"></i> Pinterest
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -427,19 +440,34 @@
                         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                             <li role="menuitem">
                                 <a href="" socialshare
-                                   socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
-                                        class="fa fa-facebook-square"></i> Facebook</a></li>
+                                   socialshare-provider="facebook"
+                                   socialshare-type="feed"
+                                   socialshare-via="190008224742032"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"
+                                   socialshare-media="{{property.foto[0].foto}}">
+                                    <i class="fa fa-facebook-square"></i> Facebook
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li role="menuitem"><a href="" socialshare
-                                                   socialshare-provider="twitter" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
-                                    class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="twitter"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}">
+                                    <i class="fa fa-twitter-square"></i> Twitter
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li role="menuitem"><a href="" socialshare
-                                                   socialshare-provider="pinterest" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
-                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
+                            <li role="menuitem">
+                                <a href="" socialshare
+                                   socialshare-provider="pinterest"
+                                   socialshare-text="{{property.fichaweb[0].contenido}}"
+                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{property.id_prop}}"
+                                   socialshare-media="{{property.foto[0].foto}}">
+                                    <i class="fa fa-pinterest-square"></i> Pinterest
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <a href="#!/ficha-propiedad/{{prop.id_prop}}"

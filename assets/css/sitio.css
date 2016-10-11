@@ -1862,7 +1862,9 @@ a[aria-expanded=true] > i {
     padding: 25px 20px;
     background-color: #FBF9F9;
     margin-bottom: 15px;
-    max-height: 325px;
+}
+
+.informacion-propiedad .tab-pane+.mapap {
     min-height: 325px;
 }
 

@@ -24,7 +24,11 @@
                 };
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
-                    $scope.map = defaultFactory.property_sheet_map;
+                    $scope.map = {
+                        center: {},
+                        control: {},
+                        markers: []
+                    };
                     $scope.getData();
                     entitiesService.popover();
                     $scope.tab = 'f';
@@ -63,14 +67,23 @@
                     $scope.property.valor = data.filter(function (d) {
                         return d.caracteristica.id_carac == 161
                     });
+                    $scope.property.estado = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 42
+                    });
+                    $scope.property.desc = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 255
+                    });
+                    $scope.property.fichaweb = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 257
+                    });
                     //console.log($scope.property);
                 }
 
                 function setMap(data) {
                     if (data && data.goglat && data.goglong && (data.ubica.length || data.nomedif)) {
                         $scope.map.center = {latitude: data.goglat, longitude: data.goglong};
-                        var title = (data.ubica.length)? data.ubica[0].valor : data.nomedif;
-                            $scope.map.markers.push(
+                        var title = (data.ubica.length) ? data.ubica[0].valor : data.nomedif;
+                        $scope.map.markers.push(
                             {
                                 id: data.id_prop,
                                 coords: {latitude: data.goglat, longitude: data.goglong},
@@ -89,7 +102,7 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
-                            //console.log("Resi",response);
+                            console.log("Resi", response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
