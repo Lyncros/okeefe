@@ -2,15 +2,13 @@
     angular.module('okeefeSite.controllers')
         .controller('accountController',
             function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab, $window, SITE_URL) {
-
-
                 $scope.siteUrl = SITE_URL;
                 $scope.isLoading = false;
                 $scope.alert;
                 $scope.activeTab = (tab || 'data');
                 $scope.favForm = {
-                    newsletter : 1,
-                }
+                    newsletter: 1,
+                };
                 $uibModalInstance.rendered.then(function () {
                     entitiesService.popover();
                 });
@@ -20,12 +18,12 @@
 
                 userService.me()
                     .then(function (response) {
+                        console.log("user",response);
                         $scope.user = response;
                     });
 
                 $scope.updateUser = function () {
                     $scope.isLoading = true;
-
                     userService.update($scope.user, $scope.user.id_cli)
                         .then(function (response) {
                             $scope.alert = {type: 'success', msg: response.data.message};
@@ -39,16 +37,15 @@
 
                 favoritesService.getAll()
                     .then(function (data) {
+                        console.log("fav",data);
                         $scope.props = data;
                     });
 
-                $scope.favDetails = function(id) {
-                    $window.location = '/#!/ficha-propiedad/'+id;
-
+                $scope.favDetails = function (id) {
+                    $window.location = '/#!/ficha-propiedad/' + id;
                     $uibModalInstance.dismiss('cancel');
                     return false;
                 };
-
                 $scope.favToggle = function (id) {
                     favoritesService.setFavorite(id)
                         .then(function () {
@@ -145,8 +142,8 @@
                 };
 
             })
-        .controller('resetController', function ($scope, userService) {
-
+        .controller('resetController',
+            function ($scope, userService) {
             $scope.doReset = function (isValid) {
 
                 if (isValid) {
@@ -169,9 +166,7 @@
             }
         })
         .controller('registerController',
-            function ($scope, $rootScope, $uibModalInstance, entitiesService,
-                      API_CLIENT_AUTH, $http, $auth, userService, $window) {
-
+            function ($scope, $rootScope, $uibModalInstance, entitiesService, API_CLIENT_AUTH, $http, $auth, userService, $window) {
                 $scope.discCheck = 1;
 
                 $scope.cancel = function () {
@@ -185,12 +180,12 @@
                 $scope.doRegister = function (isValid) {
 
                     if (!$scope.discCheck) {
-                      $scope.alert = {
-                          type: 'danger',
-                          'msg': 'Debe aceptar los terminos y condiciones para continuar'
-                      };
+                        $scope.alert = {
+                            type: 'danger',
+                            'msg': 'Debe aceptar los terminos y condiciones para continuar'
+                        };
 
-                      return false;
+                        return false;
                     }
 
                     if (isValid) {

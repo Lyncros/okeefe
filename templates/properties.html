@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <!--<p class="muestra">Lorem Ipsum is simply dummy text of the...</p>-->
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -398,7 +398,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <!--<p class="muestra">Lorem Ipsum is simply dummy text of the...</p>-->
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -519,7 +519,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <!--<p class="muestra">Lorem Ipsum is simply dummy text of the...</p>-->
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -618,11 +618,7 @@
                             <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb || prop.nombre_ubicacion}}</p>
                             </a>
-                            <!--<p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit
-                                amet
-                                commodo tellus metus in nisi. </p>-->
-
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -732,9 +728,7 @@
                             <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb || prop.nombre_ubicacion}}</p>
                             </a>
-                            <!-- <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
-                                 commodo tellus metus in nisi. </p>-->
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -844,9 +838,7 @@
                             <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb || prop.nombre_ubicacion}}</p>
                             </a>
-                            <!--<p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
-                                commodo tellus metus in nisi. </p>-->
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -923,7 +915,7 @@
                                                    socialshare-provider="pinterest"
                                                    socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto[0].foto}}">
+                                                   socialshare-media="{{prop.foto_url}}">
                                                     <i class="fa fa-pinterest-square"></i> Pinterest
                                                 </a>
                                             </li>

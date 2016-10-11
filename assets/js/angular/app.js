@@ -6,6 +6,7 @@
         'ngSanitize',
         'ngRoute',
         'okeefeSite.services',
+        'okeefeSite.directives',
         'okeefeSite.controllers',
         'okeefeRuralSite.services',
         'okeefeRuralSite.controllers',

@@ -90,7 +90,7 @@
                     return true;
                 };
                 $scope.getLocation = function (val) {
-                    if($scope.bRural){
+                    if ($scope.bRural) {
                         return searchApiRuralService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val).then(function (response) {
                             return response.data.data.map(function (item) {
                                 return {
@@ -116,16 +116,16 @@
                     });
                 };
                 $scope.searchProp = function () {
-                    if($scope.bRural && $scope.validateForm()){
+                    if ($scope.bRural && $scope.validateForm()) {
                         window.location = '#!/rural/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?rural=true';
-                    } else if($scope.validateForm()){
+                    } else if ($scope.validateForm()) {
                         window.location = '#!/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
                 };
 
-                $scope.selectProperty = function (prop,rural) {
+                $scope.selectProperty = function (prop, rural) {
                     $scope.bRural = false;
-                    if(rural){
+                    if (rural) {
                         $scope.bRural = true;
                     }
                     $scope.searchParam.tipo = prop;

@@ -111,6 +111,9 @@
                                     },
                                     events: {
                                         mouseover: function () {
+                                            angular.forEach($scope.map.markers, function (marker, keyM) {
+                                                marker.window.options.visible = false;
+                                            });
                                             this.$parent.marker.window.options.visible = true;
                                         },
                                         click: function () {
@@ -136,25 +139,11 @@
                     return entitiesService.objectSize(obj);
                 };
 
-                /*function setProperties(obj) {
-                 angular.forEach(obj, function (value, key) {
-                 angular.forEach(value.propiedades, function (prop) {
-                 $scope.properties.push(prop);
-                 });
-                 });
-                 $scope.loadingProperties = false;
-                 //console.log("bien", $scope.properties);
-                 if ($scope.properties.length) {
-                 totalFilters($scope.properties);
-                 setMap($scope.properties);
-                 }
-                 }*/
-
                 $scope.getData = function () {
                     $scope.getParam();
                     searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param)
                         .then(function (response) {
-                            //console.log("res", response.data.data);
+                            console.log("res", response.data.data);
                             $scope.properties = response.data.data.propiedades;
                             //$scope.loadingProperties = false;
                             if ($scope.properties.length) {
@@ -196,8 +185,6 @@
                     return window.location = entitiesService.applyFilter('', '', $routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param, '', '');
                 };
                 $scope.addFilter = function (filter, value) {
-                    //console.log("$scope.valMin",$scope.valMin);
-                    //console.log("$scope.valMax",$scope.valMax);
                     if (filter == 'sup') {
                         $scope.errors.sup = false;
                         if (!$scope.supMin && !$scope.supMax) {
