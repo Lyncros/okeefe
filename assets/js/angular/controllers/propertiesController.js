@@ -2,7 +2,7 @@
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
             function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
-                      searchApiService, defaultFactory, $auth, $location, SITE_URL) {
+                      searchApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
                 $scope.siteUrl = SITE_URL;
                 $scope.view = "grid";
                 $scope.rev = false;
@@ -13,7 +13,9 @@
                     $scope.errors = {};
                     $scope.loadingProperties = true;
                     $scope.reloadProperties = false;
-                    $scope.map = defaultFactory.property_map;
+                    $scope.map = {center: {},
+                        control: {},
+                        markers: []};
                     $scope.isLogged = $auth.isAuthenticated();
                     $scope.getData();
                 };
@@ -82,10 +84,24 @@
                     $scope.init();
                 });
 
+                $scope.windowOptions = {
+                    visible: false
+                };
+
+                $scope.closeClick = function () {
+                    $scope.windowOptions.visible = !$scope.windowOptions.visible;
+                };
+
                 function setMap(data) {
                     $scope.map.center = {latitude: data[0].goglat, longitude: data[0].goglong};
                     angular.forEach(data, function (prop, keyP) {
                         if (prop.goglat && prop.goglong) {
+                            var infoContent = {
+                                title : (prop.fichaweb || prop.nombre_ubicacion),
+                                sup : prop.sup_total,
+                                val : prop.valor,
+                                mon : prop.moneda
+                            };
                             $scope.map.markers.push(
                                 {
                                     id: keyP,
@@ -94,8 +110,21 @@
                                         title: 'Ver Propiedad'
                                     },
                                     events: {
+                                        mouseover: function () {
+                                            this.$parent.marker.window.options.visible = true;
+                                        },
                                         click: function () {
                                             return window.location = window.location.origin + window.location.pathname + '#!/ficha-propiedad/' + prop.id_prop;
+                                        }
+                                    },
+                                    window: {
+                                        content: infoContent,
+                                        templateUrl : 'templates/modals/windowPropertyMapContent.html',
+                                        options: {
+                                            visible: false
+                                        },
+                                        close: function () {
+                                            this.options.visible = false;
                                         }
                                     }
                                 })
@@ -195,7 +224,6 @@
 
                 $scope.changeView = function (view) {
                     $scope.view = view;
-                    console.log($scope.view);
                 };
                 $scope.trustAsHtml = function (html) {
                     return entitiesService.trustHtml(html);

@@ -21,8 +21,6 @@
     ]);
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
-
-
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyDMSy5R0Rfyx7rnhJ50sBUsHawncc87tJo',
             v: '3',

@@ -67,14 +67,15 @@
                 }
 
                 function setMap(data) {
-                    if (data && data.goglat && data.goglong) {
+                    if (data && data.goglat && data.goglong && (data.ubica.length || data.nomedif)) {
                         $scope.map.center = {latitude: data.goglat, longitude: data.goglong};
-                        $scope.map.markers.push(
+                        var title = (data.ubica.length)? data.ubica[0].valor : data.nomedif;
+                            $scope.map.markers.push(
                             {
                                 id: data.id_prop,
                                 coords: {latitude: data.goglat, longitude: data.goglong},
                                 options: {
-                                    title: data.ubica[0].valor
+                                    title: title
                                 }
                             })
                     }
@@ -88,13 +89,12 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
-                            console.log("Resi",response);
+                            //console.log("Resi",response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
                             $timeout(function () {
                                 entitiesService.wowSlider();
-                                entitiesService.carouselByOne('.carousel-showmanymoveone .item');
                             }, 0);
 
                             return response.data;
@@ -124,6 +124,9 @@
                     searchApiService.searchApi.readSuggested($scope.param)
                         .then(function (response) {
                             $scope.properties = response.data;
+                            $timeout(function () {
+                                entitiesService.carouselByOne('.carousel-showmanymoveone .item');
+                            }, 0);
                         });
                 };
 
@@ -171,7 +174,6 @@
                 };
                 $scope.doFav = function (id) {
                     if ($scope.isLogged) {
-
                         $scope.resultFav = !$scope.resultFav;
 
                         var button = angular.element(".prop-" + id);

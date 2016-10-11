@@ -73,18 +73,9 @@
                 }
             };
             var property_map = {
-                center: {latitude: -34.7156697, longitude: -58.2854728},
-                zoom: 16,
+                center: {},
                 control: {},
-                name: 'CASA CENTRAL QUILMES',
-                phone: '4253 - 3961',
-                address: 'Mitre 491 - Quilmes Centro',
-                markers: {
-                    a: {
-                        id: 1,
-                        coords: {latitude: -34.7156697, longitude: -58.2854728}
-                    }
-                }
+                markers: []
             };
             var property_info = [
                 {

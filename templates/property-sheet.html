@@ -405,7 +405,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 padding-5">
-                    <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                    <!--<p class="muestra">Lorem Ipsum is simply dummy text of the...</p>-->
                     <div ng-if="checkFav(prop.id_prop)" class="col-lg-3 col-md-12 padding-0 boton-fav">
                         <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
                                             <span class="fa-stack">
@@ -472,13 +472,12 @@
                                     <div class="col-lg-12 padding-0">
                                         <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
                                     </div>
-                                    <div ng-if="prop.moneda_venta" class="col-md-12 padding-0"
+                                    <div ng-if="prop.valor" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                                        <img src="assets/img/valor_propiedad.svg">{{prop.moneda_alq}}
-                                        {{prop.moneda_venta}}
+                                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
                                     </div>
                                     <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
-                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.moneda_venta }">
+                                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
                                         <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
                                     </div>
                                     <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
@@ -495,7 +494,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <!--<p class="muestra">Lorem Ipsum is simply dummy text of the...</p>-->
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">

@@ -7,7 +7,7 @@
                 dato: '',
                 error: false,
                 zona: '',
-                oper: 'Compra',
+                oper: 'Venta',
                 property: '',
                 tipo: ''
             };
