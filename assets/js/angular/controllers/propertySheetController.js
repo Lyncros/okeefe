@@ -102,7 +102,7 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
-                            console.log("Resi", response);
+                            //console.log("Resi", response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
@@ -136,6 +136,7 @@
                         });
                     searchApiService.searchApi.readSuggested($scope.param)
                         .then(function (response) {
+                            //console.log("sug",response);
                             $scope.properties = response.data;
                             $timeout(function () {
                                 entitiesService.carouselByOne('.carousel-showmanymoveone .item');

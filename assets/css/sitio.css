@@ -529,7 +529,7 @@ select {
 }
 
 #modal-registro .logins h3 {
-    padding-top: 50%;
+    padding-top: 45%;
 }
 
 #login-link {
@@ -1539,6 +1539,7 @@ background-position: center center;
     opacity: 1;
     text-decoration: none;
     text-shadow: none;
+    cursor: pointer;
 }
 .ok-slider-fp .ficha {
     height: 550px !important;
@@ -1610,6 +1611,7 @@ background-position: center center;
 .ficha .descripcion .muestra {
     color: #797c7f;
     font-size: 13px;
+    min-height: 55px;
 }
 
 .ficha .descripcion .caracteristicas div {
