@@ -75,15 +75,15 @@
             <form class="filtros" ng-submit="searchProp()">
                 <div class="col-lg-3 col-lg-12">
                     <label class="flecha-select lg">
-                        <select ng-change="validateEmp()" ng-model="searchParam.oper" ng-disabled="disabled"
+                        <select ng-change="validateOper()" ng-model="searchParam.oper" ng-disabled="disabled"
                                 class="form-control input-lg custom"
                                 uib-tooltip="Debe seleccionar una Operación"
                                 tooltip-placement="bottom"
                                 tooltip-is-open="!searchParam.oper && searchParam.error"
                                 tooltip-trigger="'none'">
                             <option ng-if="!searchParam.oper" value="" selected>Operación</option>
+                            <option value="Venta">Venta</option>
                             <option value="Compra">Compra</option>
-                            <option value="Inversión">Inversión</option>
                             <option value="Alquiler">Alquiler</option>
                             <option value="Alquiler Temporario">Alquiler Temporario</option>
                         </select>

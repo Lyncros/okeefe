@@ -95,12 +95,12 @@
                     };
                 };
                 $scope.resetForm();
-                $scope.validateEmp = function () {
+                $scope.validateOper = function () {
                     $scope.searchParam.empr = 0;
                     $scope.searchParam.zona = '';
                     $scope.loc = '';
-                    if ($scope.searchParam.oper == 'Inversión')
-                        $scope.searchParam.empr = 1;
+                    if ($scope.searchParam.oper == 'Venta')
+                        window.location = '#!/tasaciones/';
                 };
                 $scope.validateForm = function () {
                     if (!$scope.searchParam.property || !$scope.searchParam.oper || !$scope.searchParam.zona) {
