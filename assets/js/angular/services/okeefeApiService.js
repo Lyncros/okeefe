@@ -22,7 +22,7 @@
                 var deferred = $q.defer();
                 $http({
                     method: 'POST',
-                    data: data,
+                    data: $.param(data),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                     responseType: 'arraybuffer',
                     url: API_SEARCH + 'propertypdf'
