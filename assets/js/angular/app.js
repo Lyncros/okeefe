@@ -27,8 +27,7 @@
             v: '3',
             libraries: 'weather,geometry,visualization'
         });
-
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(|blob|):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|blob):/);
 
         // $locationProvider.html5Mode(true);
 
