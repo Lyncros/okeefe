@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-lg-4 col-lg-12">
                     <div class="col-lg-8 col-lg-12 padding-0">
-                        <input ng-model="loc" class="form-control input-lg custom" type="text"
+                        <input ng-model="$parent.loc" class="form-control input-lg custom" type="text"
                                uib-typeahead="loc.label as loc.text for loc in getLocation($viewValue)"
                                typeahead-min-length="3"
                                typeahead-loading="loadingLocations"
@@ -205,7 +205,7 @@
             <form class="filtros" ng-submit="searchRuralProp()">
                 <div class="col-lg-3 col-lg-12">
                     <label class="flecha-select lg">
-                        <select ng-model="searchRuralParam.oper" ng-disabled="disabled"
+                        <select ng-change="selectRuralOper()" ng-model="searchRuralParam.oper" ng-disabled="disabled"
                                 class="form-control input-lg custom"
                                 uib-tooltip="Debe seleccionar una Operación"
                                 tooltip-placement="bottom"
@@ -237,7 +237,7 @@
                     </label>
                 </div>
                 <div class="col-lg-4 col-lg-12">
-                    <input ng-model="loc" class="form-control input-lg custom" type="text"
+                    <input ng-model="$parent.loc" class="form-control input-lg custom" type="text"
                            uib-typeahead="loc.label as loc.text for loc in getRuralLocation($viewValue)"
                            typeahead-min-length="3"
                            typeahead-loading="loadingLocations"

@@ -46,7 +46,6 @@
                 };
 
                 $scope.sortBy = function (propertyName) {
-                    //console.log(propertyName);
                     $scope.propertyName = propertyName;
                 };
 

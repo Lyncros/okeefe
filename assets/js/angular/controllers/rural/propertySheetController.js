@@ -61,18 +61,19 @@
                 }
 
                 function setMap(data) {
-                    if (data && data.goglat && data.goglong) {
+                    if (data && data.goglat && data.goglong && (data.ubica.length || data.nomedif)) {
                         $scope.map.center = {latitude: data.goglat, longitude: data.goglong};
+                        var title = (data.ubica.length) ? data.ubica[0].valor : data.nomedif;
                         $scope.map.markers.push(
                             {
                                 id: data.id_prop,
                                 coords: {latitude: data.goglat, longitude: data.goglong},
                                 options: {
-                                    title: data.ubica[0].valor
+                                    title: title
                                 }
                             })
                     }
-                };
+                }
 
                 $scope.getParam = function () {
                     //console.log($routeParams);

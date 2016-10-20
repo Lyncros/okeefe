@@ -218,7 +218,7 @@
             <!--separador-->
         </div>
         <div class="col-lg-9 padding-0">
-            <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
+<!--            <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
                 <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
                    aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
                 <div class="collapse premium" id="premium">
@@ -226,7 +226,7 @@
                       aria-controls="premium"><i class="fa fa-close"></i></span>
                     <img class="img-responsive" src="assets/img/modal-premium.png">
                 </div>
-            </div>
+            </div>-->
             <div ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados"
                  style="min-height: 520px;">
                 <!--ficha resultados-->
@@ -236,7 +236,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive oportunidad_border"
                                      style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -245,7 +245,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -313,25 +313,25 @@
                                                     <a href="" socialshare
                                                        socialshare-provider="facebook"
                                                        socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                             class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="twitter"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="pinterest"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -343,7 +343,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive destacado_border"
                                      style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -352,7 +352,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -382,7 +382,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -420,25 +420,25 @@
                                                     <a href="" socialshare
                                                        socialshare-provider="facebook"
                                                        socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                             class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="twitter"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="pinterest"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -450,7 +450,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive"
                                      style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                      ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -459,7 +459,7 @@
                                      ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
                                             ng-if="prop.fichaweb.length > 65">...</span></p>
                                 </a>
@@ -489,7 +489,7 @@
                                 </div>
                                 <div class="property-buttons">
                                     <div class="col-lg-12 padding-0">
-                                        <p class="muestra">Lorem Ipsum is simply dummy text of the...</p>
+                                        <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                                         <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
                                             <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
                                                ng-click="doFav(prop.id_prop)">
@@ -527,25 +527,25 @@
                                                     <a href="" socialshare
                                                        socialshare-provider="facebook"
                                                        socialshare-text="{{prop.fichaweb}}"
-                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                             class="fa fa-facebook-square"></i> Facebook</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="twitter"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-twitter-square"></i> Twitter</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="" socialshare
                                                                        socialshare-provider="pinterest"
                                                                        socialshare-text="{{prop.fichaweb}}"
-                                                                       socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                       socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -562,7 +562,7 @@
                 <div ng-if="prop.tipo_prioridad == 'oportunidad'" ng-repeat="prop in properties |  orderBy:propertyName"
                      class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive oportunidad_border"
                                  style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                  ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -573,14 +573,10 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb}}</p>
                             </a>
-                            <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit
-                                amet
-                                commodo tellus metus in nisi. </p>
-
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -634,25 +630,25 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="twitter"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="pinterest"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -663,7 +659,7 @@
                 <div ng-if="prop.tipo_prioridad == 'destacado'" ng-repeat="prop in properties |  orderBy:propertyName"
                      class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive destacado_border"
                                  style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                  ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
@@ -674,12 +670,10 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb}}</p>
                             </a>
-                            <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
-                                commodo tellus metus in nisi. </p>
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -733,25 +727,25 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="twitter"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="pinterest"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -762,7 +756,7 @@
                 <div ng-if="prop.tipo_prioridad != 'oportunidad' && prop.tipo_prioridad != 'destacado'"
                      ng-repeat="prop in properties |  orderBy:propertyName" class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive" style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
                                  ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
                             <img class="padding-0 img-responsive" style="margin: auto;max-height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
@@ -771,12 +765,10 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p class="titulo">{{prop.fichaweb}}</p>
                             </a>
-                            <p class="muestra text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Curabitur ullamcorper, lorem volutpat finibus aliquet, sem erat aliquet augue, sit amet
-                                commodo tellus metus in nisi. </p>
+                            <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
                         </div>
                     </div>
                     <div class="col-lg-4 padding-0">
@@ -830,25 +822,25 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="facebook" socialshare-text="{{prop.fichaweb}}"
-                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                         class="fa fa-facebook-square"></i> Facebook</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="twitter"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-twitter-square"></i> Twitter</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="" socialshare
                                                                    socialshare-provider="pinterest"
                                                                    socialshare-text="{{prop.fichaweb}}"
-                                                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"><i
+                                                                   socialshare-url="{{siteUrl}}rural/ficha-propiedad/{{prop.id_prop}}"><i
                                                     class="fa fa-pinterest-square"></i> Pinterest</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -868,6 +860,11 @@
                                                 coords="marker.coords"
                                                 options="marker.options"
                                                 events="marker.events">
+                                    <ui-gmap-window options="marker.window.options"
+                                                    closeClick="marker.window.close()"
+                                                    templateUrl="marker.window.templateUrl"
+                                                    templateParameter="marker.window.content">
+                                    </ui-gmap-window>
                                 </ui-gmap-marker>
                             </ui-gmap-google-map>
                         </div>

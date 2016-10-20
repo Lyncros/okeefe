@@ -82,10 +82,17 @@
                     $scope.init();
                 });
 
+
                 function setMap(data) {
                     $scope.map.center = {latitude: data[0].goglat, longitude: data[0].goglong};
                     angular.forEach(data, function (prop, keyP) {
                         if (prop.goglat && prop.goglong) {
+                            var infoContent = {
+                                title : (prop.fichaweb || prop.nombre_ubicacion),
+                                sup : prop.sup_total,
+                                val : prop.valor,
+                                mon : prop.moneda
+                            };
                             $scope.map.markers.push(
                                 {
                                     id: keyP,
@@ -94,8 +101,24 @@
                                         title: 'Ver Propiedad'
                                     },
                                     events: {
+                                        mouseover: function () {
+                                            angular.forEach($scope.map.markers, function (marker, keyM) {
+                                                marker.window.options.visible = false;
+                                            });
+                                            this.$parent.marker.window.options.visible = true;
+                                        },
                                         click: function () {
-                                            return window.location = window.location.origin + window.location.pathname + '#!/ficha-propiedad/' + prop.id_prop;
+                                            return window.location = window.location.origin + window.location.pathname + '#!/rural/ficha-propiedad/' + prop.id_prop;
+                                        }
+                                    },
+                                    window: {
+                                        content: infoContent,
+                                        templateUrl : 'templates/modals/windowPropertyMapContent.html',
+                                        options: {
+                                            visible: false
+                                        },
+                                        close: function () {
+                                            this.options.visible = false;
                                         }
                                     }
                                 })

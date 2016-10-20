@@ -21,12 +21,14 @@
         'bootstrap.fileField'
     ]);
 
-    app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $authProvider, API_CLIENT_AUTH) {
+    app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $compileProvider, $authProvider, API_CLIENT_AUTH) {
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyDMSy5R0Rfyx7rnhJ50sBUsHawncc87tJo',
             v: '3',
             libraries: 'weather,geometry,visualization'
         });
+
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(|blob|):/);
 
         // $locationProvider.html5Mode(true);
 

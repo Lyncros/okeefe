@@ -132,7 +132,8 @@
                             <div class="item active" ng-if="property.plano1">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano1}}">
+                                        <img class="img-responsive center-block"
+                                             ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano1}}">
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +141,8 @@
                             <div class="item" ng-if="property.plano2">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano2}}">
+                                        <img class="img-responsive center-block"
+                                             ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano2}}">
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +150,8 @@
                             <div class="item" ng-if="property.plano3">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <img class="img-responsive center-block" ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano3}}">
+                                        <img class="img-responsive center-block"
+                                             ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano3}}">
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +178,9 @@
             <div class="row">
                 <div class="col-xs-1">
                     <div class="boton-fav compartir xs" uib-dropdown>
-                        <a id="fav-share" class="btn btn-gris-claro-2" type="button" uib-dropdown-toggle
+                        <a data-toggle='popover'
+                           data-content="Compartir" data-trigger="hover" data-placement="top" id="fav-share"
+                           class="btn btn-gris-claro-2" type="button" uib-dropdown-toggle
                            ng-disabled="disabled">
                             <span class="fa-stack">
                               <i class="fa fa-circle fa-stack-2x"></i>
@@ -218,7 +223,8 @@
                 </div>
                 <div class="col-xs-1">
                     <div class="boton-fav compartir">
-                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover'
+                        <a ng-click="downloadPDF()" class="btn btn-gris-claro-2"
+                           data-toggle='popover'
                            data-content="Imprimir" data-trigger="hover" data-placement="top">
 									<span class="fa-stack">
 									  <i class="fa fa-circle fa-stack-2x"></i>
@@ -229,7 +235,8 @@
                 </div>
                 <div class="col-xs-1">
                     <div class="boton-fav compartir">
-                        <a href="javascript:;" class="btn btn-gris-claro-2" data-toggle='popover'
+                        <a download="propiedad.pdf" ng-href="{{pdfFile}}" class="btn btn-gris-claro-2"
+                           data-toggle='popover'
                            data-content="Descargar" data-trigger="hover" data-placement="top">
 									<span class="fa-stack">
 									  <i class="fa fa-circle fa-stack-2x"></i>

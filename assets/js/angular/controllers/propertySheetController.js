@@ -6,6 +6,7 @@
                 $scope.siteUrl = SITE_URL;
                 $scope.resultFav = false;
                 $scope.favCount = 0;
+                $scope.pdfFile = '';
                 $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.psForm = function ($event) {
                     $event.preventDefault();
@@ -21,6 +22,17 @@
                         entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);
                         console.log("error :", response);
                     });
+                };
+
+                $scope.pdf = function () {
+                    okeefeApiService.API.getPDF($scope.property).then(function (response) {
+                        $scope.pdfFile = response;
+                    }, function errorCallback(response) {
+                    });
+                };
+
+                $scope.downloadPDF = function () {
+                    window.open($scope.pdfFile);
                 };
                 $scope.init = function () {
                     $scope.isLogged = $auth.isAuthenticated();
@@ -92,7 +104,7 @@
                                 }
                             })
                     }
-                };
+                }
 
                 $scope.getParam = function () {
                     //console.log($routeParams);
@@ -106,6 +118,7 @@
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
+                            $scope.pdf();
                             $timeout(function () {
                                 entitiesService.wowSlider();
                             }, 0);

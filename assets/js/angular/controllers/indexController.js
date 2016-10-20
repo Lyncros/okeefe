@@ -7,6 +7,7 @@
                 $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.$route = $route;
                 $scope.bRural = false;
+
                 $scope.contactForm = function ($event) {
                     $event.preventDefault();
                     if (!$scope.footerForm.nombre || !$scope.footerForm.apellido || !$scope.footerForm.email || !$scope.footerForm.telefono || !$scope.footerForm.celular || !$scope.footerForm.comentarios) {
@@ -62,9 +63,26 @@
                         window.location = '#!/rural/propiedades/' + $scope.searchRuralParam.property + '/' + $scope.searchRuralParam.oper + '/' + $scope.searchRuralParam.zona + '?rural=true';
                     }
                 };
+                $scope.selectProperty = function (prop, rural) {
+                    $scope.bRural = false;
+                    if (rural) {
+                        $scope.bRural = true;
+                    }
+                    $scope.searchParam.tipo = prop;
+                    $scope.searchParam.property = entitiesService.getTipoInmueble(prop);
+                    $scope.searchParam.zona = '';
+                    $scope.loc = '';
 
+                };
                 $scope.selectRuralProperty = function (prop) {
-                    $scope.searchParam.tipo = entitiesService.getTipoInmueble(null, prop);
+                    $scope.searchRuralParam.tipo = entitiesService.getTipoInmueble(null, prop);
+                    $scope.searchRuralParam.zona = '';
+                    $scope.loc = '';
+                };
+                $scope.selectRuralOper = function () {
+                    $scope.searchRuralParam.zona = '';
+                    $scope.loc = '';
+
                 };
                 $scope.resetForm = function () {
                     $scope.searchParam = {
@@ -79,6 +97,8 @@
                 $scope.resetForm();
                 $scope.validateEmp = function () {
                     $scope.searchParam.empr = 0;
+                    $scope.searchParam.zona = '';
+                    $scope.loc = '';
                     if ($scope.searchParam.oper == 'Inversión')
                         $scope.searchParam.empr = 1;
                 };
@@ -121,15 +141,6 @@
                     } else if ($scope.validateForm()) {
                         window.location = '#!/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
                     }
-                };
-
-                $scope.selectProperty = function (prop, rural) {
-                    $scope.bRural = false;
-                    if (rural) {
-                        $scope.bRural = true;
-                    }
-                    $scope.searchParam.tipo = prop;
-                    $scope.searchParam.property = entitiesService.getTipoInmueble(prop);
                 };
 
 
