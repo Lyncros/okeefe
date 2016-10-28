@@ -18,7 +18,8 @@
         'fancyboxplus',
         '720kb.socialshare',
         'vcRecaptcha',
-        'bootstrap.fileField'
+        'bootstrap.fileField',
+        'infinite-scroll'
     ]);
 
     app.config(function ($httpProvider, $routeProvider, uiGmapGoogleMapApiProvider, $locationProvider, $compileProvider, $authProvider, API_CLIENT_AUTH) {

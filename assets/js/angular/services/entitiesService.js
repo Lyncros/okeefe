@@ -214,10 +214,16 @@
             this.trustHtml = function (html) {
                 return $sce.trustAsHtml(html);
             };
-            this.objectSize = function (obj) {
+            this.objectSize = function (obj,type) {
                 var size = 0;
-                for (var key in obj) {
-                    if (obj.hasOwnProperty(key)) size++;
+                if(type == 'childUb' || type == 'ubi'){
+                    angular.forEach(obj, function (value, key) {
+                        size+= value.count;
+                    });
+                }else{
+                    for (var key in obj) {
+                        if (obj.hasOwnProperty(key)) size++;
+                    }
                 }
                 return size;
             };

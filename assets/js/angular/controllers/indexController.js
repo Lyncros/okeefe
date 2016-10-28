@@ -1,7 +1,7 @@
 (function () {
     angular.module('okeefeSite.controllers', [])
         .controller('indexController',
-            function ($route, $scope, $rootScope, $window, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService, searchApiRuralService) {
+            function ($route, $scope, $rootScope, $window, $filter, $location, $uibModal, entitiesService, defaultFactory, $auth, userService, okeefeApiService, searchApiService, searchApiRuralService) {
                 $scope.maps = defaultFactory.footer_maps;
                 $scope.alert = null;
                 $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
@@ -46,15 +46,26 @@
                 };
                 $scope.getRuralLocation = function (val) {
                     return searchApiRuralService.searchApi.readLocations($scope.searchRuralParam.oper, $scope.searchRuralParam.tipo, val).then(function (response) {
-                        return response.data.data.map(function (item) {
+                        console.log(response);
+                        $scope.result = $filter('orderBy')(response.data.data, 'total', true);
+                        return $scope.result.map(function (item) {
                             return {
-                                val: item.idZona,
-                                label: item.valor,
-                                text: item.valor + " (" + item.cantidad + ")"
+                                val: item.id_ubica,
+                                label: item.nombre_ubicacion,
+                                text: item.nombre_ubicacion + " (" + item.total + ")"
                             };
                         });
                     }, function errorCallback(response) {
                         console.log("error :", response);
+                        if($scope.result){
+                            return $scope.result.map(function (item) {
+                                return {
+                                    val: item.id_ubica,
+                                    label: item.nombre_ubicacion,
+                                    text: item.nombre_ubicacion + " (" + item.total + ")"
+                                };
+                            });
+                        }
                     });
                 };
 
@@ -112,11 +123,12 @@
                 $scope.getLocation = function (val) {
                     if ($scope.bRural) {
                         return searchApiRuralService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val).then(function (response) {
-                            return response.data.data.map(function (item) {
+                            $scope.result = $filter('orderBy')(response.data.data, 'total', true);
+                            return $scope.result.map(function (item) {
                                 return {
-                                    val: item.idZona,
-                                    label: item.valor,
-                                    text: item.valor + " (" + item.cantidad + ")"
+                                    val: item.id_ubica,
+                                    label: item.nombre_ubicacion,
+                                    text: item.nombre_ubicacion + " (" + item.total + ")"
                                 };
                             });
                         }, function errorCallback(response) {
@@ -124,14 +136,24 @@
                         });
                     }
                     return searchApiService.searchApi.readLocations($scope.searchParam.oper, $scope.searchParam.tipo, val, $scope.searchParam.empr).then(function (response) {
-                        return response.data.data.map(function (item) {
+                        $scope.result = $filter('orderBy')(response.data.data, 'total', true);
+                        return $scope.result.map(function (item) {
                             return {
-                                val: item.idZona,
-                                label: item.valor,
-                                text: item.valor + " (" + item.cantidad + ")"
+                                val: item.id_ubica,
+                                label: item.nombre_ubicacion,
+                                text: item.nombre_ubicacion + " (" + item.total + ")"
                             };
                         });
                     }, function errorCallback(response) {
+                        if($scope.result){
+                            return $scope.result.map(function (item) {
+                                return {
+                                    val: item.id_ubica,
+                                    label: item.nombre_ubicacion,
+                                    text: item.nombre_ubicacion + " (" + item.total + ")"
+                                };
+                            });
+                        }
                         console.log("error :", response);
                     });
                 };
