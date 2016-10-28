@@ -51,8 +51,8 @@
                         return $scope.result.map(function (item) {
                             return {
                                 val: item.id_ubica,
-                                label: item.nombre_ubicacion,
-                                text: item.nombre_ubicacion + " (" + item.total + ")"
+                                label: item.nombre_completo,
+                                text: item.nombre_completo + " (" + item.total + ")"
                             };
                         });
                     }, function errorCallback(response) {
@@ -61,8 +61,8 @@
                             return $scope.result.map(function (item) {
                                 return {
                                     val: item.id_ubica,
-                                    label: item.nombre_ubicacion,
-                                    text: item.nombre_ubicacion + " (" + item.total + ")"
+                                    label: item.nombre_completo,
+                                    text: item.nombre_completo + " (" + item.total + ")"
                                 };
                             });
                         }
@@ -127,8 +127,8 @@
                             return $scope.result.map(function (item) {
                                 return {
                                     val: item.id_ubica,
-                                    label: item.nombre_ubicacion,
-                                    text: item.nombre_ubicacion + " (" + item.total + ")"
+                                    label: item.nombre_completo,
+                                    text: item.nombre_completo + " (" + item.total + ")"
                                 };
                             });
                         }, function errorCallback(response) {
@@ -140,8 +140,8 @@
                         return $scope.result.map(function (item) {
                             return {
                                 val: item.id_ubica,
-                                label: item.nombre_ubicacion,
-                                text: item.nombre_ubicacion + " (" + item.total + ")"
+                                label: item.nombre_completo,
+                                text: item.nombre_completo + " (" + item.total + ")"
                             };
                         });
                     }, function errorCallback(response) {
@@ -149,8 +149,8 @@
                             return $scope.result.map(function (item) {
                                 return {
                                     val: item.id_ubica,
-                                    label: item.nombre_ubicacion,
-                                    text: item.nombre_ubicacion + " (" + item.total + ")"
+                                    label: item.nombre_completo,
+                                    text: item.nombre_completo + " (" + item.total + ")"
                                 };
                             });
                         }

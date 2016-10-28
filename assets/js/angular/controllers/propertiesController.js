@@ -197,14 +197,24 @@
 
                 }
 
+                function getPropCount(data) {
+                    var count = (data.properties) ? data.properties.length : 0;
+                    angular.forEach(data.child_ubication, function (ubic, key) {
+                        count += (ubic.properties) ? ubic.properties.length : 0;
+                    });
+                    console.log(data);
+                    console.log(count);
+                    return count;
+                }
+
                 function ubicationFilter(data, child) {
                     if (child) {
                         //console.log("data", data);
-                        angular.forEach(data.child_ubication, function (ubic, keyP) {
+                        angular.forEach(data.child_ubication, function (ubic, key) {
                             //console.log(ubic.nombre_ubicacion);
                             $scope.childFilters.push({
                                 key: ubic.id_ubica,
-                                value: ubic.nombre_ubicacion,
+                                value: data.nombre_ubicacion + ', ' +ubic.nombre_ubicacion,
                                 count: (ubic.properties) ? ubic.properties.length : 0,
                                 show: true,
                                 padre: data.id_ubica
@@ -216,7 +226,7 @@
                             $scope.filters['ubi'].push({
                                 key: ubic.id_ubica,
                                 value: ubic.nombre_ubicacion,
-                                count: (ubic.properties) ? ubic.properties.length : 0,
+                                count: getPropCount(ubic),
                                 show: true
                             });
                         });

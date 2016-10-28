@@ -1643,6 +1643,8 @@ select {
     color: #797c7f;
     font-size: 13px;
     min-height: 55px;
+    max-height: 55px;
+    overflow: hidden;
 }
 
 .ficha .descripcion .caracteristicas div {
