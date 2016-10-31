@@ -46,7 +46,6 @@
                 };
                 $scope.getRuralLocation = function (val) {
                     return searchApiRuralService.searchApi.readLocations($scope.searchRuralParam.oper, $scope.searchRuralParam.tipo, val).then(function (response) {
-                        console.log(response);
                         $scope.result = $filter('orderBy')(response.data.data, 'total', true);
                         return $scope.result.map(function (item) {
                             return {
@@ -150,7 +149,8 @@
                                 return {
                                     val: item.id_ubica,
                                     label: item.nombre_completo,
-                                    text: item.nombre_completo + " (" + item.total + ")"
+                                    text: item.nombre_completo
+                                    + " (" + item.total + ")"
                                 };
                             });
                         }
