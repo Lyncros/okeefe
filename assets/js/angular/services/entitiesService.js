@@ -63,7 +63,7 @@
              * @param target
              */
             this.carouselByOne = function (target, id) {
-                $(id).carousel({ interval: 2000 });
+                $(id).carousel({interval: 2000});
                 $(target).each(function () {
                     var itemToClone = $(this);
                     for (var i = 1; i < 3; i++) {
@@ -81,7 +81,10 @@
                 $('#slider-mapas').on('slid.bs.carousel', function () {
                     var index = $('#slider-mapas .active').index('#slider-mapas .item');
                     //console.log($scope.maps[index]);
-                    $scope.maps[index].control.refresh({latitude: $scope.maps[index].center.latitude, longitude: $scope.maps[index].center.longitude});
+                    $scope.maps[index].control.refresh({
+                        latitude: $scope.maps[index].center.latitude,
+                        longitude: $scope.maps[index].center.longitude
+                    });
                 });
             };
             this.popover = function () {
@@ -140,7 +143,10 @@
             };
             this.refreshMap = function ($scope) {
                 $timeout(function () {
-                    $scope.control.refresh({latitude: $scope.map.center.latitude, longitude: $scope.map.center.longitude});
+                    $scope.control.refresh({
+                        latitude: $scope.map.center.latitude,
+                        longitude: $scope.map.center.longitude
+                    });
                 }, 400);
             };
             this.view_animation = function (target) {
@@ -214,13 +220,13 @@
             this.trustHtml = function (html) {
                 return $sce.trustAsHtml(html);
             };
-            this.objectSize = function (obj,type) {
+            this.objectSize = function (obj, type) {
                 var size = 0;
-                if(type == 'childUb' || type == 'ubi'){
+                if (type == 'childUb' || type == 'localidad') {
                     angular.forEach(obj, function (value, key) {
-                        size+= value.count;
+                        size += value.count;
                     });
-                }else{
+                } else {
                     for (var key in obj) {
                         if (obj.hasOwnProperty(key)) size++;
                     }
@@ -260,7 +266,14 @@
                 {id: '1', value: 'Inversión'},
                 {id: '4', value: 'Alquiler temporario'},
                 {id: '12', value: 'Compra'},
-                {id: '19', value: 'Industrial'},
+                {id: '11', value: 'Comprado'},
+                {id: '6', value: 'Reservado'},
+                {id: '3', value: 'Alquilado o vendido'},
+                {id: '5', value: 'No ingresado'},
+                {id: '7', value: 'Retirado'},
+                {id: '8', value: 'Suspendido'},
+                {id: '9', value: 'Tasacion'},
+                {id: '10', value: 'Tasado'},
             ];
             this.getTipoOperacion = function (id, value) {
                 for (var item of operaciones) {
@@ -307,35 +320,65 @@
                 return filters[filter];
             };
             var hasDoubleEqual = function (key) {
-                var keys = ["banos","amb","coch","ant"];
+                var keys = ["banos", "amb", "coch", "ant"];
                 return (keys.indexOf(key));
             };
             this.hasDoubleEqual = function (key) {
                 return hasDoubleEqual(key);
             };
-            this.applyFilter = function (filter, value, tipo, operacion, ubicacion, filters, minVal, maxVal, cur) {
-                //console.log("filters",filters);
+            this.applyFilter = function (filter, filters, tipo, operacion, ubicacion, emp) {
+                console.log("emp", emp);
+                 console.log("filters", filters);
+                tipo = this.getTipoInmueble(tipo);
+                operacion = this.getTipoOperacion(operacion);
                 var url = SITE_URL + 'propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
-                if (cur) {
-                    filters['filtroMon'] = cur;
+                if (emp != undefined) {
+                    url += 'emp=' + emp + '&';
                 }
-                if (value && filter) {
-                    filters[filter] = value;
-                } else if (minVal || maxVal) {
-                    filters[filter] = {
-                        min: (minVal || 0),
-                        max: (maxVal || 0)
-                    };
-                }
+                var has = false;
+                var fil = '';
+                var count = 1;
                 angular.forEach(filters, function (value, key) {
-                    if (key != 'tipo' && key != 'oper' && key != 'ubicacion' && value && typeof value != 'object') {
-                        url += '&' + key + '=' + value;
-                    } else if (typeof value == 'object') {
-                        url += (value.min) ? '&' + key + 'Min=' + value.min : '';
-                        url += (value.max) ? '&' + key + 'Max=' + value.max : '';
+                    if (value.length) {
+                        if (key == 'precio') {
+                            has = true;
+                            fil += key + '=';
+                            angular.forEach(value, function (v, k) {
+                                fil += v.value;
+                                if (value.length != k + 1) {
+                                    fil += ',';
+                                }
+                            });
+                        } else  if (key == 'localidad') {
+                            has = true;
+                            fil += key + '=';
+                            angular.forEach(value, function (v, k) {
+                                fil += v.value.replace(" ", "-").split(' ').join('-');
+                                console.log("fil",fil);
+                                if (value.length != k + 1) {
+                                    fil += ',';
+                                }
+                            });
+                        } else {
+                            has = true;
+                            fil += key + '=';
+                            angular.forEach(value, function (v, k) {
+                                fil += v;
+                                if (value.length != k + 1) {
+                                    fil += ',';
+                                }
+                            });
+                        }
+
+                        fil += '&';
                     }
+                    /*console.log("value",value);
+                     console.log("key",key);*/
                 });
-               //console.log(url);
+                if (has) {
+                    url += fil;
+                }
+                console.log("url", url);
                 return url;
             };
             this.showAlert = function ($scope, msg, type, time) {

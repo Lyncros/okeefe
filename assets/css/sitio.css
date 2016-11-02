@@ -338,6 +338,7 @@ select {
 
 .footer .foot-datos {
     padding-top: 10px;
+    padding-left: 0;
     border-top: 1px solid orange;
 }
 
@@ -1633,6 +1634,11 @@ select {
 
 .ficha-grid .caracteristicas img {
     max-width:;
+}
+
+.ok-emp-ver-mas{
+    margin-bottom: 20px;
+    border: 4px solid #5EA226;
 }
 
 .ok-prop-img {

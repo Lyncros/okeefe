@@ -23,7 +23,7 @@
             };
             searchApiService.searchApi.Emprendimientos().then(function (response) {
                 $scope.emprendimientos = response;
-                //console.log($scope.emprendimientos);
+                console.log($scope.emprendimientos);
                 $timeout(function () {
                     entitiesService.project_filter();
                     entitiesService.toggle('.detalle', '.item', 200);

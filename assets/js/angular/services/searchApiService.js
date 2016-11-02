@@ -1,19 +1,27 @@
 (function () {
     angular.module('okeefeSite.services')
-        .factory('searchApiService', function ($http, $q, API_SEARCH,API_JOB_APPLICATION, entitiesService) {
+        .factory('searchApiService', function ($http, $q, API_SEARCH, API_JOB_APPLICATION, entitiesService) {
             var searchApi = {};
-            var setURL = function (base, param, id) {
+            var setURL = function (base, param, id, emp) {
                 var url = base;
-                if (id) {
-                    return url + 'propiedad/' + id;
+                var pro = 'propiedad';
+                if (emp) {
+                    pro = 'emprendimiento';
                 }
-                url += 'propiedades/' + param.tipo + '/' + param.oper + '?';
-                angular.forEach(param, function (value, key) {
-                    if (key != 'tipo' && key != 'oper' && value && value != 'tipo' && value != 'oper')
-                        url += key + (!entitiesService.hasDoubleEqual(key) ? '==' : '=') + value + '&';
-                });
-                url = url.substr(0, url.length - 1);
-                //console.log("searchURL",url);
+                if (id) {
+                    return url + pro + '/' + id;
+                }
+                url += 'propiedades/' + param.tipo + '/' + param.oper + '?ubicacion=' + param.ubicacion;
+                if (param.emp) {
+                    url += '&emp=' + param.emp;
+                }
+                /*url += 'propiedades/' + param.tipo + '/' + param.oper + '?';
+                 angular.forEach(param, function (value, key) {
+                 if (key != 'tipo' && key != 'oper' && value && value != 'tipo' && value != 'oper')
+                 url += key + (!entitiesService.hasDoubleEqual(key) ? '==' : '=') + value + '&';
+                 });
+                 url = url.substr(0, url.length - 1);*/
+                console.log("searchURL", url);
                 return url;
             };
             searchApi.read = function (tipo, oper, ubicacion, param) {
@@ -50,12 +58,12 @@
                 return deferred.promise;
             };
 
-            searchApi.readById = function (id) {
+            searchApi.readById = function (id,emp) {
                 var deferred = $q.defer();
                 $http({
                     skipAuthorization: true,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                    url: setURL(API_SEARCH, '', id)
+                    url: setURL(API_SEARCH, '', id,emp)
                 }).then(function successCallback(response) {
                     deferred.resolve(response);
                 }, function errorCallback(response) {
@@ -85,7 +93,7 @@
                     skipAuthorization: true,
                     headers: {'Content-Type': undefined},
                     url: API_JOB_APPLICATION,
-                    data : data,
+                    data: data,
                 }).then(function successCallback(response) {
                     //console.log("sug",response);
                     deferred.resolve(response);

@@ -5,14 +5,12 @@
                       searchApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
                 $scope.siteUrl = SITE_URL;
                 $scope.view = "grid";
-                $scope.rev = false;
                 $scope.propertyName = 'valor[0].contenido';
-                $scope.properties = [];
                 $scope.childFilters = [];
                 $scope.totalPropertiesShow = {number: 30, scroll: true};
                 $scope.orderChanged = 'valor[0].contenido';
                 $scope.init = function () {
-                    $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, ubi: []};
+                    $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, localidad: []};
                     $scope.errors = {};
                     $scope.loadingProperties = true;
                     $scope.reloadProperties = false;
@@ -27,28 +25,23 @@
                 };
                 $scope.getParam = function () {
                     $scope.param = $location.search();
-                    //console.log("$scope.param",$scope.param);
-                    /*$scope.appliedFilters = {
-                     supMin: (parseFloat($scope.param.supMin) || []),
-                     supMax: (parseFloat($scope.param.supMax) || []),
-                     valMin: (parseFloat($scope.param.valMin) || []),
-                     valMax: (parseFloat($scope.param.valMax) || []),
-                     amb: (parseFloat($scope.param.amb) || []),
-                     coch: (parseFloat($scope.param.coch) || []),
-                     ant: (parseFloat($scope.param.ant) || []),
-                     banos: (parseFloat($scope.param.banos) || []),
-                     ubi: (parseFloat($scope.param.ubication) || []),
-                     };*/
-                    $scope.appliedFilters = [];
                     $scope.appliedFilterslist = [];
-                    $scope.filtroMon = ($scope.param.filtroMon || 'ARS');
-                    $scope.valMin = (parseFloat($scope.param.valMin) || '');
-                    $scope.valMax = (parseFloat($scope.param.valMax) || '');
-                    $scope.supMin = (parseFloat($scope.param.supMin) || '');
-                    $scope.supMax = (parseFloat($scope.param.supMax) || '');
-                    //console.log("$scope.appliedFilters",$scope.appliedFilters);
+                    //console.log("$scope.param",$scope.param);
+
                 };
 
+                function findIndexKeyWithAttr(array, attr, value) {
+                    var data = [];
+                    angular.forEach(array, function (v, k) {
+                        if (v.value == value) {
+                            data[0] = v.key;
+                            data[1] = k;
+                            v.show = false;
+                            return data;
+                        }
+                    });
+                    return data;
+                }
 
                 $scope.getTipoInmueble = function (val) {
                     return entitiesService.getTipoInmueble(val);
@@ -197,13 +190,57 @@
 
                 }
 
+                function getAppliedFilter() {
+                    $scope.appliedFilters = {
+                        amb: ($scope.param.amb) ? $scope.param.amb.split(',') : [],
+                        coch: ($scope.param.coch) ? $scope.param.coch.split(',') : [],
+                        ant: ($scope.param.ant) ? $scope.param.ant.split(',') : [],
+                        banos: ($scope.param.banos) ? $scope.param.banos.split(',') : [],
+                    };
+                    if ($scope.param.precio) {
+                        var prec = $scope.param.precio.split(',');
+                        $scope.appliedFilters['precio'] = [];
+                        $scope.appliedFilters['precio'].push({key: 'valMin', value: prec[0]});
+                        $scope.appliedFilters['precio'].push({key: 'valMax', value: prec[1]});
+                    }
+                    if ($scope.param.sup) {
+                        var su = $scope.param.sup.split(',');
+                        $scope.appliedFilters['sup'] = [];
+                        $scope.appliedFilters['sup'][0] = su[0];
+                        $scope.appliedFilters['sup'][1] = su[1];
+                    }
+                    $scope.appliedFilters['localidad'] = [];
+                    if ($scope.param.localidad) {
+                        var pro = $scope.param.localidad.split(',');
+                        angular.forEach(pro, function (value, key) {
+                            value = value.replace("-", " ").split('-').join(' ');
+                            var data = findIndexKeyWithAttr($scope.filters.localidad, 'value', value);
+                            $scope.appliedFilters['localidad'].push({key: data[0], value: value, index: data[1]});
+
+                        });
+                    }
+                    angular.forEach($scope.appliedFilters, function (value, key) {
+                        if (value.length) {
+                            if (key == 'precio') {
+                                $scope.appliedFilterslist.push({key: 'valMin', value: parseInt(value[0].value)});
+                                $scope.appliedFilterslist.push({key: 'valMax', value: parseInt(value[1].value)});
+                            } else if (key == 'sup') {
+                                $scope.appliedFilterslist.push({key: 'supMin', value: parseInt(value[0].value)});
+                                $scope.appliedFilterslist.push({key: 'supMax', value: parseInt(value[1].value)});
+                            } else {
+                                angular.forEach(value, function (v, k) {
+                                    $scope.appliedFilterslist.push({key: key, value: v});
+                                });
+                            }
+                        }
+                    });
+                }
+
                 function getPropCount(data) {
                     var count = (data.properties) ? data.properties.length : 0;
                     angular.forEach(data.child_ubication, function (ubic, key) {
                         count += (ubic.properties) ? ubic.properties.length : 0;
                     });
-                    console.log(data);
-                    console.log(count);
                     return count;
                 }
 
@@ -214,7 +251,7 @@
                             //console.log(ubic.nombre_ubicacion);
                             $scope.childFilters.push({
                                 key: ubic.id_ubica,
-                                value: data.nombre_ubicacion + ', ' +ubic.nombre_ubicacion,
+                                value: data.nombre_ubicacion + ', ' + ubic.nombre_ubicacion,
                                 count: (ubic.properties) ? ubic.properties.length : 0,
                                 show: true,
                                 padre: data.id_ubica
@@ -223,7 +260,7 @@
                     } else {
                         angular.forEach(data.child_ubication, function (ubic, keyP) {
                             //console.log(ubic.nombre_ubicacion);
-                            $scope.filters['ubi'].push({
+                            $scope.filters['localidad'].push({
                                 key: ubic.id_ubica,
                                 value: ubic.nombre_ubicacion,
                                 count: getPropCount(ubic),
@@ -236,6 +273,7 @@
 
                 $scope.getData = function () {
                     $scope.getParam();
+                    $scope.properties = [];
                     searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param)
                         .then(function (response) {
                             console.log("res", response.data.data);
@@ -245,6 +283,7 @@
                             if ($scope.searchData) {
                                 totalProperties($scope.searchData, $scope.searchData.id_ubica);
                                 ubicationFilter($scope.searchData);
+                                getAppliedFilter();
                             }
                         })
                         .then(function () {
@@ -286,20 +325,20 @@
 
                     for (var key in filters) {
                         var values = filters[key];
-                        if (values.length && key != 'val' && key != 'sup') {
+                        if (values.length && key != 'precio' && key != 'sup') {
                             applied = true;
                             matches = false;
-                        } else if (values && (key == 'val' || key == 'sup') && (values[0] && values[0].value || values[1] && values[1].value)) {
+                        } else if (values.length && (key == 'precio' || key == 'sup') && (values[0] && values[0].value || values[1] && values[1].value)) {
                             applied = true;
                             matches = false;
                         }
                         switch (key) {
-                            case 'ubi':
+                            case 'localidad':
                                 /*console.log(item.padres);
                                  console.log(values);*/
                                 if (item.padres && values.length) {
                                     values.forEach(function (val) {
-                                        //console.log(val);
+                                        //console.log("val", val);
                                         if (item.padres.indexOf(val.key) != -1 || item.id_ubica == val.key) {
                                             matches = true;
                                             //console.log("contain");
@@ -340,31 +379,33 @@
                                     matches = true;
                                 }
                                 break;
-                            case 'val':
+                            case 'precio':
+                                /*console.log(item);
+                                 console.log(values);*/
                                 if (item.valor.length && values[0] && values[0].value && values[1] && values[1].value) {
-                                    if (item.valor[0].contenido >= values[0].value
-                                        && item.valor[0].contenido <= values[1].value) {
+                                    if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                                        && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
                                 } else if (item.valor.length && values[0] && values[0].value
-                                    && item.valor[0].contenido >= values[0].value) {
+                                    && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
                                     matches = true;
                                 } else if (item.valor.length && values[1] && values[1].value
-                                    && item.valor[0].contenido <= values[1].value) {
+                                    && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                     matches = true;
                                 }
                                 break;
                             case 'sup':
                                 if (item.sup_total.length && values[0] && values[0].value && values[1] && values[1].value) {
-                                    if (item.sup_total[0].contenido >= values[0].value
-                                        && item.sup_total[0].contenido <= values[1].value) {
+                                    if (parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)
+                                        && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
                                 } else if (item.sup_total.length && values[0] && values[0].value
-                                    && item.sup_total[0].contenido >= values[0].value) {
+                                    && parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)) {
                                     matches = true;
                                 } else if (item.sup_total.length && values[1] && values[1].value
-                                    && item.sup_total[0].contenido <= values[1].value) {
+                                    && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
                                     matches = true;
                                 }
                                 break;
@@ -401,7 +442,7 @@
 
                 $scope.addFilter = function (filter, value) {
                     $scope.appliedFilters[filter] = ($scope.appliedFilters[filter] || []);
-                    if (filter == 'val') {
+                    if (filter == 'precio') {
                         var index = checkAttr($scope.appliedFilterslist, 'valMin');
                         if (index != -1) {
                             $scope.appliedFilterslist[index].value = $scope.valMin;
@@ -430,7 +471,7 @@
                     } else {
                         $scope.appliedFilterslist.push({key: filter, value: value});
                     }
-                    if (filter == 'val') {
+                    if (filter == 'precio') {
                         var index = checkAttr($scope.appliedFilters[filter], 'valMin');
                         if (index != -1) {
                             $scope.appliedFilters[filter][index].value = $scope.valMin;
@@ -463,13 +504,16 @@
                     } else {
                         $scope.appliedFilters[filter].push(value);
                     }
-                    if (filter == 'childUbi') {
-                        $scope.childFilters[value.index].show = false;
-                    }
-                    if (filter == 'ubi') {
-                        $scope.filters['ubi'][value.index].show = false;
+                    if (filter == 'localidad') {
+                        $scope.filters['localidad'][value.index].show = false;
                         ubicationFilter($scope.searchData.child_ubication[value.index], true);
                     }
+                    if (filter == 'childUbi') {
+                        $scope.childFilters[value.index].show = false;
+                    }else{
+                        return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
+                    }
+
                 };
 
                 $scope.removeFilter = function (filter) {
@@ -478,7 +522,7 @@
                         var fil = '';
                         $scope.appliedFilterslist[index].value = null;
                         if (filter.key == 'valMin' || filter.key == 'valMax') {
-                            fil = 'val';
+                            fil = 'precio';
                             index = checkAttr($scope.appliedFilters[fil], filter.key);
                         } else if (filter.key == 'supMin' || filter.key == 'supMax') {
                             fil = 'sup';
@@ -494,11 +538,11 @@
                     if (filter == 'childUbi') {
                         $scope.childFilters[value.index].show = true;
                     }
-                    if (filter.key == 'ubi') {
-                        $scope.filters['ubi'][filter.value.index].show = true;
+                    if (filter.key == 'localidad') {
+                        $scope.filters['localidad'][filter.value.index].show = true;
                         resetChildUbic(filter.value.key);
                     }
-
+                    //return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
                 };
 
                 function deleteChildByVal(val) {
