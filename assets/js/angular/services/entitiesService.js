@@ -180,7 +180,8 @@
                     $proyectos = $('.galeria').isotope({
                         // options
                         itemSelector: '.item',
-                        layoutMode: 'fitRows'
+                        layoutMode: 'fitRows',
+                        filter: '*'
                     });
                 });
 
@@ -194,6 +195,7 @@
                     $proyectos.isotope({filter: '*'})
                 });
             };
+
             this.banner = function () {
                 $('.btn-banner').on('click', function () {
                     $('.overlay-premium').fadeToggle(200);

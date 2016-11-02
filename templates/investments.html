@@ -268,7 +268,7 @@
 </div>
 
 <div ng-show="showGalery" class="row galeria">
-    <div style="height: 200px;" ng-repeat="emp in emprendimientos  | limitTo:20 track by $index" class="item casa">
+    <div style="height: 200px;" ng-repeat="emp in emprendimientos  | limitTo:20 track by $index" class="item all">
         <img ng-if="emp.foto" class="img-responsive ok-full-width ok-full-height" ng-src="{{emp.foto}}">
         <img ng-if="!emp.foto" class="img-responsive ok-full-width ok-full-height" ng-src="assets/img/sin_imagen.jpg">
         <div class="detalle">
