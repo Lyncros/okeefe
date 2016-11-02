@@ -30,7 +30,7 @@
                 }, 0);
                 $timeout(function () {
                     $scope.showGalery = true;
-                }, 10000);
+                }, 13000);
 
             }, function errorCallback(response) {
                 console.log("error :", response);
