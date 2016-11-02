@@ -72,7 +72,7 @@
             <!--separador-->
             <div class="filtro escogido" ng-if="filter.value && filter.key == 'childUbi'"
                  ng-repeat="filter in appliedFilterslist track by $index">
-                <a class="btn-block">
+                <a class="btn-block ok-child-text">
                     {{filter.value.value}}
                     <i class="fa fa-close pull-right"
                        ng-click="removeFilter(filter)"></i>

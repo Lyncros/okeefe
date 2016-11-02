@@ -379,6 +379,19 @@ select {
     margin-bottom: 15px;
 }
 
+.ok-redered-html img{
+    display: none;
+}
+.ok-redered-html{
+    text-align: justify;
+}
+.ok-redered-html p span{
+    font-size: 16px !important;
+}
+.ok-redered-html div span{
+    font-size: 16px !important;
+}
+
 /*FIN-----------------------------------------*/
 
 /*BOTONES-----------------------------------------*/
@@ -1522,6 +1535,10 @@ select {
     float: right;
     display: block;
     padding: 0 15px;
+}
+.ok-child-text{
+    color: #006032;
+    font-weight: bold;
 }
 
 .sub-header .boton-fav .btn {

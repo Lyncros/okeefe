@@ -23,7 +23,7 @@
         </div>
         <div class="col-xs-3 text-right"><h2><span class="id-prop">ID {{property.id_emp}}</span></h2></div>
     </div>
-    <div class="row">
+    <div ng-if="property.foto" class="row">
         <div id="slider-emprend" class="col-md-12 carousel slide slider-emprend" data-ride="carousel">
 
             <!-- Wrapper for slides -->
@@ -32,35 +32,24 @@
                 <div class="item active">
                     <div class="row">
                         <div class="col-xs-12">
-                            <img class="img-responsive center-block" src="assets/img/slide-emprendimiento.png">
-                            <div class="carousel-caption">
+                            <img class="img-responsive center-block" ng-src="{{property.foto}}">
+                            <!--<div class="carousel-caption">
                                 Epígrafe foto, epígrafe foto
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- SLIDE -->
-                <div class="item">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <img class="img-responsive center-block" src="assets/img/slide-emprendimiento.png">
-                            <div class="carousel-caption">
-                                Epígrafe foto, epígrafe foto
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
                 <!-- SLIDE -->
             </div>
             <!-- Controls -->
-            <a class="left carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="prev">
+            <!--<a class="left carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
             </a>
             <a class="right carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Siguiente</span>
-            </a>
+            </a>-->
         </div>
 
     </div>
@@ -158,9 +147,14 @@
                     </div>
                     <div ng-if="property.properties.length > 7 && limitProp == 7"
                          class="col-lg-12 padding-0 ok-emp-ver-mas">
-                        <button ng-click="verTodas()" class="btn btn-verde btn-block">Hay {{property.properties.length -
+                        <button ng-click="verTodas(true)" class="btn btn-verde btn-block">Hay {{property.properties.length -
                             7}} propiedades más ... Click
                             para ver todas
+                        </button>
+                    </div>
+                    <div ng-if="property.properties.length > 7 && limitProp != 7"
+                         class="col-lg-12 padding-0 ok-emp-ver-mas">
+                        <button ng-click="verTodas()" class="btn btn-verde btn-block">Click para ocultar
                         </button>
                     </div>
                 </div>
@@ -322,46 +316,15 @@
     </div>
     <div class="tabla-info-prop">
         <div class="row">
-            <div ng-if="property.amenities[0] && property.amenities[0].contenido" class="col-md-4 col-xs-6 columna padding-0">
-                <span class="th">Amenities</span>
-                <div ng-bind-html="trustAsHtml(property.amenities[0].contenido)"></div>
-                <!--<div class="col-md-6 col-xs-6 columna padding-0">
-                    <span class='td'>Club house</span>
-                    <span class='td'>SUM</span>
-                    <span class='td'>Pileta</span>
-                    <span class='td'>Cancha de tenis</span>
-                    <span class='td'>Cancha de futbol</span>
-                    <span class='td'>Proveduría</span>
-                    <span class='td'>Cocina</span>
-                    <span class='td'>Lavadero</span>
-                </div>
-                <div class="col-md-6 col-xs-6 columna padding-0">
-                    <span class='td'>Club house</span>
-                    <span class='td'>SUM</span>
-                    <span class='td'>Disposición</span>
-                    <span class='td'>Vista</span>
-                    <span class='td'>Luminosidad</span>
-                    <span class='td'>Antiguedad</span>
-                    <span class='td'>Cocina</span>
-                    <span class='td'>Lavadero</span>
-                </div>-->
+            <div ng-if="property.amenities[0] && property.amenities[0].contenido"
+                 class="col-md-4 col-xs-6 columna">
+                <span class="th padding-0">Amenities</span>
+                <div class="ok-redered-html" ng-bind-html="trustAsHtml(property.amenities[0].contenido)"></div>
             </div>
-            <div ng-if="property.terminaciones[0] && property.terminaciones[0].contenido" class="col-md-8 col-xs-6 columna padding-0">
-                <span class="th">Terminaciones</span>
-                <div ng-bind-html="trustAsHtml(property.terminaciones[0].contenido)"></div>
-                <!--<span class='td lista'>
-                <ul>
-                        <li>Laguna de agua natural de mas de 4 has (apta deportes acuáticos) única por su calidad</li>
-                        <li>Seguridad con paredones o alambrado olímpico, sendero perimetral y sistemas electrónicos.</li>
-                        <li>Ubicación preferencial sobre Autopista, antes de la bifurcación a La Plata. A 15 minutos de Buenos Aires</li>
-                        <li>Acceso directo desde Autopista con puente propio para regresar a Buenos Aires (rápido y seguro)</li>
-                        <li>Sector Home ofﬁce para poder reunirse o trabajar en un lu</li>
-                        <li>Solo posee lotes unifamiliares. Sin condominios que aumen</li>
-                        <li>Proveeduría de alimentos para solucionar la compra diaria.</li>
-                        <li>Transponte publico (tren y colectivo) a pocas cuadras del barrio.</li>
-                        <li>Promedio del metraje de lotes ideal (800 mts).</li>
-                </ul>
-            </span>-->
+            <div ng-if="property.terminaciones[0] && property.terminaciones[0].contenido"
+                 class="col-md-8 col-xs-6 columna">
+                <span class="th padding-0">Terminaciones</span>
+                <div class="ok-redered-html" ng-bind-html="trustAsHtml(property.terminaciones[0].contenido)"></div>
             </div>
         </div>
     </div>

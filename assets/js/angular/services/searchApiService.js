@@ -15,13 +15,7 @@
                 if (param.emp) {
                     url += '&emp=' + param.emp;
                 }
-                /*url += 'propiedades/' + param.tipo + '/' + param.oper + '?';
-                 angular.forEach(param, function (value, key) {
-                 if (key != 'tipo' && key != 'oper' && value && value != 'tipo' && value != 'oper')
-                 url += key + (!entitiesService.hasDoubleEqual(key) ? '==' : '=') + value + '&';
-                 });
-                 url = url.substr(0, url.length - 1);*/
-                console.log("searchURL", url);
+                //console.log("searchURL", url);
                 return url;
             };
             searchApi.read = function (tipo, oper, ubicacion, param) {

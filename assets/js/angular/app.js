@@ -105,6 +105,14 @@
                 templateUrl: 'templates/venture-sheet.html',
                 controller: 'ventureSheetController',
                 activetab: 'ficha-emprendimiento',
+                resolve: {
+                    emprendimiento: function (searchApiService, $route) {
+                        return searchApiService.searchApi.readById($route.current.params.id, true)
+                            .then(function (response) {
+                                return response;
+                            });
+                    }
+                },
                 site: 'urbano'
             })
             .when('/quienes-somos', {
@@ -190,7 +198,6 @@
                 site: 'rural'
             })
             .otherwise("/");
-
 
 
         $authProvider.loginUrl = API_CLIENT_AUTH + 'login';

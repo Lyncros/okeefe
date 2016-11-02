@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/img/equipo1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/img/equipo2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/img/equipo3.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/sitio.css" afterPath="$PROJECT_DIR$/assets/css/sitio.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/app.js" afterPath="$PROJECT_DIR$/assets/js/angular/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" afterPath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js" afterPath="$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js" afterPath="$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" afterPath="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/investments.html" afterPath="$PROJECT_DIR$/templates/investments.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/properties.html" afterPath="$PROJECT_DIR$/templates/properties.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/rural/home.html" afterPath="$PROJECT_DIR$/templates/rural/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/venture-sheet.html" afterPath="$PROJECT_DIR$/templates/venture-sheet.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,40 +41,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <file leaf-file-name="properties.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/properties.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="47" column="82" selection-start-line="47" selection-start-column="82" selection-end-line="47" selection-end-column="82" />
+            <state relative-caret-position="322">
+              <caret line="74" column="49" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="49" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
+      <file leaf-file-name="sitio.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="461">
+              <caret line="1539" column="12" selection-start-line="1539" selection-start-column="12" selection-end-line="1539" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -92,10 +93,8 @@
         <option value="$PROJECT_DIR$/rural/index.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/indexController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/homeController.js" />
-        <option value="$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/servicesController.js" />
         <option value="$PROJECT_DIR$/templates/rural/about.html" />
-        <option value="$PROJECT_DIR$/templates/investments.html" />
         <option value="$PROJECT_DIR$/templates/about.html" />
         <option value="$PROJECT_DIR$/templates/rural/services.html" />
         <option value="$PROJECT_DIR$/templates/modals/windowPropertyMapContent.html" />
@@ -114,23 +113,25 @@
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/okeefeApiService.js" />
         <option value="$PROJECT_DIR$/templates/modals/propertySelect.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/assets/js/angular/app.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/rural/propertiesController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/indexController.js" />
         <option value="$PROJECT_DIR$/templates/rural/properties.html" />
-        <option value="$PROJECT_DIR$/templates/properties.html" />
-        <option value="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/investmentsController.js" />
-        <option value="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
         <option value="$PROJECT_DIR$/templates/property-sheet.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/entitiesService.js" />
-        <option value="$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js" />
-        <option value="$PROJECT_DIR$/templates/venture-sheet.html" />
-        <option value="$PROJECT_DIR$/assets/css/sitio.css" />
-        <option value="$PROJECT_DIR$/templates/rural/home.html" />
         <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/templates/investments.html" />
+        <option value="$PROJECT_DIR$/templates/rural/home.html" />
+        <option value="$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js" />
+        <option value="$PROJECT_DIR$/assets/js/angular/app.js" />
+        <option value="$PROJECT_DIR$/templates/venture-sheet.html" />
+        <option value="$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assets/js/angular/services/searchApiService.js" />
+        <option value="$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js" />
+        <option value="$PROJECT_DIR$/templates/properties.html" />
+        <option value="$PROJECT_DIR$/assets/css/sitio.css" />
       </list>
     </option>
   </component>
@@ -204,24 +205,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="okeefe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="okeefe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rural" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -392,15 +375,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Lyncros\Okeefe\site\public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Lyncros\Okeefe\okeefe\assets\js\angular\controllers\rural" />
       <recent name="C:\xampp\htdocs\Lyncros\Okeefe\okeefe\assets\js\angular\constants\rural" />
       <recent name="C:\xampp\htdocs\Lyncros\Okeefe\okeefe\assets\js\angular\directives\rural" />
       <recent name="C:\xampp\htdocs\Lyncros\Okeefe\okeefe\assets\js\angular\services\rural" />
       <recent name="C:\xampp\htdocs\Lyncros\Okeefe" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Lyncros\Okeefe\site\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -517,12 +500,12 @@
       <workItem from="1476968722513" duration="7423000" />
       <workItem from="1477323138044" duration="597000" />
       <workItem from="1477344595288" duration="84826000" />
-      <workItem from="1477936929584" duration="36194000" />
+      <workItem from="1477936929584" duration="43242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468680000" />
+    <option name="totallyTimeSpent" value="475728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -568,13 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/investments.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -788,14 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="431" column="78" selection-start-line="431" selection-start-column="78" selection-end-line="431" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/rural/properties.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -809,18 +777,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/app.js">
+    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="90" column="60" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="60" />
+        <state relative-caret-position="202">
+          <caret line="15855" column="4" selection-start-line="15855" selection-start-column="4" selection-end-line="15855" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/angular/services/defaultFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="308" column="52" selection-start-line="308" selection-start-column="52" selection-end-line="308" selection-end-column="52" />
           <folding>
             <element signature="e#250#2451#0" expanded="false" />
             <element signature="e#2483#4755#0" expanded="false" />
@@ -830,88 +798,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/investmentsController.js">
+    <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/services/searchApiService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/services/entitiesService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="275" column="41" selection-start-line="275" selection-start-column="41" selection-end-line="275" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="15855" column="4" selection-start-line="15855" selection-start-column="4" selection-end-line="15855" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="136" column="23" selection-start-line="134" selection-start-column="19" selection-end-line="136" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="340" column="20" selection-start-line="340" selection-start-column="20" selection-end-line="340" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/venture-sheet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="508" column="49" selection-start-line="508" selection-start-column="49" selection-end-line="508" selection-end-column="49" />
+        <state relative-caret-position="427">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
-            <element signature="n#div#1;n#div#2;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/properties.html">
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="543" column="27" selection-start-line="543" selection-start-column="27" selection-end-line="661" selection-end-column="34" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/investments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -926,35 +845,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rural/home.html">
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/investmentsController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="504">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertySheetController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/venture-sheet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="149" column="44" selection-start-line="149" selection-start-column="44" selection-end-line="149" selection-end-column="44" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#2;n#div#2;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/services/entitiesService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="47" column="82" selection-start-line="47" selection-start-column="82" selection-end-line="47" selection-end-column="82" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="301" column="26" selection-start-line="301" selection-start-column="24" selection-end-line="301" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/propertiesController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="278" column="30" selection-start-line="278" selection-start-column="30" selection-end-line="278" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/services/searchApiService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="154" column="18" selection-start-line="154" selection-start-column="18" selection-end-line="154" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="153">
+          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/properties.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="74" column="49" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="49" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/sitio.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="1539" column="12" selection-start-line="1539" selection-start-column="12" selection-end-line="1539" selection-end-column="12" />
           <folding />
         </state>
       </provider>

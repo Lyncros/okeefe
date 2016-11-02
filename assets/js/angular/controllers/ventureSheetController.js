@@ -2,7 +2,7 @@
     angular.module('okeefeSite.controllers')
         .controller('ventureSheetController',
             function (favoritesService, $scope, $rootScope, $timeout, entitiesService, defaultFactory,
-                      $auth, $uibModal, $routeParams, searchApiService, okeefeApiService, SITE_URL) {
+                      $auth, $uibModal, $routeParams, searchApiService, okeefeApiService, SITE_URL, emprendimiento) {
                 $scope.siteUrl = SITE_URL;
                 $scope.resultFav = false;
                 $scope.favCount = 0;
@@ -25,8 +25,11 @@
                     });
                 };
 
-                $scope.verTodas = function () {
-                    $scope.limitProp = $scope.property.properties.length;
+                $scope.verTodas = function (show) {
+                    $scope.limitProp = 7;
+                    if(show){
+                        $scope.limitProp = $scope.property.properties.length;
+                    }
                 };
 
                 $scope.pdf = function () {
@@ -50,7 +53,7 @@
                         control: {},
                         markers: []
                     };
-                    $scope.getData();
+                    $scope.getData(emprendimiento);
                     entitiesService.popover();
                     $scope.tab = 'f';
                 };
@@ -72,17 +75,17 @@
                             return d.id_carac == 20
                         });
                         value.moneda = value.propiedad_caracteristicas.filter(function (d) {
-                         return d.id_carac == 165
-                         });
-                         value.valor = value.propiedad_caracteristicas.filter(function (d) {
-                         return d.id_carac == 161
-                         });
-                         value.estado = value.propiedad_caracteristicas.filter(function (d) {
-                         return d.id_carac == 42
-                         });
-                         value.desc = value.propiedad_caracteristicas.filter(function (d) {
-                         return d.id_carac == 255
-                         });
+                            return d.id_carac == 165
+                        });
+                        value.valor = value.propiedad_caracteristicas.filter(function (d) {
+                            return d.id_carac == 161
+                        });
+                        value.estado = value.propiedad_caracteristicas.filter(function (d) {
+                            return d.id_carac == 42
+                        });
+                        value.desc = value.propiedad_caracteristicas.filter(function (d) {
+                            return d.id_carac == 255
+                        });
                         value.fichaweb = value.propiedad_caracteristicas.filter(function (d) {
                             return d.id_carac == 257
                         });
@@ -110,7 +113,6 @@
                     $scope.property.fotos = data.filter(function (d) {
                         return d.id_carac == 75
                     });
-                    console.log($scope.property);
                 }
 
                 function setMap(data) {
@@ -132,44 +134,46 @@
                     //console.log($routeParams);
                     $scope.param = $routeParams.id;
                 };
-                $scope.getData = function () {
-                    $scope.getParam();
-                    searchApiService.searchApi.readById($scope.param, true)
-                        .then(function (response) {
-                            console.log("Resi", response);
-                            $scope.property = response.data;
-                            //setMap($scope.property);
-                            setPropChar($scope.property);
-                            setChar($scope.property.caracteristicas);
-                            $scope.pdf();
-                            $timeout(function () {
-                                //entitiesService.wowSlider();
-                            }, 0);
 
-                            return response.data;
+                function setData(response) {
+                    $scope.property = response.data;
+                    //setMap($scope.property);
+                    setPropChar($scope.property);
+                    setChar($scope.property.caracteristicas);
+                    $scope.pdf();
+                    $timeout(function () {
+                        //entitiesService.wowSlider();
+                    }, 0);
+                    if ($scope.isLogged) {
+                        favoritesService.getAll(function (data) {
+                            return data;
                         })
-                        .then(function () {
-                            if ($scope.isLogged) {
-                                favoritesService.getAll(function (data) {
-                                    return data;
-                                })
-                                    .then(function (data) {
-
-                                        var isFav = data.some(function (el) {
-                                            return el.id_prop == $scope.property.id_prop;
-                                        });
-
-                                        $scope.resultFav = isFav;
-
-                                    })
-                                    .then(function () {
-                                        $scope.loadingProperties = false;
-                                    });
-                            } else {
-                                $scope.resultFav = false;
+                            .then(function (data) {
+                                var isFav = data.some(function (el) {
+                                    return el.id_prop == $scope.property.id_prop;
+                                });
+                                $scope.resultFav = isFav;
+                            })
+                            .then(function () {
                                 $scope.loadingProperties = false;
-                            }
-                        });
+                            });
+                    } else {
+                        $scope.resultFav = false;
+                        $scope.loadingProperties = false;
+                    }
+
+                }
+
+                $scope.getData = function (emprendimiento) {
+                    $scope.getParam();
+                    if (emprendimiento) {
+                        setData(emprendimiento);
+                    } else {
+                        searchApiService.searchApi.readById($scope.param, true)
+                            .then(function (response) {
+                                setData(response);
+                            })
+                    }
                 };
 
                 $scope.control = {};
