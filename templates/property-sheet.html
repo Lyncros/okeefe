@@ -158,12 +158,14 @@
                             <!-- SLIDE -->
                         </div>
                         <!-- Controls -->
-                        <a class="left carousel-control" href=".slider-planos" ng-non-bindable role="button"
+                        <a ng-if="$parent.showPl"
+                           class="left carousel-control" href=".slider-planos" role="button"
                            data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="right carousel-control" href=".slider-planos" ng-non-bindable role="button"
+                        <a ng-if="$parent.showPl"
+                           class="right carousel-control" href=".slider-planos" role="button"
                            data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
@@ -235,7 +237,8 @@
                 </div>
                 <div class="col-xs-1">
                     <div class="boton-fav compartir">
-                        <a download="propiedad-{{property.id_prop}}.pdf" ng-href="{{pdfFile}}" class="btn btn-gris-claro-2"
+                        <a download="propiedad-{{property.id_prop}}.pdf" ng-href="{{pdfFile}}"
+                           class="btn btn-gris-claro-2"
                            data-toggle='popover'
                            data-content="Descargar" data-trigger="hover" data-placement="top">
 									<span class="fa-stack">

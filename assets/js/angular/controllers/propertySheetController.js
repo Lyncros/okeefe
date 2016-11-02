@@ -7,6 +7,7 @@
                 $scope.resultFav = false;
                 $scope.favCount = 0;
                 $scope.pdfFile = '';
+                $scope.showPl = false;
                 $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.psForm = function ($event) {
                     $event.preventDefault();
@@ -92,9 +93,9 @@
                 }
 
                 function setMap(data) {
-                    if (data && data.goglat && data.goglong && (data.ubica.length || data.nomedif)) {
+                    if (data && data.goglat && data.goglong && (data.ubicacion || data.nomedif)) {
                         $scope.map.center = {latitude: data.goglat, longitude: data.goglong};
-                        var title = (data.ubica.length) ? data.ubica[0].valor : data.nomedif;
+                        var title = (data.ubicacion && data.ubicacion.nombre_completo) ? data.ubicacion.nombre_completo : data.nomedif;
                         $scope.map.markers.push(
                             {
                                 id: data.id_prop,
@@ -106,6 +107,13 @@
                     }
                 }
 
+                function checkPl(property) {
+                    if((property.plano1 && property.plano2) || (property.plano1 && property.plano3)
+                    || (property.plano3 && property.plano2)){
+                        $scope.showPl = true;
+                    }
+                }
+
                 $scope.getParam = function () {
                     //console.log($routeParams);
                     $scope.param = $routeParams.id;
@@ -114,10 +122,11 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
-                            //console.log("Resi", response);
+                            console.log("Resi", response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
+                            checkPl($scope.property);
                             $scope.pdf();
                             $timeout(function () {
                                 entitiesService.wowSlider();
