@@ -26,6 +26,7 @@
                 };
 
                 $scope.pdf = function () {
+                    $scope.property.pdfRoute = 'property';
                     okeefeApiService.API.getPDF($scope.property).then(function (response) {
                         $scope.pdfFile = response;
                     }, function errorCallback(response) {

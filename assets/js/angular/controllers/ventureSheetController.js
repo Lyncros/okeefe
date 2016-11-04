@@ -33,6 +33,7 @@
                 };
 
                 $scope.pdf = function () {
+                    $scope.property.pdfRoute = 'venture';
                     okeefeApiService.API.getPDF($scope.property).then(function (response) {
                         $scope.pdfFile = response;
                     }, function errorCallback(response) {
@@ -68,6 +69,7 @@
 
                 function setPropChar(data) {
                     angular.forEach(data.properties, function (value, key) {
+                        value.operacion = $scope.getTipoOperacion(value.id_tipo_prop);
                         value.cantidad_ambientes = value.propiedad_caracteristicas.filter(function (d) {
                             return d.id_carac == 208
                         });
@@ -163,7 +165,6 @@
                 $scope.getData = function (emprendimiento) {
                     $scope.getParam();
                     if (emprendimiento) {
-                        console.log(emprendimiento);
                         setData(emprendimiento);
                     } else {
                         searchApiService.searchApi.readById($scope.param, true)
