@@ -319,7 +319,8 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp>Has</sp>
+                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -364,9 +365,9 @@
                                                        socialshare-provider="facebook"
                                                        socialshare-type="feed"
                                                        socialshare-via="190008224742032"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-facebook-square"></i> Facebook
                                                     </a>
                                                 </li>
@@ -374,7 +375,7 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="twitter"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                         <i class="fa fa-twitter-square"></i> Twitter
                                                     </a>
@@ -383,9 +384,9 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="pinterest"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-pinterest-square"></i> Pinterest
                                                     </a>
                                                 </li>
@@ -444,7 +445,8 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp>Has</sp>
+                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -489,9 +491,9 @@
                                                        socialshare-provider="facebook"
                                                        socialshare-type="feed"
                                                        socialshare-via="190008224742032"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-facebook-square"></i> Facebook
                                                     </a>
                                                 </li>
@@ -499,7 +501,7 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="twitter"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                         <i class="fa fa-twitter-square"></i> Twitter
                                                     </a>
@@ -508,9 +510,9 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="pinterest"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-pinterest-square"></i> Pinterest
                                                     </a>
                                                 </li>
@@ -570,7 +572,8 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp>Has</sp>
+                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -615,9 +618,9 @@
                                                        socialshare-provider="facebook"
                                                        socialshare-type="feed"
                                                        socialshare-via="190008224742032"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-facebook-square"></i> Facebook
                                                     </a>
                                                 </li>
@@ -625,7 +628,7 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="twitter"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                         <i class="fa fa-twitter-square"></i> Twitter
                                                     </a>
@@ -634,9 +637,9 @@
                                                 <li role="menuitem">
                                                     <a href="" socialshare
                                                        socialshare-provider="pinterest"
-                                                       socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                       socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                        socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                       socialshare-media="{{prop.foto_url}}">
+                                                       socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                         <i class="fa fa-pinterest-square"></i> Pinterest
                                                     </a>
                                                 </li>
@@ -651,6 +654,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div ng-if="properties.length > totalPropertiesShow.number && $parent.filteredResults.length > totalPropertiesShow.number"
+                     class="row padding-10">
+                    <h3 class="text-center ok-ver-mas">Cargando...</h3>
                 </div>
                 <!--fin fila-->
             </div>
@@ -709,17 +716,19 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp>Has</sp>
+                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
                                 <div class="col-lg-12 padding-0">
-                                    <div class="boton-fav">
-                                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                    <span class="fa-stack">
-                                                      <i class="fa fa-circle fa-stack-2x"></i>
-                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                                    </span>
+                                    <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                        <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                           ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             Favorito
                                         </a>
                                     </div>
@@ -741,9 +750,9 @@
                                                    socialshare-provider="facebook"
                                                    socialshare-type="feed"
                                                    socialshare-via="190008224742032"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-facebook-square"></i> Facebook
                                                 </a>
                                             </li>
@@ -751,7 +760,7 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="twitter"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                     <i class="fa fa-twitter-square"></i> Twitter
                                                 </a>
@@ -760,9 +769,9 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="pinterest"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-pinterest-square"></i> Pinterest
                                                 </a>
                                             </li>
@@ -829,17 +838,19 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp>Has</sp>
+                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
                                 <div class="col-lg-12 padding-0">
-                                    <div class="boton-fav">
-                                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                    <span class="fa-stack">
-                                                      <i class="fa fa-circle fa-stack-2x"></i>
-                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                                    </span>
+                                    <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                        <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                           ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             Favorito
                                         </a>
                                     </div>
@@ -861,9 +872,9 @@
                                                    socialshare-provider="facebook"
                                                    socialshare-type="feed"
                                                    socialshare-via="190008224742032"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-facebook-square"></i> Facebook
                                                 </a>
                                             </li>
@@ -871,7 +882,7 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="twitter"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                     <i class="fa fa-twitter-square"></i> Twitter
                                                 </a>
@@ -880,9 +891,9 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="pinterest"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-pinterest-square"></i> Pinterest
                                                 </a>
                                             </li>
@@ -950,17 +961,19 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp>Has</sp>
+                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
                                 <div class="col-lg-12 padding-0">
-                                    <div class="boton-fav">
-                                        <a class="btn btn-xs btn-gris-claro-2" type="submit">
-                                                    <span class="fa-stack">
-                                                      <i class="fa fa-circle fa-stack-2x"></i>
-                                                      <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                                    </span>
+                                    <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                        <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                           ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             Favorito
                                         </a>
                                     </div>
@@ -982,9 +995,9 @@
                                                    socialshare-provider="facebook"
                                                    socialshare-type="feed"
                                                    socialshare-via="190008224742032"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-facebook-square"></i> Facebook
                                                 </a>
                                             </li>
@@ -992,7 +1005,7 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="twitter"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
                                                     <i class="fa fa-twitter-square"></i> Twitter
                                                 </a>
@@ -1001,9 +1014,9 @@
                                             <li role="menuitem">
                                                 <a href="" socialshare
                                                    socialshare-provider="pinterest"
-                                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                                   socialshare-text="{{prop.fichaweb[0].contenido || prop.nombre_ubicacion}}"
                                                    socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                                   socialshare-media="{{prop.foto_url}}">
+                                                   socialshare-media="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
                                                     <i class="fa fa-pinterest-square"></i> Pinterest
                                                 </a>
                                             </li>

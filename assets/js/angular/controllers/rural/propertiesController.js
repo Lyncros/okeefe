@@ -228,7 +228,7 @@
                     $scope.getParam();
                     searchApiService.searchApi.read($routeParams.tipo, $routeParams.operacion, $routeParams.ubicacion, $scope.param)
                         .then(function (response) {
-                            console.log("res", response.data.data);
+                            //console.log("res", response.data.data);
                             //$scope.properties = response.data.data[0].properties;
                             $scope.searchData = response.data.data[0];
                             //$scope.loadingProperties = false;
