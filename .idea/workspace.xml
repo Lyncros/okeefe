@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" afterPath="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/properties.html" afterPath="$PROJECT_DIR$/templates/properties.html" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,12 +25,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="51">
+              <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="properties.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/properties.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="654" column="24" selection-start-line="654" selection-start-column="24" selection-end-line="654" selection-end-column="24" />
+              <folding>
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +114,8 @@
         <option value="$PROJECT_DIR$/templates/venture-sheet.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/controllers/ventureSheetController.js" />
         <option value="$PROJECT_DIR$/assets/js/angular/services/entitiesService.js" />
-        <option value="$PROJECT_DIR$/templates/properties.html" />
         <option value="$PROJECT_DIR$/assets/js/angular/constants/configConstants.js" />
+        <option value="$PROJECT_DIR$/templates/properties.html" />
       </list>
     </option>
   </component>
@@ -470,12 +484,12 @@
       <workItem from="1476968722513" duration="7423000" />
       <workItem from="1477323138044" duration="597000" />
       <workItem from="1477344595288" duration="84826000" />
-      <workItem from="1477936929584" duration="62152000" />
+      <workItem from="1477936929584" duration="62377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="494638000" />
+    <option name="totallyTimeSpent" value="494863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -902,24 +916,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/properties.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="332" column="39" selection-start-line="332" selection-start-column="39" selection-end-line="332" selection-end-column="39" />
+        <state relative-caret-position="280">
+          <caret line="654" column="24" selection-start-line="654" selection-start-column="24" selection-end-line="654" selection-end-column="24" />
           <folding>
             <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
             <element signature="n#a#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/angular/constants/configConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
