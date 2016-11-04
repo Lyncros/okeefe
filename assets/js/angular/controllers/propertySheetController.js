@@ -160,9 +160,6 @@
                         .then(function (response) {
                             //console.log("sug",response);
                             $scope.properties = response.data;
-                            $timeout(function () {
-                                entitiesService.carouselByOne('.carousel-showmanymoveone .item');
-                            }, 0);
                         });
                 };
 

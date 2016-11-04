@@ -233,7 +233,7 @@
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
-                    Metros totales
+                    Hectareas totales
                 </a>
                 <div class="collapse valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
@@ -241,7 +241,7 @@
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
                                 <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
-                                       placeholder="Min. M2"
+                                       placeholder="Min. Has"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
                                        tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
@@ -252,7 +252,7 @@
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
                                 <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
-                                       placeholder="Max. M2"
+                                       placeholder="Max. Has"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
                                        tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"
@@ -319,8 +319,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -445,8 +444,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -572,8 +570,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -712,8 +709,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
@@ -833,8 +829,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
@@ -955,8 +950,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">

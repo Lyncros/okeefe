@@ -19,6 +19,7 @@
 
             vm.favoriteFactory.count = function() {
                 return $http.get(API_CLIENT_AUTH + 'propiedades/favoritos/count').then(function (response) {
+                    console.log(response);
                     return response.data;
                 });
             };

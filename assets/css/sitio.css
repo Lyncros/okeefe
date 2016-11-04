@@ -405,8 +405,12 @@ select {
 .btn-verde {
     color: #ffffff;
     background-color: #007b3c;
-    border-color: #007b3c;
+    border: none;
     border-radius: 0;
+}
+
+.tab-pane+.unidades{
+    padding-bottom: 60px !important;
 }
 
 .btn-verde.difuminado {
@@ -1655,7 +1659,7 @@ select {
 
 .ok-emp-ver-mas{
     margin-bottom: 20px;
-    border: 4px solid #5EA226;
+    border: 4px solid #007b3c;
 }
 
 .ok-prop-img {

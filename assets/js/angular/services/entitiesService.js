@@ -62,9 +62,9 @@
              * Carousel One by one initialization
              * @param target
              */
-            this.carouselByOne = function (target, id) {
+            /*this.carouselByOne = function (target, id) {
                 $(id).carousel({interval: 2000});
-                $(target).each(function () {
+                /!*$(target).each(function () {
                     var itemToClone = $(this);
                     for (var i = 1; i < 3; i++) {
                         itemToClone = itemToClone.next();
@@ -75,8 +75,8 @@
                         // grab item, clone, add marker class, add to collection
                         itemToClone.children(':first-child').clone().addClass("cloneditem-" + (i)).appendTo($(this));
                     }
-                });
-            };
+                });*!/
+            };*/
             this.mapsSlider = function ($scope) {
                 $('#slider-mapas').on('slid.bs.carousel', function () {
                     var index = $('#slider-mapas .active').index('#slider-mapas .item');
@@ -117,22 +117,22 @@
                     }
                 } else if (view == 'venture') {
                     switch (key) {
-                        case 'f':
+                        case 1:
                             $('.flecha').css('left', '5%');
                             break;
-                        case 'v':
+                        case 2:
                             $('.flecha').css('left', '17%');
                             break;
-                        case 'm':
+                        case 3:
                             $('.flecha').css('left', '29%');
                             break;
-                        case 's':
+                        case 4:
                             $('.flecha').css('left', '40.5%');
                             break;
-                        case 'p':
+                        case 5:
                             $('.flecha').css('left', '53%');
                             break;
-                        case 't':
+                        case 6:
                             $('.flecha').css('left', '72%');
                             break;
                         default:

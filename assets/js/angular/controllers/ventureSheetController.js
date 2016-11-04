@@ -95,11 +95,7 @@
                         value.descripcionweb = value.propiedad_caracteristicas.filter(function (d) {
                             return d.id_carac == 255
                         });
-
                     });
-                    $timeout(function () {
-                        entitiesService.carouselByOne('.carousel-showmanymoveone .item');
-                    }, 0);
                     //console.log($scope.property);
                 }
 
@@ -116,12 +112,12 @@
                 }
 
                 function setMap(data) {
-                    if (data && data.goglat && data.goglong && (data.ubica.length || data.nomedif)) {
+                    if (data && data.goglat && data.goglong && (data.ubicacion || data.comentario)) {
                         $scope.map.center = {latitude: data.goglat, longitude: data.goglong};
-                        var title = (data.ubica.length) ? data.ubica[0].valor : data.nomedif;
+                        var title = (data.ubicacion) ? data.ubicacion : data.comentario;
                         $scope.map.markers.push(
                             {
-                                id: data.id_prop,
+                                id: data.id_emp,
                                 coords: {latitude: data.goglat, longitude: data.goglong},
                                 options: {
                                     title: title
@@ -137,7 +133,7 @@
 
                 function setData(response) {
                     $scope.property = response.data;
-                    //setMap($scope.property);
+                    setMap($scope.property);
                     setPropChar($scope.property);
                     setChar($scope.property.caracteristicas);
                     $scope.pdf();
@@ -167,6 +163,7 @@
                 $scope.getData = function (emprendimiento) {
                     $scope.getParam();
                     if (emprendimiento) {
+                        console.log(emprendimiento);
                         setData(emprendimiento);
                     } else {
                         searchApiService.searchApi.readById($scope.param, true)
@@ -186,35 +183,42 @@
                     $scope.tab = key;
                     var pos = 1;
                     if (key == 'f') {
-                        entitiesService.moveArrow('property', pos);
+                        entitiesService.moveArrow('venture', pos);
                         return null;
                     }
                     if ($scope.property.video) {
                         pos++;
                     }
                     if (key == 'v') {
-                        entitiesService.moveArrow('property', pos);
+                        entitiesService.moveArrow('venture', pos);
                         return null;
                     }
-                    if ($scope.property.goglat || $scope.property.goglong) {
+                    if ($scope.property.master) {
+                        pos++;
+                    }
+                    if (key == 'mt') {
+                        entitiesService.moveArrow('venture', pos);
+                        return null;
+                    }
+                    if ($scope.map.markers.length) {
                         pos++;
                     }
                     if (key == 'm') {
-                        entitiesService.moveArrow('property', pos);
-                        return null;
-                    }
-                    if ($scope.property.plano1 || $scope.property.plano2 || $scope.property.plano3) {
-                        pos++;
-                    }
-                    if (key == 'p') {
-                        entitiesService.moveArrow('property', pos);
+                        entitiesService.moveArrow('venture', pos);
                         return null;
                     }
                     if ($scope.property.resumen) {
                         pos++;
                     }
-                    if (key == 't') {
-                        entitiesService.moveArrow('property', pos);
+                    if (key == 'c') {
+                        entitiesService.moveArrow('venture', pos);
+                        return null;
+                    }
+                    if ($scope.property.properties.length) {
+                        pos++;
+                    }
+                    if (key == 'u') {
+                        entitiesService.moveArrow('venture', pos);
                         return null;
                     }
                 };
