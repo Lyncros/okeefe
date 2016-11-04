@@ -58,7 +58,6 @@
                 if ($scope.isLogged) {
                     favoritesService.count()
                         .then(function (data) {
-                            console.log("data",data);
                             $scope.favCount = data;
                         });
                 }

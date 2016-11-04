@@ -123,7 +123,6 @@
                     $scope.getParam();
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
-                            console.log("Resi", response);
                             $scope.property = response.data;
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);

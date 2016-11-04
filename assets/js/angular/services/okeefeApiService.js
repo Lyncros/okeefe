@@ -19,7 +19,6 @@
             };
 
             API.getPDF = function (data) {
-                console.log("data",data);
                 var deferred = $q.defer();
                 $http({
                     method: 'POST',
