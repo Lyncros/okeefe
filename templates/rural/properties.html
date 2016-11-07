@@ -62,7 +62,7 @@
 <div class="busqueda">
     <div class="row">
         <div ng-if="properties.length" class="col-lg-3 filtros">
-            <div class="filtro escogido" ng-if="filter.value && filter.key == 'ubi'"
+            <div class="filtro escogido" ng-if="filter.value && filter.key == 'localidad'"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{filter.value.value}}
@@ -81,7 +81,7 @@
             </div>
             <!--separador-->
             <div class="filtro escogido"
-                 ng-if="filter.key != 'ubi' && filter.key != 'childUbi' && (filter.value || filter.value === 0)"
+                 ng-if="filter.value != 'null' && filter.key != 'localidad' && filter.key != 'childUbi' && (filter.value || filter.value === 0)"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{getFilterName(filter.key)}} : {{filter.value}} <span
@@ -90,7 +90,7 @@
                        ng-click="removeFilter(filter)"></i>
                 </a>
             </div>
-            <div ng-if="getObjectSize(filters.ubi,'ubi') > 1" class="filtro">
+            <div ng-if="getObjectSize(filters.localidad,'provincia') > 1" class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-ubicacion" aria-expanded="false"
                    aria-controls="filtro-ambientes">
                     <i class="fa fa-chevron-right"></i>
@@ -98,14 +98,14 @@
                 </a>
                 <div class="collapse valores filtro-ambientes" id="filtro-ubicacion">
                     <span ng-if="filter.show && filter.count && filter.value"
-                          ng-repeat="filter in filters.ubi track by $index"> <a
-                            ng-click="addFilter('ubi', {key: filter.key,value: filter.value, index: $index})">
+                          ng-repeat="filter in filters.localidad track by $index"> <a
+                            ng-click="addFilter('localidad', {key: filter.key,value: filter.value, index: $index})">
                         <span class="nombre">{{filter.value}}</span>
                         <span class="cantidad">({{filter.count}})</span></a></span>
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(childFilters,'childUb') > 1" class="filtro">
+            <div ng-if="getObjectSize(childFilters,'childUb') > 0" class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-child-ubicacion" aria-expanded="false"
                    aria-controls="filtro-ambientes">
                     <i class="fa fa-chevron-right"></i>
@@ -117,6 +117,20 @@
                             ng-click="addFilter('childUbi', {key: filter.key,value: filter.value, index: $index})">
                         <span class="nombre">{{filter.value}}</span>
                         <span class="cantidad">({{filter.count}})</span></a></span>
+                </div>
+            </div>
+            <!--separador-->
+            <div ng-if="getObjectSize(filters.aptitud) > 0 && getObjectSize(filters.aptitud) > getObjectSize(appliedFilters.aptitud)" class="filtro">
+                <a class="btn-block" data-toggle="collapse" data-target="#filtro-aptitud" aria-expanded="false"
+                   aria-controls="filtro-aptitud">
+                    <i class="fa fa-chevron-right"></i>
+                    Aptitud
+                </a>
+                <div class="collapse valores filtro-aptitud" id="filtro-aptitud">
+                    <span ng-if="!appliedFilters.aptitud || appliedFilters.aptitud.indexOf(key) == -1"
+                          ng-repeat="(key, value) in filters.aptitud track by $index"> <a
+                            ng-click="addFilter('aptitud', key)"><span class="nombre">{{key}}</span> <span
+                            class="cantidad">({{value}})</span></a></span>
                 </div>
             </div>
             <!--separador-->
@@ -134,7 +148,7 @@
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(filters.coch) > 1" class="filtro">
+            <div ng-if="getObjectSize(filters.coch) > 1 " class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-cocheras" aria-expanded="false"
                    aria-controls="filtro-cocheras">
                     <i class="fa fa-chevron-right"></i>
@@ -147,7 +161,7 @@
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(filters.banos) > 1" class="filtro">
+            <div ng-if="getObjectSize(filters.banos) > 0" class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-baños" aria-expanded="false"
                    aria-controls="filtro-baños">
                     <i class="fa fa-chevron-right"></i>
@@ -233,7 +247,7 @@
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
-                    Hectareas totales
+                    Metros totales
                 </a>
                 <div class="collapse valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
@@ -241,7 +255,7 @@
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
                                 <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
-                                       placeholder="Min. Has"
+                                       placeholder="Min. M2"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
                                        tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
@@ -252,7 +266,7 @@
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
                                 <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
-                                       placeholder="Max. Has"
+                                       placeholder="Max. M2"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
                                        tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"
@@ -270,6 +284,15 @@
             <!--separador-->
         </div>
         <div class="col-lg-9 padding-0">
+            <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
+                <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
+                   aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
+                <div class="collapse premium" id="premium">
+                <span class="close" style='position: absolute; right: 0;' data-toggle="collapse" href=".premium"
+                      aria-controls="premium"><i class="fa fa-close"></i></span>
+                    <img class="img-responsive" src="assets/img/modal-premium.png">
+                </div>
+            </div>
             <div infinite-scroll="verMas()" infinite-scroll-disabled="!totalPropertiesShow.scroll || view != 'grid'"
                  ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados"
                  style="min-height: 520px;">
@@ -280,7 +303,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName| filter:filtrarPropiedades"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive oportunidad_border ok-product-center-img"
                                      ng-if="prop.foto[0]"
                                      ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -288,7 +311,7 @@
                                      ng-if="!prop.foto[0]" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                         cut:true:60:'...' |
                                         uppercase}}
@@ -394,7 +417,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -406,7 +429,7 @@
                          ng-repeat="prop in properties |  orderBy:propertyName| filter:filtrarPropiedades"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive destacado_border ok-product-center-img"
                                      ng-if="prop.foto[0]"
                                      ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -414,7 +437,7 @@
                                      ng-if="!prop.foto[0]" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                         cut:true:60:'...' |
                                         uppercase}}
@@ -520,7 +543,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -533,7 +556,7 @@
                          | orderBy:propertyName) | limitTo:totalPropertiesShow.number"
                          class="col-lg-4 col-md-6 ficha ficha-grid no-animate">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="prop.foto[0]"
                                      ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -541,7 +564,7 @@
                                      ng-if="!prop.foto[0]" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
-                                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                                <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                     <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                         cut:true:60:'...' |
                                         uppercase}}
@@ -647,7 +670,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 padding-0 margin-top-10">
-                                        <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                        <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                            class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                     </div>
                                 </div>
@@ -669,7 +692,7 @@
                      ng-repeat="prop in properties |  orderBy:propertyName| filter:filtrarPropiedades"
                      class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive oportunidad_border ok-product-center-img"
                                  ng-if="prop.foto[0]"
                                  ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -679,7 +702,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                     cut:true:60:'...' |
                                     uppercase}}
@@ -689,7 +712,7 @@
                                     uppercase}}
                                 </p>
                             </a>
-                            <p class="muestra text-justify">{{prop.descripcionweb[0].contenido |
+                            <p class="muestra text-justify muestra-lista">{{prop.descripcionweb[0].contenido |
                                 cut:true:120:'...'}} </p>
                         </div>
                     </div>
@@ -779,7 +802,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -791,7 +814,7 @@
                      ng-repeat="prop in properties |  orderBy:propertyName| filter:filtrarPropiedades"
                      class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive destacado_border ok-product-center-img"
                                  ng-if="prop.foto[0]"
                                  ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -801,7 +824,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                     cut:true:60:'...' |
                                     uppercase}}
@@ -811,7 +834,7 @@
                                     uppercase}}
                                 </p>
                             </a>
-                            <p class="muestra text-justify">{{prop.descripcionweb[0].contenido |
+                            <p class="muestra text-justify muestra-lista">{{prop.descripcionweb[0].contenido |
                                 cut:true:120:'...'}} </p>
                         </div>
                     </div>
@@ -901,7 +924,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -914,7 +937,7 @@
                          | orderBy:propertyName) | limitTo:totalPropertiesShow.number"
                      class="col-lg-12 ficha padding-0">
                     <div class="col-lg-4 padding-0">
-                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <a class="col-lg-12 padding-0 ok-prop-img" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                             <img class="padding-0 img-responsive ok-product-center-img"
                                  ng-if="prop.foto[0]"
                                  ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">
@@ -924,7 +947,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="descripcion">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                            <a class="col-lg-12 padding-0" href="#!/rural/ficha-propiedad/{{prop.id_prop}}">
                                 <p ng-if="prop.fichaweb[0]" class="titulo">{{prop.fichaweb[0].contenido |
                                     cut:true:60:'...' |
                                     uppercase}}
@@ -934,7 +957,7 @@
                                     uppercase}}
                                 </p>
                             </a>
-                            <p class="muestra text-justify">{{prop.descripcionweb[0].contenido |
+                            <p class="muestra muestra-lista text-justify">{{prop.descripcionweb[0].contenido |
                                 cut:true:120:'...'}} </p>
                         </div>
                     </div>
@@ -1024,7 +1047,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 padding-0 margin-top-2">
-                                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                                    <a href="#!/rural/ficha-propiedad/{{prop.id_prop}}"
                                        class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
                                 </div>
                             </div>
@@ -1033,7 +1056,8 @@
                 </div>
                 <!--ficha resultados-->
             </div>
-            <div ng-if="properties.length  && map.markers.length" ng-show="view == 'map'" class="col-lg-12 resultados">
+            <div ng-if="properties.length  && map.markers.length" ng-show="view == 'map'"
+                 class="col-lg-12 resultados">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="mapa-busqueda">

@@ -317,6 +317,7 @@
                     'coch': 'Cocheras',
                     'ant': 'Antiguedad',
                     'banos': 'Baños',
+                    'aptitud': 'Aptitud',
                     'filtroMon': 'Moneda',
                 };
                 return filters[filter];
@@ -328,12 +329,15 @@
             this.hasDoubleEqual = function (key) {
                 return hasDoubleEqual(key);
             };
-            this.applyFilter = function (filter, filters, tipo, operacion, ubicacion, emp) {
+            this.applyFilter = function (filter, filters, tipo, operacion, ubicacion, emp, rural) {
                 console.log("emp", emp);
                  console.log("filters", filters);
                 tipo = this.getTipoInmueble(tipo);
                 operacion = this.getTipoOperacion(operacion);
                 var url = SITE_URL + 'propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
+                if(rural){
+                    url = SITE_URL + 'rural/propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
+                }
                 if (emp != undefined) {
                     url += 'emp=' + emp + '&';
                 }
