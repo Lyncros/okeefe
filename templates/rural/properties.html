@@ -4,6 +4,7 @@
             <a href="#!/inicio">Okeefe</a>
             <span><a ng-if="param.oper"> > {{getTipoOperacion(param.oper)}}</a></span>
             <span><a ng-if="param.tipo"> > {{getTipoInmueble(param.tipo)}}</a></span>
+            <span><a ng-if="searchData.nombre_completo"> > {{searchData.nombre_completo}}</a></span>
         </div>
         <div class="boton-fav" ng-if="isLogged">
             <a href="" class="btn btn-gris-claro btn-block" ng-click="editFav()">
