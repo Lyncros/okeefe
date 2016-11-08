@@ -264,7 +264,6 @@
 
                 function ubicationFilter(data, child) {
                     if (child) {
-                        console.log("data", data);
                         angular.forEach(data.child_ubication, function (ubic, key) {
                             //console.log(ubic.nombre_ubicacion);
                             $scope.childFilters.push({
