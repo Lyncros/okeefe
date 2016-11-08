@@ -72,7 +72,7 @@
                 </a>
             </div>
             <!--separador-->
-            <div class="filtro escogido" ng-if="filter.value && filter.key == 'childUbi'"
+            <div class="filtro escogido" ng-if="filter.value && filter.key == 'barrio'"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{filter.value.value}}
@@ -82,7 +82,7 @@
             </div>
             <!--separador-->
             <div class="filtro escogido"
-                 ng-if="filter.value != 'null' && filter.key != 'localidad' && filter.key != 'childUbi' && (filter.value || filter.value === 0)"
+                 ng-if="filter.value != 'null' && filter.key != 'localidad' && filter.key != 'barrio' && (filter.value || filter.value === 0)"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{getFilterName(filter.key)}} : {{filter.value}} <span
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(childFilters,'childUb') > 1" class="filtro">
+            <div ng-if="getObjectSize(childFilters,'barrio') > 1" class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-child-ubicacion" aria-expanded="false"
                    aria-controls="filtro-ambientes">
                     <i class="fa fa-chevron-right"></i>
@@ -115,7 +115,7 @@
                 <div class="collapse valores filtro-ambientes" id="filtro-child-ubicacion">
                     <span ng-if="filter.show && filter.count && filter.value"
                           ng-repeat="filter in childFilters track by $index"> <a
-                            ng-click="addFilter('childUbi', {key: filter.key,value: filter.value, index: $index})">
+                            ng-click="addFilter('barrio', {key: filter.key,value: filter.value, index: $index})">
                         <span class="nombre">{{filter.value}}</span>
                         <span class="cantidad">({{filter.count}})</span></a></span>
                 </div>

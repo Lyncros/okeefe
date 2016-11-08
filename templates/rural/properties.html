@@ -72,7 +72,7 @@
                 </a>
             </div>
             <!--separador-->
-            <div class="filtro escogido" ng-if="filter.value && filter.key == 'childUbi'"
+            <div class="filtro escogido" ng-if="filter.value && filter.key == 'barrio'"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{filter.value.value}}
@@ -82,11 +82,11 @@
             </div>
             <!--separador-->
             <div class="filtro escogido"
-                 ng-if="filter.value != 'null' && filter.key != 'localidad' && filter.key != 'childUbi' && (filter.value || filter.value === 0)"
+                 ng-if="filter.value != 'null' && filter.key != 'localidad' && filter.key != 'barrio' && (filter.value || filter.value === 0)"
                  ng-repeat="filter in appliedFilterslist track by $index">
                 <a class="btn-block">
                     {{getFilterName(filter.key)}} : {{filter.value}} <span
-                        ng-if="filter.key.indexOf('sup') > -1">m²</span>
+                        ng-if="filter.key.indexOf('sup') > -1">Has</span>
                     <i ng-if="filter.key != 'filtroMon'" class="fa fa-close pull-right"
                        ng-click="removeFilter(filter)"></i>
                 </a>
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <!--separador-->
-            <div ng-if="getObjectSize(childFilters,'childUb') > 0" class="filtro">
+            <div ng-if="getObjectSize(childFilters,'barrio') > 0" class="filtro">
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-child-ubicacion" aria-expanded="false"
                    aria-controls="filtro-ambientes">
                     <i class="fa fa-chevron-right"></i>
@@ -115,7 +115,7 @@
                 <div class="collapse valores filtro-ambientes" id="filtro-child-ubicacion">
                     <span ng-if="filter.show && filter.count && filter.value"
                           ng-repeat="filter in childFilters track by $index"> <a
-                            ng-click="addFilter('childUbi', {key: filter.key,value: filter.value, index: $index})">
+                            ng-click="addFilter('barrio', {key: filter.key,value: filter.value, index: $index})">
                         <span class="nombre">{{filter.value}}</span>
                         <span class="cantidad">({{filter.count}})</span></a></span>
                 </div>
@@ -248,7 +248,7 @@
                 <a class="btn-block" data-toggle="collapse" data-target="#filtro-metros" aria-expanded="false"
                    aria-controls="filtro-metros">
                     <i class="fa fa-chevron-right"></i>
-                    Metros totales
+                    Hectareas totales
                 </a>
                 <div class="collapse valores" id="filtro-metros">
                     <form ng-submit="addFilter('sup')" class="form-horizontal form-precio">
@@ -256,7 +256,7 @@
                             <label for="desdeS" class="col-lg-4 control-label">Desde</label>
                             <div class="col-lg-7">
                                 <input id="desdeS" ng-model="$parent.supMin" type="number" class="form-control"
-                                       placeholder="Min. M2"
+                                       placeholder="Min. Has"
                                        uib-tooltip="Debe indicar un tamaño mínimo"
                                        tooltip-placement="top"
                                        tooltip-is-open="(!$parent.minSup && !$parent.supMax) && errors.sup"
@@ -267,7 +267,7 @@
                             <label for="hastaS" class="col-lg-4 control-label">Hasta</label>
                             <div class="col-lg-7">
                                 <input id="hastaS" ng-model="$parent.supMax" type="number" class="form-control"
-                                       placeholder="Max. M2"
+                                       placeholder="Max. Has"
                                        uib-tooltip="Debe indicar un tamaño máximo"
                                        tooltip-placement="bottom"
                                        tooltip-is-open="(!$parent.supMin && !$parent.supMax) && errors.sup"
@@ -285,15 +285,6 @@
             <!--separador-->
         </div>
         <div class="col-lg-9 padding-0">
-            <div ng-show="properties.length && view != 'map'" class="banner col-lg-12 resultados">
-                <a class="btn-banner" data-toggle="collapse" href=".premium" aria-expanded="false"
-                   aria-controls="premium"><img class="img-responsive" src="assets/img/banner-premium.png"></a>
-                <div class="collapse premium" id="premium">
-                <span class="close" style='position: absolute; right: 0;' data-toggle="collapse" href=".premium"
-                      aria-controls="premium"><i class="fa fa-close"></i></span>
-                    <img class="img-responsive" src="assets/img/modal-premium.png">
-                </div>
-            </div>
             <div infinite-scroll="verMas()" infinite-scroll-disabled="!totalPropertiesShow.scroll || view != 'grid'"
                  ng-if="properties.length" ng-show="view == 'grid'" class="col-lg-12 resultados"
                  style="min-height: 520px;">
@@ -343,8 +334,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -469,8 +459,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -596,8 +585,7 @@
                                     <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                          ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                         <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                        <sp>Has</sp>
                                     </div>
                                 </div>
                                 <div class="property-buttons">
@@ -740,8 +728,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
@@ -862,8 +849,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">
@@ -985,8 +971,7 @@
                                 <div ng-if="prop.sup_total[0]" class="col-md-12 padding-0"
                                      ng-class="{'col-lg-6' : prop.cantidad_ambientes[0],'col-lg-12' : !prop.cantidad_ambientes[0] }">
                                     <img src="assets/img/m2.svg"> {{prop.sup_total[0].contenido}}
-                                    <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                                    <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                                    <sp>Has</sp>
                                 </div>
                             </div>
                             <div class="property-buttons">

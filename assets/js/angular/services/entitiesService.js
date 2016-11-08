@@ -63,20 +63,20 @@
              * @param target
              */
             /*this.carouselByOne = function (target, id) {
-                $(id).carousel({interval: 2000});
-                /!*$(target).each(function () {
-                    var itemToClone = $(this);
-                    for (var i = 1; i < 3; i++) {
-                        itemToClone = itemToClone.next();
-                        // wrap around if at end of item collection
-                        if (!itemToClone.length) {
-                            itemToClone = $(this).siblings(':first');
-                        }
-                        // grab item, clone, add marker class, add to collection
-                        itemToClone.children(':first-child').clone().addClass("cloneditem-" + (i)).appendTo($(this));
-                    }
-                });*!/
-            };*/
+             $(id).carousel({interval: 2000});
+             /!*$(target).each(function () {
+             var itemToClone = $(this);
+             for (var i = 1; i < 3; i++) {
+             itemToClone = itemToClone.next();
+             // wrap around if at end of item collection
+             if (!itemToClone.length) {
+             itemToClone = $(this).siblings(':first');
+             }
+             // grab item, clone, add marker class, add to collection
+             itemToClone.children(':first-child').clone().addClass("cloneditem-" + (i)).appendTo($(this));
+             }
+             });*!/
+             };*/
             this.mapsSlider = function ($scope) {
                 $('#slider-mapas').on('slid.bs.carousel', function () {
                     var index = $('#slider-mapas .active').index('#slider-mapas .item');
@@ -224,7 +224,7 @@
             };
             this.objectSize = function (obj, type) {
                 var size = 0;
-                if (type == 'childUb' || type == 'localidad') {
+                if (type == 'barrio' || type == 'localidad') {
                     angular.forEach(obj, function (value, key) {
                         size += value.count;
                     });
@@ -330,13 +330,11 @@
                 return hasDoubleEqual(key);
             };
             this.applyFilter = function (filter, filters, tipo, operacion, ubicacion, emp, rural) {
-                console.log("emp", emp);
-                 console.log("filters", filters);
                 tipo = this.getTipoInmueble(tipo);
                 operacion = this.getTipoOperacion(operacion);
                 var url = SITE_URL + 'propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
-                if(rural){
-                    url = SITE_URL + 'rural/propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?';
+                if (rural) {
+                    url = SITE_URL + 'rural/propiedades/' + tipo + '/' + operacion + '/' + ubicacion + '?rural=true&';
                 }
                 if (emp != undefined) {
                     url += 'emp=' + emp + '&';
@@ -347,20 +345,41 @@
                 angular.forEach(filters, function (value, key) {
                     if (value.length) {
                         if (key == 'precio') {
-                            has = true;
-                            fil += key + '=';
-                            angular.forEach(value, function (v, k) {
-                                fil += v.value;
-                                if (value.length != k + 1) {
-                                    fil += ',';
-                                }
-                            });
-                        } else  if (key == 'localidad') {
+                            if (value[0] && value[0].value && value[1] && value[1].value) {
+                                has = true;
+                                fil += key + '=';
+                                angular.forEach(value, function (v, k) {
+                                    fil += v.value;
+                                    if (value.length != k + 1) {
+                                        fil += ',';
+                                    }
+                                });
+                            }
+                        } else if (key == 'sup') {
+                            if (value[0] && value[0].value && value[1] && value[1].value) {
+                                has = true;
+                                fil += key + '=';
+                                angular.forEach(value, function (v, k) {
+                                    fil += v.value;
+                                    if (value.length != k + 1) {
+                                        fil += ',';
+                                    }
+                                });
+                            }
+                        } else if (key == 'localidad') {
                             has = true;
                             fil += key + '=';
                             angular.forEach(value, function (v, k) {
                                 fil += v.value.replace(" ", "-").split(' ').join('-');
-                                console.log("fil",fil);
+                                if (value.length != k + 1) {
+                                    fil += ',';
+                                }
+                            });
+                        }else if (key == 'barrio') {
+                            has = true;
+                            fil += key + '=';
+                            angular.forEach(value, function (v, k) {
+                                fil += v.value.replace(" ", "-").split(' ').join('-');
                                 if (value.length != k + 1) {
                                     fil += ',';
                                 }
@@ -384,7 +403,7 @@
                 if (has) {
                     url += fil;
                 }
-                console.log("url", url);
+                //console.log("url", url);
                 return url;
             };
             this.showAlert = function ($scope, msg, type, time) {

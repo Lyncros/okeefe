@@ -10,7 +10,7 @@
                 $scope.totalPropertiesShow = {number: 30, scroll: true};
                 $scope.orderChanged = 'valor[0].contenido';
                 $scope.init = function () {
-                    $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, localidad: []};
+                    $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, localidad: [], barrio: []};
                     $scope.errors = {};
                     $scope.loadingProperties = true;
                     $scope.reloadProperties = false;
@@ -206,8 +206,8 @@
                     if ($scope.param.sup) {
                         var su = $scope.param.sup.split(',');
                         $scope.appliedFilters['sup'] = [];
-                        $scope.appliedFilters['sup'][0] = su[0];
-                        $scope.appliedFilters['sup'][1] = su[1];
+                        $scope.appliedFilters['sup'].push({key: 'supMin', value: su[0]});
+                        $scope.appliedFilters['sup'].push({key: 'supMax', value: su[1]});
                     }
                     $scope.appliedFilters['localidad'] = [];
                     if ($scope.param.localidad) {
@@ -215,7 +215,18 @@
                         angular.forEach(pro, function (value, key) {
                             value = value.replace("-", " ").split('-').join(' ');
                             var data = findIndexKeyWithAttr($scope.filters.localidad, 'value', value);
+                            ubicationFilter($scope.searchData.child_ubication[data[1]], true);
                             $scope.appliedFilters['localidad'].push({key: data[0], value: value, index: data[1]});
+
+                        });
+                    }
+                    $scope.appliedFilters['barrio'] = [];
+                    if ($scope.param.barrio) {
+                        var pro = $scope.param.barrio.split(',');
+                        angular.forEach(pro, function (value, key) {
+                            value = value.replace("-", " ").split('-').join(' ');
+                            var data = findIndexKeyWithAttr($scope.childFilters, 'value', value);
+                            $scope.appliedFilters['barrio'].push({key: data[0], value: value, index: data[1]});
 
                         });
                     }
@@ -251,7 +262,7 @@
                             //console.log(ubic.nombre_ubicacion);
                             $scope.childFilters.push({
                                 key: ubic.id_ubica,
-                                value: data.nombre_ubicacion + ', ' + ubic.nombre_ubicacion,
+                                value: data.nombre_ubicacion + ' | ' + ubic.nombre_ubicacion,
                                 count: (ubic.properties) ? ubic.properties.length : 0,
                                 show: true,
                                 padre: data.id_ubica
@@ -328,7 +339,7 @@
                         if (values.length && key != 'precio' && key != 'sup') {
                             applied = true;
                             matches = false;
-                        } else if (values.length && (key == 'precio' || key == 'sup') && (values[0] && values[0].value || values[1] && values[1].value)) {
+                        } else if (values.length && (key == 'precio' || key == 'sup') && (values[0] && values[0].value != "null" || values[1] && values[1].value != "null")) {
                             applied = true;
                             matches = false;
                         }
@@ -346,7 +357,7 @@
                                     });
                                 }
                                 break;
-                            case 'childUbi':
+                            case 'barrio':
                                 /*console.log(item.padres);
                                  console.log(values);*/
                                 if (item.padres && values.length) {
@@ -382,29 +393,29 @@
                             case 'precio':
                                 /*console.log(item);
                                  console.log(values);*/
-                                if (item.valor.length && values[0] && values[0].value && values[1] && values[1].value) {
+                                if (item.valor.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
                                     if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
                                         && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
-                                } else if (item.valor.length && values[0] && values[0].value
+                                } else if (item.valor.length && values[0] && values[0].value != "null"
                                     && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
                                     matches = true;
-                                } else if (item.valor.length && values[1] && values[1].value
+                                } else if (item.valor.length && values[1] && values[1].value != "null"
                                     && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                     matches = true;
                                 }
                                 break;
                             case 'sup':
-                                if (item.sup_total.length && values[0] && values[0].value && values[1] && values[1].value) {
+                                if (item.sup_total.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
                                     if (parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)
                                         && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
-                                } else if (item.sup_total.length && values[0] && values[0].value
+                                } else if (item.sup_total.length && values[0] && values[0].value != "null"
                                     && parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)) {
                                     matches = true;
-                                } else if (item.sup_total.length && values[1] && values[1].value
+                                } else if (item.sup_total.length && values[1] && values[1].value != "null"
                                     && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
                                     matches = true;
                                 }
@@ -508,12 +519,10 @@
                         $scope.filters['localidad'][value.index].show = false;
                         ubicationFilter($scope.searchData.child_ubication[value.index], true);
                     }
-                    if (filter == 'childUbi') {
+                    if (filter == 'barrio') {
                         $scope.childFilters[value.index].show = false;
-                    }else{
-                        return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
                     }
-
+                    return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
                 };
 
                 $scope.removeFilter = function (filter) {
@@ -535,23 +544,23 @@
                         index = findWithAttr($scope.appliedFilterslist, 'value', filter.value);
                         $scope.appliedFilterslist.splice(index, 1);
                     }
-                    if (filter == 'childUbi') {
+                    if (filter == 'barrio') {
                         $scope.childFilters[value.index].show = true;
                     }
                     if (filter.key == 'localidad') {
                         $scope.filters['localidad'][filter.value.index].show = true;
                         resetChildUbic(filter.value.key);
                     }
-                    //return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
+                    return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
                 };
 
                 function deleteChildByVal(val) {
                     for (var key in $scope.appliedFilterslist) {
-                        if ($scope.appliedFilterslist[key].key == "childUbi"
+                        if ($scope.appliedFilterslist[key].key == "barrio"
                             && $scope.appliedFilterslist[key].value.key == val) $scope.appliedFilterslist.splice(key, 1);
                     }
-                    for (var key in $scope.appliedFilters.childUbi) {
-                        if ($scope.appliedFilters.childUbi[key].key == val) $scope.appliedFilters.childUbi.splice(key, 1);
+                    for (var key in $scope.appliedFilters.barrio) {
+                        if ($scope.appliedFilters.barrio[key].key == val) $scope.appliedFilters.barrio.splice(key, 1);
                     }
                 }
 
