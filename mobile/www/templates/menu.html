@@ -1,86 +1,282 @@
-<ion-side-menus>
-    <!--Menu-->
-    <ion-side-menu side="left">
-        <ion-header-bar class="bar-stable ok-header-bar">
-            <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img-menu" />
-            <button class="button button-icon button-clear ion-close-round pull-right" menu-toggle="left">
-            </button>
-        </ion-header-bar>
-        <ion-content>
-            <ion-list class="ok-side-menu">
-                <ion-item ui-sref="app.home" menu-close>Inicio</ion-item>
-                <ion-item ui-sref="rural.home" menu-close>Rural</ion-item>
-                <ion-item ui-sref="app.appraisals" menu-close>Tasaciones</ion-item>
-                <ion-item ui-sref="auth.login" menu-close ng-if="!isLogged">Registrate</ion-item>
-                <ion-item ui-sref="user.account" menu-close ng-if="isLogged">Mi Cuenta</ion-item>
-                <ion-item ui-sref="app.investments" menu-close>Inversiones</ion-item>
-                <ion-item ui-sref="app.news" menu-close>Noticias</ion-item>
-                <ion-item ui-sref="app.about" menu-close>Quiénes somos</ion-item>
-                <ion-item ui-sref="app.us" menu-close>Por qué nosotros</ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-side-menu>
-    <ion-side-menu side="right" is-enabled="filterProperties">
-        <ion-header-bar class="bar-stable ok-header-bar-grey ok-filter-header-bar">
-            <i class="icon ok-color-dark-grey ion-close-round pull-left ok-close" menu-toggle="right"></i>
-            <div class="pull-right ok-filter-apply" menu-toggle="right">
+<ion-side-menus enable-menu-with-back-views="true">
+  <!--Menu-->
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable ok-header-bar">
+      <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img-menu"/>
+      <button class="button button-icon button-clear ion-close-round pull-right" menu-toggle="left">
+      </button>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list class="ok-side-menu">
+        <ion-item ui-sref="app.home" menu-close>Inicio</ion-item>
+        <ion-item ui-sref="rural.home" menu-close>Rural</ion-item>
+        <ion-item ui-sref="app.appraisals" menu-close>Tasaciones</ion-item>
+        <ion-item ui-sref="auth.login" menu-close ng-if="!isLogged">Registrate</ion-item>
+        <ion-item ui-sref="user.account" menu-close ng-if="isLogged">Mi Cuenta</ion-item>
+        <ion-item ui-sref="app.investments" menu-close>Inversiones</ion-item>
+        <ion-item ui-sref="app.news" menu-close>Noticias</ion-item>
+        <ion-item ui-sref="app.about" menu-close>Quiénes somos</ion-item>
+        <ion-item ui-sref="app.us" menu-close>Por qué nosotros</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  <ion-side-menu side="right" is-enabled="filterProperties">
+    <ion-header-bar class="bar-stable ok-header-bar-grey ok-filter-header-bar">
+      <!--<i class="icon ok-color-dark-grey ion-close-round pull-left ok-close" menu-toggle="right"></i>-->
+      <div class="pull-right ok-filter-apply" menu-toggle="right">
                 <span class="icon-stack">
                     <i class="ion-record icon-stack-back ok-color-white"></i>
                     <i class="ion-ios-settings icon-stack-ico ok-color-orange"></i>
                 </span>
-                <span class="ok-filter-apply-text">Aplicar</span>
-            </div>
-        </ion-header-bar>
-        <ion-content>
-            <div class="row ok-properties-menu ok-properties-filters ok-padding-0">
-                <div class="col col-50 text-center">
-                    <span class="ok-text ok-color-orange">Menor precio</span>
+        <span class="ok-filter-apply-text">Aplicar</span>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+      <div class="row ok-properties-menu ok-properties-filters ok-padding-0">
+        <div class="col col-50 text-center" ng-class="{'active' : propertyName == 'valor[0].contenido'}">
+          <span ng-click="changeOrder('valor[0].contenido')" class="ok-text ok-color-orange">Menor precio</span>
+        </div>
+        <div class="col col-50 text-center" ng-class="{'active' : propertyName == '-valor[0].contenido'}">
+          <span ng-click="changeOrder('-valor[0].contenido')" class="ok-text ok-color-orange">Mayor precio</span>
+        </div>
+      </div>
+      <div class="row ok-padding-0 ok-margin-top-20">
+        <ion-list class="ok-property-sheet-list ok-full-width">
+          <div class="ok-list-content ok-filter-menu" ng-class="{'ok-border-top' : $first}">
+            <ion-item ng-if="getObjectSize(filters.localidad,'localidad') > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('ubi')"
+                      ng-class="{active: isGroupShown('ubi')}">
+              <i class="icon"
+                 ng-class="isGroupShown('ubi') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Localidad</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.localidad,'localidad') > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('ubi')">
+              <p class="ok-filter-text" ng-if="filter.count && filter.value"
+                 ng-repeat="filter in filters.localidad track by $index"><a
+                ng-click="addFilter('localidad', {key: filter.key,value: filter.value, index: $index},!filter.show)"
+                ng-class="{'ok-applied-filter' : !filter.show}">
+                <span class="nombre">{{filter.value}}</span>
+                <span class="cantidad">({{filter.count}})</span></a></p>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(childFilters,'barrio') > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('bar')"
+                      ng-class="{active: isGroupShown('bar')}">
+              <i class="icon"
+                 ng-class="isGroupShown('bar') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Barrio</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(childFilters,'barrio') > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('bar')">
+              <p class="ok-filter-text" ng-if="filter.count && filter.value"
+                 ng-repeat="filter in childFilters track by $index"><a
+                ng-click="addFilter('barrio', {key: filter.key,value: filter.value, index: $index},!filter.show)"
+                ng-class="{'ok-applied-filter' : !filter.show}">
+                <span class="nombre">{{filter.value}}</span>
+                <span class="cantidad">({{filter.count}})</span></a></p>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.amb) > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('amb')"
+                      ng-class="{active: isGroupShown('amb')}">
+              <i class="icon"
+                 ng-class="isGroupShown('amb') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Ambientes</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.amb) > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('amb')">
+              <p class="ok-filter-text" ng-repeat="(key, value) in filters.amb track by $index">
+                <a ng-click="addFilter('amb',(key == '5 o mÃ¡s')? 5 : key,appliedFilters.amb.indexOf(key) != -1)"
+                   ng-class="{'ok-applied-filter' : appliedFilters.amb.indexOf(key) != -1}">
+                  <span class="nombre">{{key}}</span> <span
+                  class="cantidad">
+                  ({{value}}) <i ng-if="appliedFilters.amb.indexOf(key) != -1" class="icon ion-checkmark-round"></i>
+                </span>
+                </a>
+              </p>
+            </ion-item>
+            <ion-item class="item-stable ok-background-white"
+                      ng-click="toggleGroup('pre')"
+                      ng-class="{active: isGroupShown('pre')}">
+              <i class="icon"
+                 ng-class="isGroupShown('pre') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Precio</span>
+            </ion-item>
+            <ion-item class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('pre')">
+              <form ng-submit="apply('precio',valMin,valMax)" name="priceForm" novalidate>
+                <div class="row">
+                  <input name="valMin" ng-model="valMin" type="number" class="col"
+                         placeholder="Precio Min. $"
+                         ng-max="valMax"
+                         ng-min="0">
+                  <span class="col-10 text-center"> - </span>
+                  <input name="valMax" ng-model="valMax" type="number" class="col"
+                         placeholder="Precio Max. $"
+                         ng-min="valMin || 0">
                 </div>
-                <div class="col col-50 text-center">
-                    <span class="ok-text ok-color-orange">Mayor precio</span>
+                <div class="row">
+                  <h3 class="ok-price-text" ng-if="appliedFilters['precio'] && appliedFilters['precio'].length">
+                    <a ng-click="addFilter('precio',appliedFilters['precio'],true)">
+                      <span ng-if="appliedFilters['precio'][0].value">{{appliedFilters['precio'][0].value}}</span>
+                      <span ng-if="!appliedFilters['precio'][0].value">0</span>
+                      <span> - </span>
+                      <span ng-if="appliedFilters['precio'][1].value">{{appliedFilters['precio'][1].value}}</span>
+                      <span ng-if="!appliedFilters['precio'][1].value">Max</span>
+                      <span> <i class="icon ion-close-circled"></i></span>
+                    </a>
+                  </h3>
                 </div>
-            </div>
-            <div class="row ok-padding-0 ok-margin-top-20">
-                <ion-list class="ok-property-sheet-list ok-full-width">
-                    <div ng-repeat="item in filters" class="ok-list-content" ng-class="{'ok-border-top' : $first}">
-                        <ion-item class="item-stable ok-background-white"
-                                  ng-click="toggleGroup(item)"
-                                  ng-class="{active: isGroupShown(item)}">
-                            <i class="icon" ng-class="isGroupShown(item) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
-                            <span class="ok-color-green">{{item.name}}</span>
-                        </ion-item>
-                        <ion-item ng-if="item.id == 1" class="item-accordion ok-background-grey"
-                                  ng-show="isGroupShown(item)">
-                            {{item.content}}
-                        </ion-item>
-                        <ion-item ng-if="item.id == 2" class="item-accordion ok-background-white ok-padding-0"
-                                  ng-show="isGroupShown(item)">
-                            <div class="row ok-properties-menu ok-properties-currencies ok-padding-0">
-                                <div ng-repeat="cur in item.currencies" class="col col-50 text-center">
-                                    <span class="ok-text ok-color-orange">{{cur.name}}</span>
-                                </div>
-                            </div>
-                            <div class="row ok-margin-top-5 ok-padding-0">
-                                <input type="text" id="price_range" name="price_range" value="" />
-                            </div>
-                        </ion-item>
+                <div class="row"></div>
+                <div class="row">
+                  <button ng-disabled="!priceForm.valMin.$valid || !priceForm.valMax.$valid"
+                          type="submit" class="button button-positive">
+                    Aplicar
+                  </button>
+                </div>
+              </form>
+            </ion-item>
+            <ion-item class="item-stable ok-background-white"
+                      ng-click="toggleGroup('sup')"
+                      ng-class="{active: isGroupShown('sup')}">
+              <i class="icon"
+                 ng-class="isGroupShown('sup') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Superficie</span>
+            </ion-item>
+            <ion-item class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('sup')">
+              <form ng-submit="apply('sup',supMin,supMax)" name="supForm" novalidate>
+                <div class="row">
+                  <input name="supMin" ng-model="supMin" type="number" class="col"
+                         placeholder="M2 Min."
+                         ng-max="supMax"
+                         ng-min="0">
+                  <span class="col-10 text-center"> - </span>
+                  <input name="supMax" ng-model="supMax" type="number" class="col"
+                         placeholder="M2 Max."
+                         ng-min="supMin || 0">
+                </div>
+                <div class="row">
+                  <h3 class="ok-price-text" ng-if="appliedFilters['sup'] && appliedFilters['sup'].length">
+                    <a ng-click="addFilter('sup',appliedFilters['sup'],true)">
+                      <span ng-if="appliedFilters['sup'][0].value">{{appliedFilters['sup'][0].value}}</span>
+                      <span ng-if="!appliedFilters['sup'][0].value">0</span>
+                      <span> - </span>
+                      <span ng-if="appliedFilters['sup'][1].value">{{appliedFilters['sup'][1].value}}</span>
+                      <span ng-if="!appliedFilters['sup'][1].value">Max</span>
+                      <span> <i class="icon ion-close-circled"></i></span>
+                    </a>
+                  </h3>
+                </div>
+                <div class="row">
+                  <p class="responseError" ng-show="!supForm.supMin.$valid || !supForm.supMax.$valid">
+                    Superficies incorrectas
+                  </p>
+                </div>
+                <div class="row">
+                  <button ng-disabled="!supForm.supMin.$valid || !supForm.supMax.$valid"
+                          type="submit" class="button button-positive">
+                    Aplicar
+                  </button>
+                </div>
+              </form>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.coch) > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('coch')"
+                      ng-class="{active: isGroupShown('coch')}">
+              <i class="icon"
+                 ng-class="isGroupShown('coch') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Cocheras</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.coch) > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('coch')">
+              <p class="ok-filter-text" ng-repeat="(key, value) in filters.coch track by $index">
+                <a ng-click="addFilter('coch',key,appliedFilters.coch.indexOf(key) != -1)"
+                   ng-class="{'ok-applied-filter' : appliedFilters.coch.indexOf(key) != -1}">
+                  <span class="nombre">{{key}}</span> <span
+                  class="cantidad">
+                  ({{value}}) <i ng-if="appliedFilters.coch.indexOf(key) != -1" class="icon ion-checkmark-round"></i>
+                </span>
+                </a>
+              </p>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.banos) > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('banos')"
+                      ng-class="{active: isGroupShown('banos')}">
+              <i class="icon"
+                 ng-class="isGroupShown('banos') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Baños</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.banos) > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('banos')">
+              <p class="ok-filter-text" ng-repeat="(key, value) in filters.banos track by $index">
+                <a ng-click="addFilter('banos',key,appliedFilters.banos.indexOf(key) != -1)"
+                   ng-class="{'ok-applied-filter' : appliedFilters.banos.indexOf(key) != -1}">
+                  <span class="nombre">{{key}}</span> <span
+                  class="cantidad">
+                  ({{value}}) <i ng-if="appliedFilters.banos.indexOf(key) != -1" class="icon ion-checkmark-round"></i>
+                </span>
+                </a>
+              </p>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.ant) > 1"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('ant')"
+                      ng-class="{active: isGroupShown('ant')}">
+              <i class="icon"
+                 ng-class="isGroupShown('ant') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Antiguedad</span>
+            </ion-item>
+            <ion-item ng-if="getObjectSize(filters.ant) > 1"
+                      class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('ant')">
+              <p class="ok-filter-text" ng-repeat="(key, value) in filters.ant track by $index">
+                <a ng-click="addFilter('ant',key,appliedFilters.ant.indexOf(key) != -1)"
+                   ng-class="{'ok-applied-filter' : appliedFilters.ant.indexOf(key) != -1}">
+                  <span class="nombre">{{key}}</span> <span
+                  class="cantidad">
+                  ({{value}}) <i ng-if="appliedFilters.ant.indexOf(key) != -1" class="icon ion-checkmark-round"></i>
+                </span>
+                </a>
+              </p>
+            </ion-item>
+            <!--<ion-item ng-if="item.id == 2" class="item-accordion ok-background-white ok-padding-0"
+                      ng-show="isGroupShown(item)">
+                <div class="row ok-properties-menu ok-properties-currencies ok-padding-0">
+                    <div ng-repeat="cur in item.currencies" class="col col-50 text-center">
+                        <span class="ok-text ok-color-orange">{{cur.name}}</span>
                     </div>
-                </ion-list>
-            </div>
-        </ion-content>
-    </ion-side-menu>
-    <!--Contenido-->
-    <ion-side-menu-content>
-        <ion-nav-bar class="bar-stable ok-header-bar">
-            <ion-nav-back-button></ion-nav-back-button>
-            <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-                </button>
-            </ion-nav-buttons>
-        </ion-nav-bar>
+                </div>
+                <div class="row ok-margin-top-5 ok-padding-0">
+                    <input type="text" id="price_range" name="price_range" value="" />
+                </div>
+            </ion-item>-->
+          </div>
+        </ion-list>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+  <!--Contenido-->
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable ok-header-bar">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
 
-        <ion-nav-view name="appContent" class="appContent"><!-- APP CONTENT --></ion-nav-view>
+    <ion-nav-view name="appContent" class="appContent"><!-- APP CONTENT --></ion-nav-view>
 
-    </ion-side-menu-content>
+  </ion-side-menu-content>
 </ion-side-menus>
 

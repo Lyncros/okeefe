@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Tipo de Inmueble</h1>
+    <button class="button button-clear button-primary" ng-click="propertyModal.hide()">Cancelar</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="row ok-margin-top-10 ok-border-bottom padding">
+      <div class="col col-20">
+        <img ng-click="selectProperty('17,16,6')" class="full-image" src="img/ICONOS/rural.svg" alt="">
+      </div>
+      <div class="col">
+        <a ng-click="selectProperty('17,16,6',true)"><h3 class="ok-color-green">Rural</h3></a>
+        <a class="ok-color-orange" ng-click="selectProperty('16',true)">Chacras</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('6',true)">Campos</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('17',true)">Quintas</a>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>

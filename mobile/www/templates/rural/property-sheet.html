@@ -1,132 +1,243 @@
 <ion-view>
-    <ion-nav-title>
-        <img src="img/logoRural.png" class="ok-logo-img"/>
-    </ion-nav-title>
-    <ion-content>
-        <div class="row padding">
-            <h4 class="ok-color-green">2 ambientes con extraordinarias vistas y luminosidad</h4>
+  <ion-nav-title>
+    <img src="img/logoRural.png" class="ok-logo-img"/>
+  </ion-nav-title>
+  <ion-content>
+    <div class="row padding">
+      <h4 ng-if="property.titulo[0]" class="ok-color-green">{{property.titulo[0].contenido}}</h4>
+      <h4 ng-if="!property.titulo[0]" class="ok-color-green">PROPIEDAD EN {{property.ubicacion.nombre_ubicacion}}</h4>
+    </div>
+    <ion-slides ng-if="property.foto.length" options="sliderOptions" class="ok-ps-slider" slider="initSlider">
+      <ion-slide-page ng-if="img.foto" ng-repeat="img in property.foto">
+        <div class="box">
+          <img ng-src="http://{{img.foto}}" alt="{{img.id_foto}}" title="Imagen de Propiedad" style="width: 100%"/>
         </div>
-        <ion-slide-box does-continue="true" auto-play="true">
-            <ion-slide>
-                <div class="box"><img src="img/propRural.png" style="width: 100%"/></div>
-            </ion-slide>
-            <ion-slide>
-                <div class="box"><img src="img/propRural.png" style="width: 100%"/></div>
-            </ion-slide>
-        </ion-slide-box>
-        <div class="row property-sheet-info ok-padding-top-0">
-            <div class="col col-33 ok-ps-text ok-color-green">Conslte</div>
-            <div class="col col-33 col-offset-10 ok-ps-text">ID 85934</div>
-            <div class="col">
+      </ion-slide-page>
+    </ion-slides>
+    <div class="row property-sheet-info ok-padding-top-0">
+      <div class="col col-33 ok-ps-text ok-color-green">{{property.valor[0].contenido | currency:$:0}}</div>
+      <div class="col col-33 col-offset-10 ok-ps-text">ID {{property.id_prop}}</div>
+      <div class="col">
                 <span class="icon-stack">
                  <i class="ion-ios-circle-outline icon-stack-back ok-color-grey"></i>
                  <i class="ion-android-favorite icon-stack-ico ok-color-orange"></i>
                 </span>
-            </div>
-            <div class="col">
+      </div>
+      <div class="col">
                 <span class="icon-stack">
                  <i class="ion-ios-circle-outline icon-stack-back ok-color-grey"></i>
                  <i class="ion-android-share-alt icon-stack-ico ok-color-green"></i>
                 </span>
-            </div>
+      </div>
+    </div>
+    <div class="row property-sheet-info2 ok-padding-0">
+      <div ng-if="property.ambientes.length" class="col col-40 ok-padding-0">
+        <div class="card ok-margin-0 ">
+          <div class="item item-icon-left">
+            <img class="icon" ng-src="img/ambientes.svg">
+            {{property.ambientes.length}}
+          </div>
         </div>
-        <div class="row property-sheet-info2 ok-padding-0">
-            <div class="col col-40 ok-padding-0">
-                <div class="card ok-margin-0 ">
-                    <div class="item item-icon-left">
-                        <img class="icon" ng-src="img/m2.svg">
-                        140 Has
-                    </div>
+      </div>
+      <div ng-if="property.sup_total[0]" class="col ok-padding-0">
+        <div class="card ok-margin-0 ">
+          <div class="item item-icon-left ">
+            <img class="icon" ng-src="img/m2.svg">
+            {{property.sup_total[0].contenido}} HAS
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-list class="ok-property-sheet-list">
+          <div class="ok-list-content">
+            <ion-item class="item-stable ok-background-white"
+                      ng-click="toggleGroup('des')"
+                      ng-class="{active: isGroupShown('des'),'ok-border-bottom':!isGroupShown('des')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('des') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Ficha Técnica</span>
+            </ion-item>
+            <ion-item class="item-accordion ok-background-grey padding" ng-show="isGroupShown('des')"
+                      ng-class="{'ok-border-bottom':isGroupShown('des')}">
+              <h3 ng-if="property.ubica[0].valor">Dirección</h3>
+              <p ng-if="property.ubica[0].valor">{{property.ubica[0].valor}}</p>
+              <h3 ng-if="property.ubica[0]">Ubicación</h3>
+              <p ng-if="property.ubica[0]">{{property.ubica[0].subzona}}</p>
+              <h3 ng-if="property.subzona">Tipo</h3>
+              <p ng-if="property.subzona">{{property.subzona}}</p>
+              <h3 ng-if="property.estado[0]">Estado</h3>
+              <p ng-if="property.estado[0]">{{property.estado[0].contenido}}</p>
+              <h3 ng-if="property.descripcion || property.desc[0]">Descripción</h3>
+              <p ng-if="property.descripcion || property.desc[0]">{{property.descripcion ||
+                property.desc[0].contenido}}</p>
+            </ion-item>
+            <ion-item ng-if="property.video" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('vid')"
+                      ng-class="{active: isGroupShown('vid'),'ok-border-bottom':!isGroupShown('vid')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('vid') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Video</span>
+            </ion-item>
+            <ion-item ng-if="property.video" class="item-accordion ok-background-grey ok-padding-0"
+                      ng-show="isGroupShown('vid')"
+                      ng-class="{'ok-border-bottom':isGroupShown('vid')}">
+              <div class="video-container">
+                <iframe src="{{trustSrc(property.video)}}" frameborder="0" width="560"
+                        height="320"></iframe>
+              </div>
+            </ion-item>
+            <ion-item ng-if="map.markers.length" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('map')"
+                      ng-class="{active: isGroupShown('map'),'ok-border-bottom':!isGroupShown('map')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('map') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Mapa</span>
+            </ion-item>
+            <ion-item ng-if="map.markers.length" class="item-accordion ok-background-grey ok-padding-0"
+                      ng-show="isGroupShown('map')"
+                      ng-class="{'ok-border-bottom':isGroupShown('map')}">
+              <div class="row">
+                <div class="col ok-map-container ok-padding-0">
+                  <ui-gmap-google-map ng-cloak control="control" center="map.center" zoom="map.zoom"
+                                      options="options">
+                    <ui-gmap-marker ng-repeat="marker in map.markers"
+                                    idkey="marker.id"
+                                    coords="marker.coords">
+                    </ui-gmap-marker>
+                  </ui-gmap-google-map>
                 </div>
-            </div>
-            <div class="col ok-padding-0">
-                <div class="card ok-margin-0 ">
-                    <div class="item item-icon-left ">
-                        <img class="icon" ng-src="img/ambientes.svg">
-                        Mixto
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <ion-list class="ok-property-sheet-list">
-                    <div class="ok-list-content" ng-repeat="item in list">
-                        <ion-item class="item-stable ok-background-white"
-                                  ng-click="toggleGroup(item)"
-                                  ng-class="{active: isGroupShown(item)}">
-                            <i class="icon ok-color-orange" ng-class="isGroupShown(item) ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
-                            &nbsp;
-                            <span class="ok-color-green">{{item.name}}</span>
-                        </ion-item>
-                        <ion-item ng-if="item.id == 1" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
-                                  ng-show="isGroupShown(item)">
-                            <div ng-bind-html="item.data"></div>
-                        </ion-item>
-                        <ion-item ng-if="item.id == 2" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
-                                  ng-show="isGroupShown(item)">
-                            <div class="video-container"><iframe src="{{trustSrc(item.src)}}" frameborder="0" width="{{item.width}}" height="{{item.height}}"></iframe></div>
-                        </ion-item>
-                        <ion-item ng-if="item.id == 3" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
-                                  ng-show="isGroupShown(item)">
-                            <div class="row">
-                                <div class="col ok-map-container ok-padding-0">
-                                    <ui-gmap-google-map ng-cloak control="control" center="item.map.center" zoom="item.map.zoom" options="item.options">
-                                        <ui-gmap-marker ng-repeat="marker in item.map.markers"
-                                                        idkey="marker.id"
-                                                        coords="marker.coords">
-                                        </ui-gmap-marker>
-                                    </ui-gmap-google-map>
-                                </div>
-                            </div>
-                        </ion-item>
-                        <ion-item ng-if="item.id == 4" class="item-accordion ok-background-grey" ng-class="(item.padding) ? 'padding' : 'ok-padding-0'"
-                                  ng-show="isGroupShown(item)">
-                            <ion-slide-box does-continue="true" auto-play="true" show-pager="false">
-                                <ion-slide>
-                                    <div class="box"><img src="img/slide1.jpg" style="width: 100%"/></div>
-                                </ion-slide>
-                                <ion-slide>
-                                    <div class="box"><img src="img/slide2.jpg" style="width: 100%"/></div>
-                                </ion-slide>
-                            </ion-slide-box>
-                        </ion-item>
-                    </div>
-                </ion-list>
-            </div>
-        </div>
-        <div class="row ok-property-sheet-form-title">
-            <h3 class="ok-color-green">¿QUERÉS SABER MÁS?</h3>
-        </div>
-        <div class="list list-inset ok-margin-top-0">
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Nombre">
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Apellido">
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Teléfono">
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Celular">
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Email">
-            </label>
-            <label class="item item-input ok-form-input">
-                <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
-            </label>
-            <button class="button button-block button-positive ok-form-button">
-                CONSULTAR
-            </button>
-        </div>
-        <div class="row ok-footer-rural">
-            <div class="col ok-img-list">
-                <img src="img/facebook_r.png">
-                <img src="img/linkedin_r.png">
-                <img src="img/youtube_r.png">
-            </div>
-        </div>
-    </ion-content>
+              </div>
+            </ion-item>
+            <ion-item ng-if="property.plano1 || property.plano2 || property.plano3"
+                      class="item-stable ok-background-white"
+                      ng-click="toggleGroup('plan')"
+                      ng-class="{active: isGroupShown('plan'),'ok-border-bottom':!isGroupShown('plan')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('plan') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Planos</span>
+            </ion-item>
+            <ion-item ng-if="property.plano1 || property.plano2 || property.plano3"
+                      class="item-accordion ok-background-grey ok-padding-0"
+                      ng-show="isGroupShown('plan')"
+                      ng-class="{'ok-border-bottom':isGroupShown('plan')}">
+              <ion-slide-box does-continue="true" auto-play="true" show-pager="false">
+                <ion-slide ng-if="property.plano1">
+                  <div class="box"><img ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano1}}"
+                                        style="width: 100%"/></div>
+                </ion-slide>
+                <ion-slide ng-if="property.plano2">
+                  <div class="box"><img ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano2}}"
+                                        style="width: 100%"/></div>
+                </ion-slide>
+                <ion-slide ng-if="property.plano3">
+                  <div class="box"><img ng-src="http://abm.okeefe.com.ar/fotos/{{property.plano3}}"
+                                        style="width: 100%"/></div>
+                </ion-slide>
+              </ion-slide-box>
+            </ion-item>
+            <ion-item ng-if="property.resumen" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('res')"
+                      ng-class="{active: isGroupShown('res'),'ok-border-bottom':!isGroupShown('res')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('res') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Video</span>
+            </ion-item>
+            <ion-item ng-if="property.resumen" class="item-accordion ok-background-grey ok-padding-0"
+                      ng-show="isGroupShown('res')"
+                      ng-class="{'ok-border-bottom':isGroupShown('res')}">
+              <div class="video-container">
+                {{property.resumen}}
+              </div>
+            </ion-item>
+            <ion-item ng-if="property.caracteristicas.length" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('car')"
+                      ng-class="{active: isGroupShown('car'),'ok-border-bottom':!isGroupShown('car')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('car') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Características</span>
+            </ion-item>
+            <ion-item ng-if="property.caracteristicas.length" class="item-accordion ok-background-grey padding"
+                      ng-show="isGroupShown('car')"
+                      ng-class="{'ok-border-bottom':isGroupShown('car')}">
+              <p ng-repeat="char in property.caracteristicas">
+                {{char.caracteristica.titulo}}
+                <strong>
+                  {{char.contenido}}
+                </strong>
+              </p>
+            </ion-item>
+            <ion-item ng-if="property.ambientes.length" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('amb')"
+                      ng-class="{active: isGroupShown('amb'),'ok-border-bottom':!isGroupShown('amb')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('amb') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Ambientes</span>
+            </ion-item>
+            <ion-item ng-if="property.ambientes.length" class="item-accordion ok-background-grey padding"
+                      ng-show="isGroupShown('amb')"
+                      ng-class="{'ok-border-bottom':isGroupShown('amb')}">
+              <p ng-repeat="char in property.ambientes">
+                {{char.caracteristica.titulo}}
+                <strong>
+                  {{char.contenido}}
+                </strong>
+              </p>
+            </ion-item>
+            <ion-item ng-if="property.servicios.length" class="item-stable ok-background-white"
+                      ng-click="toggleGroup('ser')"
+                      ng-class="{active: isGroupShown('ser'),'ok-border-bottom':!isGroupShown('ser')}">
+              <i class="icon ok-color-orange"
+                 ng-class="isGroupShown('ser') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Servicios</span>
+            </ion-item>
+            <ion-item ng-if="property.servicios.length" class="item-accordion ok-background-grey padding"
+                      ng-show="isGroupShown('ser')"
+                      ng-class="{'ok-border-bottom':isGroupShown('ser')}">
+              <p ng-repeat="char in property.servicios">
+                {{char.caracteristica.titulo}}
+                <strong>
+                  {{char.contenido}}
+                </strong>
+              </p>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    <div class="row ok-property-sheet-form-title">
+      <h3 class="ok-color-green">¿QUERÉS SABER MÁS?</h3>
+    </div>
+    <div class="list list-inset ok-margin-top-0">
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Nombre">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Apellido">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Teléfono">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Celular">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Email">
+      </label>
+      <label class="item item-input ok-form-input">
+        <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
+      </label>
+      <button class="button button-block button-positive ok-form-button">
+        CONSULTAR
+      </button>
+    </div>
+    <div class="row ok-footer">
+      <div class="col ok-img-list">
+        <img src="img/FACEBOOK.svg">
+        <img src="img/LINKEDIN.svg">
+        <img src="img/YOUTUBE.svg">
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

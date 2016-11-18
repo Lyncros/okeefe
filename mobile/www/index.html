@@ -6,6 +6,7 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ion-autocomplete/dist/ion-autocomplete.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -35,7 +36,7 @@
   <script src="lib/ionic/js/ionic.bundle.js"></script>
   <script src="lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
   <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
-
+  <script src="lib/ion-autocomplete/dist/ion-autocomplete.js"></script>
   <script src="lib/satellizer/dist/satellizer.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
@@ -46,8 +47,12 @@
     }
   </script>
   <script src="js/app.js"></script>
+  <script src="js/constants/configConstants.js"></script>
+  <script src="js/directives/customDirectives.js"></script>
   <script src="js/services/entitiesService.js"></script>
+  <script src="js/services/okeefeApiService.js"></script>
   <script src="js/services/userService.js"></script>
+  <script src="js/services/searchApiService.js"></script>
   <script src="js/services/defaultFactory.js"></script>
   <script src="js/services/dictionaryFactory.js"></script>
   <script src="js/controllers/homeController.js"></script>

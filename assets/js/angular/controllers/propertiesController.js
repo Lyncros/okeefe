@@ -552,7 +552,7 @@
                         resetChildUbic(filter.value.key);
                     }
                     return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
-                };
+                }   ;
 
                 function deleteChildByVal(val) {
                     for (var key in $scope.appliedFilterslist) {
@@ -590,9 +590,7 @@
 
                 $scope.doFav = function (id) {
                     if ($scope.isLogged) {
-
                         var button = angular.element(".prop-" + id);
-
                         if (button.hasClass('btn-gris-claro-2')) {
                             button.removeClass('btn-gris-claro-2');
                             button.addClass('btn-gris-claro');

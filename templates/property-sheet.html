@@ -334,12 +334,12 @@
 
 <div class="tabla-info-prop">
     <div class="row">
-        <div ng-if="property.ambientes.length" class="col-lg-4 col-md-8 columna padding-0">
+        <div ng-if="property.ambientes.length" class="col-lg-5 col-md-8 columna padding-0">
             <span class="th">Caracteristicas</span>
             <div ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 16"
                  class='col-lg-12 td'>
                 <div class='col-lg-5 padding-left-0' style="float: left">{{char.caracteristica.titulo}}</div>
-                <div class="col-lg-7 text-right padding-0"
+                <div class="col-lg-7 padding-0 text-right"
                      ng-if="char.contenido != 'on' && char.contenido != 'Si' && char.contenido != 'si'"
                      style="float: left"><strong>{{char.contenido}}</strong>
                 </div>
@@ -349,7 +349,7 @@
             <div ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 9"
                  class='col-lg-12 td'>
                 <div class='col-lg-5 padding-left-0' style="float: left">{{char.caracteristica.titulo}}</div>
-                <div class="col-lg-7 text-right padding-0"
+                <div class="col-lg-7 padding-0 text-right"
                      ng-if="char.contenido != 'on' && char.contenido != 'Si' && char.contenido != 'si'"
                      style="float: left"><strong>{{char.contenido}}</strong>
                 </div>
@@ -357,12 +357,12 @@
                    class="fa fa-check pull-right color-orange"></i>
             </div>
         </div>
-        <div ng-if="property.servicios.length" class="col-lg-3 col-md-4 columna padding-0">
+        <div ng-if="property.servicios.length" class="col-lg-2 col-md-4 columna padding-0">
             <span class="th">Servicios</span>
             <div ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 23"
                  class='col-lg-12 td'>
-                <div class='col-lg-8 padding-0' style="float: left">{{char.caracteristica.titulo}}</div>
-                <div class="col-lg-4 text-right padding-0"
+                <div class='col-lg-10 padding-0' style="float: left">{{char.caracteristica.titulo}}</div>
+                <div class="col-lg-2 text-right"
                      ng-if="char.contenido != 'on' && char.contenido != 'Si' && char.contenido != 'si'"
                      style="float: left"><strong>{{char.contenido}}</strong>
                 </div>
@@ -374,8 +374,8 @@
             <span class="th">Amenities</span>
             <div ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 20"
                  class='col-lg-12 td'>
-                <div class='col-lg-8 padding-0' style="float: left">{{char.caracteristica.titulo}}</div>
-                <div class="col-lg-4 text-right padding-0"
+                <div class='col-lg-10 padding-0' style="float: left">{{char.caracteristica.titulo}}</div>
+                <div class="col-lg-2 text-right"
                      ng-if="char.contenido != 'on' && char.contenido != 'Si' && char.contenido != 'si'"
                      style="float: left"><strong>{{char.contenido}}</strong>
                 </div>
@@ -388,7 +388,7 @@
             <div ng-repeat="char in property.propiedad_caracteristicas" ng-if="char.caracteristica.id_tipo_carac == 19"
                  class='col-lg-12 td'>
                 <div class='col-lg-6 padding-left-0' style="float: left">{{char.caracteristica.titulo}}</div>
-                <div class="col-lg-6 text-right padding-0"
+                <div class="col-lg-6 padding-0 text-right"
                      ng-if="char.contenido != 'on' && char.contenido != 'Si' && char.contenido != 'si'"
                      style="float: left"><strong>{{char.contenido}}</strong>
                 </div>

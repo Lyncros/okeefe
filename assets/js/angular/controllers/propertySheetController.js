@@ -110,7 +110,7 @@
 
                 function checkPl(property) {
                     if((property.plano1 && property.plano2) || (property.plano1 && property.plano3)
-                        || (property.plano3 && property.plano2)){
+                    || (property.plano3 && property.plano2)){
                         $scope.showPl = true;
                     }
                 }

@@ -1,64 +1,59 @@
 <ion-modal-view>
-    <ion-header-bar class="bar bar-header bar-positive">
-        <h1 class="title">Tipo de Inmueble</h1>
-        <button class="button button-clear button-primary" ng-click="propertyModal.hide()">Cancel</button>
-    </ion-header-bar>
-    <ion-content class="padding">
-        <div class="row ok-margin-top-10 ok-border-bottom padding">
-            <div class="col col-20">
-                <img ng-click="selectProperty('Residencial')" class="full-image" src="img/grey.png" alt="">
-            </div>
-            <div class="col">
-                <a ng-click="selectProperty('Residencial')"><h3  class="ok-color-green">Residencial</h3></a>
-                <a class="ok-color-orange" ng-click="selectProperty('Casas')">Casas</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Departamentos')">Departamentos</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Lotes')">Lotes</a>
-            </div>
-        </div>
-        <div class="row ok-margin-top-10 ok-border-bottom padding">
-            <div class="col col-20">
-                <img ng-click="selectProperty('Residencial')" class="full-image" src="img/grey.png" alt="">
-            </div>
-            <div class="col">
-                <a ng-click="selectProperty('Residencial')"><h3  class="ok-color-green">Rural</h3></a>
-                <a class="ok-color-orange" ng-click="selectProperty('Casas')">Estaciones</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Departamentos')">Campos</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Lotes')">Lotes</a>
-            </div>
-        </div>
-        <div class="row ok-margin-top-10 ok-border-bottom padding">
-            <div class="col col-20">
-                <img ng-click="selectProperty('Residencial')" class="full-image" src="img/grey.png" alt="">
-            </div>
-            <div class="col">
-                <a ng-click="selectProperty('Residencial')"><h3  class="ok-color-green">Inversiones</h3></a>
-                <a class="ok-color-orange" ng-click="selectProperty('Casas')">Countries</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Departamentos')">Barrios</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Lotes')">Edificios</a>
-            </div>
-        </div>
-        <div class="row ok-margin-top-10 ok-border-bottom padding">
-            <div class="col col-20">
-                <img ng-click="selectProperty('Residencial')" class="full-image" src="img/grey.png" alt="">
-            </div>
-            <div class="col">
-                <a ng-click="selectProperty('Residencial')"><h3  class="ok-color-green">Industrial</h3></a>
-                <a class="ok-color-orange" ng-click="selectProperty('Casas')">Casas</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Departamentos')">Departamentos</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Lotes')">Lotes</a>
-            </div>
-        </div>
-        <div class="row ok-margin-top-10 ok-border-bottom padding">
-            <div class="col col-20">
-                <img ng-click="selectProperty('Residencial')" class="full-image" src="img/grey.png" alt="">
-            </div>
-            <div class="col">
-                <a ng-click="selectProperty('Residencial')"><h3  class="ok-color-green">Comercial</h3></a>
-                <a class="ok-color-orange" ng-click="selectProperty('Casas')">Casas</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Departamentos')">Departamentos</a>,
-                <a class="ok-color-orange" ng-click="selectProperty('Lotes')">Lotes</a>
-            </div>
-        </div>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Tipo de Inmueble</h1>
+    <button class="button button-clear button-primary" ng-click="propertyModal.hide()">Cancelar</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="row ok-margin-top-10 ok-border-bottom padding">
+      <div class="col col-20">
+        <img ng-click="selectProperty('9,1,7,17')"  class="full-image" src="img/ICONOS/residencial.svg" alt="">
+      </div>
+      <div class="col">
+        <a ng-click="selectProperty('9,1,7,17')"><h3 class="ok-color-green">Residencial</h3></a>
+        <a class="ok-color-orange" ng-click="selectProperty('9')">Casas</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('1')">Departamentos</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('7')">Lotes</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('17')">Quintas</a>
+      </div>
+    </div>
+    <!--<div class="row ok-margin-top-10 ok-border-bottom padding">
+      <div class="col col-20">
+        <img ng-click="selectProperty('9,1,7,17')" class="full-image" src="img/ICONOS/rural.svg" alt="">
+      </div>
+      <div class="col">
+        <a ng-click="selectProperty('7,17,22,16,15,6',true)"><h3 class="ok-color-green">Rural</h3></a>
+        <a class="ok-color-orange" ng-click="selectProperty('7',true)">Lotes</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('17',true)">Quintas</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('22',true)">Estancias</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('16',true)">Chacras</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('15',true)">Galpones</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('6',true)">Campos</a>
+      </div>
+    </div>-->
+    <div class="row ok-margin-top-10 ok-border-bottom padding">
+      <div class="col col-20">
+        <img ng-click="selectProperty('19')" class="full-image" src="img/ICONOS/indus.svg" alt="">
+      </div>
+      <div class="col">
+        <a ng-click="selectProperty('19')"><h3 class="ok-color-green">Industrial</h3></a>
+        <a class="ok-color-orange" ng-click="selectProperty('19')">Industrial</a>
+        <a class="ok-color-orange" ng-click="selectProperty('15')">Galpones</a>
+      </div>
+    </div>
+    <div class="row ok-margin-top-10 ok-border-bottom padding">
+      <div class="col col-20">
+        <img ng-click="selectProperty('7,19,2,11,15,18')" class="full-image" src="img/ICONOS/comercial.svg" alt="">
+      </div>
+      <div class="col">
+        <a ng-click="selectProperty('7,19,2,11,15,18')"><h3 class="ok-color-green">Comercial</h3></a>
+        <a class="ok-color-orange" ng-click="selectProperty('7')">Lotes</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('19')">Industrial</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('2')">Locales</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('11')">Oficinas</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('15')">Galpones</a>,
+        <a class="ok-color-orange" ng-click="selectProperty('18')">Cocheras</a>
+      </div>
+    </div>
 
-    </ion-content>
+  </ion-content>
 </ion-modal-view>

@@ -31,7 +31,7 @@
                     $scope.searchRuralParam = {
                         zona: '',
                         oper: 'Compra',
-                        property: 'Lotes',
+                        property: 'Todos',
                         tipo: '7',
                         error: false
                     };

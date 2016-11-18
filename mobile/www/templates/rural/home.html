@@ -1,69 +1,82 @@
 <ion-view>
-    <ion-nav-title>
-        <img ui-sref="rural.home" src="img/logoRural.png" class="ok-logo-img"/>
-    </ion-nav-title>
-    <ion-content>
-        <ion-slide-box does-continue="true" auto-play="true">
-            <ion-slide>
-                <div class="box"><img src="img/slide1.jpg" style="width: 100%"/></div>
-            </ion-slide>
-            <ion-slide>
-                <div class="box"><img src="img/slide2.jpg" style="width: 100%"/></div>
-            </ion-slide>
-        </ion-slide-box>
-        <div class="list list-inset ok-home-search">
-            <label class="item item-input ok-form-input" ng-click="operationModal.show()">
-                <input value="{{operation}}" type="text" disabled placeholder="Tipo de Operación">
-                <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
-            </label>
-            <label class="item item-input ok-form-input" ng-click="propertyModal.show()">
-                <input value="{{property}}" type="text" disabled placeholder="Tipo de Inmueble">
-                <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
-            </label>
-            <label class="item item-input ok-form-input">
-                <input type="text" placeholder="Zona | Emprendimiento">
-            </label>
-            <ion-toggle toggle-class="toggle-balanced">Emprendimiento</ion-toggle>
-            <button ui-sref="rural.properties" menu-close class="button button-block button-positive ok-form-button">
-                Buscar
-            </button>
+  <ion-nav-title>
+    <img ui-sref="rural.home" src="img/logoRural.png" class="ok-logo-img"/>
+  </ion-nav-title>
+  <ion-content>
+    <ion-slide-box does-continue="true" auto-play="true">
+      <ion-slide>
+        <div class="box"><img src="img/slides/01-RURAL_01.jpg" style="width: 100%"/></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box"><img src="img/slides/02-RURAL_02.jpg" style="width: 100%"/></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box"><img src="img/slides/03-RURAL_03.jpg" style="width: 100%"/></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box"><img src="img/slides/04-RURAL_04.jpg" style="width: 100%"/></div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="list list-inset ok-home-search">
+      <label class="item item-input ok-form-input" ng-click="operationModal.show()">
+        <input value="{{searchParam.oper}}" type="text" disabled placeholder="Tipo de Operación">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
+      </label>
+      <label class="item item-input ok-form-input" ng-click="propertyModal.show()">
+        <input value="{{searchParam.property}}" type="text" disabled placeholder="Tipo de Inmueble">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
+      </label>
+      <label class="item item-input ok-form-input">
+        <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off"
+               ng-model="$parent.loc"
+               item-value-key="name"
+               item-view-value-key="view"
+               items-method="getLocation(query)"
+               items-method-value-key="items"
+               placeholder="Ingrese la ubicación"
+               items-clicked-method="selectedZone(callback)"
+               max-selected-items="1"/>
+      </label>
+      <button ng-click="searchProp()" menu-close class="button button-block button-positive ok-form-button">
+        Buscar
+      </button>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">MÁS DE 40 AÑOS DE</h4>
+        <h4 class="text-center ok-color-green">ESFUERZO, VISIÓN Y DIVERSIDAD</h4>
+        <h4 class="text-center ok-color-green">EN LA INDUSTRIA</h4>
+        <h4 class="text-center ok-color-green">INMOBILIARIA ARGENTINA</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="text-center">La inmobiliaria O´Keefe, como uno de los principales referentes de la industria
+          inmobiliaria de la zona sur, sigue creciendo día a día, apostando a locaciones que se ajusten a las
+          nuevas formas de vida y que al mismo tiempo innoven y cumplan con los requisitos del mercado y en
+          especial de nuestros clientes.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">POR QUÉ VENDER</h4>
+        <h4 class="text-center ok-color-green">CON NOSOTROS</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="video-container">
+          <iframe src="http://www.youtube.com/embed/dFVxGRekRSg" frameborder="0" width="560"
+                  height="315"></iframe>
         </div>
-        <div class="row">
-            <div class="col">
-                <h4 class="text-center ok-color-green">MÁS DE 40 AÑOS DE</h4>
-                <h4 class="text-center ok-color-green">ESFUERZO, VISIÓN Y DIVERSIDAD</h4>
-                <h4 class="text-center ok-color-green">EN LA INDUSTRIA</h4>
-                <h4 class="text-center ok-color-green">INMOBILIARIA ARGENTINA</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p class="text-center">La inmobiliaria O´Keefe, como uno de los principales referentes de la industria
-                    inmobiliaria de la zona sur, sigue creciendo día a día, apostando a locaciones que se ajusten a las
-                    nuevas formas de vida y que al mismo tiempo innoven y cumplan con los requisitos del mercado y en
-                    especial de nuestros clientes.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h4 class="text-center ok-color-green">POR QUÉ VENDER</h4>
-                <h4 class="text-center ok-color-green">CON NOSOTROS</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="video-container">
-                    <iframe src="http://www.youtube.com/embed/dFVxGRekRSg" frameborder="0" width="560"
-                            height="315"></iframe>
-                </div>
-            </div>
-        </div>
-        <div class="row ok-footer-rural">
-            <div class="col ok-img-list">
-                <img src="img/facebook_r.png">
-                <img src="img/linkedin_r.png">
-                <img src="img/youtube_r.png">
-            </div>
-        </div>
-    </ion-content>
+      </div>
+    </div>
+    <div class="row ok-footer-rural">
+      <div class="col ok-img-list">
+        <img src="img/facebook_r.png">
+        <img src="img/linkedin_r.png">
+        <img src="img/youtube_r.png">
+      </div>
+    </div>
+  </ion-content>
 </ion-view>
