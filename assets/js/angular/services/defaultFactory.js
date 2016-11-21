@@ -300,7 +300,7 @@
                     name: "EDUARDO O'KEEFE",
                     job: "DIRECTOR ESTRATÉGICO",
                     desc: "Martillero y Corredor Público. Administración y venta de campos y  hacienda desde 1974. Brooker y asesor en manejo de grandes terrenos para emprendimientos.",
-                    img: "eduardo.jpg",
+                    img: "EDUARDO-TASACIONES.jpg",
                     email: 'eduardo@okeefe.com.ar'
                 },
                 {

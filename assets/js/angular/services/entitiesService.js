@@ -62,21 +62,21 @@
              * Carousel One by one initialization
              * @param target
              */
-            /*this.carouselByOne = function (target, id) {
-             $(id).carousel({interval: 2000});
-             /!*$(target).each(function () {
-             var itemToClone = $(this);
-             for (var i = 1; i < 3; i++) {
-             itemToClone = itemToClone.next();
-             // wrap around if at end of item collection
-             if (!itemToClone.length) {
-             itemToClone = $(this).siblings(':first');
-             }
-             // grab item, clone, add marker class, add to collection
-             itemToClone.children(':first-child').clone().addClass("cloneditem-" + (i)).appendTo($(this));
-             }
-             });*!/
-             };*/
+            this.carouselByOne = function (target, id) {
+                $(id).carousel({interval: 2000});
+                $(target).each(function () {
+                    var itemToClone = $(this);
+                    for (var i = 1; i < 3; i++) {
+                        itemToClone = itemToClone.next();
+                        // wrap around if at end of item collection
+                        if (!itemToClone.length) {
+                            itemToClone = $(this).siblings(':first');
+                        }
+                        // grab item, clone, add marker class, add to collection
+                        itemToClone.children(':first-child').clone().addClass("cloneditem-" + (i)).appendTo($(this));
+                    }
+                });
+            };
             this.mapsSlider = function ($scope) {
                 $('#slider-mapas').on('slid.bs.carousel', function () {
                     var index = $('#slider-mapas .active').index('#slider-mapas .item');
@@ -375,7 +375,7 @@
                                     fil += ',';
                                 }
                             });
-                        }else if (key == 'barrio') {
+                        } else if (key == 'barrio') {
                             has = true;
                             fil += key + '=';
                             angular.forEach(value, function (v, k) {
