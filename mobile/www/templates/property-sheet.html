@@ -10,7 +10,7 @@
     <ion-slides ng-if="property.foto.length" options="sliderOptions" class="ok-ps-slider" slider="initSlider">
       <ion-slide-page ng-if="img.foto" ng-repeat="img in property.foto">
         <div class="box">
-          <img ng-src="http://{{img.foto}}" alt="{{img.id_foto}}" title="Imagen de Propiedad" style="width: 100%"/>
+          <img ng-src="{{img.foto}}" alt="{{img.id_foto}}" title="Imagen de Propiedad" style="width: 100%"/>
         </div>
       </ion-slide-page>
     </ion-slides>
