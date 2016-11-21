@@ -1854,6 +1854,16 @@ a[aria-expanded=true] > i {
     left: 0;
     right: 0;
 }
+.ws_list ul img {
+    margin: auto !important;
+    max-width: 100% !important;
+    position: absolute;
+    width: auto !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 /*BUSQUEDA PROP 03*/
 

@@ -405,100 +405,119 @@
         </div>
     </div>
     <div ng-if="properties.length < 4" ng-repeat="prop in properties" class="col-lg-4 col-md-6">
-        <div class="col-lg-12 ficha padding-0">
-            <img class="col-lg-12 padding-0 img-responsive"
-                 style="height: 200px; max-height: 200px;"
-                 ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
-            <img class="col-lg-12 padding-0 img-responsive"
-                 style="height: 200px; max-height: 200px;"
-                 ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
-            <div class="descripcion col-lg-12">
-                <a href="#!/ficha-propiedad/{{prop.id_prop}}">
-                    <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
-                            ng-if="prop.fichaweb.length > 65">...</span></p>
+        <div ng-if="prop" class="col-lg-12 ficha">
+            <div class="col-lg-12 content">
+                <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{prop.id_prop}}">
+                    <img class="padding-0 img-responsive ok-product-center-img"
+                         ng-if="prop.foto_url" ng-src="{{prop.foto_url}}">
+                    <img class="padding-0 img-responsive ok-product-center-img"
+                         ng-if="!prop.foto_url" ng-src="assets/img/sin_imagen.jpg">
                 </a>
-                <div class="col-lg-12 padding-0 caracteristicas">
-                    <div class="col-lg-12 padding-0">
-                        <img src="assets/img/ubicacion.svg">{{prop.calle}} {{prop.nombre_ubicacion}}
+                <div class="col-lg-12 padding-0 descripcion">
+                    <a href="#!/ficha-propiedad/{{prop.id_prop}}">
+                        <p class="titulo">{{prop.fichaweb | limitTo:65 | uppercase}}<span
+                                ng-if="prop.fichaweb.length > 65">...</span></p>
+                    </a>
+                    <div class="col-lg-12 padding-0 caracteristicas">
+                        <div class="col-lg-12 padding-0">
+                            <img src="assets/img/ubicacion.svg">{{prop.calle}}
+                            {{prop.nombre_ubicacion}}
+                        </div>
+                        <div ng-if="prop.valor" class="col-md-12 padding-0"
+                             ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
+                            <img src="assets/img/valor_propiedad.svg">{{prop.valor}}
+                            {{prop.moneda}}
+                        </div>
+                        <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
+                             ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
+                            <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
+                        </div>
+                        <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
+                             ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
+                            <img src="assets/img/ambientes.svg"><span
+                                ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
+                        </div>
+                        <div ng-if="prop.sup_total" class="col-md-12 padding-0"
+                             ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
+                            <img src="assets/img/m2.svg"> {{prop.sup_total}}
+                            <sp ng-if="tipo_prop == 'Campo'">ha</sp>
+                            <sp ng-if="tipo_prop != 'Campo'">m²</sp>
+                        </div>
                     </div>
-                    <div ng-if="prop.valor" class="col-md-12 padding-0"
-                         ng-class="{'col-lg-6' : prop.subtipo_prop,'col-lg-12' : !prop.subtipo_prop }">
-                        <img src="assets/img/valor_propiedad.svg">{{prop.valor}} {{prop.moneda}}
-                    </div>
-                    <div ng-if="prop.subtipo_prop" class="col-md-12 padding-0"
-                         ng-class="{'col-lg-6' : prop.valor,'col-lg-12' : !prop.valor }">
-                        <img src="assets/img/tipo_propiedad.svg">{{prop.subtipo_prop}}
-                    </div>
-                    <div ng-if="prop.cantidad_ambientes" class="col-md-12 padding-0"
-                         ng-class="{'col-lg-6' : prop.sup_total,'col-lg-12' : !prop.sup_total }">
-                        <img src="assets/img/ambientes.svg"><span
-                            ng-bind-html="trustAsHtml(prop.cantidad_ambientes)"></span>
-                    </div>
-                    <div ng-if="prop.sup_total" class="col-md-12 padding-0"
-                         ng-class="{'col-lg-6' : prop.cantidad_ambientes,'col-lg-12' : !prop.cantidad_ambientes }">
-                        <img src="assets/img/m2.svg"> {{prop.sup_total}}
-                        <sp ng-if="tipo_prop == 'Campo'">ha</sp>
-                        <sp ng-if="tipo_prop != 'Campo'">m²</sp>
-                    </div>
-                </div>
-                <div class="col-md-12 padding-5">
-                    <p class="muestra text-justify">{{prop.descripcionweb | cut:true:130:'...'}} </p>
-                    <div ng-if="checkFav(prop.id_prop)" class="col-lg-3 col-md-12 padding-0 boton-fav">
-                        <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}" ng-click="doFav(prop.id_prop)">
-                                            <span class="fa-stack">
-                                              <i class="fa fa-circle fa-stack-2x"></i>
-                                              <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
-                                            </span>
-                            Favorito
-                        </a>
-                    </div>
-                    <div class="boton-fav compartir pull-right" uib-dropdown
-                         is-open="status.isopen">
-                        <a class="btn btn-xs btn-gris-claro-2" type="button"
-                           uib-dropdown-toggle ng-disabled="disabled">
+                    <div class="property-buttons">
+                        <div class="col-lg-12 padding-0">
+                            <p class="muestra text-justify">{{prop.descripcionweb |
+                                cut:true:130:'...'}} </p>
+                            <div ng-if="!checkFav(prop.id_prop)" class="boton-fav">
+                                <a class="btn btn-xs btn-gris-claro-2 prop-{{prop.id_prop}}"
+                                   ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                    Favorito
+                                </a>
+                            </div>
+
+                            <div ng-if="checkFav(prop.id_prop)" class="boton-fav">
+                                <a class="btn btn-xs btn-gris-claro prop-{{prop.id_prop}}"
+                                   ng-click="doFav(prop.id_prop)">
+                                                <span class="fa-stack">
+                                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                                  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                    Quitar
+                                </a>
+                            </div>
+                            <div class="boton-fav compartir pull-right dropup" uib-dropdown>
+                                <a class="btn btn-xs btn-gris-claro-2" type="button"
+                                   uib-dropdown-toggle>
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
-                            Compartir
-                        </a>
-                        <ul class="dropdown-menu" uib-dropdown-menu role="menu"
-                            aria-labelledby="single-button">
-                            <li role="menuitem">
-                                <a href="" socialshare
-                                   socialshare-provider="facebook"
-                                   socialshare-type="feed"
-                                   socialshare-via="1732340417017180"
-                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
-                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                   socialshare-media="{{prop.foto_url}}">
-                                    <i class="fa fa-facebook-square"></i> Facebook
+                                    Compartir
                                 </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li role="menuitem">
-                                <a href="" socialshare
-                                   socialshare-provider="twitter"
-                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
-                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
-                                    <i class="fa fa-twitter-square"></i> Twitter
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li role="menuitem">
-                                <a href="" socialshare
-                                   socialshare-provider="pinterest"
-                                   socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
-                                   socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
-                                   socialshare-media="{{prop.foto_url}}">
-                                    <i class="fa fa-pinterest-square"></i> Pinterest
-                                </a>
-                            </li>
-                        </ul>
+                                <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                                    aria-labelledby="single-button">
+                                    <li role="menuitem">
+                                        <a href="" socialshare
+                                           socialshare-provider="facebook"
+                                           socialshare-type="feed"
+                                           socialshare-via="1732340417017180"
+                                           socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                           socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
+                                           socialshare-media="{{prop.foto_url}}">
+                                            <i class="fa fa-facebook-square"></i> Facebook
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li role="menuitem">
+                                        <a href="" socialshare
+                                           socialshare-provider="twitter"
+                                           socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                           socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}">
+                                            <i class="fa fa-twitter-square"></i> Twitter
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li role="menuitem">
+                                        <a href="" socialshare
+                                           socialshare-provider="pinterest"
+                                           socialshare-text="{{prop.fichaweb || prop.nombre_ubicacion}}"
+                                           socialshare-url="{{siteUrl}}ficha-propiedad/{{prop.id_prop}}"
+                                           socialshare-media="{{prop.foto_url}}">
+                                            <i class="fa fa-pinterest-square"></i> Pinterest
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 padding-0 margin-top-10">
+                            <a href="#!/ficha-propiedad/{{prop.id_prop}}"
+                               class="col-lg-12 btn btn-sm btn-gris pull-right">VER MÁS</a>
+                        </div>
                     </div>
-                    <a href="#!/ficha-propiedad/{{prop.id_prop}}"
-                       class="col-lg-3 col-md-12 btn btn-sm btn-gris pull-right" type="submit">VER
-                        MÁS</a>
                 </div>
             </div>
         </div>
@@ -510,12 +529,10 @@
                      class="item" ng-repeat="prop in properties track by $index" ng-class="{'active' : $first}">
                     <div ng-if="properties[$index]" class="col-md-6 col-lg-4 ficha">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{properties[$index].id_prop}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
-                                     style="height: 200px; max-height: 200px;"
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{properties[$index].id_prop}}">
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="properties[$index].foto_url" ng-src="{{properties[$index].foto_url}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
-                                     style="height: 200px; max-height: 200px;"
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="!properties[$index].foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
@@ -628,12 +645,11 @@
                     </div>
                     <div ng-if="properties[$index + 1]" class="col-md-6 col-lg-4 ficha">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{properties[$index + 1].id_prop}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
-                                     style="height: 200px; max-height: 200px;"
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{properties[$index + 1].id_prop}}">
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="properties[$index + 1].foto_url"
                                      ng-src="{{properties[$index + 1].foto_url}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      style="height: 200px; max-height: 200px;"
                                      ng-if="!properties[$index + 1].foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
@@ -747,13 +763,11 @@
                     </div>
                     <div ng-if="properties[$index + 2]" class="col-md-6 col-lg-4 ficha">
                         <div class="col-lg-12 content">
-                            <a class="col-lg-12 padding-0" href="#!/ficha-propiedad/{{properties[$index + 2].id_prop}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
-                                     style="height: 200px; max-height: 200px;"
+                            <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{properties[$index + 2].id_prop}}">
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="properties[$index + 2].foto_url"
                                      ng-src="{{properties[$index + 2].foto_url}}">
-                                <img class="col-lg-12 padding-0 img-responsive"
-                                     style="height: 200px; max-height: 200px;"
+                                <img class="padding-0 img-responsive ok-product-center-img"
                                      ng-if="!properties[$index + 2].foto_url" ng-src="assets/img/sin_imagen.jpg">
                             </a>
                             <div class="col-lg-12 padding-0 descripcion">
