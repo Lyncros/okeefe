@@ -7,14 +7,14 @@ angular.module('starter.controllers')
     $scope.pdfFile = '';
     $scope.showPl = false;
     $scope.tabs = {
-      'des' : {show : false},
-      'vid' : {show : false},
-      'map' : {show : false},
-      'plan' : {show : false},
-      'res' : {show : false},
-      'car' : {show : false},
-      'amb' : {show : false},
-      'ser' : {show : false},
+      'des' : {show : true},
+      'vid' : {show : true},
+      'map' : {show : true},
+      'plan' : {show : true},
+      'res' : {show : true},
+      'car' : {show : true},
+      'amb' : {show : true},
+      'ser' : {show : true},
     };
     $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
     $scope.psForm = function ($event) {

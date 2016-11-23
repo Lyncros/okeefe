@@ -1,39 +1,72 @@
 <ion-view>
-    <ion-nav-title>
-        <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img" />
-    </ion-nav-title>
-    <ion-content>
-        <div class="row ok-why-us-title">
-            <div class="col">
-                <h3 class="text-center ok-color-green">POR QUÉ VENDER</h3>
-                <h3 class="text-center ok-color-green">CON NOSOTROS</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col ok-padding-0">
-                <div class="video-container">
-                    <iframe src="http://www.youtube.com/embed/dFVxGRekRSg" frameborder="0" width="560" height="315"></iframe>
-                </div>
-            </div>
-        </div>
-        <!-- SERVICIOS -->
-        <div class="row ok-investments-number" ng-repeat="item in data">
-            <div class="col ok-background-grey ok-about-box">
-                <div class="c-peq ok-background-white ok-padding-0">
-                    <img src="{{item.image}}">
-                </div>
-                <h4 class="text-center">{{item.title}}</h4>
-                <p class="text-center">{{item.subtitle}}</p>
-            </div>
-        </div>
-        <!-- SERVICIOS-->
+  <ion-nav-title>
+    <img ui-sref="rural.home" src="img/logo.png" class="ok-logo-img"/>
+  </ion-nav-title>
+  <ion-content>
+    <div class="row">
+      <div class="col-33 col-offset-33">
+        <img class="full-image" src="img/casa-circ.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">MÁS DE 20.000</h4>
+        <h4 class="text-center ok-color-green">PROPIEDADES TASADAS</h4>
+        <p class="text-center"><strong>O'Keefe</strong> cuenta con un servicio de profesionales (Abogados, Martilleros e
+          Ingenieros) para
+          realizar tasaciones de todo tipo de propiedades. Nuestra experiencia y profundo conocimiento de la situación
+          del mercado inmobiliario actual, nos permite
+          brindar una tasación justa y con los fundamentos claros y objetivos que usted se merece. Ofrecemos dos
+          opciones de tasaciones:</p>
+        <p class="text-center"><strong>PARA LA VENTA: </strong>Como parte de nuestro servicio de comercialización,
+          ofrecemos el servicio de tasación de forma <strong>GRATUITA</strong>.</p>
+        <p class="text-center"><strong>PARA SU INFORMACIÓN: </strong>O´Keefe realiza un informe de tasación escrito, con
+          el que usted tendrá en forma clara y objetiva el valor actualizado de su inmueble para su utilización en
+          evaluación de proyectos inmobiliarios, sucesiones, divisiones, etc.</p>
 
-        <div class="row ok-footer">
-            <div class="col ok-img-list">
-                <img src="img/FACEBOOK.svg">
-                <img src="img/LINKEDIN.svg">
-                <img src="img/YOUTUBE.svg">
-            </div>
-        </div>
-    </ion-content>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center ok-color-green">CONOZCA EL VALOR</h4>
+        <h4 class="text-center ok-color-green">DE SU INMUEBLE</h4>
+      </div>
+    </div>
+    <div class="list list-inset ok-margin-top-0">
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Compra">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Tipo de Inmueble">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Zona | Emprendimiento">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Nombre">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Apellido">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Email">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Teléfono">
+      </label>
+      <label class="item item-input ok-form-input">
+        <input type="text" placeholder="Celular">
+      </label>
+      <button class="button button-block button-positive ok-form-button">
+        Enviar
+      </button>
+    </div>
+    <div class="row ok-footer-rural">
+      <div class="col ok-img-list">
+        <img src="img/facebook_r.png">
+        <img src="img/linkedin_r.png">
+        <img src="img/youtube_r.png">
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

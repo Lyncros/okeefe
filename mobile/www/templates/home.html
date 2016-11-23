@@ -24,15 +24,15 @@
       </ion-slide>
     </ion-slide-box>
     <div class="list list-inset ok-home-search">
-      <label class="item item-input ok-form-input" ng-click="operationModal.show()">
+      <div class="item item-input ok-form-input" ng-click="operationModal.show()">
         <input value="{{searchParam.oper}}" type="text" disabled placeholder="Tipo de Operación">
         <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
-      </label>
-      <label class="item item-input ok-form-input" ng-click="propertyModal.show()">
+      </div>
+      <div class="item item-input ok-form-input" ng-click="propertyModal.show()">
         <input value="{{searchParam.property}}" type="text" disabled placeholder="Tipo de Inmueble">
         <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
-      </label>
-      <label class="item item-input ok-form-input">
+      </div>
+      <label class="item item-input ok-form-input" style="margin-bottom: 5px;">
         <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off"
                ng-model="$parent.loc"
                item-value-key="name"

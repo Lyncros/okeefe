@@ -10,17 +10,22 @@
       <ion-list class="ok-side-menu">
         <ion-item ui-sref="app.home" menu-close>Inicio</ion-item>
         <ion-item ui-sref="rural.home" menu-close>Rural</ion-item>
-        <ion-item ui-sref="app.investments" menu-close>Inversiones</ion-item>
         <ion-item ui-sref="app.appraisals" menu-close>Tasaciones</ion-item>
-        <ion-item ui-sref="app.news" menu-close>Noticias</ion-item>
         <ion-item ui-sref="auth.login" menu-close ng-if="!isLogged">Registrate</ion-item>
         <ion-item ui-sref="user.account" menu-close ng-if="isLogged">Mi Cuenta</ion-item>
+        <ion-item ui-sref="app.investments" menu-close>Inversiones</ion-item>
+        <ion-item ui-sref="app.news" menu-close>News</ion-item>
+        <ion-item ui-sref="app.about" menu-close>Quiénes Somos</ion-item>
+        <ion-item ui-sref="app.us" menu-close>Por qué nosotros</ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
   <ion-side-menu side="right" is-enabled="filterProperties">
     <ion-header-bar class="bar-stable ok-header-bar-grey ok-filter-header-bar">
       <!--<i class="icon ok-color-dark-grey ion-close-round pull-left ok-close" menu-toggle="right"></i>-->
+      <div class="pull-left ok-filter-apply" menu-toggle="right" style="padding: 5px">
+                <i class="icon ion-close-round" style="color: grey;"></i>
+      </div>
       <div class="pull-right ok-filter-apply" menu-toggle="right">
                 <span class="icon-stack">
                     <i class="ion-record icon-stack-back ok-color-white"></i>
@@ -32,10 +37,10 @@
     <ion-content>
       <div class="row ok-properties-menu ok-properties-filters ok-padding-0">
         <div class="col col-50 text-center" ng-class="{'active' : propertyName == 'valor[0].contenido'}">
-          <span ng-click="changeOrder('valor[0].contenido')" class="ok-text ok-color-orange">Menor precio</span>
+          <span ng-click="changeOrder('valor[0].contenido')" class="ok-text">Menor precio</span>
         </div>
         <div class="col col-50 text-center" ng-class="{'active' : propertyName == '-valor[0].contenido'}">
-          <span ng-click="changeOrder('-valor[0].contenido')" class="ok-text ok-color-orange">Mayor precio</span>
+          <span ng-click="changeOrder('-valor[0].contenido')" class="ok-text">Mayor precio</span>
         </div>
       </div>
       <div class="row ok-padding-0 ok-margin-top-20">
@@ -97,47 +102,6 @@
                 </span>
                 </a>
               </p>
-            </ion-item>
-            <ion-item class="item-stable ok-background-white"
-                      ng-click="toggleGroup('pre')"
-                      ng-class="{active: isGroupShown('pre')}">
-              <i class="icon"
-                 ng-class="isGroupShown('pre') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
-              <span class="ok-color-green">Precio</span>
-            </ion-item>
-            <ion-item class="item-accordion ok-background-grey"
-                      ng-show="isGroupShown('pre')">
-              <form ng-submit="apply('precio',valMin,valMax)" name="priceForm" novalidate>
-                <div class="row">
-                  <input name="valMin" ng-model="valMin" type="number" class="col"
-                         placeholder="Precio Min. $"
-                         ng-max="valMax"
-                         ng-min="0">
-                  <span class="col-10 text-center"> - </span>
-                  <input name="valMax" ng-model="valMax" type="number" class="col"
-                         placeholder="Precio Max. $"
-                         ng-min="valMin || 0">
-                </div>
-                <div class="row">
-                  <h3 class="ok-price-text" ng-if="appliedFilters['precio'] && appliedFilters['precio'].length">
-                    <a ng-click="addFilter('precio',appliedFilters['precio'],true)">
-                      <span ng-if="appliedFilters['precio'][0].value">{{appliedFilters['precio'][0].value}}</span>
-                      <span ng-if="!appliedFilters['precio'][0].value">0</span>
-                      <span> - </span>
-                      <span ng-if="appliedFilters['precio'][1].value">{{appliedFilters['precio'][1].value}}</span>
-                      <span ng-if="!appliedFilters['precio'][1].value">Max</span>
-                      <span> <i class="icon ion-close-circled"></i></span>
-                    </a>
-                  </h3>
-                </div>
-                <div class="row"></div>
-                <div class="row">
-                  <button ng-disabled="!priceForm.valMin.$valid || !priceForm.valMax.$valid"
-                          type="submit" class="button button-positive">
-                    Aplicar
-                  </button>
-                </div>
-              </form>
             </ion-item>
             <ion-item class="item-stable ok-background-white"
                       ng-click="toggleGroup('sup')"
@@ -246,6 +210,47 @@
                 </span>
                 </a>
               </p>
+            </ion-item>
+            <ion-item class="item-stable ok-background-white ok-filter-last-item"
+                      ng-click="toggleGroup('pre')"
+                      ng-class="{active: isGroupShown('pre')}">
+              <i class="icon"
+                 ng-class="isGroupShown('pre') ? 'ion-chevron-down' : 'ion-chevron-right'"></i>
+              <span class="ok-color-green">Precio</span>
+            </ion-item>
+            <ion-item class="item-accordion ok-background-grey"
+                      ng-show="isGroupShown('pre')">
+              <form ng-submit="apply('precio',valMin,valMax)" name="priceForm" novalidate>
+                <div class="row">
+                  <input name="valMin" ng-model="valMin" type="number" class="col"
+                         placeholder="Precio Min. $"
+                         ng-max="valMax"
+                         ng-min="0">
+                  <span class="col-10 text-center"> - </span>
+                  <input name="valMax" ng-model="valMax" type="number" class="col"
+                         placeholder="Precio Max. $"
+                         ng-min="valMin || 0">
+                </div>
+                <div class="row">
+                  <h3 class="ok-price-text" ng-if="appliedFilters['precio'] && appliedFilters['precio'].length">
+                    <a ng-click="addFilter('precio',appliedFilters['precio'],true)">
+                      <span ng-if="appliedFilters['precio'][0].value">{{appliedFilters['precio'][0].value}}</span>
+                      <span ng-if="!appliedFilters['precio'][0].value">0</span>
+                      <span> - </span>
+                      <span ng-if="appliedFilters['precio'][1].value">{{appliedFilters['precio'][1].value}}</span>
+                      <span ng-if="!appliedFilters['precio'][1].value">Max</span>
+                      <span> <i class="icon ion-close-circled"></i></span>
+                    </a>
+                  </h3>
+                </div>
+                <div class="row"></div>
+                <div class="row">
+                  <button ng-disabled="!priceForm.valMin.$valid || !priceForm.valMax.$valid"
+                          type="submit" class="button button-positive">
+                    Aplicar
+                  </button>
+                </div>
+              </form>
             </ion-item>
             <!--<ion-item ng-if="item.id == 2" class="item-accordion ok-background-white ok-padding-0"
                       ng-show="isGroupShown(item)">

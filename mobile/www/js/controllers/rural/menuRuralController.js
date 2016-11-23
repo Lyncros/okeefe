@@ -3,15 +3,15 @@ angular.module('starter.controllers')
       $scope.propertyName = 'valor[0].contenido';
       $scope.isLogged = $auth.isAuthenticated();
       $scope.tabs = {
-        'ubi': {show: false},
-        'amb': {show: false},
-        'coch': {show: false},
-        'banos': {show: false},
-        'ant': {show: false},
-        'bar': {show: false},
-        'pre': {show: false},
-        'sup': {show: false},
-        'aptitud': {show: false},
+        'ubi': {show: true},
+        'amb': {show: true},
+        'coch': {show: true},
+        'banos': {show: true},
+        'ant': {show: true},
+        'bar': {show: true},
+        'pre': {show: true},
+        'sup': {show: true},
+        'aptitud': {show: true},
       };
       $scope.apply = function (filter, valMin, valMax) {
         if (filter == 'precio' && (valMin || valMax)) {

@@ -70,6 +70,37 @@
 .ok-color-white {
   color: #FFFFFF;
 }
+.ok-about-who-slider .logo {
+  width: 100%;
+}
+.ok-about-who-slider .logo img{
+  width: 50%;
+}
+.css3-shadow {
+  position: relative;
+}
+.ok-img-circle {
+  border-radius: 50%;
+}
+
+/*==================================================
+ * Drop shadow effect with box-shadow
+ * ===============================================*/
+.css3-shadow:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 10px rgba(179, 179, 179, 0.20);
+  box-shadow: 0 0 10px rgba(179, 179, 179, 0.20);
+  bottom: 0px;
+  left: 40%;
+  /* right: 11%; */
+  width: 70px;
+  height: 5px;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  background-color: rgba(179, 179, 179, 0.20);
+}
 
 .ok-background-dark-grey {
   background-color: #797C7F !important;
@@ -81,6 +112,16 @@
 
 .ok-padding-0 {
   padding: 0 !important;
+}
+
+.ok-idc-icon{
+  max-width: 45%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .ok-padding-top-0 {
@@ -242,11 +283,19 @@
 }
 
 .ok-map-container {
-  height: 400px;
+  height: 93vh;
+}
+
+.ok-close-map-button{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 45px;
+  color: rgba(0, 0, 0, 0.36);
 }
 
 .angular-google-map-container {
-  height: 400px;
+  height: 93vh;
 }
 
 .ok-property-sheet-list .ok-map-container {
@@ -322,14 +371,18 @@
   padding-bottom: 10px;
 }
 
+
+
+.ok-properties-filters span {
+  color: #797C7F;
+  font-weight: bold;
+}
 .ok-properties-filters .active {
-  background-color: #228d58;
+  background-color: #FFFFFF;
 }
-
 .ok-properties-filters .active span {
-  color: #FFFFFF;
+  color: #E9580C;
 }
-
 .ok-filter-text {
   margin-bottom: 10px !important;
   font-size: 16px !important;
@@ -364,8 +417,21 @@
 }
 
 .ok-filter-menu .item-stable {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid rgba(158, 158, 158, 0.76);
+}
+
+.ok-filter-menu .ok-color-green{
+  font-weight: bold;
+}
+.ok-filter-menu i.icon{
+  color: #000;
+}
+
+.ok-filter-menu .ok-filter-last-item{
+  border-bottom: 1px solid rgba(158, 158, 158, 0.76);
+
 }
 
 .ok-property-sheet-form-title {

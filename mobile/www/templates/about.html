@@ -69,33 +69,15 @@
     <div class="row">
       <div class="col">
         <ion-slide-box does-continue="true" auto-play="true" class="ok-background-grey ok-about-who-slider">
-          <ion-slide>
-            <div class="logo">
-              <img src="img/equipo2.png">
+          <ion-slide ng-repeat="user in team">
+            <div class="logo css3-shadow">
+              <img ng-if="user.img" class="full-image ok-img-circle" src="img/team/{{user.img}}">
+              <img ng-if="!user.img" class="full-image ok-img-circle" src="img/team/grey.png">
             </div>
-            <h3 class="ok-color-green name">CHARLIE O'KEEFE</h3>
-            <h4 class="ok-color-orange job">DIRECTOR FINANCIERO</h4>
-            <h5>Encargado de la División</h5>
-            <h5> Comercial. Martillero Público.</h5>
-            <h5 class="ok-text-bold email">charlie@okeefe.com.ar</h5>
-          </ion-slide>
-          <ion-slide>
-            <div class="logo">
-              <img src="img/equipo3.png">
-            </div>
-            <h3 class="ok-color-green name">GEORGINA BADANO</h3>
-            <h4 class="ok-color-orange job">TITULAR DEL ESTUDIO JURÍDICO Y NOTARIAL BADANO & CIA</h4>
-            <h5>Abogada. Más de 35 años de trayectoria en asuntos inmobiliarios, de familia, sucesorios, civiles y desarrollos inmobiliarios. Especialista en Fideicomisos.</h5>
-            <h5 class="ok-text-bold email">georgina@okeefe.com.ar</h5>
-          </ion-slide>
-          <ion-slide>
-            <div class="logo">
-              <img src="img/equipo1.png">
-            </div>
-            <h3 class="ok-color-green name">EDUARDO O'KEEFE</h3>
-            <h4 class="ok-color-orange job">GERENTE GENERAL</h4>
-            <h5>Martillero y Corredor Público. Administración y venta de campos y hacienda desde 1974. Brooker y asesor en manejo de grandes terrenos para emprendimientos.</h5>
-            <h5 class="ok-text-bold email">eduardo@okeefe.com.ar</h5>
+            <h3 class="ok-color-green name">{{user.name}}</h3>
+            <h4 class="ok-color-orange job">{{user.job}}</h4>
+            <h5>{{user.desc}}</h5>
+            <h5 class="ok-text-bold email">{{user.email}}</h5>
           </ion-slide>
         </ion-slide-box>
       </div>
@@ -119,9 +101,9 @@
           <li class="item"><span class="ok-color-orange">1997</span> Comienzo del desarrollo inmobiliario propio</li>
           <li class="item"><span class="ok-color-green">2010</span> Nuevos desafíos: Barrio Privado Las Golondrinas</li>
           <li class="item"><span class="ok-color-orange">2012</span> Apertura de nueva sucursal de Hudson</li>
-          <li class="item"><span class="ok-color-green">2014</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+       <!--   <li class="item"><span class="ok-color-green">2014</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
           <li class="item"><span class="ok-color-orange">2015</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
-          <li class="item"><span class="ok-color-green">2016</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+          <li class="item"><span class="ok-color-green">2016</span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>-->
         </ul>
       </div>
     </div>
