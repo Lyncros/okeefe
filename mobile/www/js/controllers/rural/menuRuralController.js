@@ -13,6 +13,10 @@ angular.module('starter.controllers')
         'sup': {show: true},
         'aptitud': {show: true},
       };
+      $scope.doLogout = function () {
+        $auth.logout();
+        window.location = '/';
+      };
       $scope.apply = function (filter, valMin, valMax) {
         if (filter == 'precio' && (valMin || valMax)) {
           $scope.valMin = valMin || '';
@@ -36,12 +40,9 @@ angular.module('starter.controllers')
       };
       $scope.setFilterData = function (data) {
         $scope.filters = data;
-        console.log($scope.filters);
       };
       $scope.setAppliedFilterData = function (data) {
         $scope.appliedFilters = data;
-        console.log("appliedFilters",$scope.appliedFilters);
-
       };
       $scope.setChildFiltersData = function (data) {
         $scope.childFilters = data;

@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
   .controller('propertiesController',
-    function ($scope, $timeout, $rootScope, entitiesService, $stateParams,
-              searchApiService, defaultFactory, $auth, $location, SITE_URL, $ionicNavBarDelegate) {
+    function ($scope, $timeout, $rootScope, entitiesService, $stateParams, $ionicPopup,
+              searchApiService, defaultFactory, $auth, $location, SITE_URL, $ionicNavBarDelegate, favoritesService) {
       $scope.map = defaultFactory.property_map;
       $ionicNavBarDelegate.showBackButton(false);
       $scope.options = defaultFactory.options;
@@ -10,14 +10,40 @@ angular.module('starter.controllers')
       $scope.refreshMap = function () {
         entitiesService.refreshMap($scope);
       };
+
+      $scope.showPopup = function (prop) {
+        $scope.shareProp = prop;
+        $scope.data = {};
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+          templateUrl: 'templates/modal/share.html',
+          title: 'Compartir',
+          scope: $scope,
+          buttons: [
+            {
+              text: 'Cancelar',
+              type: 'button-positive',
+              onTap: function (e) {
+                myPopup.close();
+              }
+            },
+          ]
+        });
+
+        myPopup.then(function (res) {
+          //console.log('Tapped!', res);
+          //myPopup.close();
+        });
+      };
+
       $scope.trustAsHtml = function (html) {
         return entitiesService.trustHtml(html);
       };
       $scope.tabs = {
-        'ubi' : {show : false},
-        'amb' : {show : false},
-        'map' : {show : false},
-        'plan' : {show : false},
+        'ubi': {show: false},
+        'amb': {show: false},
+        'map': {show: false},
+        'plan': {show: false},
       };
       $scope.toggleGroup = function (group) {
         $scope.tabs[group].show = !$scope.tabs[group].show;
@@ -77,6 +103,31 @@ angular.module('starter.controllers')
             $scope.favCount = data;
           });
       }
+
+      $scope.doFav = function (id) {
+        if ($scope.isLogged) {
+          favoritesService.setFavorite(id)
+            .then(function () {
+              favoritesService.getAll(function (data) {
+                return data;
+              })
+                .then(function (data) {
+                  $scope.checkFav = function (id) {
+                    var result = data.some(function (el) {
+                      return el.id_prop == id;
+                    });
+                    return result;
+                  }
+                });
+              favoritesService.count()
+                .then(function (data) {
+                  $scope.favCount = data;
+                });
+            });
+        } else {
+          return window.location = '#!/auth/login?url=' + window.location.hash;
+        }
+      };
 
       $scope.windowOptions = {
         visible: false
@@ -182,6 +233,7 @@ angular.module('starter.controllers')
         $scope.setFilterData($scope.filters);
         return property;
       }
+
       function totalProperties(data, padre = '', padres = '') {
         padres += padre + ',';
         if (data.properties) {
@@ -323,12 +375,8 @@ angular.module('starter.controllers')
                     var result = data.some(function (el) {
                       return el.id_prop == id;
                     });
-
                     return result;
                   }
-                })
-                .then(function () {
-                  $scope.loadingProperties = false;
                 });
             } else {
               $scope.checkFav = function (id) {

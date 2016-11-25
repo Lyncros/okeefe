@@ -1,20 +1,75 @@
 angular.module('starter.controllers')
-    .controller('propertyRuralSheetController',
-      function ($scope, defaultFactory, $ionicSlideBoxDelegate, okeefeApiService, entitiesService, searchApiService, $stateParams) {
+  .controller('propertyRuralSheetController',
+    function ($scope, defaultFactory, $ionicSideMenuDelegate,$ionicPopup, favoritesService, okeefeApiService, entitiesService, searchApiService, $stateParams) {
       $scope.control = {};
       $scope.resultFav = false;
       $scope.favCount = 0;
-      $scope.pdfFile = '';
+      $ionicSideMenuDelegate.canDragContent(false);
       $scope.showPl = false;
       $scope.tabs = {
-        'des' : {show : false},
-        'vid' : {show : false},
-        'map' : {show : false},
-        'plan' : {show : false},
-        'res' : {show : false},
-        'car' : {show : false},
-        'amb' : {show : false},
-        'ser' : {show : false},
+        'des': {show: true},
+        'vid': {show: true},
+        'map': {show: true},
+        'plan': {show: true},
+        'res': {show: true},
+        'car': {show: true},
+        'amb': {show: true},
+        'ser': {show: true},
+      };
+      $scope.showPopup = function (prop) {
+        $scope.shareProp = prop;
+        $scope.data = {};
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+          templateUrl: 'templates/modal/share.html',
+          title: 'Compartir',
+          scope: $scope,
+          buttons: [
+            {
+              text: 'Cancelar',
+              type: 'button-positive',
+              onTap: function (e) {
+                myPopup.close();
+              }
+            },
+          ]
+        });
+
+        myPopup.then(function (res) {
+          //console.log('Tapped!', res);
+          //myPopup.close();
+        });
+      };
+      if ($scope.isLogged) {
+        favoritesService.count()
+          .then(function (data) {
+            $scope.favCount = data;
+          });
+      }
+
+      $scope.doFav = function (id) {
+        if ($scope.isLogged) {
+          favoritesService.setFavorite(id)
+            .then(function () {
+              favoritesService.getAll(function (data) {
+                return data;
+              })
+                .then(function (data) {
+                  $scope.checkFav = function (id) {
+                    var result = data.some(function (el) {
+                      return el.id_prop == id;
+                    });
+                    return result;
+                  }
+                });
+              favoritesService.count()
+                .then(function (data) {
+                  $scope.favCount = data;
+                });
+            });
+        } else {
+          return window.location = '#!/auth/login?url=' + window.location.hash;
+        }
       };
       $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
       $scope.psForm = function ($event) {
@@ -131,8 +186,7 @@ angular.module('starter.controllers')
         loop: false,
         effect: 'fade',
         speed: 500,
-        onInit: function(swiper)
-        {
+        onInit: function (swiper) {
           $scope.initSlider = swiper;
         },
       };

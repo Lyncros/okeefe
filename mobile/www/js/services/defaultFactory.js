@@ -1,6 +1,64 @@
 (function () {
   angular.module('starter.services')
     .factory("defaultFactory", function () {
+      var footer_maps = [
+        {
+          center: {latitude: -34.7156697, longitude: -58.2854728},
+          zoom: 12,
+          control: {},
+          name: 'CASA CENTRAL QUILMES',
+          phone: '4253 - 3961',
+          address: 'Mitre 491 - Quilmes Centro',
+          markers: {
+            a: {
+              id: 1,
+              coords: {latitude: -34.7156697, longitude: -58.2854728}
+            }
+          }
+        },
+        {
+          center: {latitude: -34.812566, longitude: -58.177723},
+          zoom: 12,
+          control: {},
+          name: 'HUDSON',
+          phone: '022 - 2945 - 5003',
+          address: 'Mitre 491 - Quilmes Centro',
+          markers: {
+            a: {
+              id: 1,
+              coords: {latitude: -34.812566, longitude: -58.177723}
+            }
+          }
+        },
+        {
+          center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
+          zoom: 12,
+          control: {},
+          name: 'LAS GOLONDRINAS',
+          phone: '022 - 2945 - 5003',
+          address: 'Mitre 491 - Quilmes Centro',
+          markers: {
+            a: {
+              id: 1,
+              coords: {latitude: -34.77891426062949, longitude: -58.16106375896312}
+            }
+          }
+        },
+        {
+          center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
+          zoom: 12,
+          control: {},
+          name: 'NUEVO QUILMES',
+          phone: '4253 - 3961',
+          address: 'Mitre 491 - Quilmes Centro',
+          markers: {
+            a: {
+              id: 1,
+              coords: {latitude: -34.77891426062949, longitude: -58.16106375896312}
+            }
+          }
+        }
+      ];
       var investments_timing = {
         a: {
           image: 'img/inv-a.png',
@@ -552,6 +610,7 @@
       ];
       return {
         investments_timing: investments_timing,
+        footer_maps: footer_maps,
         why_us: why_us,
         property_map: property_map,
         propertyRural_info: propertyRural_info,

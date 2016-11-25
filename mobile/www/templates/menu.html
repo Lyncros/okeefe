@@ -17,6 +17,7 @@
         <ion-item ui-sref="app.news" menu-close>News</ion-item>
         <ion-item ui-sref="app.about" menu-close>Quiénes Somos</ion-item>
         <ion-item ui-sref="app.us" menu-close>Por qué nosotros</ion-item>
+        <ion-item ng-click="doLogout()" menu-close ng-if="isLogged">Cerrar Sesión</ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

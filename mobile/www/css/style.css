@@ -298,6 +298,20 @@
   height: 93vh;
 }
 
+.ok-share-icon{
+  font-size: 40px;
+  text-align: center;
+}
+
+.ok-mob-prop-img{
+  margin: auto;
+  max-width: 100%;
+}
+
+.ok-user-contact-suc .angular-google-map-container{
+  height: 100px !important;
+}
+
 .ok-property-sheet-list .ok-map-container {
   height: 200px;
 }

@@ -135,6 +135,13 @@
     height: 40px;
     margin: auto;
 }
+.ok-img-serv-rural{
+  width: 30%;
+  height: auto;
+}
+.text-justify{
+  text-align: justify;
+}
 .ok-circle
 {
     width: 50px;
@@ -145,6 +152,10 @@
     line-height: 50px;
     text-align: center;
     background: #A5A5A4;
+}
+
+.ok-investments-number .item-select select {
+  left: 0;
 }
 
 .ok-user-contact .item-toggle, .ok-user-register .item-toggle, .ok-home-search .item-toggle{

@@ -1,11 +1,11 @@
 <ion-tabs id="ok-user-tabs" class="tabs-icon-only tabs-positive">
-    <ion-tab class="ok-color-green" icon="ion-ios-person" ui-sref="user.account">
+    <ion-tab title="" class="ok-color-green" icon="ion-ios-person" ng-click="go('#!/usuario/cuenta')">
         <ion-nav-view name="user-account"></ion-nav-view>
     </ion-tab>
-    <ion-tab icon="ion-ios-heart" ui-sref="user.fav">
+    <ion-tab title="" icon="ion-ios-heart" ng-click="go('#!/usuario/favoritos')">
         <ion-nav-view name="user-fav"></ion-nav-view>
     </ion-tab>
-    <ion-tab icon="ion-ios-email" ui-sref="user.contact">
+    <ion-tab title="" icon="ion-ios-email" ng-click="go('#!/usuario/contacto')">
         <ion-nav-view name="user-contact"></ion-nav-view>
     </ion-tab>
 </ion-tabs>

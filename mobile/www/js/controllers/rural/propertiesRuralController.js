@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-  .controller('propertiesRuralController', function ($scope, $timeout, $rootScope, entitiesService, $stateParams,
+  .controller('propertiesRuralController', function ($scope, $timeout, $rootScope, entitiesService, $stateParams, favoritesService,
                                                      searchApiService, defaultFactory, $auth, $location, SITE_URL, $ionicNavBarDelegate) {
     $ionicNavBarDelegate.showBackButton(false);
     $scope.map = defaultFactory.property_map;
@@ -12,6 +12,32 @@ angular.module('starter.controllers')
     $scope.trustAsHtml = function (html) {
       return entitiesService.trustHtml(html);
     };
+
+    $scope.showPopup = function (prop) {
+      $scope.shareProp = prop;
+      $scope.data = {};
+      // An elaborate, custom popup
+      var myPopup = $ionicPopup.show({
+        templateUrl: 'templates/modal/share.html',
+        title: 'Compartir',
+        scope: $scope,
+        buttons: [
+          {
+            text: 'Cancelar',
+            type: 'button-positive',
+            onTap: function (e) {
+              myPopup.close();
+            }
+          },
+        ]
+      });
+
+      myPopup.then(function (res) {
+        //console.log('Tapped!', res);
+        //myPopup.close();
+      });
+    };
+
     $scope.tabs = {
       'ubi': {show: false},
       'amb': {show: false},
@@ -76,6 +102,31 @@ angular.module('starter.controllers')
           $scope.favCount = data;
         });
     }
+
+    $scope.doFav = function (id) {
+      if ($scope.isLogged) {
+        favoritesService.setFavorite(id)
+          .then(function () {
+            favoritesService.getAll(function (data) {
+              return data;
+            })
+              .then(function (data) {
+                $scope.checkFav = function (id) {
+                  var result = data.some(function (el) {
+                    return el.id_prop == id;
+                  });
+                  return result;
+                }
+              });
+            favoritesService.count()
+              .then(function (data) {
+                $scope.favCount = data;
+              });
+          });
+      } else {
+        return window.location = '#!/auth/login?url=' + window.location.hash;
+      }
+    };
 
     $scope.windowOptions = {
       visible: false

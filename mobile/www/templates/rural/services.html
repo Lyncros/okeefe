@@ -1,38 +1,200 @@
 <ion-view>
   <ion-nav-title>
-    <img ui-sref="app.home" src="img/logo.png" class="ok-logo-img" />
+    <img ui-sref="app.home" src="img/logoRural.png" class="ok-logo-img"/>
   </ion-nav-title>
   <ion-content>
-    <div class="row ok-why-us-title">
-      <div class="col">
-        <h3 class="text-center ok-color-green">POR QUÉ VENDER</h3>
-        <h3 class="text-center ok-color-green">CON NOSOTROS</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col ok-padding-0">
-        <div class="video-container">
-          <iframe src="http://www.youtube.com/embed/dFVxGRekRSg" frameborder="0" width="560" height="315"></iframe>
+    <div class="row ok-padding-0">
+      <div class="wrapper">
+        <img class="full-image" src="img/banner-services.png">
+        <div id="text">
+          <h3 class="ok-color-white">DISTINTAS ÁREAS,</h3>
+          <h3 class="ok-color-white">EL MISMO</h3>
+          <h3 class="ok-color-white">PROFESIONALISMO</h3>
         </div>
       </div>
     </div>
     <!-- SERVICIOS -->
-    <div class="row ok-investments-number" ng-repeat="item in data">
+    <div class="row ok-investments-number">
       <div class="col ok-background-grey ok-about-box">
-        <div class="c-peq ok-background-white ok-padding-0">
-          <img src="{{item.image}}">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/cp.svg">
         </div>
-        <h4 class="text-center">{{item.title}}</h4>
-        <p class="text-center">{{item.subtitle}}</p>
+        <h4 class="text-center">INTERMEDIACIÓN EN LA COMPRAVENTA (Broker inmobiliario)</h4>
+        <p class="text-justify">O´Keefe se propuso no solo ser intermediario en las operaciones inmobiliarias, sino
+          llevarlo a su
+          máxima expresión. Entender y optimizar la intermediación.</p>
+        <p class="text-justify">Para esto capacitamos a nuestros asesores comerciales en realizar una correcta
+          interpretación y
+          diagnóstico de las necesidades de nuestros clientes y posterior búsqueda de la inversión que más
+          se adecúa a su realidad. Lo acompañamos en una transparente negociación con el apoyo de nuestro
+          departamento de Legales, respaldando nuestros contratos.</p>
+        <p class="text-justify">Le proponemos asesorarlo en la toma de decisiones, apalancándonos en nuestros
+          conocimientos en el
+          mercado inmobiliario y poniendo a su disposición la realidad en los valores reales de venta que
+          se manejan en el mercado día a día.</p>
+      </div>
+    </div>
+    <div class="row ok-investments-number">
+      <div class="col ok-background-grey ok-about-box">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/op.svg">
+        </div>
+        <h4 class="text-center">TASACIONES RURALES</h4>
+        <p class="text-justify">Nuestra experiencia, con más de mil campos tasados y comercializados, avalan nuestro
+          compromiso y
+          seriedad.</p>
+        <p class="text-justify">Contamos con un equipo de profesionales capacitados para la correcta tasación de su
+          propiedad.
+          Teniendo en cuenta diversos parámetros influyentes luego de la visita al lugar. Apoyándonos en
+          herramientas de vanguardia que nos ayudan en el proceso de diagnóstico, procurando así el justo
+          valor de su propiedad.</p>
+      </div>
+    </div>
+    <div class="row ok-investments-number">
+      <div class="col ok-background-grey ok-about-box">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/ip.svg">
+        </div>
+        <h4 class="text-center">ADMINISTRACIONES RURALES Y ASESORAMIENTO AGROPECUARIO.</h4>
+        <p class="text-justify">O´Keefe a través de su equipo de profesionales lo asesora en lo que llamamos el
+          “Re-encausamiento
+          y Valorización de Establecimientos".</p>
+        <p class="text-justify">Más allá que en Argentina está implementando la tecnología en los establecimientos,
+          consideramos
+          que son pocos los campos que están en su máximo nivel productivo. Es por ello que proponemos
+          acompañarlo en el proceso de cambio, tecnificación y aumento en la productividad de su tierra
+          utilizando no solamente una correcta inversión sino un buen manejo del mismo. Como consecuencia
+          de este proceso, y como objetivo además de la obtención de una elevada Rentabilidad, la
+          VALORIZACIÓN de nuestra tierra.</p>
+        <p class="text-justify">Solicite nuestro servicio completando el siguiente formulario y a la brevedad nos
+          contactaremos
+          con Ud.</p>
+        <h5 class="text-center">Datos del Establecimiento</h5>
+        <div class="list list-inset ok-margin-top-0">
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Nombre">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Localidad">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Partido">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Superficie">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Aptitud">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Consulta">
+          </label>
+        </div>
+        <h5 class="text-center">Datos del Interesado</h5>
+        <div class="list list-inset ok-margin-top-0">
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Nombre">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Apellido">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Email">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Teléfono">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Celular">
+          </label>
+          <button class="button button-block button-positive ok-form-button">
+            Enviar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row ok-investments-number">
+      <div class="col ok-background-grey ok-about-box">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/trigo.svg">
+        </div>
+        <h4 class="text-center">ARRENDAMIENTOS GANADEROS Y AGRÍCOLAS</h4>
+        <p class="text-justify">O´Keefe asesora a sus clientes ya sea en arrendamientos ganaderos como agrícolas, a
+          corto,
+          mediano y largo plazo. (Arrendamientos, pastajes, accidental por cosecha, etc.). </p>
+        <p class="text-justify">Con más de 40 años de trayectoria y una amplia red de contactos, le ofrecemos nuestro
+          servicio de
+          intermediación en arrendamientos, garantizándole no solo un precio justo acorde al mercado de
+          alquileres, sino un respaldo legal al momento de realizar los contratos y brindándole cobertura
+          en todos los aspectos a ambas partes para que puedan tener una relación armónica y duradera.</p>
+      </div>
+    </div>
+    <div class="row ok-investments-number">
+      <div class="col ok-background-grey ok-about-box">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/mapa.svg">
+        </div>
+        <h4 class="text-center">SUBDIVISIONES RURALES</h4>
+        <p class="text-justify">O´Keefe le ofrece a través de su División rural, un análisis exhaustivo de su propiedad
+          para
+          presentarle un proyecto de subdivisión de su campo. Para poder llegar a un correcto trabajo
+          debemos conocer y entender las necesidades de nuestros clientes ya sea para divisiones entre
+          accionistas, sucesiones, venta parcial, etc.</p>
+      </div>
+    </div>
+    <div class="row ok-investments-number">
+      <div class="col ok-background-grey ok-about-box">
+        <div class="c-peq ok-img-serv-rural ok-background-white ok-padding-0">
+          <img src="img/vaca.svg">
+        </div>
+        <h4 class="text-center">VENTA DE HACIENDA</h4>
+        <p class="text-justify">Como parte de nuestro servicio integral, le ofrecemos el asesoramiento e intermediación
+          en la
+          compra venta de Hacienda y Reproductores. </p>
+        <p class="text-justify">Ponemos a su disposición la experiencia y red de contactos obtenidos en nuestros años de
+          trayectoria en el mercado ganadero, para realizar una correcta elección al momento de
+          seleccionar el tipo de hacienda que debe comprar considerando cada negocio ganadero que se
+          plantea en base a las características de su campo.</p>
+        <h5 class="text-center">Solicite nuestro servicio completando el siguiente formulario y a la brevedad nos
+          contactaremos con Ud.</h5>
+        <div class="list list-inset ok-margin-top-0">
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Nombre">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Apellido">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Email">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Teléfono">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Celular">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="N°">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Categoría">
+          </label>
+          <label class="item item-input ok-form-input">
+            <input type="text" placeholder="Deseo: Comprar / Vender">
+          </label>
+          <button class="button button-block button-positive ok-form-button">
+            Enviar
+          </button>
+        </div>
       </div>
     </div>
     <!-- SERVICIOS-->
 
     <div class="row ok-footer">
       <div class="col ok-img-list">
-        <img src="img/FACEBOOK.svg">
-        <img src="img/LINKEDIN.svg">
-        <img src="img/YOUTUBE.svg">
+        <a target="_blank" href="https://www.facebook.com/okeefeinmobiliaria"><img src="img/facebook_r.png"></a>
+        <a target="_blank" href="https://www.linkedin.com/company/335778?trk=prof-0-ovw-curr_pos"><img src="img/linkedin_r.png"></a>
+        <a target="_blank" href="https://www.youtube.com/channel/UCht4TIqthbwx2QE82IhHXDg"><img src="img/youtube_r.png"></a>
       </div>
     </div>
   </ion-content>

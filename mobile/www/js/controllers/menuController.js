@@ -12,6 +12,11 @@ angular.module('starter.controllers')
       'pre': {show: true},
       'sup': {show: true},
     };
+    $scope.doLogout = function () {
+      $auth.logout();
+
+      window.location = '/';
+    };
     $scope.apply = function (filter, valMin, valMax) {
       if (filter == 'precio' && (valMin || valMax)) {
         $scope.valMin = valMin || '';

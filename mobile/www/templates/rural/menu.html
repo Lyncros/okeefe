@@ -10,14 +10,12 @@
       <ion-list class="ok-side-menu">
         <ion-item ui-sref="rural.home" menu-close>Inicio</ion-item>
         <ion-item ui-sref="app.home" menu-close>Home</ion-item>
-        <ion-item ui-sref="rural.subdivisions" menu-close>Servicios</ion-item>
+        <ion-item ui-sref="rural.services" menu-close>Servicios</ion-item>
         <ion-item ui-sref="rural.appraisals" menu-close>Tasaciones</ion-item>
-        <ion-item ui-sref="rural.home" menu-close>Registrarse</ion-item>
+        <ion-item ui-sref="auth.login" menu-close ng-if="!isLogged">Registrate</ion-item>
+        <ion-item ui-sref="user.account" menu-close ng-if="isLogged">Mi Cuenta</ion-item>
+        <ion-item ng-click="doLogout()" menu-close ng-if="isLogged">Cerrar Sesión</ion-item>
       </ion-list>
-      <button ui-sref="rural.home" menu-close
-              class="button button-block button-positive ok-rural-contact-button ok-margin-top-0">
-        CONTACTO
-      </button>
     </ion-content>
   </ion-side-menu>
   <ion-side-menu side="right" is-enabled="filterProperties">

@@ -14,6 +14,7 @@ angular.module('starter', [
   'starter.constants',
   'starter.services',
   'starter.directives',
+  '720kb.socialshare',
 ])
 
   .run(function ($ionicPlatform) {
@@ -72,6 +73,7 @@ angular.module('starter', [
 
       // setup an abstract state for the tabs directive
         .state('app', {
+          cache: false,
           url: '/app',
           abstract: true,
           templateUrl: 'templates/menu.html',
@@ -123,6 +125,7 @@ angular.module('starter', [
           }
         })
         .state('app.properties', {
+          cache: false,
           url: '/propiedades/:tipo/:operacion/:ubicacion',
           views: {
             'appContent': {
@@ -141,7 +144,7 @@ angular.module('starter', [
           }
         })
         .state('app.ventureSheet', {
-          url: '/emprendimiento',
+          url: '/emprendimiento/:id',
           views: {
             'appContent': {
               templateUrl: 'templates/venture-sheet.html',
@@ -161,7 +164,8 @@ angular.module('starter', [
         .state('user', {
           url: "/usuario",
           abstract: true,
-          templateUrl: "templates/user/account.html"
+          templateUrl: "templates/user/account.html",
+          controller: 'userAccController',
         })
         .state('user.account', {
           url: '/cuenta',
@@ -177,6 +181,7 @@ angular.module('starter', [
           views: {
             'user-fav': {
               templateUrl: 'templates/user/fav.html',
+              controller: 'favController',
             }
           }
         })
@@ -185,6 +190,7 @@ angular.module('starter', [
           views: {
             'user-contact': {
               templateUrl: 'templates/user/contact.html',
+              controller: 'contactController',
             }
           }
         })
@@ -212,6 +218,7 @@ angular.module('starter', [
           }
         })
         .state('rural', {
+          cache: false,
           url: '/rural',
           abstract: true,
           templateUrl: 'templates/rural/menu.html',
@@ -243,6 +250,15 @@ angular.module('starter', [
             }
           }
         })
+        .state('rural.services', {
+          url: '/servicios',
+          views: {
+            'appContent': {
+              templateUrl: 'templates/rural/services.html',
+              /*controller: 'servicesController'*/
+            }
+          }
+        })
         .state('rural.us', {
           url: '/porque-nosotros',
           views: {
@@ -253,6 +269,7 @@ angular.module('starter', [
           }
         })
         .state('rural.properties', {
+          cache: false,
           url: '/propiedades/:tipo/:operacion/:ubicacion',
           views: {
             'appContent': {
