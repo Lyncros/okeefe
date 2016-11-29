@@ -17,18 +17,20 @@
     <div class="row property-sheet-info ok-padding-top-0">
       <div class="col col-33 ok-ps-text ok-color-green">{{property.valor[0].contenido | currency:$:0}}</div>
       <div class="col col-33 col-offset-10 ok-ps-text">ID {{property.id_prop}}</div>
-      <div class="col">
+      <a ng-click="doFav(property.id_prop)" class="col ok-padding-0">
                 <span class="icon-stack">
-                 <i class="ion-ios-circle-outline icon-stack-back ok-color-grey"></i>
-                 <i class="ion-android-favorite icon-stack-ico ok-color-orange"></i>
+                 <i class="ion-record icon-stack-back prop-{{property.id_prop}}"
+                    ng-class="{'ok-color-white':!checkFav(property.id_prop), 'ok-color-green':checkFav(property.id_prop)}"></i>
+                 <i class="ion-android-favorite icon-stack-ico"
+                    ng-class="{'ok-color-white':checkFav(property.id_prop), 'ok-color-orange':!checkFav(property.id_prop)}"></i>
                 </span>
-      </div>
-      <div class="col">
-                <span class="icon-stack">
-                 <i class="ion-ios-circle-outline icon-stack-back ok-color-grey"></i>
-                 <i class="ion-android-share-alt icon-stack-ico ok-color-green"></i>
-                </span>
-      </div>
+      </a>
+      <a ng-click="showPopup(property)" class="col ok-padding-0">
+                        <span class="icon-stack">
+                         <i class="ion-record icon-stack-back ok-color-white"></i>
+                         <i class="ion-android-share-alt icon-stack-ico ok-color-green"></i>
+                        </span>
+      </a>
     </div>
     <div class="row property-sheet-info2 ok-padding-0">
       <div ng-if="property.ambientes.length" class="col col-40 ok-padding-0">
@@ -211,26 +213,31 @@
     </div>
     <div class="list list-inset ok-margin-top-0">
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Nombre">
+        <input ng-model="psContactForm.nombre" type="text" placeholder="Nombre">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Apellido">
+        <input ng-model="psContactForm.apellido" type="text" placeholder="Apellido">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Teléfono">
+        <input ng-model="psContactForm.telefono" type="text" placeholder="Teléfono">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Celular">
+        <input ng-model="psContactForm.celular" type="text" placeholder="Celular">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Email">
+        <input ng-model="psContactForm.email" type="text" placeholder="Email">
       </label>
       <label class="item item-input ok-form-input">
-        <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
+        <textarea ng-model="psContactForm.comentarios" class="ok-investments-textarea" placeholder="Mensaje"></textarea>
       </label>
-      <button class="button button-block button-positive ok-form-button">
+      <button ng-click="psForm()" class="button button-block button-positive ok-form-button">
         CONSULTAR
       </button>
+      <div class="card" ng-show="alert != null">
+        <div class="item item-text-wrap">
+          {{alert.msg}}
+        </div>
+      </div>
     </div>
     <div class="row ok-footer">
       <div class="col ok-img-list">

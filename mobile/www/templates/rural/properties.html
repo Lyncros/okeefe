@@ -37,7 +37,7 @@
     <div ng-show="view == 'list'" id="properties-list">
       <div data-ng-repeat="prop in $parent.$parent.$parent.filteredResults = (properties | filter:filtrarPropiedades
                          | orderBy:propertyName) | limitTo:totalPropertiesShow.number">
-        <a class="row ok-padding-0 ok-margin-top-0" href="#!/ficha-propiedad/{{prop.id_prop}}">
+        <a class="row ok-padding-0 ok-margin-top-0" href="#!/rural/ficha/{{prop.id_prop}}">
           <img class="ok-mob-prop-img"
                ng-if="prop.foto[0]"
                ng-src="http://abm.okeefe.com.ar/fotos_th/{{prop.foto[0].foto_principal}}">

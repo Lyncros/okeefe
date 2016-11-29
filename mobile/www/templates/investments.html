@@ -130,26 +130,31 @@
     </div>
     <div class="list list-inset ok-margin-top-0">
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Nombre">
+        <input ng-model="form.nombre" type="text" placeholder="Nombre">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Apellido">
+        <input ng-model="form.apellido" type="text" placeholder="Apellido">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Teléfono">
+        <input ng-model="form.telefono" type="text" placeholder="Teléfono">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Celular">
+        <input ng-model="form.celular" type="text" placeholder="Celular">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Email">
+        <input ng-model="form.email" type="text" placeholder="Email">
       </label>
       <label class="item item-input ok-form-input">
-        <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
+        <textarea ng-model="form.comentarios" class="ok-investments-textarea" placeholder="Mensaje"></textarea>
       </label>
-      <button class="button button-block button-positive ok-form-button">
+      <button ng-click="invForm()" class="button button-block button-positive ok-form-button">
         Enviar
       </button>
+      <div class="card" ng-show="alert != null">
+        <div class="item item-text-wrap">
+          {{alert.msg}}
+        </div>
+      </div>
     </div>
     <!-- 3 ASESORAMIENTO -->
     <div class="row ok-footer">

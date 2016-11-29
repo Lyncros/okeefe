@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-  .controller('propertiesRuralController', function ($scope, $timeout, $rootScope, entitiesService, $stateParams, favoritesService,
+  .controller('propertiesRuralController', function ($scope, $ionicPopup, $timeout, $rootScope, entitiesService, $stateParams, favoritesService,
                                                      searchApiService, defaultFactory, $auth, $location, SITE_URL, $ionicNavBarDelegate) {
     $ionicNavBarDelegate.showBackButton(false);
     $scope.map = defaultFactory.property_map;

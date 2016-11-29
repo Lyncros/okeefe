@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
   .controller('propertySheetController',
-    function ($scope, defaultFactory, $ionicSideMenuDelegate,$auth,$ionicPopup, favoritesService, okeefeApiService, entitiesService, searchApiService, $stateParams) {
+    function ($scope, defaultFactory, $ionicSideMenuDelegate, $auth, $ionicPopup, favoritesService, okeefeApiService, entitiesService, searchApiService, $stateParams) {
       $scope.control = {};
       $scope.resultFav = false;
       $scope.favCount = 0;
@@ -41,13 +41,8 @@ angular.module('starter.controllers')
           //myPopup.close();
         });
       };
-      $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
-      $scope.psForm = function ($event) {
-        $event.preventDefault();
-        if (!$scope.psContactForm.nombre || !$scope.psContactForm.apellido || !$scope.psContactForm.email || !$scope.psContactForm.telefono || !$scope.psContactForm.celular || !$scope.psContactForm.comentarios) {
-          $scope.psContactForm.error = true;
-          return false;
-        }
+      $scope.psContactForm = {secret: 'sitiOkeefe', dato: ''};
+      $scope.psForm = function () {
         $scope.psContactForm.comentarios = "Propiedad (" + $stateParams.id + ") - " + $scope.psContactForm.comentarios;
         okeefeApiService.API.send($scope.psContactForm).then(function (response) {
           entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);

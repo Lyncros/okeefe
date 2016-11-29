@@ -33,33 +33,40 @@
       </div>
     </div>
     <div class="list list-inset ok-margin-top-0">
+      <div class="item item-input ok-form-input" ng-click="operationModal.show()">
+        <input value="{{appraisalForm.oper}}" type="text" disabled placeholder="Tipo de Operación">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
+      </div>
+      <div class="item item-input ok-form-input" ng-click="propertyModal.show()">
+        <input value="{{appraisalForm.property}}" type="text" disabled placeholder="Tipo de Inmueble">
+        <i style="padding-right: 10px;" class="icon ion-chevron-down"></i>
+      </div>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Compra">
+        <input ng-model="appraisalForm.zona" type="text" placeholder="Zona | Emprendimiento">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Tipo de Inmueble">
+        <input ng-model="appraisalForm.nombre" type="text" placeholder="Nombre">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Zona | Emprendimiento">
+        <input ng-model="appraisalForm.apellido" type="text" placeholder="Apellido">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Nombre">
+        <input ng-model="appraisalForm.email" type="text" placeholder="Email">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Apellido">
+        <input ng-model="appraisalForm.telefono" type="text" placeholder="Teléfono">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Email">
+        <input ng-model="appraisalForm.celular" type="text" placeholder="Celular">
       </label>
-      <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Teléfono">
-      </label>
-      <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Celular">
-      </label>
-      <button class="button button-block button-positive ok-form-button">
+      <button ng-click="appForm()" class="button button-block button-positive ok-form-button">
         Enviar
       </button>
+      <div class="card" ng-show="alert != null">
+        <div class="item item-text-wrap">
+          {{alert.msg}}
+        </div>
+      </div>
     </div>
     <div class="row ok-footer-rural">
       <div class="col ok-img-list">

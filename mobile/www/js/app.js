@@ -93,7 +93,7 @@ angular.module('starter', [
           views: {
             'appContent': {
               templateUrl: 'templates/appraisals.html',
-              controller: 'homeController'
+              controller: 'appraisalsController'
             }
           }
         })
@@ -237,7 +237,9 @@ angular.module('starter', [
           url: '/tasaciones',
           views: {
             'appContent': {
-              templateUrl: 'templates/rural/appraisals.html'
+              templateUrl: 'templates/rural/appraisals.html',
+              controller: 'appraisalsRuralController'
+
             }
           }
         })
