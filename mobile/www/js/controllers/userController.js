@@ -12,7 +12,7 @@ angular.module('starter.controllers')
             content: 'Iniciada la sesión con exito'
           })
             .then(function (res) {
-              var url = '#'+ $location.hash() || '!/usuario/cuenta';
+              var url = '#'+ ($location.hash() || '!/usuario/cuenta');
               return window.location = url;
             });
         })
@@ -32,7 +32,7 @@ angular.module('starter.controllers')
             content: 'Sesión iniciada con exito.'
           })
             .then(function (res) {
-              var url = '#'+ $location.hash() || '!/usuario/cuenta';
+              var url = '#'+ ($location.hash() || '!/usuario/cuenta');
               return window.location = url;
             });
         })
@@ -57,7 +57,8 @@ angular.module('starter.controllers')
             content: 'Usuario creado con exito'
           })
             .then(function (res) {
-              window.location = '#/app/login'
+              var url = '#'+ ($location.hash() || '!/usuario/cuenta');
+              return window.location = url;
             });
 
           $scope.user = {};

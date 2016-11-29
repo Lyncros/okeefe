@@ -2,133 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/AUTHORS.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/jsonp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/load.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/parseXML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/var/location.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/var/nonce.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/var/rquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/ajax/xhr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes/attr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes/prop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/attributes/val.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/callbacks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/DOMEval.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/access.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/init.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/parseHTML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/ready-no-deferred.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/ready.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/readyException.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/core/var/rsingleTag.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/addGetHookIf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/adjustCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/curCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/hiddenVisibleSelectors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/showHide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/cssExpand.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/getStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/isHiddenWithinTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/rmargin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/rnumnonpx.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/css/var/swap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/data/Data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/data/var/acceptData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/data/var/dataPriv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/data/var/dataUser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/deferred.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/deferred/exceptionHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/deprecated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/dimensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/effects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/effects/Tween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/effects/animatedSelector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event/alias.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event/focusin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/event/trigger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/exports/amd.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/exports/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/_evalUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/buildFragment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/getAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/setGlobalEval.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/var/rcheckableType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/var/rscriptType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/var/rtagName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/manipulation/wrapMap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/offset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/queue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/queue/delay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/selector-native.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/selector-sizzle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/selector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/serialize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/traversing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/traversing/findFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/traversing/var/dir.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/traversing/var/rneedsContext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/traversing/var/siblings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/ObjectFunctionString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/arr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/class2type.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/concat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/document.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/documentElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/fnToString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/getProto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/hasOwn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/indexOf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/pnum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/push.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/rcssNum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/rnotwhite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/slice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/var/toString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile/www/lib/jquery/src/wrap.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/index.html" afterPath="$PROJECT_DIR$/mobile/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/app.js" afterPath="$PROJECT_DIR$/mobile/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/investmentsController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/investmentsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/propertySheetController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/propertySheetController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertiesRuralController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertiesRuralController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertyRuralSheetController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertyRuralSheetController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/appraisals.html" afterPath="$PROJECT_DIR$/mobile/www/templates/appraisals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/auth/login.html" afterPath="$PROJECT_DIR$/mobile/www/templates/auth/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/home.html" afterPath="$PROJECT_DIR$/mobile/www/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/investments.html" afterPath="$PROJECT_DIR$/mobile/www/templates/investments.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/menu.html" afterPath="$PROJECT_DIR$/mobile/www/templates/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/modal/share.html" afterPath="$PROJECT_DIR$/mobile/www/templates/modal/share.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/properties.html" afterPath="$PROJECT_DIR$/mobile/www/templates/properties.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/property-sheet.html" afterPath="$PROJECT_DIR$/mobile/www/templates/property-sheet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/rural/appraisals.html" afterPath="$PROJECT_DIR$/mobile/www/templates/rural/appraisals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/rural/home.html" afterPath="$PROJECT_DIR$/mobile/www/templates/rural/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/rural/properties.html" afterPath="$PROJECT_DIR$/mobile/www/templates/rural/properties.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/rural/property-sheet.html" afterPath="$PROJECT_DIR$/mobile/www/templates/rural/property-sheet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/appraisals.html" afterPath="$PROJECT_DIR$/templates/appraisals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/rural/appraisals.html" afterPath="$PROJECT_DIR$/templates/rural/appraisals.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/userController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/userController.js" />
     </list>
     <ignored path="site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configConstants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/www/js/constants/configConstants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile/www/js/controllers/userController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="70" lean-forward="false" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -229,7 +113,6 @@
         <option value="$PROJECT_DIR$/mobile/www/js/controllers/menuController.js" />
         <option value="$PROJECT_DIR$/mobile/www/templates/rural/menu.html" />
         <option value="$PROJECT_DIR$/mobile/www/js/controllers/rural/menuRuralController.js" />
-        <option value="$PROJECT_DIR$/mobile/www/js/controllers/userController.js" />
         <option value="$PROJECT_DIR$/mobile/www/js/services/defaultFactory.js" />
         <option value="$PROJECT_DIR$/mobile/www/templates/user/contact.html" />
         <option value="$PROJECT_DIR$/mobile/www/css/style.css" />
@@ -262,6 +145,7 @@
         <option value="$PROJECT_DIR$/mobile/www/js/app.js" />
         <option value="$PROJECT_DIR$/mobile/www/templates/auth/login.html" />
         <option value="$PROJECT_DIR$/mobile/www/js/constants/configConstants.js" />
+        <option value="$PROJECT_DIR$/mobile/www/js/controllers/userController.js" />
       </list>
     </option>
   </component>
@@ -493,6 +377,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okeefe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okeefe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="constants" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -655,12 +565,12 @@
       <workItem from="1480083254869" duration="15308000" />
       <workItem from="1480352245594" duration="17000" />
       <workItem from="1480424537950" duration="346000" />
-      <workItem from="1480437747846" duration="5029000" />
+      <workItem from="1480437747846" duration="5446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="637533000" />
+    <option name="totallyTimeSpent" value="637950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="-8" width="1382" height="744" extended-state="6" />
@@ -1090,14 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/www/js/controllers/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="67" column="31" lean-forward="true" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/www/templates/auth/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1108,8 +1010,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/www/js/constants/configConstants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/www/js/controllers/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="70" lean-forward="false" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
           <folding />
         </state>
       </provider>
