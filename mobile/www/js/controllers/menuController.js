@@ -143,6 +143,10 @@ angular.module('starter.controllers')
       return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
     };
 
+    $scope.applyFilters = function () {
+      window.location.reload(true);
+    };
+
     $scope.removeFilter = function (filter) {
       if (filter.key == 'precio' || filter.key == 'sup') {
         $scope.appliedFilters[filter.key] = [];

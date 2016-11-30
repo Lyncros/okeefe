@@ -218,6 +218,10 @@ angular.module('starter.controllers')
         property['cantidad_antiguedad'] = property.propiedad_caracteristicas.filter(function (item) {
           return item.id_carac == 374;
         });
+        return property;
+      }
+
+      function getFilters(property) {
         if (property.cantidad_ambientes[0] != null) {
           $scope.filters['amb'][property.cantidad_ambientes[0].contenido] = ( $scope.filters['amb'][property.cantidad_ambientes[0].contenido] + 1 || 1);
         }
@@ -231,7 +235,6 @@ angular.module('starter.controllers')
           $scope.filters['banos'][property.cantidad_banos[0].contenido] = ( $scope.filters['banos'][property.cantidad_banos[0].contenido] + 1 || 1);
         }
         $scope.setFilterData($scope.filters);
-        return property;
       }
 
       function totalProperties(data, padre = '', padres = '') {
@@ -250,7 +253,6 @@ angular.module('starter.controllers')
             totalProperties(ubication, data.id_ubica, padres);
           });
         }
-
       }
 
       function getAppliedFilter() {
@@ -290,7 +292,6 @@ angular.module('starter.controllers')
             value = value.replace("-", " ").split('-').join(' ');
             var data = findIndexKeyWithAttr($scope.childFilters, 'value', value);
             $scope.appliedFilters['barrio'].push({key: data[0], value: value, index: data[1]});
-
           });
         }
         angular.forEach($scope.appliedFilters, function (value, key) {
@@ -312,6 +313,14 @@ angular.module('starter.controllers')
         $scope.setAppliedFilterData($scope.appliedFilters);
         $scope.setChildFiltersData($scope.childFilters);
       }
+
+      $scope.$watch('appliedFilters', function () {
+        $scope.properties.forEach(function (property) {
+          if($scope.verFiltrado(property)){
+            getFilters(property);
+          }
+        });
+      });
 
       function getPropCount(data) {
         var count = (data.properties) ? data.properties.length : 0;
@@ -386,6 +395,7 @@ angular.module('starter.controllers')
             }
           });
       };
+
       $scope.filtrarPropiedades = function (item, idx, all) {
         //console.log("appliedFilters.ubi", $scope.appliedFilters.ubi);
         var filters = $scope.appliedFilters;
@@ -489,6 +499,108 @@ angular.module('starter.controllers')
           // nada matchea.
           return _.all(_.values(results));
         }
+      };
+
+      $scope.verFiltrado = function (item) {
+        //console.log("appliedFilters.ubi", $scope.appliedFilters.ubi);
+        var filters = $scope.appliedFilters;
+        var applied = false;
+        var matches = true;
+
+        for (var key in filters) {
+          var values = filters[key];
+          if (values.length && key != 'precio' && key != 'sup') {
+            applied = true;
+            matches = false;
+          } else if (values.length && (key == 'precio' || key == 'sup') && (values[0] && values[0].value != "null" || values[1] && values[1].value != "null")) {
+            applied = true;
+            matches = false;
+          }
+          switch (key) {
+            case 'localidad':
+              /*console.log(item.padres);
+               console.log(values);*/
+              if (item.padres && values.length) {
+                values.forEach(function (val) {
+                  //console.log("val", val);
+                  if (item.padres.indexOf(val.key) != -1 || item.id_ubica == val.key) {
+                    matches = true;
+                    //console.log("contain");
+                  }
+                });
+              }
+              break;
+            case 'barrio':
+              /*console.log(item.padres);
+               console.log(values);*/
+              if (item.padres && values.length) {
+                values.forEach(function (val) {
+                  //console.log(val);
+                  if (item.padres.indexOf(val.key) != -1 || item.id_ubica == val.key) {
+                    matches = true;
+                    //console.log("contain");
+                  }
+                });
+              }
+              break;
+            case 'amb':
+              if (item.cantidad_ambientes[0] && values.indexOf(item.cantidad_ambientes[0].contenido) != -1) {
+                matches = true;
+              }
+              break;
+            case 'coch':
+              if (item.cantidad_cocheras[0] && values.indexOf(item.cantidad_cocheras[0].contenido) != -1) {
+                matches = true;
+              }
+              break;
+            case 'ant':
+              if (item.cantidad_antiguedad[0] && values.indexOf(item.cantidad_antiguedad[0].contenido) != -1) {
+                matches = true;
+              }
+              break;
+            case 'banos':
+              if (item.cantidad_banos[0] && values.indexOf(item.cantidad_banos[0].contenido) != -1) {
+                matches = true;
+              }
+              break;
+            case 'precio':
+              if (item.valor.length && values[0] && values[0].value != "" && values[1] && values[1].value != "") {
+                if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                  && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
+                  matches = true;
+                }
+              } else if (item.valor.length && values[0] && values[0].value != ""
+                && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
+                matches = true;
+              } else if (item.valor.length && values[1] && values[1].value != ""
+                && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
+                matches = true;
+              }
+              break;
+            case 'sup':
+              if (item.sup_total.length && values[0] && values[0].value != "" && values[1] && values[1].value != "") {
+                if (parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)
+                  && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
+                  matches = true;
+                }
+              } else if (item.sup_total.length && values[0] && values[0].value != ""
+                && parseFloat(item.sup_total[0].contenido) >= parseFloat(values[0].value)) {
+                matches = true;
+              } else if (item.sup_total.length && values[1] && values[1].value != ""
+                && parseFloat(item.sup_total[0].contenido) <= parseFloat(values[1].value)) {
+                matches = true;
+              }
+              break;
+          }
+        }
+
+        if (!applied || (applied && matches)) {
+          return true;
+        } else {
+          // nada matchea.
+          return false;
+        }
+
       };
 
       $scope.init();

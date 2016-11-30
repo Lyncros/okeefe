@@ -370,7 +370,7 @@
                     name: "DIEGO SARAGO",
                     job: "JEFE DE MARKETING",
                     desc: "Lic en Administración de Empresas. Especialista en Marketing y Comunicación",
-                    img: "",
+                    img: "foto_diego_okeefe.jpg",
                     email: 'diego.sarago@okeefe.com.ar'
                 },
             ];

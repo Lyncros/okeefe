@@ -17,6 +17,10 @@ angular.module('starter.controllers')
         $auth.logout();
         window.location = '/';
       };
+
+      $scope.applyFilters = function () {
+        window.location.reload(true);
+      };
       $scope.apply = function (filter, valMin, valMax) {
         if (filter == 'precio' && (valMin || valMax)) {
           $scope.valMin = valMin || '';
