@@ -9,26 +9,31 @@
       <i ui-sref="app.home" class="ion-close-round ok-user-close ok-color-dark-grey"></i>
     </div>
     <div class="list list-inset ok-margin-top-0">
+      <div class="card" ng-show="alert != null">
+        <div class="item item-text-wrap">
+          {{alert.msg}}
+        </div>
+      </div>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Nombre">
+        <input ng-model="footerForm.nombre" type="text" placeholder="Nombre">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Apellido">
+        <input ng-model="footerForm.apellido" type="text" placeholder="Apellido">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Teléfono">
+        <input ng-model="footerForm.telefono" type="text" placeholder="Teléfono">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Celular">
+        <input ng-model="footerForm.celular" type="text" placeholder="Celular">
       </label>
       <label class="item item-input ok-form-input">
-        <input type="text" placeholder="Email">
+        <input ng-model="footerForm.email" type="text" placeholder="Email">
       </label>
       <label class="item item-input ok-form-input">
-        <textarea class="ok-investments-textarea" placeholder="Mensaje"></textarea>
+        <textarea ng-model="footerForm.comentarios" class="ok-investments-textarea" placeholder="Mensaje"></textarea>
       </label>
-      <ion-toggle ng-checked="true" toggle-class="toggle-balanced">Suscribirme al newsletter</ion-toggle>
-      <button class="button button-block button-positive ok-form-button">
+      <ion-toggle ng-model="footerForm.newsletter" toggle-class="toggle-balanced">Suscribirme al newsletter</ion-toggle>
+      <button ng-click="contactForm()"  class="button button-block button-positive ok-form-button">
         ENVIAR
       </button>
     </div>
