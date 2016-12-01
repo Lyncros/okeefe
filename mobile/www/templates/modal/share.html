@@ -1,5 +1,5 @@
 <div class="row">
-  <!--{{shareProp}}-->
+  <!--{{shareProp.siteUrl}}-->
   <a class="col ok-share-icon ok-color-orange"
      socialshare
      socialshare-provider="facebook"
@@ -19,7 +19,7 @@
   <a class="col ok-share-icon ok-color-orange" socialshare
      socialshare-provider="pinterest"
      socialshare-text="{{shareProp.fichaweb[0].contenido || shareProp.nombre_ubicacion}}"
-     socialshare-url="{{shareProp.siteUrl}}ficha-propiedad/{{shareProp.id_prop}}"
+     socialshare-url="{{shareProp.siteUrl}}app/ficha/{{shareProp.id_prop}}"
      socialshare-media="{{shareProp.foto[0].foto || 'http://abm.okeefe.com.ar/fotos_th/'+shareProp.foto[0].foto_principal}}">
     <i class="icon ion-social-pinterest"></i>
   </a>

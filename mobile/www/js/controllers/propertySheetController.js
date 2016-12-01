@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
   .controller('propertySheetController',
-    function ($scope, defaultFactory, $ionicSideMenuDelegate, $auth, $ionicPopup, favoritesService, okeefeApiService, entitiesService, searchApiService, $stateParams) {
+    function ($scope, defaultFactory, $ionicSideMenuDelegate, $auth, $ionicPopup, favoritesService, SITE_URL, okeefeApiService, entitiesService, searchApiService, $stateParams) {
       $scope.control = {};
       $scope.resultFav = false;
       $scope.favCount = 0;
