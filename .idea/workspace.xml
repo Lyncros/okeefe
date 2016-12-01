@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce3472a4-a053-493f-a3ba-dcb20b059ad1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/propertySheetController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/propertySheetController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertyRuralSheetController.js" afterPath="$PROJECT_DIR$/mobile/www/js/controllers/rural/propertyRuralSheetController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/www/templates/modal/share.html" afterPath="$PROJECT_DIR$/mobile/www/templates/modal/share.html" />
     </list>
     <ignored path="site.iws" />
@@ -31,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/www/templates/modal/share.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="30" />
+              <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -40,8 +38,8 @@
       <file leaf-file-name="propertiesController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/www/js/controllers/propertiesController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="408">
+              <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
                 <element signature="e#19613#23868#0" expanded="false" />
               </folding>
@@ -597,12 +595,12 @@
       <workItem from="1480352245594" duration="17000" />
       <workItem from="1480424537950" duration="346000" />
       <workItem from="1480437747846" duration="7140000" />
-      <workItem from="1480506758514" duration="14187000" />
+      <workItem from="1480506758514" duration="14776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="653831000" />
+    <option name="totallyTimeSpent" value="654420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1006,8 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/www/js/controllers/propertiesController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="408">
+          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding>
             <element signature="e#19613#23868#0" expanded="false" />
           </folding>
@@ -1017,7 +1015,7 @@
     <entry file="file://$PROJECT_DIR$/mobile/www/templates/modal/share.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="30" />
+          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
           <folding />
         </state>
       </provider>
