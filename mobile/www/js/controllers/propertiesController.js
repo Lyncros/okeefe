@@ -13,6 +13,7 @@ angular.module('starter.controllers')
 
       $scope.showPopup = function (prop) {
         $scope.shareProp = prop;
+        $scope.shareProp.siteUrl = SITE_URL;
         $scope.data = {};
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
