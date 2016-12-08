@@ -111,6 +111,24 @@
                     $scope.property.fotos = data.filter(function (d) {
                         return d.id_carac == 75
                     });
+                    $scope.property.fotos[0].contenidoAct = JSON.parse($scope.property.fotos[0].contenidoAct);
+                    $scope.property.amenities[0].contenidoAct = JSON.parse($scope.property.amenities[0].contenidoAct);
+                    $scope.property.terminaciones[0].contenidoAct = JSON.parse($scope.property.terminaciones[0].contenidoAct);
+                    $scope.property.fotos[0].images = [];
+                    var htmlObject = $($scope.property.fotos[0].contenido);
+                    angular.forEach(htmlObject, function(value, key) {
+                        var htmlObjectInner = $(value.innerHTML);
+                        if(htmlObjectInner[0] && htmlObjectInner[0].tagName == 'IMG'){
+                            angular.forEach(htmlObjectInner[0].attributes, function(valueIn, keyIn) {
+                                if(valueIn.name == 'src'){
+                                    $scope.property.fotos[0].images.push(valueIn.nodeValue);
+                                    //console.log(valueIn.nodeValue);
+                                }
+                            });
+                        }
+                    });
+                    //console.log($scope.property.fotos[0].images);
+
                 }
 
                 function setMap(data) {
@@ -135,13 +153,15 @@
 
                 function setData(response) {
                     $scope.property = response.data;
-                    setMap($scope.property);
-                    setPropChar($scope.property);
-                    setChar($scope.property.caracteristicas);
-                    $scope.pdf();
-                    $timeout(function () {
-                        //entitiesService.wowSlider();
-                    }, 0);
+                    if($scope.property){
+                        setMap($scope.property);
+                        setPropChar($scope.property);
+                        setChar($scope.property.caracteristicas);
+                        $scope.pdf();
+                        /*$timeout(function () {
+                            entitiesService.wowSlider();
+                        }, 0);*/
+                    }
                     if ($scope.isLogged) {
                         favoritesService.getAll(function (data) {
                             return data;
@@ -165,6 +185,7 @@
                 $scope.getData = function (emprendimiento) {
                     $scope.getParam();
                     if (emprendimiento) {
+                        //console.log(emprendimiento);
                         setData(emprendimiento);
                     } else {
                         searchApiService.searchApi.readById($scope.param, true)

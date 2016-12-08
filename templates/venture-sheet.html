@@ -1,6 +1,6 @@
 <div class="sub-header">
     <div class="row">
-        <div class="col-xs-9">
+        <div class="col-lg-9">
             <a href="">Okeefe</a> <span class='ariadna'> > <a href="">Emprendimiento</a></span>
         </div>
         <div class="boton-fav" ng-if="isLogged" ng-click="editFav()">
@@ -15,24 +15,30 @@
         </div>
     </div>
 </div>
-
-<div class="galeria-emprendimiento">
+<div class="sub-header">
     <div class="row">
-        <div class="col-xs-9">
+        <div class="col-lg-12">
+            <h2 ng-if="!property">No hay información para este emprendimiento</h2>
+        </div>
+    </div>
+</div>
+<div ng-if="property" class="galeria-emprendimiento">
+    <div class="row">
+        <div class="col-lg-9">
             <h2>{{property.nombre}}</h2>
         </div>
-        <div class="col-xs-3 text-right"><h2><span class="id-prop">ID {{property.id_emp}}</span></h2></div>
+        <div class="col-lg-3 text-right"><h2><span class="id-prop">ID {{property.id_emp}}</span></h2></div>
     </div>
-    <div ng-if="property.foto" class="row">
+    <div ng-if="property.fotos && property.fotos[0].contenidoAct && property.fotos[0].contenidoAct.images.length" class="row">
         <div id="slider-emprend" class="col-md-12 carousel slide slider-emprend" data-ride="carousel">
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <!-- SLIDE -->
-                <div class="item active">
+                <div ng-repeat="foto in property.fotos[0].contenidoAct.images track by $index" class="item"
+                     ng-class="{'active': $first}">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <img class="img-responsive center-block" ng-src="{{property.foto}}">
+                        <div class="col-lg-12">
+                            <img class="img-responsive center-block" src="http://abm.okeefe.com.ar{{foto}}">
                             <!--<div class="carousel-caption">
                                 Epígrafe foto, epígrafe foto
                             </div>-->
@@ -42,25 +48,71 @@
                 <!-- SLIDE -->
             </div>
             <!-- Controls -->
-            <!--<a class="left carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="prev">
+            <a class="left carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
             </a>
             <a class="right carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Siguiente</span>
-            </a>-->
+            </a>
         </div>
-
+    </div>
+    <div ng-if="!(property.fotos && property.fotos[0].contenidoAct && property.fotos[0].contenidoAct.images.length) && property.fotos[0] && property.fotos[0].images.length" class="row">
+        <div id="slider-emprend" class="col-md-12 carousel slide slider-emprend" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <!-- SLIDE -->
+                <div ng-repeat="foto in property.fotos[0].images track by $index" class="item"
+                     ng-class="{'active': $first}">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img class="img-responsive center-block" src="http://abm.okeefe.com.ar{{foto}}">
+                            <!--<div class="carousel-caption">
+                                Epígrafe foto, epígrafe foto
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDE -->
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href=".slider-emprend" ng-non-bindable role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+    </div>
+    <div ng-if="property.foto && !(property.fotos && property.fotos[0].contenidoAct && property.fotos[0].contenidoAct.images.length) && !(property.fotos[0] && property.fotos[0].images.length)"
+         class="row">
+        <div id="slider-emprend" class="col-md-12 carousel slide slider-emprend" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img class="img-responsive center-block" ng-src="{{property.foto}}">
+                            <!--<div class="carousel-caption">
+                                Epígrafe foto, epígrafe foto
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
 
-<div class="informacion-propiedad">
+<div ng-if="property" class="informacion-propiedad">
     <div class="row">
-        <div class="col-xs-9">
+        <div class="col-lg-9">
             <div class="row pestanas-prop">
-                <div class="col-xs-12">
+                <div class="col-lg-12">
                     <div class="menu text-center">
                         <div class="item i1" ng-class="{'active' : tab == 'f'}">
                             <a ng-click="moveArrow('f')" href=".ficha-tec" class="f" data-toggle="tab">Ficha tecnica</a>
@@ -91,16 +143,16 @@
                 <div class="flecha"></div>
                 <div role="tabpanel" class="tab-pane fade in active ficha-tec">
                     <div ng-if="property.ubicacion" class="row">
-                        <div class="col-xs-2"><strong>Ubicación</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.ubicacion}}</span></div>
+                        <div class="col-lg-2"><strong>Ubicación</strong></div>
+                        <div class="col-lg-10"><span class="dato-tec">{{property.ubicacion}}</span></div>
                     </div>
                     <div ng-if="property.estado" class="row">
-                        <div class="col-xs-2"><strong>Estado</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.estado}}</span></div>
+                        <div class="col-lg-2"><strong>Estado</strong></div>
+                        <div class="col-lg-10"><span class="dato-tec">{{property.estado}}</span></div>
                     </div>
                     <div ng-if="property.descripcion || property.desc[0]" class="row">
-                        <div class="col-xs-2"><strong>Descripción</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.descripcion || property.desc[0].contenido}}</span>
+                        <div class="col-lg-2"><strong>Descripción</strong></div>
+                        <div class="col-lg-10"><span class="dato-tec">{{property.descripcion || property.desc[0].contenido}}</span>
                         </div>
                     </div>
                 </div>
@@ -160,7 +212,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-1">
+                    <div class="col-lg-1">
                         <div class="boton-fav compartir xs" uib-dropdown>
                             <a data-toggle='popover'
                                data-content="Compartir" data-trigger="hover" data-placement="top" id="fav-share"
@@ -206,7 +258,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xs-1">
+                    <div class="col-lg-1">
                         <div class="boton-fav compartir">
                             <a ng-click="downloadPDF()" class="btn btn-gris-claro-2"
                                data-toggle='popover'
@@ -218,7 +270,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-1">
+                    <div class="col-lg-1">
                         <div class="boton-fav compartir">
                             <a download="propiedad-{{property.id_prop}}.pdf" ng-href="{{pdfFile}}"
                                class="btn btn-gris-claro-2"
@@ -231,7 +283,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-9">
+                    <div class="col-lg-9">
                         <div class="boton-fav">
                             <a ng-if="!resultFav" href="javascript:;" class="btn btn-verde btn-block"
                                data-toggle='popover'
@@ -266,7 +318,7 @@
 
             </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-lg-3">
             <form novalidate ng-submit="psForm($event)" name="ps_3Form" class="f_consulta-prop text-center">
                 <h3>¿QUERÉS SABER MAS?</h3>
                 <input id="nombre" class="form-control custom" type="text" ng-model="psContactForm.nombre"
@@ -306,7 +358,7 @@
                           tooltip-is-open="!psContactForm.comentarios && psContactForm.error"
                           tooltip-trigger="'none'"></textarea>
                 <div class="row">
-                    <div class="col-xs-7 pull-right">
+                    <div class="col-lg-7 pull-right">
                         <button class="btn btn-naranja btn-block btn-lg" type="submit"
                                 ng-disabled="psContactForm.$error.email">CONSULTAR
                         </button>
@@ -317,12 +369,30 @@
     </div>
     <div class="tabla-info-prop">
         <div class="row">
-            <div ng-if="property.amenities[0] && property.amenities[0].contenido"
+            <div ng-if="property.amenities[0] && property.amenities[0].contenidoAct && property.amenities[0].contenidoAct.text[0]"
+                 class="col-md-4 col-lg-6 columna">
+                <span class="th padding-0">Amenities</span>
+                <div class='col-lg-12 td' style="border: none;">
+                    <div class="col-lg-12 padding-0">
+                        {{property.amenities[0].contenidoAct.text[0]}}
+                    </div>
+                </div>
+            </div>
+            <div ng-if="property.amenities[0] && (( property.amenities[0].contenidoAct && property.amenities[0].contenidoAct.text[0]) || property.amenities[0].contenido)"
                  class="col-md-4 col-xs-6 columna">
                 <span class="th padding-0">Amenities</span>
                 <div class="ok-redered-html" ng-bind-html="trustAsHtml(property.amenities[0].contenido)"></div>
             </div>
-            <div ng-if="property.terminaciones[0] && property.terminaciones[0].contenido"
+            <div ng-if="property.terminaciones[0] && property.terminaciones[0].contenidoAct && property.terminaciones[0].contenidoAct.text.length"
+                 class="col-md-8 col-lg-6 columna">
+                <span class="th padding-0">Terminaciones</span>
+                <div ng-repeat="char in property.terminaciones[0].contenidoAct.text" class='col-lg-12 td'>
+                    <div class="col-lg-12 padding-0" style="border: none;">
+                        {{char}}
+                    </div>
+                </div>
+            </div>
+            <div ng-if="property.terminaciones[0] && ((property.terminaciones[0].contenidoAct && property.terminaciones[0].contenidoAct.text.length)|| property.terminaciones[0].contenido)"
                  class="col-md-8 col-xs-6 columna">
                 <span class="th padding-0">Terminaciones</span>
                 <div class="ok-redered-html" ng-bind-html="trustAsHtml(property.terminaciones[0].contenido)"></div>
@@ -332,7 +402,7 @@
 
     <div ng-if="property.properties.length > 0" class="row slider-propiedades">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-lg-12">
                 <span class="titulo-slider-prop text-center"> ENCONTRÁ MÁS PROPIEDADES RELACIONADAS CON ESTE EMPRENDIMIENTO </span>
             </div>
         </div>
@@ -440,54 +510,65 @@
                          class="item" ng-repeat="prop in property.properties" ng-class="{'active' : $first}">
                         <div class="col-md-6 col-lg-4 ficha">
                             <div class="col-lg-12 content">
-                                <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{property.properties[$index].id_prop}}">
+                                <a class="col-lg-12 padding-0 ok-prop-img"
+                                   href="#!/ficha-propiedad/{{property.properties[$index].id_prop}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
                                          ng-if="property.properties[$index].foto[0]"
                                          ng-src="http://abm.okeefe.com.ar/fotos_th/{{property.properties[$index].foto[0].foto_principal}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
-                                         ng-if="!property.properties[$index].foto[0]" ng-src="assets/img/sin_imagen.jpg">
+                                         ng-if="!property.properties[$index].foto[0]"
+                                         ng-src="assets/img/sin_imagen.jpg">
                                 </a>
                                 <div class="col-lg-12 padding-0 descripcion">
                                     <a href="#!/ficha-propiedad/{{property.properties[$index].id_prop}}">
-                                        <p ng-if="property.properties[$index].fichaweb[0]" class="titulo">{{property.properties[$index].fichaweb[0].contenido |
+                                        <p ng-if="property.properties[$index].fichaweb[0]" class="titulo">
+                                            {{property.properties[$index].fichaweb[0].contenido |
                                             cut:true:60:'...' |
                                             uppercase}}
                                         </p>
-                                        <p ng-if="!property.properties[$index].fichaweb[0]" class="titulo">PROPIEDAD EN {{property.properties[$index].nomedif ||
+                                        <p ng-if="!property.properties[$index].fichaweb[0]" class="titulo">PROPIEDAD EN
+                                            {{property.properties[$index].nomedif ||
                                             property.properties[$index].calle | cut:true:47:'...' |
                                             uppercase}}
                                         </p>
                                     </a>
                                     <div class="col-lg-12 padding-0 caracteristicas">
                                         <div class="col-lg-12 padding-0">
-                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index].calle}} {{property.properties[$index].nombre_ubicacion}}
+                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index].calle}}
+                                            {{property.properties[$index].nombre_ubicacion}}
                                         </div>
                                         <div ng-if="property.properties[$index].valor[0]" class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index].subtipo_prop,'col-lg-12' : !property.properties[$index].subtipo_prop }">
                                             <img src="assets/img/valor_propiedad.svg">{{property.properties[$index].valor[0].contenido}}
                                             {{property.properties[$index].moneda[0].contenido}}
                                         </div>
-                                        <div ng-if="property.properties[$index].subtipo_prop" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index].subtipo_prop"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index].valor[0],'col-lg-12' : !property.properties[$index].valor[0] }">
                                             <img src="assets/img/tipo_propiedad.svg">{{property.properties[$index].subtipo_prop}}
                                         </div>
-                                        <div ng-if="property.properties[$index].cantidad_ambientes[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index].cantidad_ambientes[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index].sup_total[0],'col-lg-12' : !property.properties[$index].sup_total[0] }">
                                             <img src="assets/img/ambientes.svg"><span
                                                 ng-bind-html="trustAsHtml(property.properties[$index].cantidad_ambientes[0].contenido)"></span>
                                         </div>
-                                        <div ng-if="property.properties[$index].sup_total[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index].sup_total[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index].cantidad_ambientes[0],'col-lg-12' : !property.properties[$index].cantidad_ambientes[0] }">
-                                            <img src="assets/img/m2.svg"> {{property.properties[$index].sup_total[0].contenido}}
+                                            <img src="assets/img/m2.svg">
+                                            {{property.properties[$index].sup_total[0].contenido}}
                                             <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                             <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                         </div>
                                     </div>
                                     <div class="property-buttons">
                                         <div class="col-lg-12 padding-0">
-                                            <p class="muestra text-justify">{{property.properties[$index].descripcionweb[0].contenido |
+                                            <p class="muestra text-justify">
+                                                {{property.properties[$index].descripcionweb[0].contenido |
                                                 cut:true:120:'...'}} </p>
-                                            <div ng-if="!checkFav(property.properties[$index].id_prop)" class="boton-fav">
+                                            <div ng-if="!checkFav(property.properties[$index].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro-2 prop-{{property.properties[$index].id_prop}}"
                                                    ng-click="doFav(property.properties[$index].id_prop)">
                                                 <span class="fa-stack">
@@ -498,7 +579,8 @@
                                                 </a>
                                             </div>
 
-                                            <div ng-if="checkFav(property.properties[$index].id_prop)" class="boton-fav">
+                                            <div ng-if="checkFav(property.properties[$index].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro prop-{{property.properties[$index].id_prop}}"
                                                    ng-click="doFav(property.properties[$index].id_prop)">
                                                 <span class="fa-stack">
@@ -509,7 +591,8 @@
                                                 </a>
                                             </div>
                                             <div class="boton-fav compartir pull-right dropup" uib-dropdown>
-                                                <a href="" class="btn btn-xs btn-gris-claro-2" type="button" uib-dropdown-toggle>
+                                                <a href="" class="btn btn-xs btn-gris-claro-2" type="button"
+                                                   uib-dropdown-toggle>
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
@@ -561,54 +644,68 @@
                         </div>
                         <div class="col-md-6 col-lg-4 ficha">
                             <div class="col-lg-12 content">
-                                <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{property.properties[$index + 1].id_prop}}">
+                                <a class="col-lg-12 padding-0 ok-prop-img"
+                                   href="#!/ficha-propiedad/{{property.properties[$index + 1].id_prop}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
                                          ng-if="property.properties[$index + 1].foto[0]"
                                          ng-src="http://abm.okeefe.com.ar/fotos_th/{{property.properties[$index + 1].foto[0].foto_principal}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
-                                         ng-if="!property.properties[$index + 1].foto[0]" ng-src="assets/img/sin_imagen.jpg">
+                                         ng-if="!property.properties[$index + 1].foto[0]"
+                                         ng-src="assets/img/sin_imagen.jpg">
                                 </a>
                                 <div class="col-lg-12 padding-0 descripcion">
                                     <a href="#!/ficha-propiedad/{{property.properties[$index + 1].id_prop}}">
-                                        <p ng-if="property.properties[$index + 1].fichaweb[0]" class="titulo">{{property.properties[$index + 1].fichaweb[0].contenido |
+                                        <p ng-if="property.properties[$index + 1].fichaweb[0]" class="titulo">
+                                            {{property.properties[$index + 1].fichaweb[0].contenido |
                                             cut:true:60:'...' |
                                             uppercase}}
                                         </p>
-                                        <p ng-if="!property.properties[$index + 1].fichaweb[0]" class="titulo">PROPIEDAD EN {{property.properties[$index + 1].nomedif ||
+                                        <p ng-if="!property.properties[$index + 1].fichaweb[0]" class="titulo">PROPIEDAD
+                                            EN {{property.properties[$index + 1].nomedif ||
                                             property.properties[$index + 1].calle | cut:true:47:'...' |
                                             uppercase}}
                                         </p>
                                     </a>
                                     <div class="col-lg-12 padding-0 caracteristicas">
                                         <div class="col-lg-12 padding-0">
-                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index + 1].calle}} {{property.properties[$index + 1].nombre_ubicacion}}
+                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index +
+                                            1].calle}} {{property.properties[$index + 1].nombre_ubicacion}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 1].valor[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 1].valor[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 1].subtipo_prop,'col-lg-12' : !property.properties[$index + 1].subtipo_prop }">
-                                            <img src="assets/img/valor_propiedad.svg">{{property.properties[$index + 1].valor[0].contenido}}
+                                            <img src="assets/img/valor_propiedad.svg">{{property.properties[$index +
+                                            1].valor[0].contenido}}
                                             {{property.properties[$index + 1].moneda[0].contenido}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 1].subtipo_prop" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 1].subtipo_prop"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 1].valor[0],'col-lg-12' : !property.properties[$index + 1].valor[0] }">
-                                            <img src="assets/img/tipo_propiedad.svg">{{property.properties[$index + 1].subtipo_prop}}
+                                            <img src="assets/img/tipo_propiedad.svg">{{property.properties[$index +
+                                            1].subtipo_prop}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 1].cantidad_ambientes[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 1].cantidad_ambientes[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 1].sup_total[0],'col-lg-12' : !property.properties[$index + 1].sup_total[0] }">
                                             <img src="assets/img/ambientes.svg"><span
                                                 ng-bind-html="trustAsHtml(property.properties[$index + 1].cantidad_ambientes[0].contenido)"></span>
                                         </div>
-                                        <div ng-if="property.properties[$index + 1].sup_total[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 1].sup_total[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 1].cantidad_ambientes[0],'col-lg-12' : !property.properties[$index + 1].cantidad_ambientes[0] }">
-                                            <img src="assets/img/m2.svg"> {{property.properties[$index + 1].sup_total[0].contenido}}
+                                            <img src="assets/img/m2.svg"> {{property.properties[$index +
+                                            1].sup_total[0].contenido}}
                                             <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                             <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                         </div>
                                     </div>
                                     <div class="property-buttons">
                                         <div class="col-lg-12 padding-0">
-                                            <p class="muestra text-justify">{{property.properties[$index + 1].descripcionweb[0].contenido |
+                                            <p class="muestra text-justify">{{property.properties[$index +
+                                                1].descripcionweb[0].contenido |
                                                 cut:true:120:'...'}} </p>
-                                            <div ng-if="!checkFav(property.properties[$index + 1].id_prop)" class="boton-fav">
+                                            <div ng-if="!checkFav(property.properties[$index + 1].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro-2 prop-{{property.properties[$index + 1].id_prop}}"
                                                    ng-click="doFav(property.properties[$index + 1].id_prop)">
                                                 <span class="fa-stack">
@@ -619,7 +716,8 @@
                                                 </a>
                                             </div>
 
-                                            <div ng-if="checkFav(property.properties[$index + 1].id_prop)" class="boton-fav">
+                                            <div ng-if="checkFav(property.properties[$index + 1].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro prop-{{property.properties[$index + 1].id_prop}}"
                                                    ng-click="doFav(property.properties[$index + 1].id_prop)">
                                                 <span class="fa-stack">
@@ -630,7 +728,8 @@
                                                 </a>
                                             </div>
                                             <div class="boton-fav compartir pull-right dropup" uib-dropdown>
-                                                <a href="" class="btn btn-xs btn-gris-claro-2" type="button" uib-dropdown-toggle>
+                                                <a href="" class="btn btn-xs btn-gris-claro-2" type="button"
+                                                   uib-dropdown-toggle>
                                                     <span class="fa-stack">
                                                       <i class="fa fa-circle fa-stack-2x"></i>
                                                       <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
@@ -682,54 +781,68 @@
                         </div>
                         <div class="col-md-6 col-lg-4 ficha">
                             <div class="col-lg-12 content">
-                                <a class="col-lg-12 padding-0 ok-prop-img" href="#!/ficha-propiedad/{{property.properties[$index + 2].id_prop}}">
+                                <a class="col-lg-12 padding-0 ok-prop-img"
+                                   href="#!/ficha-propiedad/{{property.properties[$index + 2].id_prop}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
                                          ng-if="property.properties[$index + 2].foto[0]"
                                          ng-src="http://abm.okeefe.com.ar/fotos_th/{{property.properties[$index + 2].foto[0].foto_principal}}">
                                     <img class="padding-0 img-responsive ok-product-center-img"
-                                         ng-if="!property.properties[$index + 2].foto[0]" ng-src="assets/img/sin_imagen.jpg">
+                                         ng-if="!property.properties[$index + 2].foto[0]"
+                                         ng-src="assets/img/sin_imagen.jpg">
                                 </a>
                                 <div class="col-lg-12 padding-0 descripcion">
                                     <a href="#!/ficha-propiedad/{{property.properties[$index + 2].id_prop}}">
-                                        <p ng-if="property.properties[$index + 2].fichaweb[0]" class="titulo">{{property.properties[$index + 2].fichaweb[0].contenido |
+                                        <p ng-if="property.properties[$index + 2].fichaweb[0]" class="titulo">
+                                            {{property.properties[$index + 2].fichaweb[0].contenido |
                                             cut:true:60:'...' |
                                             uppercase}}
                                         </p>
-                                        <p ng-if="!property.properties[$index + 2].fichaweb[0]" class="titulo">PROPIEDAD EN {{property.properties[$index + 2].nomedif ||
+                                        <p ng-if="!property.properties[$index + 2].fichaweb[0]" class="titulo">PROPIEDAD
+                                            EN {{property.properties[$index + 2].nomedif ||
                                             property.properties[$index + 2].calle | cut:true:47:'...' |
                                             uppercase}}
                                         </p>
                                     </a>
                                     <div class="col-lg-12 padding-0 caracteristicas">
                                         <div class="col-lg-12 padding-0">
-                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index + 2].calle}} {{property.properties[$index + 2].nombre_ubicacion}}
+                                            <img src="assets/img/ubicacion.svg">{{property.properties[$index +
+                                            2].calle}} {{property.properties[$index + 2].nombre_ubicacion}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 2].valor[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 2].valor[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 2].subtipo_prop,'col-lg-12' : !property.properties[$index + 2].subtipo_prop }">
-                                            <img src="assets/img/valor_propiedad.svg">{{property.properties[$index + 2].valor[0].contenido}}
+                                            <img src="assets/img/valor_propiedad.svg">{{property.properties[$index +
+                                            2].valor[0].contenido}}
                                             {{property.properties[$index + 2].moneda[0].contenido}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 2].subtipo_prop" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 2].subtipo_prop"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 2].valor[0],'col-lg-12' : !property.properties[$index + 2].valor[0] }">
-                                            <img src="assets/img/tipo_propiedad.svg">{{property.properties[$index + 2].subtipo_prop}}
+                                            <img src="assets/img/tipo_propiedad.svg">{{property.properties[$index +
+                                            2].subtipo_prop}}
                                         </div>
-                                        <div ng-if="property.properties[$index + 2].cantidad_ambientes[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 2].cantidad_ambientes[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 2].sup_total[0],'col-lg-12' : !property.properties[$index + 2].sup_total[0] }">
                                             <img src="assets/img/ambientes.svg"><span
                                                 ng-bind-html="trustAsHtml(property.properties[$index + 2].cantidad_ambientes[0].contenido)"></span>
                                         </div>
-                                        <div ng-if="property.properties[$index + 2].sup_total[0]" class="col-md-12 padding-0"
+                                        <div ng-if="property.properties[$index + 2].sup_total[0]"
+                                             class="col-md-12 padding-0"
                                              ng-class="{'col-lg-6' : property.properties[$index + 2].cantidad_ambientes[0],'col-lg-12' : !property.properties[$index + 2].cantidad_ambientes[0] }">
-                                            <img src="assets/img/m2.svg"> {{property.properties[$index + 2].sup_total[0].contenido}}
+                                            <img src="assets/img/m2.svg"> {{property.properties[$index +
+                                            2].sup_total[0].contenido}}
                                             <sp ng-if="tipo_prop == 'Campo'">ha</sp>
                                             <sp ng-if="tipo_prop != 'Campo'">m²</sp>
                                         </div>
                                     </div>
                                     <div class="property-buttons">
                                         <div class="col-lg-12 padding-0">
-                                            <p class="muestra text-justify">{{property.properties[$index + 2].descripcionweb[0].contenido |
+                                            <p class="muestra text-justify">{{property.properties[$index +
+                                                2].descripcionweb[0].contenido |
                                                 cut:true:120:'...'}} </p>
-                                            <div ng-if="!checkFav(property.properties[$index + 2].id_prop)" class="boton-fav">
+                                            <div ng-if="!checkFav(property.properties[$index + 2].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro-2 prop-{{property.properties[$index + 2].id_prop}}"
                                                    ng-click="doFav(property.properties[$index + 2].id_prop)">
                                                 <span class="fa-stack">
@@ -740,7 +853,8 @@
                                                 </a>
                                             </div>
 
-                                            <div ng-if="checkFav(property.properties[$index + 2].id_prop)" class="boton-fav">
+                                            <div ng-if="checkFav(property.properties[$index + 2].id_prop)"
+                                                 class="boton-fav">
                                                 <a class="btn btn-xs btn-gris-claro prop-{{property.properties[$index + 2].id_prop}}"
                                                    ng-click="doFav(property.properties[$index + 2].id_prop)">
                                                 <span class="fa-stack">
@@ -812,10 +926,9 @@
         </div>
     </div>
 
-
     <div class="row texto-final-prop">
         <div class="flecha"></div>
-        <div class="col-xs-12 text-center msje">
+        <div class="col-lg-12 text-center msje">
             <p class="small">TODA LA INFORMACIÓN COMERCIAL, DESCRIPCIÓN, PRECIOS, PLANOS, IMÁGENES, MEDIDAS Y
                 SUPERFICIES QUE SE PROPORCIONAN EN ESTA WEB SE BASA EN INFORMACIÓN QUE CONSIDERAMOS FIABLE. NO PODEMOS
                 ASEGURAR QUE SEA EXACTA, NI COMPLETA, REPRESENTA MATERIAL PRELIMINAR AL SOLO EFECTO INFORMATIVO E
@@ -823,3 +936,4 @@
                 INCLUYENDO EL PRECIO O LA RETIRADA DE OFERTA SIN PREVIO AVISO</p>
         </div>
     </div>
+</div>
