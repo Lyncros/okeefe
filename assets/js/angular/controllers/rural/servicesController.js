@@ -23,7 +23,7 @@
                 $scope.ventaHacForm.comentarios += ($scope.ventaHacForm.categoria) ? "<h4><strong>Categoría: </strong>" + $scope.ventaHacForm.categoria + "</h4>" : "";
                 $scope.ventaHacForm.comentarios += ($scope.ventaHacForm.deseo == 'Vender' && $scope.ventaHacForm.valor) ? "<h4><strong>Valor: </strong>" + $scope.ventaHacForm.valor + "</h4>" : "";
                 okeefeApiService.API.send($scope.ventaHacForm).then(function (response) {
-                    entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                    entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                     $scope.ventaHacForm = {
                         secret: 'sitiOkeefe',
                         dato: '',
@@ -49,7 +49,7 @@
                 $scope.servicesAdminForm.comentarios += ($scope.servicesAdminForm.aptitud) ? "<h4><strong>Aptitud: </strong>" + $scope.servicesAdminForm.aptitud + "</h4>" : "";
                 $scope.servicesAdminForm.comentarios += ($scope.servicesAdminForm.consulta) ? "<h4><strong>Consulta: </strong>" + $scope.servicesAdminForm.consulta + "</h4>" : "";
                 okeefeApiService.API.send($scope.servicesAdminForm).then(function (response) {
-                    entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                    entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                     $scope.servicesAdminForm = {
                         secret: 'sitiOkeefe',
                         dato: '',

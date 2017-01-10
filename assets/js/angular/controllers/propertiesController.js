@@ -138,9 +138,15 @@
                     property['valor'] = property.propiedad_caracteristicas.filter(function (item) {
                         return (item.id_carac == 164 || item.id_carac == 161);
                     });
+                    if(property.valor[0] != null){
+                        property.valor[0].contenido = parseFloat(property.valor[0].contenido);
+                    }
                     property['sup_total'] = property.propiedad_caracteristicas.filter(function (item) {
                         return item.id_carac == 198;
                     });
+                    if(property.sup_total[0] != null){
+                        property.sup_total[0].contenido = parseFloat(property.sup_total[0].contenido);
+                    }
                     property['moneda'] = property.propiedad_caracteristicas.filter(function (item) {
                         return (item.id_carac == 166 || item.id_carac == 165);
                     });

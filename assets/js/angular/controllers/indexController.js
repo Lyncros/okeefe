@@ -15,7 +15,7 @@
                         return false;
                     }
                     okeefeApiService.API.send($scope.footerForm).then(function (response) {
-                        entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                        entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                         $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: ''};
                     }, function errorCallback(response) {
                         entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);
@@ -35,6 +35,7 @@
                         tipo: '7',
                         error: false
                     };
+                    $scope.loc = '';
                 };
                 $scope.resetRuralForm();
                 $scope.validateRuralForm = function () {
@@ -56,7 +57,7 @@
                         });
                     }, function errorCallback(response) {
                         console.log("error :", response);
-                        if($scope.result){
+                        if ($scope.result) {
                             return $scope.result.map(function (item) {
                                 return {
                                     val: item.id_ubica,
@@ -103,6 +104,7 @@
                         tipo: '9,1,7,17',
                         error: false
                     };
+                    $scope.loc = '';
                 };
                 $scope.resetForm();
                 $scope.validateOper = function () {
@@ -144,7 +146,7 @@
                             };
                         });
                     }, function errorCallback(response) {
-                        if($scope.result){
+                        if ($scope.result) {
                             return $scope.result.map(function (item) {
                                 return {
                                     val: item.id_ubica,
@@ -158,7 +160,7 @@
                     });
                 };
                 $scope.searchProp = function () {
-                    if ($scope.bRural && $scope.validateForm()) {
+                    if ($scope.bRural && $scope.validateRuralForm()) {
                         window.location = '#!/rural/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?rural=true';
                     } else if ($scope.validateForm()) {
                         window.location = '#!/propiedades/' + $scope.searchParam.property + '/' + $scope.searchParam.oper + '/' + $scope.searchParam.zona + '?emp=' + ($scope.searchParam.empr || 0);
@@ -171,6 +173,10 @@
                 });
                 $rootScope.$on('login', function (event, data) {
                     $scope.login();
+                });
+                $scope.$on('$locationChangeSuccess', function(event) {
+                    $scope.resetForm();
+                    $scope.resetRuralForm();
                 });
 
                 $scope.isLogged = $auth.isAuthenticated();

@@ -17,7 +17,7 @@
                     }
                     $scope.psContactForm.comentarios = "Propiedad (" + $routeParams.id + ") - " + $scope.psContactForm.comentarios;
                     okeefeApiService.API.send($scope.psContactForm).then(function (response) {
-                        entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                        entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                         $scope.psContactForm = {secret: 'sitiOkeefe', dato: '', error: false};
                     }, function errorCallback(response) {
                         entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);

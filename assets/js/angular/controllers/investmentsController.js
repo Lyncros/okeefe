@@ -14,7 +14,7 @@
                 }
                 $scope.form.comentarios = 'Asesoramiento: ' + $scope.form.comentarios;
                 okeefeApiService.API.send($scope.form).then(function (response) {
-                    entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                    entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                     $scope.form = {secret: 'sitiOkeefe', dato: ''};
                 }, function errorCallback(response) {
                     entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 3000);

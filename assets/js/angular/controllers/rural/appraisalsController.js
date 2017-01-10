@@ -29,7 +29,7 @@
                     "<h4><strong>Tipo de propiedad: </strong>" + $scope.appraisalForm.property + "</h4>" +
                     "<h4><strong>Zona: </strong>" + $scope.appraisalForm.zona + "</h4>";
                 okeefeApiService.API.send($scope.appraisalForm).then(function (response) {
-                    entitiesService.showAlert($scope, 'Mensaje enviado. Estaremos en contacto en breve.', 'success', 3000);
+                    entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
                     $scope.appraisalForm = {
                         secret: 'sitiOkeefe',
                         dato: '',

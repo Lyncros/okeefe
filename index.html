@@ -113,16 +113,17 @@
                     <div class="col-lg-8 col-lg-12 padding-0">
                         <input ng-model="$parent.loc" class="form-control input-lg custom" type="text"
                                uib-typeahead="loc.label as loc.text for loc in getLocation($viewValue)"
-                               typeahead-min-length="3"
+                               typeahead-min-length="4"
+                               typeahead-wait-ms="2000"
                                typeahead-loading="loadingLocations"
                                typeahead-no-results="noResults"
                                placeholder="Zona|Emprendimiento"
                                uib-tooltip="Debe seleccionar una Zona|Emprendimiento"
                                typeahead-on-select="selectedZone($item, $model, $label)"
                                tooltip-placement="bottom"
-                               tooltip-is-open="!searchParam.zona && searchParam.error"
+                               tooltip-is-open="!$parent.loc && !searchParam.zona && searchParam.error"
                                tooltip-trigger="'none'">
-                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                        <img ng-show="loadingLocations" src="assets/img/loadingif2.gif"/>
                         <div ng-show="noResults">
                             <i class="glyphicon glyphicon-remove"></i> No se encontraron resultados
                         </div>
@@ -236,16 +237,17 @@
                 <div class="col-lg-4 col-lg-12">
                     <input ng-model="$parent.loc" class="form-control input-lg custom" type="text"
                            uib-typeahead="loc.label as loc.text for loc in getRuralLocation($viewValue)"
-                           typeahead-min-length="3"
+                           typeahead-min-length="4"
+                           typeahead-wait-ms="2000"
                            typeahead-loading="loadingLocations"
                            typeahead-no-results="noResults"
+                           typeahead-on-select="selectedZone($item, $model, $label)"
                            placeholder="Zona"
                            uib-tooltip="Debe seleccionar una Zona"
-                           typeahead-on-select="selectedZone($item, $model, $label)"
                            tooltip-placement="bottom"
-                           tooltip-is-open="!searchRuralParam.zona && searchRuralParam.error"
+                           tooltip-is-open="!$parent.loc && !searchRuralParam.zona && searchRuralParam.error"
                            tooltip-trigger="'none'">
-                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    <img ng-show="loadingLocations" src="assets/img/loadingif2.gif"/>
                     <div ng-show="noResults">
                         <i class="glyphicon glyphicon-remove"></i> No se encontraron resultados
                     </div>
@@ -263,7 +265,7 @@
     </div>
     <!---FOOTER-->
     <div class="row footer">
-        <div class="col-lg-4 padding-left-0">
+        <div class="col-lg-3 padding-left-0">
             <img ng-if="$route.current.site == 'urbano'" class="img-responsive foot-logo" src="assets/img/logos-okeefe-urbano.png">
 			<img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo" src="assets/img/logos-okeefe-rural.png">
 			<img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo logo-cair" src="assets/img/cair.jpg">
@@ -320,7 +322,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-lg-offset-1">
             <div id="slider-mapas" class="carousel slide slider-maps" data-ride="carousel">
                 <h5>Nuestras oficinas</h5>
                 <!-- Wrapper for slides -->
