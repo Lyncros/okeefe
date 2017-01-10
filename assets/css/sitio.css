@@ -35,6 +35,28 @@ body {
     position: relative;
 }
 
+.border-left-4 {
+	border-left: 4px solid #fbf9f9;
+}
+
+.border-right-4 {
+	border-right: 4px solid #fbf9f9;
+}
+
+.border-left-1 {
+    border-left: 1px solid #fbf9f9!important;
+}
+
+.border-right-1 {
+    border-right: 1px solid #fbf9f9!important;
+}
+
+.border-top-1 {
+    border-top: 1px solid #fbf9f9!important;
+}
+
+
+
 /*==================================================
  * Drop shadow effect with box-shadow
  * ===============================================*/
@@ -1620,7 +1642,8 @@ select {
 }
 
 .ficha .content {
-    padding: 0 0 15px 0;
+    /*padding: 0 0 15px 0;*/
+	padding: 0;
     background-color: #fbf9f9;
 }
 
@@ -1847,12 +1870,14 @@ a[aria-expanded=true] > i {
 
 .ok-product-center-img {
     margin: auto;
-    max-height: 200px;
+    /*max-height: 200px;*/
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+	width: 100%; /*Propiedad agregada por Josimar*/
+	height: 100%; /*Propiedad agregada por Josimar*/
 }
 .ws_list ul img {
     margin: auto !important;
@@ -2450,9 +2475,72 @@ a[aria-expanded=true] > i {
 }
 
 .oportunidad_border {
-    border: 5px solid #007b3c;
+    /*border: 5px solid #007b3c;*/
 }
 
 .destacado_border {
-    border: 5px solid orange;
+    /*border: 5px solid orange;*/
 }
+
+.logo-cair{
+	width: 220px;
+	height: 103px;
+}
+
+/*estilos para el ribbon de las imagenes-----------------------------------------*/
+
+.box{
+	position: relative;
+    /*border: 1px solid #BBB;*/
+}
+
+.ribbon {
+   position: absolute;
+   right: -5px; top: -5px;
+   z-index: 1;
+   overflow: hidden;
+   width: 75px; height: 75px; 
+   text-align: right;
+}
+
+.ribbon span {
+   font-size: 11px;
+   color: #fff; 
+   /*text-transform: lowercase;*/
+   text-align: center;
+   font-weight: bold; line-height: 20px;
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg); /* Needed for Safari */
+   width: 100px; display: block;
+   background: #79A70A;
+   background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+   position: absolute;
+   top: 19px; right: -21px;
+}
+
+.ribbon span::before {
+   content: '';
+   position: absolute; 
+   left: 0px; top: 100%;
+   z-index: -1;
+   border-left: 3px solid #79A70A;
+   border-right: 3px solid transparent;
+   border-bottom: 3px solid transparent;
+   border-top: 3px solid #79A70A;
+}
+
+.ribbon span::after {
+   content: '';
+   position: absolute; 
+   right: 0%; top: 100%;
+   z-index: -1;
+   border-right: 3px solid #79A70A;
+   border-left: 3px solid transparent;
+   border-bottom: 3px solid transparent;
+   border-top: 3px solid #79A70A;
+}
+
+.orange span {background: linear-gradient(#F79E05 0%, #8F5408 100%);}
+.orange span::before {border-left-color: #8F5408; border-top-color: #8F5408;}
+.orange span::after {border-right-color: #8F5408; border-top-color: #8F5408;}

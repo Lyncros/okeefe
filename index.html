@@ -227,8 +227,8 @@
                                 tooltip-trigger="'none'">
                             <option ng-if="!searchRuralParam.property" value="" selected>Tipo de Propiedad</option>
                             <option value="Todos">Todos</option>
+							<option value="Campos">Campos</option>
                             <option value="Chacras">Chacras</option>
-                            <option value="Campos">Campos</option>
                             <option value="Quintas">Quintas</option>
                         </select>
                     </label>
@@ -263,9 +263,10 @@
     </div>
     <!---FOOTER-->
     <div class="row footer">
-        <div class="col-lg-3 padding-left-0">
+        <div class="col-lg-4 padding-left-0">
             <img ng-if="$route.current.site == 'urbano'" class="img-responsive foot-logo" src="assets/img/logos-okeefe-urbano.png">
-            <img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo" src="assets/img/logos-okeefe-rural.png">
+			<img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo" src="assets/img/logos-okeefe-rural.png">
+			<img ng-if="$route.current.site == 'rural'" class="img-responsive foot-logo logo-cair" src="assets/img/cair.jpg">
             <div ng-if="$route.current.site == 'urbano'" class="col-lg-5 enlaces padding-left-0">
                 <a class="col-lg-12 padding-left-0" href="#!/quienes-somos">Nosotros</a>
                 <a class="col-lg-12 padding-left-0" href="#!/quienes-somos#servicios">Servicios</a>
@@ -319,7 +320,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-lg-offset-1">
+        <div class="col-lg-4">
             <div id="slider-mapas" class="carousel slide slider-maps" data-ride="carousel">
                 <h5>Nuestras oficinas</h5>
                 <!-- Wrapper for slides -->
