@@ -22,10 +22,15 @@
             document.location = "http://m.okeefe.com.ar/";
         }
     </script>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
 <body ng-controller="indexController">
 <div class="overlay-premium"></div>
-<div class="encabezado">
+<div class="encabezado" ng-cloak>
     <div ng-if="$route.current.site == 'urbano'" class="container-fluid">
         <div class="row">
             <div class="logo col-lg-3">
@@ -258,8 +263,8 @@
             </form>
         </div>
     </div>
-</div>
-<div class="todo container-fluid">
+</div >
+<div class="todo container-fluid" ng-cloak>
     <div id="siteContent" ng-view autoscroll="true">
         <!-- Site content -->
     </div>
@@ -411,6 +416,46 @@
     <div ng-if="$route.current.site == 'rural'" class="row art-footer">
         <div class="img-footer"></div>
     </div>
+</div>
+<div class="encabezado" ng-show="::false">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo col-lg-3">
+                <div class="img-logo">
+                    <img class="img-responsive" src="assets/img/logos-okeefe-urbano.png">
+                </div>
+            </div>
+            <div class="grupo-enc">
+                <div class="btn_contacto col-lg-2 col-lg-12 pull-right">
+                    <a ng-click="scrollTo('contact_form')" class="btn btn-verde btn-block btn-lg" role="button">CONTACTO</a>
+                </div>
+                <div class="menu text-center pull-right">
+                    <div class="item">
+                        <a href="#!/rural">Rural</a>
+                    </div>
+                    <div class="item">
+                        <a ng-class="{active: $route.current.activetab == 'inversiones'}" href="#!/inversiones">Inversiones</a>
+                    </div>
+                    <div class="item">
+                        <a ng-class="{active: $route.current.activetab == 'tasaciones'}"
+                           href="#!/tasaciones">Tasaciones</a>
+                    </div>
+                    <div class="item">
+                        <a ng-class="{active: $route.current.activetab == 'noticias'}" href="#!/noticias">Noticias</a>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="register()">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <img style="margin-top: 30vh;margin-left: 80vh;" src="assets/img/loadingif.gif"/>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 <!-- JS -->
