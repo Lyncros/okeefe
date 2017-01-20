@@ -52,7 +52,7 @@ body {
 }
 
 .border-top-1 {
-    border-top: 1px solid #fbf9f9!important;
+    border-top: 12px solid #fbf9f9!important;
 }
 
 
@@ -610,7 +610,7 @@ select {
     top: 40%;
     transform: translateY(-50%);
     bottom: initial;
-    text-shadow: none;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
 }
 
 .slider-rural #slider-principal .carousel-caption span {
@@ -2211,7 +2211,7 @@ a[aria-expanded=true] > i {
     bottom: 20px;
     z-index: 10;
     color: #777;
-    text-shadow: none;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
     opacity: 0.8;
 }
 

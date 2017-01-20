@@ -26,6 +26,7 @@
                 $scope.getParam = function () {
                     $scope.param = $location.search();
                     $scope.appliedFilterslist = [];
+                    $rootScope.$broadcast('changeTitle', { title: 'Okeefe'});
                     //console.log("$scope.param",$scope.param);
 
                 };
@@ -296,11 +297,13 @@
                             //console.log("res", response.data.data);
                             //$scope.properties = response.data.data[0].properties;
                             $scope.searchData = response.data.data[0];
+
                             //$scope.loadingProperties = false;
                             if ($scope.searchData) {
                                 totalProperties($scope.searchData, $scope.searchData.id_ubica);
                                 ubicationFilter($scope.searchData);
                                 getAppliedFilter();
+                                $rootScope.$broadcast('changeTitle', { title: 'Okeefe '+ '> '+ $scope.getTipoOperacion($scope.param.oper)+ ' > '+ $scope.getTipoInmueble($scope.param.tipo)+ ' > '+ $scope.searchData.nombre_completo });
                             }
                         })
                         .then(function () {

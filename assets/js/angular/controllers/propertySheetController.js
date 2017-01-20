@@ -46,6 +46,8 @@
                     $scope.getData();
                     entitiesService.popover();
                     $scope.tab = 'f';
+                    $rootScope.$broadcast('changeTitle', { title: 'Okeefe > Propiedad'});
+
                 };
 
                 if ($scope.isLogged) {
@@ -128,6 +130,7 @@
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
                             checkPl($scope.property);
+                            $rootScope.$broadcast('changeTitle', { title: 'Okeefe > Propiedad > '+ ($scope.property.titulo[0].contenido || $scope.property.ubica[0].valor) });
                             $scope.pdf();
                             $timeout(function () {
                                 entitiesService.wowSlider();

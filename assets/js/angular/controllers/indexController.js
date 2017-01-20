@@ -7,6 +7,29 @@
                 $scope.footerForm = {newsletter: 1, secret: 'sitiOkeefe', dato: '', error: false};
                 $scope.$route = $route;
                 $scope.bRural = false;
+                $scope.subtitle = "";
+                $scope.tabs = {
+                    "home" : "Inicio",
+                    "inversiones" : "Inversiones",
+                    "tasaciones" : "Tasaciones",
+                    "noticias" : "Noticias",
+                    "propiedades" : "Propiedades",
+
+                };
+
+                $scope.$on("$routeChangeSuccess", function(event, current, previous){
+                    if(current.$$route.activetab != "propiedades" || current.$$route.activetab != "ficha-propiedad"){
+                        $scope.subtitle = "";
+                        $scope.title = $scope.tabs[current.$$route.activetab] + " - Inmobiliaria O'keefe";
+                    }
+                });
+
+                $scope.$on('changeTitle', function(event, args) {
+                    if($route.current.$$route.activetab == "propiedades" || $route.current.$$route.activetab == "ficha-propiedad"){
+                        $scope.subtitle = args.title;
+                        $scope.title = "";
+                    }
+                });
 
                 $scope.contactForm = function ($event) {
                     $event.preventDefault();
