@@ -2,13 +2,22 @@
     angular.module('okeefeRuralSite.controllers')
         .controller('propertiesRuralController',
             function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
-                      searchApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
+                      searchApiService, okeefeApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
                 $scope.siteUrl = SITE_URL;
                 $scope.view = "grid";
                 $scope.propertyName = 'valor[0].contenido';
                 $scope.childFilters = [];
                 $scope.totalPropertiesShow = {number: 30, scroll: true};
                 $scope.orderChanged = 'valor[0].contenido';
+                okeefeApiService.API.convertCurrency('USD', 'ARS').then(function (resp) {
+                    $scope.rateUSDARS = parseFloat(resp);
+                    console.log('rateUSDARS', resp);
+                });
+                okeefeApiService.API.convertCurrency('ARS', 'USD').then(function (resp) {
+                    $scope.rateARSUSD = parseFloat(resp);
+                    console.log('rateARSUSD', resp);
+
+                });
                 $scope.init = function () {
                     $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, aptitud: {}, localidad: [], barrio: []};
                     $scope.errors = {};
@@ -26,6 +35,8 @@
                 $scope.getParam = function () {
                     $scope.param = $location.search();
                     $scope.appliedFilterslist = [];
+                    $rootScope.$broadcast('changeTitle', {title: 'Okeefe Rural'});
+
                     //console.log("$scope.param",$scope.param);
 
                 };
@@ -174,6 +185,11 @@
                     if (property.aptitud[0] != null) {
                         $scope.filters['aptitud'][property.aptitud[0].contenido] = ( $scope.filters['aptitud'][property.aptitud[0].contenido] + 1 || 1);
                     }
+                    if (property.moneda[0] && property.moneda[0].contenido && property.valor[0]) {
+                        property['priceTrans'] = (property.moneda[0].contenido == 'U$S') ? parseFloat(property.valor[0].contenido) * $scope.rateUSDARS : parseFloat(property.valor[0].contenido) * $scope.rateARSUSD;
+                    } else {
+                        property['priceTrans'] = (property.valor[0] && property.valor[0].contenido) ? property.valor[0].contenido : 0;
+                    }
                     return property;
                 }
 
@@ -203,6 +219,8 @@
                         ant: ($scope.param.ant) ? $scope.param.ant.split(',') : [],
                         banos: ($scope.param.banos) ? $scope.param.banos.split(',') : [],
                         aptitud: ($scope.param.aptitud) ? $scope.param.aptitud.split(',') : [],
+                        moneda: ($scope.param.moneda) ? $scope.param.moneda.split(',') : [],
+
                     };
                     if ($scope.param.precio) {
                         var prec = $scope.param.precio.split(',');
@@ -381,6 +399,9 @@
                                     matches = true;
                                 }
                                 break;
+                            case 'moneda':
+                                matches = true;
+                                break;
                             case 'coch':
                                 if (item.cantidad_cocheras[0] && values.indexOf(item.cantidad_cocheras[0].contenido) != -1) {
                                     matches = true;
@@ -402,19 +423,32 @@
                                 }
                                 break;
                             case 'precio':
-                                /*console.log(item);
-                                 console.log(values);*/
-                                if (item.valor.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
-                                    if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                                if (item.valor.length && filters['moneda'][0] && item.moneda[0] && item.moneda[0].contenido.replace(/\s/g,'') !== filters['moneda'][0] && item.priceTrans) {
+                                    if (values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
+                                        if (parseFloat(item.priceTrans) >= parseFloat(values[0].value)
+                                            && parseFloat(item.priceTrans) <= parseFloat(values[1].value)) {
+                                            matches = true;
+                                        }
+                                    } else if (values[0] && values[0].value != "null"
+                                        && parseFloat(item.priceTrans) >= parseFloat(values[0].value)) {
+                                        matches = true;
+                                    } else if (values[1] && values[1].value != "null"
+                                        && parseFloat(item.priceTrans) <= parseFloat(values[1].value)) {
+                                        matches = true;
+                                    }
+                                } else {
+                                    if (item.valor.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
+                                        if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                                            && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
+                                            matches = true;
+                                        }
+                                    } else if (item.valor.length && values[0] && values[0].value != "null"
+                                        && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
+                                        matches = true;
+                                    } else if (item.valor.length && values[1] && values[1].value != "null"
                                         && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
-                                } else if (item.valor.length && values[0] && values[0].value != "null"
-                                    && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
-                                    matches = true;
-                                } else if (item.valor.length && values[1] && values[1].value != "null"
-                                    && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
-                                    matches = true;
                                 }
                                 break;
                             case 'sup':
@@ -477,6 +511,9 @@
                         } else {
                             $scope.appliedFilterslist.push({key: 'valMax', value: $scope.valMax});
                         }
+                        if ($scope.filtroMon) {
+                            $scope.appliedFilterslist.push({key: 'moneda', value: $scope.filtroMon});
+                        }
                     } else if (filter == 'sup') {
                         var index = checkAttr($scope.appliedFilterslist, 'supMin');
                         if (index != -1) {
@@ -505,6 +542,9 @@
                             $scope.appliedFilters[filter][index].value = $scope.valMax;
                         } else {
                             $scope.appliedFilters[filter].push({key: 'valMax', value: $scope.valMax});
+                        }
+                        if ($scope.filtroMon) {
+                            $scope.appliedFilters['moneda'][0] = $scope.filtroMon;
                         }
                         $scope.valMin = '';
                         $scope.valMax = '';

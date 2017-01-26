@@ -21,7 +21,8 @@
 <div class="galeria-propiedades">
     <div class="row">
         <div class="col-xs-9">
-            <h2 ng-if="property">{{property.titulo[0].contenido || property.ubica[0].valor}} en {{property.ubicacion.nombre_ubicacion}}</h2>
+            <h2 ng-if="property">{{property.titulo[0].contenido || property.ubica[0].valor}} en
+                {{property.ubicacion.nombre_ubicacion}}</h2>
         </div>
         <div class="col-xs-3 text-right">
             <h2>
@@ -36,16 +37,17 @@
             <div id="wowslider-container1">
                 <div class="ws_images">
                     <ul>
-                        <li ng-repeat="img in property.foto track by $index"><img ng-src="{{img.foto}}"
-                                                                                  alt="{{img.id_foto}}"
-                                                                                  title="Imagen de Propiedad"
-                                                                                  id="wows1_{{$index}}"/></li>
+                        <li ng-repeat="img in property.foto track by $index">
+                            <img ng-src="{{img.foto}}" alt="{{img.id_foto}}" title="Imagen de Propiedad"
+                                 id="wows1_{{$index}}"/>
+                        </li>
                     </ul>
                 </div>
                 <div class="ws_thumbs">
                     <div>
-                        <a ng-repeat="img in property.foto track by $index"><img ng-src="{{img.foto}}"
-                                                                                 alt="{{img.id_foto}}"/></a>
+                        <a ng-repeat="img in property.foto track by $index">
+                            <img ng-src="{{img.foto}}" alt="{{img.id_foto}}"/>
+                        </a>
                     </div>
                 </div>
                 <div class="ws_shadow"></div>
@@ -86,22 +88,31 @@
             <div class="tab-content">
                 <div class="flecha"></div>
                 <div role="tabpanel" class="tab-pane fade in active ficha-tec">
-                    <div ng-if="property.subtipo_prop" class="row">
-                        <div class="col-xs-2"><strong>Tipo</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.subtipo_prop}}</span></div>
+                    <div ng-if="property.sup_total[0]" class="row">
+                        <div class="col-xs-2"><strong>Superficie</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.sup_total[0].contenido}} Has</span>
+                        </div>
                     </div>
-                    <div ng-if="property.ubica[0]" class="row">
-                        <div class="col-xs-2"><strong>Ubicación</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.ubica[0].subzona}}</span></div>
+                    <div ng-if="property.aptitud[0]" class="row">
+                        <div class="col-xs-2"><strong>Aptitud</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.aptitud[0].contenido}}</span></div>
                     </div>
-                    <div ng-if="property.ubica[0].valor && property.publicadir > 0" class="row">
-                        <div class="col-xs-2"><strong>Dirección</strong></div>
-                        <div class="col-xs-10"><span
-                                class="dato-tec"><strong>{{property.ubica[0].valor}}</strong></span></div>
+                    <div ng-if="property.id_tipo_prop" class="row">
+                        <div class="col-xs-2"><strong>Categoría</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.id_tipo_prop}}</span></div>
                     </div>
-                    <div ng-if="property.estado[0]" class="row">
+                    <div ng-if="property.operacion" class="row">
                         <div class="col-xs-2"><strong>Estado</strong></div>
-                        <div class="col-xs-10"><span class="dato-tec">{{property.estado[0].contenido}}</span></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.operacion}}</span></div>
+                    </div>
+                    <div ng-if="property.valor[0]" class="row">
+                        <div class="col-xs-2"><strong>Precio</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.moneda[0].contenido}}{{property.valor[0].contenido}}</span>
+                        </div>
+                    </div>
+                    <div ng-if="property.formaPago[0]" class="row">
+                        <div class="col-xs-2"><strong>Forma de pago</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.formaPago[0].contenido}}</span></div>
                     </div>
                     <div ng-if="property.descripcion || property.desc[0]" class="row">
                         <div class="col-xs-2"><strong>Descripción</strong></div>

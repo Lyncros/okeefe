@@ -2,7 +2,6 @@
     angular.module('okeefeSite.services')
         .factory('okeefeApiService', function ($http, $q, $window, API_OKEEFE, API_SEARCH) {
             var API = {};
-
             API.send = function (data) {
                 var deferred = $q.defer();
                 $http({
@@ -34,6 +33,29 @@
                 }, function errorCallback(response) {
                     deferred.reject(response);
                 });
+                return deferred.promise;
+            };
+
+            API.convertCurrency = function (from, to) {
+                var url = 'https://www.google.com/finance/info?q=CURRENCY:' + from + to;
+                var deferred = $q.defer();
+                var rate = sessionStorage.getItem(from + to);
+                if(!rate){
+                    $http({
+                        method: 'GET',
+                        skipAuthorization: true,
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                        url: url
+                    }).then(function successCallback(response) {
+                        var r = JSON.parse(response.data.slice(3, response.data.length))[0].l;
+                        sessionStorage.setItem(from + to, r);
+                        deferred.resolve(r);
+                    }, function errorCallback(response) {
+                        deferred.resolve(1);
+                    });
+                }else{
+                    deferred.resolve(rate);
+                }
                 return deferred.promise;
             };
 

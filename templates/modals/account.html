@@ -104,47 +104,62 @@
                                 <h3 class="titulo">HOLA {{user.nombre | uppercase}}, ESTAS SON TUS UNIDADES
                                     FAVORITAS</h3>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-12" ng-show="alert == null">
                                 <p>Envianos tu consulta. Un asesor te contactará con información a la brevedad</p>
                             </div>
                         </div>
+                        <div class="row" ng-show="alert != null">
+                            <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="alert = null">
+                                {{alert.msg}}
+                            </div>
+                        </div>
                         <div class="row">
-                            <form class="form-envio-fav">
+                            <form novalidate name="fav-Form" ng-submit="sendFavForm($event)" class="form-envio-fav">
                                 <div class="col-lg-12">
-                                    <textarea class="form-control custom" placeholder="Mensaje"></textarea>
+                                    <textarea ng-model="favForm.comentario"
+                                              class="form-control custom" placeholder="Mensaje"
+                                              uib-tooltip="Debe ingresar un mensaje"
+                                              tooltip-placement="top"
+                                              tooltip-is-open="!favForm.nombre && favForm.error"
+                                              tooltip-trigger="'none'"></textarea>
                                 </div>
                                 <div class="col-lg-5 col-lg-offset-6">
-                                    <div class="col-lg-2 check-button text-center padding-0">
+                                    <div ng-if="props.length" class="col-lg-2 check-button text-center padding-0">
                                         <input id="newsletter" bs-switch ng-model="favForm.newsletter" type="checkbox"
                                                switch-size="small"
                                                switch-on-color="normal"
                                                switch-off-color="default"
                                                switch-on-text="<span class='fa fa-check'></span>"
-                                               switch-off-text="<span class='fa fa-close'></span>" ng-true-value="1"
+                                               switch-off-text="<span class='fa fa-close'></span>"
+                                               ng-true-value="1"
                                                ng-false-value="0">
                                     </div>
-                                    <label for="newsletter" class="col-lg-10">Quiero que me envíen propiedades
-                                        similares</label>
+                                    <label ng-if="props.length" for="newsletter" class="col-lg-10">
+                                        Quiero que me envíen propiedades similares
+                                    </label>
 
                                 </div>
                                 <div class="col-lg-1 pull-right">
                                     <button type="submit" class="btn btn-sm btn-naranja pull-right">ENVIAR</button>
                                 </div>
                             </form>
-
                         </div>
-                        <div class="row">
+                        <div ng-if="props.length" class="row">
                             <div class="col-lg-3">
                                 <label class="flecha-select">
-                                    <select name="" class="form-control custom">
-                                        <option>ver menor precio</option>
+                                    <select ng-model="orderChanged" ng-change="sortBy(orderChanged)"
+                                            class="form-control input-sm custom">
+                                        <option value="valor_venta">Precio : menor primero</option>
+                                        <option value="-valor_venta">Precio : mayor primero</option>
+                                        <option value="sup_total">Superficie : menor primero</option>
+                                        <option value="-sup_total">Superficie : mayor primero</option>
                                     </select>
                                 </label>
                             </div>
                         </div>
                         <div class="col-xs-12 padding-0 resultados">
                             <!--ficha resultados-->
-                            <div ng-repeat="prop in props" class="col-xs-12 ficha account-fav-info">
+                            <div ng-repeat="prop in props |  orderBy:propertyName" class="col-xs-12 ficha account-fav-info">
                                 <div class="col-xs-3 padding-0">
                                     <img class="img-responsive" src="{{prop.foto_url}}">
                                 </div>

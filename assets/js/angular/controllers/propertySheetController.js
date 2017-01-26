@@ -77,11 +77,17 @@
                     $scope.property.titulo = data.filter(function (d) {
                         return d.caracteristica.id_carac == 257
                     });
+                    $scope.property.sup_total = data.filter(function (d) {
+                        return (d.caracteristica.id_carac == 198 || d.caracteristica.id_carac == 327)
+                    });
+                    $scope.property.formaPago = data.filter(function (d) {
+                        return (d.caracteristica.id_carac == 172 || d.caracteristica.id_carac == 356)
+                    });
                     $scope.property.moneda = data.filter(function (d) {
                         return d.caracteristica.id_carac == 165
                     });
                     $scope.property.valor = data.filter(function (d) {
-                        return d.caracteristica.id_carac == 161
+                        return (d.caracteristica.id_carac == 164 || d.caracteristica.id_carac == 161)
                     });
                     $scope.property.estado = data.filter(function (d) {
                         return d.caracteristica.id_carac == 42

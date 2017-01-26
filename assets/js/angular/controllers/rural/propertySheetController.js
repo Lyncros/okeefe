@@ -46,6 +46,8 @@
                     $scope.getData();
                     entitiesService.popover();
                     $scope.tab = 'f';
+                    $rootScope.$broadcast('changeTitle', { title: 'Okeefe > Propiedad'});
+
                 };
 
                 if ($scope.isLogged) {
@@ -75,11 +77,17 @@
                     $scope.property.titulo = data.filter(function (d) {
                         return d.caracteristica.id_carac == 257
                     });
+                    $scope.property.sup_total = data.filter(function (d) {
+                        return (d.caracteristica.id_carac == 198 || d.caracteristica.id_carac == 327)
+                    });
+                    $scope.property.formaPago = data.filter(function (d) {
+                        return (d.caracteristica.id_carac == 172 || d.caracteristica.id_carac == 356)
+                    });
                     $scope.property.moneda = data.filter(function (d) {
                         return d.caracteristica.id_carac == 165
                     });
                     $scope.property.valor = data.filter(function (d) {
-                        return d.caracteristica.id_carac == 161
+                        return (d.caracteristica.id_carac == 164 || d.caracteristica.id_carac == 161)
                     });
                     $scope.property.estado = data.filter(function (d) {
                         return d.caracteristica.id_carac == 42
@@ -89,6 +97,9 @@
                     });
                     $scope.property.fichaweb = data.filter(function (d) {
                         return d.caracteristica.id_carac == 257
+                    });
+                    $scope.property.aptitud = data.filter(function (d) {
+                        return d.caracteristica.id_carac == 303
                     });
                     //console.log($scope.property);
                 }
@@ -124,9 +135,12 @@
                     searchApiService.searchApi.readById($scope.param)
                         .then(function (response) {
                             $scope.property = response.data;
+                            console.log($scope.property);
                             setMap($scope.property);
                             setChar($scope.property.propiedad_caracteristicas);
                             checkPl($scope.property);
+                            var titu = ($scope.property.titulo.length)? $scope.property.titulo[0].contenido : "";
+                            $rootScope.$broadcast('changeTitle', { title: 'Okeefe > Propiedad > '+ titu});
                             $scope.pdf();
                             $timeout(function () {
                                 entitiesService.wowSlider();

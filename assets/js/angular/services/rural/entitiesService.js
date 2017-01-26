@@ -293,7 +293,7 @@
                     'coch': 'Cocheras',
                     'ant': 'Antiguedad',
                     'banos': 'Baños',
-                    'filtroMon': 'Moneda',
+                    'moneda': 'Moneda',
                 };
                 return filters[filter];
             };

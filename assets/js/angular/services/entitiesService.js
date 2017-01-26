@@ -318,7 +318,7 @@
                     'ant': 'Antiguedad',
                     'banos': 'Baños',
                     'aptitud': 'Aptitud',
-                    'filtroMon': 'Moneda',
+                    'moneda': 'Moneda',
                 };
                 return filters[filter];
             };

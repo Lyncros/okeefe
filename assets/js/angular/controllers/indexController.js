@@ -10,10 +10,12 @@
                 $scope.subtitle = "";
                 $scope.tabs = {
                     "home" : "Inicio",
+                    "inicio" : "Inicio",
                     "inversiones" : "Inversiones",
                     "tasaciones" : "Tasaciones",
                     "noticias" : "Noticias",
                     "propiedades" : "Propiedades",
+                    "servicios" : "Servicios",
 
                 };
 

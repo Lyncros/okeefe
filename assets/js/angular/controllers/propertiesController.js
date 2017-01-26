@@ -1,14 +1,24 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('propertiesController',
-            function (favoritesService, $scope, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
-                      searchApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
+            function (favoritesService, $scope, $window, $timeout, $rootScope, $route, $uibModal, $routeParams, entitiesService,
+                      searchApiService, okeefeApiService, defaultFactory, $auth, $location, SITE_URL, uiGmapGoogleMapApi) {
                 $scope.siteUrl = SITE_URL;
                 $scope.view = "grid";
                 $scope.propertyName = 'valor[0].contenido';
                 $scope.childFilters = [];
                 $scope.totalPropertiesShow = {number: 30, scroll: true};
                 $scope.orderChanged = 'valor[0].contenido';
+                okeefeApiService.API.convertCurrency('USD', 'ARS').then(function (resp) {
+                    $scope.rateUSDARS = parseFloat(resp);
+                    console.log('rateUSDARS', resp);
+                });
+                okeefeApiService.API.convertCurrency('ARS', 'USD').then(function (resp) {
+                    $scope.rateARSUSD = parseFloat(resp);
+                    console.log('rateARSUSD', resp);
+
+                });
+
                 $scope.init = function () {
                     $scope.filters = {amb: {}, coch: {}, ant: {}, banos: {}, localidad: [], barrio: []};
                     $scope.errors = {};
@@ -26,7 +36,7 @@
                 $scope.getParam = function () {
                     $scope.param = $location.search();
                     $scope.appliedFilterslist = [];
-                    $rootScope.$broadcast('changeTitle', { title: 'Okeefe'});
+                    $rootScope.$broadcast('changeTitle', {title: 'Okeefe'});
                     //console.log("$scope.param",$scope.param);
 
                 };
@@ -139,13 +149,13 @@
                     property['valor'] = property.propiedad_caracteristicas.filter(function (item) {
                         return (item.id_carac == 164 || item.id_carac == 161);
                     });
-                    if(property.valor[0] != null){
+                    if (property.valor[0] != null) {
                         property.valor[0].contenido = parseFloat(property.valor[0].contenido);
                     }
                     property['sup_total'] = property.propiedad_caracteristicas.filter(function (item) {
                         return item.id_carac == 198;
                     });
-                    if(property.sup_total[0] != null){
+                    if (property.sup_total[0] != null) {
                         property.sup_total[0].contenido = parseFloat(property.sup_total[0].contenido);
                     }
                     property['moneda'] = property.propiedad_caracteristicas.filter(function (item) {
@@ -175,6 +185,12 @@
                     if (property.cantidad_banos[0] != null) {
                         $scope.filters['banos'][property.cantidad_banos[0].contenido] = ( $scope.filters['banos'][property.cantidad_banos[0].contenido] + 1 || 1);
                     }
+                    if (property.moneda[0] && property.moneda[0].contenido && property.valor[0]) {
+                        property['priceTrans'] = (property.moneda[0].contenido == 'U$S') ? parseFloat(property.valor[0].contenido) * $scope.rateUSDARS : parseFloat(property.valor[0].contenido) * $scope.rateARSUSD;
+                    } else {
+                        property['priceTrans'] = (property.valor[0] && property.valor[0].contenido) ? property.valor[0].contenido : 0;
+                    }
+                    //console.log(property);
                     return property;
                 }
 
@@ -203,6 +219,7 @@
                         coch: ($scope.param.coch) ? $scope.param.coch.split(',') : [],
                         ant: ($scope.param.ant) ? $scope.param.ant.split(',') : [],
                         banos: ($scope.param.banos) ? $scope.param.banos.split(',') : [],
+                        moneda: ($scope.param.moneda) ? $scope.param.moneda.split(',') : [],
                     };
                     if ($scope.param.precio) {
                         var prec = $scope.param.precio.split(',');
@@ -303,12 +320,13 @@
                                 totalProperties($scope.searchData, $scope.searchData.id_ubica);
                                 ubicationFilter($scope.searchData);
                                 getAppliedFilter();
-                                $rootScope.$broadcast('changeTitle', { title: 'Okeefe '+ '> '+ $scope.getTipoOperacion($scope.param.oper)+ ' > '+ $scope.getTipoInmueble($scope.param.tipo)+ ' > '+ $scope.searchData.nombre_completo });
+                                $rootScope.$broadcast('changeTitle', {title: 'Okeefe ' + '> ' + $scope.getTipoOperacion($scope.param.oper) + ' > ' + $scope.getTipoInmueble($scope.param.tipo) + ' > ' + $scope.searchData.nombre_completo});
                             }
                         })
                         .then(function () {
                             if ($scope.isLogged) {
                                 favoritesService.getAll(function (data) {
+                                    console.log(data);
                                     return data;
                                 })
                                     .then(function (data) {
@@ -316,7 +334,6 @@
                                             var result = data.some(function (el) {
                                                 return el.id_prop == id;
                                             });
-
                                             return result;
                                         }
                                     })
@@ -384,6 +401,9 @@
                                     matches = true;
                                 }
                                 break;
+                            case 'moneda':
+                                matches = true;
+                                break;
                             case 'coch':
                                 if (item.cantidad_cocheras[0] && values.indexOf(item.cantidad_cocheras[0].contenido) != -1) {
                                     matches = true;
@@ -400,19 +420,32 @@
                                 }
                                 break;
                             case 'precio':
-                                /*console.log(item);
-                                 console.log(values);*/
-                                if (item.valor.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
-                                    if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                                if (item.valor.length && filters['moneda'][0] && item.moneda[0] && item.moneda[0].contenido.replace(/\s/g,'') !== filters['moneda'][0] && item.priceTrans) {
+                                    if (values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
+                                        if (parseFloat(item.priceTrans) >= parseFloat(values[0].value)
+                                            && parseFloat(item.priceTrans) <= parseFloat(values[1].value)) {
+                                            matches = true;
+                                        }
+                                    } else if (values[0] && values[0].value != "null"
+                                        && parseFloat(item.priceTrans) >= parseFloat(values[0].value)) {
+                                        matches = true;
+                                    } else if (values[1] && values[1].value != "null"
+                                        && parseFloat(item.priceTrans) <= parseFloat(values[1].value)) {
+                                        matches = true;
+                                    }
+                                } else {
+                                    if (item.valor.length && values[0] && values[0].value != "null" && values[1] && values[1].value != "null") {
+                                        if (parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)
+                                            && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
+                                            matches = true;
+                                        }
+                                    } else if (item.valor.length && values[0] && values[0].value != "null"
+                                        && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
+                                        matches = true;
+                                    } else if (item.valor.length && values[1] && values[1].value != "null"
                                         && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
                                         matches = true;
                                     }
-                                } else if (item.valor.length && values[0] && values[0].value != "null"
-                                    && parseFloat(item.valor[0].contenido) >= parseFloat(values[0].value)) {
-                                    matches = true;
-                                } else if (item.valor.length && values[1] && values[1].value != "null"
-                                    && parseFloat(item.valor[0].contenido) <= parseFloat(values[1].value)) {
-                                    matches = true;
                                 }
                                 break;
                             case 'sup':
@@ -475,6 +508,9 @@
                         } else {
                             $scope.appliedFilterslist.push({key: 'valMax', value: $scope.valMax});
                         }
+                        if ($scope.filtroMon) {
+                            $scope.appliedFilterslist.push({key: 'moneda', value: $scope.filtroMon});
+                        }
                     } else if (filter == 'sup') {
                         var index = checkAttr($scope.appliedFilterslist, 'supMin');
                         if (index != -1) {
@@ -503,6 +539,9 @@
                             $scope.appliedFilters[filter][index].value = $scope.valMax;
                         } else {
                             $scope.appliedFilters[filter].push({key: 'valMax', value: $scope.valMax});
+                        }
+                        if ($scope.filtroMon) {
+                            $scope.appliedFilters['moneda'][0] = $scope.filtroMon;
                         }
                         $scope.valMin = '';
                         $scope.valMax = '';
@@ -561,7 +600,7 @@
                         resetChildUbic(filter.value.key);
                     }
                     return window.location = entitiesService.applyFilter(filter, $scope.appliedFilters, $scope.param.tipo, $scope.param.oper, $scope.param.ubicacion, $scope.param.emp);
-                }   ;
+                };
 
                 function deleteChildByVal(val) {
                     for (var key in $scope.appliedFilterslist) {
@@ -618,10 +657,8 @@
                                 + '<i class="fa fa-heart fa-stack-1x fa-inverse"></i>'
                                 + '</span> Favorito </a>')
                         }
-
                         favoritesService.setFavorite(id)
                             .then(function () {
-
                                 favoritesService.count()
                                     .then(function (data) {
                                         $scope.favCount = data;
@@ -632,6 +669,18 @@
                             templateUrl: 'templates/modals/login.html',
                             controller: 'loginController',
                             size: 'lg',
+                        });
+                        modal.result.then(function () {
+                            favoritesService.setFavorite(id)
+                                .then(function () {
+                                    favoritesService.count()
+                                        .then(function (data) {
+                                            $scope.favCount = data;
+                                            $window.location.reload();
+                                        });
+                                });
+                        }, function () {
+                            //
                         });
                     }
                 };

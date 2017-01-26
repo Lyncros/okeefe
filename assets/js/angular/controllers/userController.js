@@ -1,14 +1,24 @@
 (function () {
     angular.module('okeefeSite.controllers')
         .controller('accountController',
-            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, tab, $window, SITE_URL) {
+            function (favoritesService, $scope, $rootScope, $uibModalInstance, entitiesService, userService, okeefeApiService, tab, $window, SITE_URL) {
                 $scope.siteUrl = SITE_URL;
                 $scope.isLoading = false;
                 $scope.alert;
+                $scope.propertyName = 'valor_venta';
+                $scope.orderChanged = 'valor_venta';
                 $scope.activeTab = (tab || 'data');
                 $scope.favForm = {
-                    newsletter: 1,
+                    newsletter: 0,
+                    secret: 'sitiOkeefe',
+                    dato: '',
+                    error: false
                 };
+
+                $scope.sortBy = function (propertyName) {
+                    $scope.propertyName = propertyName;
+                };
+
                 $uibModalInstance.rendered.then(function () {
                     entitiesService.popover();
                 });
@@ -16,9 +26,48 @@
                     $uibModalInstance.dismiss('cancel');
                 };
 
+                $scope.sendFavForm = function ($event) {
+                    $event.preventDefault();
+                    if (!$scope.favForm.comentario) {
+                        $scope.favForm.error = true;
+                        return false;
+                    }
+                    let msg = '';
+                    if ($scope.props.length) {
+                        msg += 'Asesoramiento en propiedades con id ';
+                        $scope.props.forEach(function (val) {
+                            msg += val.id_prop + ', ';
+                        });
+                        msg += 'Mensaje: ' + $scope.favForm.comentario;
+                    } else {
+                        msg += 'Asesoramiento: ' + $scope.favForm.comentario;
+                    }
+                    if ($scope.favForm.newsletter) {
+                        msg += ' - Adicionalmente desea que le sean enviadas propiedades similares a las mencionadas.'
+                    }
+
+                    $scope.favForm.comentarios = msg;
+
+                    okeefeApiService.API.send($scope.favForm).then(function (response) {
+                        entitiesService.showAlert($scope, 'Gracias por enviar.', 'success', 3000);
+                        $scope.favForm = {
+                            newsletter: 0,
+                            secret: 'sitiOkeefe',
+                            dato: '',
+                            error: false
+                        };
+                        if($scope.props.length){
+                            $scope.favForm.newsletter = 1;
+                        }
+                    }, function errorCallback(response) {
+                        entitiesService.showAlert($scope, 'Error al enviar el mensaje. Intenta de nuevo mas tarde.', 'danger', 4000);
+                        console.log("error :", response);
+                    });
+                };
+
                 userService.me()
                     .then(function (response) {
-                        console.log("user",response);
+                        //console.log("user",response);
                         $scope.user = response;
                     });
 
@@ -37,13 +86,16 @@
 
                 favoritesService.getAll()
                     .then(function (data) {
-                        console.log("fav",data);
                         $scope.props = data;
+                        if($scope.props.length){
+                            $scope.favForm.newsletter = 1;
+                        }
+                        //console.log($scope.props);
                     });
 
                 $scope.favDetails = function (id) {
                     $window.location = '/#!/ficha-propiedad/' + id;
-                    $uibModalInstance.dismiss('cancel');
+                    $uibModalInstance.close('cancel');
                     return false;
                 };
                 $scope.favToggle = function (id) {
@@ -73,9 +125,8 @@
                             };
 
                             setTimeout(function () {
-                                $uibModalInstance.dismiss('cancel');
-
-                                $window.location.reload();
+                                $uibModalInstance.close('cancel');
+                                //$window.location.reload();
                             }, 1000);
                         })
                         .catch(function (error) {
@@ -101,7 +152,7 @@
                             };
 
                             setTimeout(function () {
-                                $uibModalInstance.dismiss('cancel');
+                                $uibModalInstance.close('cancel');
 
                                 $window.location.reload();
                             }, 1000);
@@ -144,27 +195,27 @@
             })
         .controller('resetController',
             function ($scope, userService) {
-            $scope.doReset = function (isValid) {
+                $scope.doReset = function (isValid) {
 
-                if (isValid) {
-                    userService.reset($scope.user.email)
-                        .then(function () {
-                            $scope.alert = {
-                                type: 'success',
-                                'msg': 'Se reinicio su clave con exito, verifique su email.'
-                            };
+                    if (isValid) {
+                        userService.reset($scope.user.email)
+                            .then(function () {
+                                $scope.alert = {
+                                    type: 'success',
+                                    'msg': 'Se reinicio su clave con exito, verifique su email.'
+                                };
 
-                            $scope.email = {};
-                        })
-                        .catch(function (error) {
-                            $scope.alert = {
-                                type: 'danger',
-                                'msg': error.data.message,
-                            };
-                        });
+                                $scope.email = {};
+                            })
+                            .catch(function (error) {
+                                $scope.alert = {
+                                    type: 'danger',
+                                    'msg': error.data.message,
+                                };
+                            });
+                    }
                 }
-            }
-        })
+            })
         .controller('registerController',
             function ($scope, $rootScope, $uibModalInstance, entitiesService, API_CLIENT_AUTH, $http, $auth, userService, $window) {
                 $scope.discCheck = 1;
