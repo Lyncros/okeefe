@@ -26,7 +26,7 @@
         </div>
         <div class="col-xs-3 text-right">
             <h2>
-                <price class="color-green" ng-if="property.valor">{{property.valor[0].contenido | currency:$:0}} |
+                <price class="color-green" ng-if="property.valor">{{property.moneda[0].contenido}}{{property.valor[0].contenido | currency:'':0}} |
                 </price>
                 <span class="id-prop">ID {{property.id_prop}}</span>
             </h2>
@@ -88,6 +88,10 @@
             <div class="tab-content">
                 <div class="flecha"></div>
                 <div role="tabpanel" class="tab-pane fade in active ficha-tec">
+                    <div ng-if="property.calle" class="row">
+                        <div class="col-xs-2"><strong>Calle</strong></div>
+                        <div class="col-xs-10"><span class="dato-tec">{{property.calle}}</span></div>
+                    </div>
                     <div ng-if="property.sup_total[0]" class="row">
                         <div class="col-xs-2"><strong>Superficie</strong></div>
                         <div class="col-xs-10"><span class="dato-tec">{{property.sup_total[0].contenido}} Has</span>

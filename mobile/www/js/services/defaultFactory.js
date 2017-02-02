@@ -34,20 +34,6 @@
           center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
           zoom: 12,
           control: {},
-          name: 'LAS GOLONDRINAS',
-          phone: '022 - 2945 - 5003',
-          address: 'Mitre 491 - Quilmes Centro',
-          markers: {
-            a: {
-              id: 1,
-              coords: {latitude: -34.77891426062949, longitude: -58.16106375896312}
-            }
-          }
-        },
-        {
-          center: {latitude: -34.77891426062949, longitude: -58.16106375896312},
-          zoom: 12,
-          control: {},
           name: 'NUEVO QUILMES',
           phone: '4253 - 3961',
           address: 'Mitre 491 - Quilmes Centro',
@@ -546,14 +532,14 @@
         },
         {
           name: "TOMÁS O'KEEFE",
-          job: "DIRECTOR EJECUTIVO, DIRECTOR DE ADMINISTRACIÓN Y  FINANZAS Y GERENTE GENERAL",
+          job: "DIRECTOR EJECUTIVO",
           desc: "Martillero Público, Corredor Inmobiliario. Administrador de consorcios y Tasador. Asesoramiento financiero y de inversión. Administrador Fiduciario y encargado de desarrollo y dirección de obras.",
           img: "Tomas O Keefe.PNG",
           email: 'tomas@okeefe.com.ar'
         },
         {
           name: "IGNACIO O'KEEFE",
-          job: "DIRECTOR  EJECUTIVO  Y DIRECTOR LEGALES",
+          job: "DIRECTOR DE ADMINISTRACIÓN Y  FINANZAS",
           desc: "Abogado, Escribano y Master en derecho comparado de Pace University, New York. Asesor legal para Starwood Capital Group en el desarrollo de emprendimientos urbanísticos y hoteleros en U.S.A. y Europa",
           img: "Ignacio O keefe.JPG",
           email: 'ignacio@okeefe.com.ar'
@@ -573,7 +559,7 @@
           email: 'belisario@okeefe.com.ar'
         },
         {
-          name: "JUAN CRUZ VECCAR VARELA",
+          name: "JUAN CRUZ BECCAR VARELA",
           job: "DIRECTOR DE RRHH Y COMERCIAL",
           desc: "Martillero, tasador y corredor inmobiliario. Lidera los equipos de venta de la empresa, así como también se encarga del reclutamiento y capacitación de asesores comerciales. Se incorporó en el año 2015, luego de desarrollar su carrera en por más de 18 años en empresas líderes del sector inmobiliario.",
           img: "Juan Cruz.JPG",
